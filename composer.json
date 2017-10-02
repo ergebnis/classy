@@ -1,0 +1,35 @@
+{
+  "name": "localheinz/repository",
+  "description": "Provides a finder for classy elements.",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Andreas Möller",
+      "email": "am@localheinz.com"
+    }
+  ],
+  "config": {
+    "preferred-install": "dist",
+    "sort-packages": true
+  },
+  "require": {
+    "php": "^7.0"
+  },
+  "require-dev": {
+    "codeclimate/php-test-reporter": "0.4.4",
+    "localheinz/php-cs-fixer-config": "~1.6.2",
+    "localheinz/test-util": "0.2.2",
+    "phpunit/phpunit": "^6.3.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Localheinz\\Classy\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Localheinz\\Classy\\Test\\": "test/"
+    }
+  }
+}
