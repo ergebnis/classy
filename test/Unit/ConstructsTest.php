@@ -15,6 +15,8 @@ namespace Localheinz\Classy\Test\Unit;
 
 use Localheinz\Classy\Construct;
 use Localheinz\Classy\Constructs;
+use Localheinz\Classy\Exception;
+use Localheinz\Classy\Test\Fixture;
 use PHPUnit\Framework;
 
 final class ConstructsTest extends Framework\TestCase
@@ -42,6 +44,69 @@ final class ConstructsTest extends Framework\TestCase
                 }, $names),
             ];
         }
+    }
+
+    public function testFromDirectoryTHrowsDirectoryDoesNotExistIfDirectoryDoesNotExist()
+    {
+        $directory = __DIR__ . '/NonExistent';
+
+        $this->expectException(Exception\DirectoryDoesNotExist::class);
+
+        Constructs::fromDirectory($directory);
+    }
+
+    /**
+     * @dataProvider providerDirectoryAndClassyConstructs
+     *
+     * @param string   $directory
+     * @param string[] $classyConstructs
+     */
+    public function testFromDirectoryReturnsArrayOfClassyConstructsSortedByName(string $directory, array $classyConstructs = [])
+    {
+        $this->assertEquals($classyConstructs, Constructs::fromDirectory($directory));
+    }
+
+    public function providerDirectoryAndClassyConstructs(): \Generator
+    {
+        foreach ($this->cases() as $key => list($fileName, $names)) {
+            \sort($names);
+
+            yield $key => [
+                \dirname($fileName),
+                \array_map(function (string $name) use ($fileName) {
+                    return Construct::fromName($name)->definedIn(\realpath($fileName));
+                }, $names),
+            ];
+        }
+    }
+
+    public function testFromDirectoryIgnoresNonPhpFiles()
+    {
+        $directory = __DIR__ . '/../Fixture/NoPhpFiles';
+
+        $this->assertCount(0, Constructs::fromDirectory($directory));
+    }
+
+    public function testFromDirectoryTraversesDirectoriesAndReturnsArrayOfClassyConstructsSortedByName()
+    {
+        $directory = __DIR__ . '/../Fixture/Traversal';
+
+        $classyConstructs = [
+            Construct::fromName(Fixture\Traversal\Foo::class)->definedIn(\realpath($directory . '/Foo.php')),
+            Construct::fromName(Fixture\Traversal\Foo\Bar::class)->definedIn(\realpath($directory . '/Foo/Bar.php')),
+            Construct::fromName(Fixture\Traversal\Foo\Baz::class)->definedIn(\realpath($directory . '/Foo/Baz.php')),
+        ];
+
+        $this->assertEquals($classyConstructs, Constructs::fromDirectory($directory));
+    }
+
+    public function testFromDirectoryThrowsMultipleDefinitionsFoundIfMultipleDefinitionsOfSameConstructHaveBeenFound()
+    {
+        $directory = __DIR__ . '/../Fixture/MultipleDefinitions';
+
+        $this->expectException(Exception\MultipleDefinitionsFound::class);
+
+        Constructs::fromDirectory($directory);
     }
 
     private function cases(): array
