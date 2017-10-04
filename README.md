@@ -17,6 +17,39 @@ Run
 $ composer require localheinz/classy
 ```
 
+
+## Usage
+
+### Collect classy constructs from source code
+
+Use `Constructs::fromSource()` to collect classy constructs in source code:
+
+```php
+use Localheinz\Classy\Construct;
+use Localheinz\Classy\Constructs;
+
+$source = <<<'PHP'
+<?php
+
+namespace Example;
+
+class Foo {}
+
+interface Bar {}
+
+trait Baz {}
+PHP;
+
+/** @var Construct[] $constructs */
+$constructs = Constructs::fromSource($source);
+
+$names = array_map(function (Construct $construct) {
+    return $construct->name();
+}, $constructs);
+
+var_dump($names); // ['Example\Bar', 'Example\Baz', 'Example\Foo']
+```
+
 ## Contributing
 
 Please have a look at [`CONTRIBUTING.md`](.github/CONTRIBUTING.md).

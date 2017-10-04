@@ -36,6 +36,21 @@ final class ProjectCodeTest extends Framework\TestCase
 
     public function testTestClassesAreAbstractOrFinal()
     {
-        $this->assertClassesAreAbstractOrFinal(__DIR__ . '/..');
+        $this->assertClassesAreAbstractOrFinal(__DIR__ . '/..', [
+            'Bar',
+            'Baz',
+            'Baz\Bar\Foo\Bar',
+            'Baz\Bar\Foo\Baz',
+            'Baz\Bar\Foo\Foo',
+            'Foo',
+            'Foo\Bar\Baz\Bar',
+            'Foo\Bar\Baz\Baz',
+            'Foo\Bar\Baz\Foo',
+            'stdClass',
+            /**
+             * @link https://github.com/zendframework/zend-file/pull/41
+             */
+            'string',
+        ]);
     }
 }
