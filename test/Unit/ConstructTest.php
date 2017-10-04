@@ -39,6 +39,15 @@ final class ConstructTest extends Framework\TestCase
         $this->assertCount(0, $construct->fileNames());
     }
 
+    public function testToStringReturnsName()
+    {
+        $name = $this->faker()->word;
+
+        $construct = Construct::fromName($name);
+
+        $this->assertSame($name, $construct->__toString());
+    }
+
     public function testDefinedInClonesInstanceAndAddsFileNames()
     {
         $faker = $this->faker();
