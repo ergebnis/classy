@@ -50,6 +50,24 @@ $names = array_map(function (Construct $construct) {
 var_dump($names); // ['Example\Bar', 'Example\Baz', 'Example\Foo']
 ```
 
+### Collect classy constructs from a directory
+
+Use `Constructs::fromDirectory()` to collect classy constructs in a directory:
+
+```php
+use Localheinz\Classy\Construct;
+use Localheinz\Classy\Constructs;
+
+/** @var Construct[] $constructs */
+$constructs = Constructs::fromDirectory(__DIR__ . '/example');
+
+$names = array_map(function (Construct $construct) {
+    return $construct->name();
+}, $constructs);
+
+var_dump($names); // ['Example\Bar', 'Example\Bar\Baz', 'Example\Foo\Bar\Baz']
+```
+
 ## Contributing
 
 Please have a look at [`CONTRIBUTING.md`](.github/CONTRIBUTING.md).

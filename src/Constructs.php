@@ -82,4 +82,74 @@ final class Constructs
 
         return $constructs;
     }
+
+    /**
+     * Returns an array of constructs defined in a directory.
+     *
+     * @param string $directory
+     *
+     * @throws Exception\DirectoryDoesNotExist
+     * @throws Exception\MultipleDefinitionsFound
+     *
+     * @return Construct[]
+     */
+    public static function fromDirectory(string $directory): array
+    {
+        if (!\is_dir($directory)) {
+            throw Exception\DirectoryDoesNotExist::fromDirectory($directory);
+        }
+
+        $iterator = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator(
+            $directory,
+            \RecursiveDirectoryIterator::FOLLOW_SYMLINKS
+        ));
+
+        $constructs = [];
+
+        foreach ($iterator as $fileInfo) {
+            /** @var \SplFileInfo $fileInfo */
+            if (!$fileInfo->isFile()) {
+                continue;
+            }
+
+            if ($fileInfo->getBasename('.php') === $fileInfo->getBasename()) {
+                continue;
+            }
+
+            $fileName = $fileInfo->getRealPath();
+
+            $constructsFromFile = self::fromSource(\file_get_contents($fileName));
+
+            if (0 === \count($constructsFromFile)) {
+                continue;
+            }
+
+            foreach ($constructsFromFile as $construct) {
+                $name = $construct->name();
+
+                if (\array_key_exists($name, $constructs)) {
+                    $construct = $constructs[$name];
+                }
+
+                $constructs[$name] = $construct->definedIn($fileName);
+            }
+        }
+
+        \usort($constructs, function (Construct $a, Construct $b) {
+            return \strcmp(
+                $a->name(),
+                $b->name()
+            );
+        });
+
+        $constructsWithMultipleDefinitions = \array_filter($constructs, function (Construct $construct) {
+            return 1 < \count($construct->fileNames());
+        });
+
+        if (0 < \count($constructsWithMultipleDefinitions)) {
+            throw Exception\MultipleDefinitionsFound::fromConstructs($constructsWithMultipleDefinitions);
+        }
+
+        return \array_values($constructs);
+    }
 }
