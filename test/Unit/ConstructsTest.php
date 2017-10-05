@@ -46,7 +46,7 @@ final class ConstructsTest extends Framework\TestCase
         }
     }
 
-    public function testFromDirectoryTHrowsDirectoryDoesNotExistIfDirectoryDoesNotExist()
+    public function testFromDirectoryThrowsDirectoryDoesNotExistIfDirectoryDoesNotExist()
     {
         $directory = __DIR__ . '/NonExistent';
 
