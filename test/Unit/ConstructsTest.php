@@ -22,7 +22,26 @@ use PHPUnit\Framework;
 final class ConstructsTest extends Framework\TestCase
 {
     /**
-     * @dataProvider providerSourceAndClassyConstructs
+     * @dataProvider providerSourceWithoutClassyConstructs
+     *
+     * @param string $source
+     */
+    public function testFromSourceReturnsEmptyArrayIfNoClassyConstructsHaveBeenFound(string $source)
+    {
+        $this->assertCount(0, Constructs::fromSource($source));
+    }
+
+    public function providerSourceWithoutClassyConstructs(): \Generator
+    {
+        foreach ($this->casesWithoutClassyConstructs() as $key => $fileName) {
+            yield $key => [
+                \file_get_contents($fileName),
+            ];
+        }
+    }
+
+    /**
+     * @dataProvider providerSourceWithClassyConstructs
      *
      * @param string   $source
      * @param string[] $constructs
@@ -32,9 +51,9 @@ final class ConstructsTest extends Framework\TestCase
         $this->assertEquals($constructs, Constructs::fromSource($source));
     }
 
-    public function providerSourceAndClassyConstructs(): \Generator
+    public function providerSourceWithClassyConstructs(): \Generator
     {
-        foreach ($this->cases() as $key => list($fileName, $names)) {
+        foreach ($this->casesWithClassyConstructs() as $key => list($fileName, $names)) {
             \sort($names);
 
             yield $key => [
@@ -56,7 +75,26 @@ final class ConstructsTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider providerDirectoryAndClassyConstructs
+     * @dataProvider providerDirectoryWithoutClassyConstructs
+     *
+     * @param string $directory
+     */
+    public function testFromDirectoryReturnsEmptyArrayIfNoClassyConstructsHaveBeenFound(string $directory)
+    {
+        $this->assertCount(0, Constructs::fromDirectory($directory));
+    }
+
+    public function providerDirectoryWithoutClassyConstructs(): \Generator
+    {
+        foreach ($this->casesWithoutClassyConstructs() as $key => $fileName) {
+            yield $key => [
+                \dirname($fileName),
+            ];
+        }
+    }
+
+    /**
+     * @dataProvider providerDirectoryWithClassyConstructs
      *
      * @param string   $directory
      * @param string[] $classyConstructs
@@ -66,9 +104,9 @@ final class ConstructsTest extends Framework\TestCase
         $this->assertEquals($classyConstructs, Constructs::fromDirectory($directory));
     }
 
-    public function providerDirectoryAndClassyConstructs(): \Generator
+    public function providerDirectoryWithClassyConstructs(): \Generator
     {
-        foreach ($this->cases() as $key => list($fileName, $names)) {
+        foreach ($this->casesWithClassyConstructs() as $key => list($fileName, $names)) {
             \sort($names);
 
             yield $key => [
@@ -78,13 +116,6 @@ final class ConstructsTest extends Framework\TestCase
                 }, $names),
             ];
         }
-    }
-
-    public function testFromDirectoryIgnoresNonPhpFiles()
-    {
-        $directory = __DIR__ . '/../Fixture/NoPhpFiles';
-
-        $this->assertCount(0, Constructs::fromDirectory($directory));
     }
 
     public function testFromDirectoryTraversesDirectoriesAndReturnsArrayOfClassyConstructsSortedByName()
@@ -109,75 +140,64 @@ final class ConstructsTest extends Framework\TestCase
         Constructs::fromDirectory($directory);
     }
 
-    private function cases(): array
+    private function casesWithoutClassyConstructs(): array
     {
         return [
-            'no-classy' => [
-                __DIR__ . '/../Fixture/NoClassy/source.php',
-                [],
-            ],
-            'no-classy-with-class-keyword' => [
-                __DIR__ . '/../Fixture/NoClassyWithClassKeyword/source.php',
-                [],
-            ],
-            'no-classy-with-anonymous-class' => [
-                __DIR__ . '/../Fixture/NoClassyWithAnonymousClass/source.php',
-                [],
-            ],
-            'no-classy-with-anonymous-class-and-multi-line-comments' => [
-                __DIR__ . '/../Fixture/NoClassyWithAnonymousClassAndMultiLineComments/source.php',
-                [],
-            ],
-            'no-classy-with-anonymous-class-and-single-line-comments' => [
-                __DIR__ . '/../Fixture/NoClassyWithAnonymousClassAndSingleLineComments/source.php',
-                [],
-            ],
-            'no-classy-with-anonymous-class-and-shell-style-comments' => [
-                __DIR__ . '/../Fixture/NoClassyWithAnonymousClassAndShellStyleComments/source.php',
-                [],
-            ],
-            'classy-without-namespace' => [
-                __DIR__ . '/../Fixture/ClassyWithoutNamespace/source.php',
-                [
-                    'Bar',
-                    'Baz',
-                    'Foo',
-                ],
-            ],
-            'classy-without-namespace-and-multi-line-comments' => [
-                __DIR__ . '/../Fixture/ClassyWithoutNamespaceAndMultiLineComments/source.php',
-                [
-                    'Bar',
-                    'Baz',
-                    'Foo',
-                ],
-            ],
-            'classy-without-namespace-and-single-line-comments' => [
-                __DIR__ . '/../Fixture/ClassyWithoutNamespaceAndSingleLineComments/source.php',
-                [
-                    'Bar',
-                    'Baz',
-                    'Foo',
-                ],
-            ],
-            'classy-within-namespace' => [
-                __DIR__ . '/../Fixture/ClassyWithinNamespace/source.php',
+            'no-php-file' => __DIR__ . '/../Fixture/NoClassy/NoPhpFile/source.md',
+            'with-anonymous-class' => __DIR__ . '/../Fixture/NoClassy/WithAnonymousClass/source.php',
+            'with-anonymous-class-and-multi-line-comments' => __DIR__ . '/../Fixture/NoClassy/WithAnonymousClassAndMultiLineComments/source.php',
+            'with-anonymous-class-and-shell-style-comments' => __DIR__ . '/../Fixture/NoClassy/WithAnonymousClassAndShellStyleComments/source.php',
+            'with-anonymous-class-and-single-line-comments' => __DIR__ . '/../Fixture/NoClassy/WithAnonymousClassAndSingleLineComments/source.php',
+            'with-class-keyword' => __DIR__ . '/../Fixture/NoClassy/WithClassKeyword/source.php',
+            'with-nothing' => __DIR__ . '/../Fixture/NoClassy/WithNothing/source.php',
+        ];
+    }
+
+    private function casesWithClassyConstructs(): array
+    {
+        return [
+            'within-namespace' => [
+                __DIR__ . '/../Fixture/Classy/WithinNamespace/source.php',
                 [
                     'Foo\\Bar\\Baz\\Bar',
                     'Foo\\Bar\\Baz\\Baz',
                     'Foo\\Bar\\Baz\\Foo',
                 ],
             ],
-            'classy-within-namespace-with-braces' => [
-                __DIR__ . '/../Fixture/ClassyWithinNamespaceWithBraces/source.php',
+            'within-namespace-and-shell-style-comments' => [
+                __DIR__ . '/../Fixture/Classy/WithinNamespaceAndShellStyleComments/source.php',
                 [
                     'Foo\\Bar\\Baz\\Bar',
                     'Foo\\Bar\\Baz\\Baz',
                     'Foo\\Bar\\Baz\\Foo',
                 ],
             ],
-            'classy-within-multiple-namespaces-with-braces' => [
-                __DIR__ . '/../Fixture/ClassyWithinMultipleNamespaces/source.php',
+            'within-namespace-and-single-line-comments' => [
+                __DIR__ . '/../Fixture/Classy/WithinNamespaceAndSingleLineComments/source.php',
+                [
+                    'Foo\\Bar\\Baz\\Bar',
+                    'Foo\\Bar\\Baz\\Baz',
+                    'Foo\\Bar\\Baz\\Foo',
+                ],
+            ],
+            'within-namespace-and-multi-line-comments' => [
+                __DIR__ . '/../Fixture/Classy/WithinNamespaceAndMultiLineComments/source.php',
+                [
+                    'Foo\\Bar\\Baz\\Bar',
+                    'Foo\\Bar\\Baz\\Baz',
+                    'Foo\\Bar\\Baz\\Foo',
+                ],
+            ],
+            'within-namespace-with-braces' => [
+                __DIR__ . '/../Fixture/Classy/WithinNamespaceWithBraces/source.php',
+                [
+                    'Foo\\Bar\\Baz\\Bar',
+                    'Foo\\Bar\\Baz\\Baz',
+                    'Foo\\Bar\\Baz\\Foo',
+                ],
+            ],
+            'within-multiple-namespaces-with-braces' => [
+                __DIR__ . '/../Fixture/Classy/WithinMultipleNamespaces/source.php',
                 [
                     'Baz\\Bar\\Foo\\Bar',
                     'Baz\\Bar\\Foo\\Baz',
@@ -187,8 +207,8 @@ final class ConstructsTest extends Framework\TestCase
                     'Foo\\Bar\\Baz\\Foo',
                 ],
             ],
-            'classy-with-methods-named-after-keywords' => [
-                __DIR__ . '/../Fixture/ClassyWithMethodsNamedAfterKeywords/source.php',
+            'with-methods-named-after-keywords' => [
+                __DIR__ . '/../Fixture/Classy/WithMethodsNamedAfterKeywords/source.php',
                 [
                     'Foo\\Bar\\Baz\\Foo',
                 ],
@@ -196,10 +216,42 @@ final class ConstructsTest extends Framework\TestCase
             /**
              * @link https://github.com/zendframework/zend-file/pull/41
              */
-            'classy-with-methods-named-after-keywords-and-return-type' => [
-                __DIR__ . '/../Fixture/ClassyWithMethodsNamedAfterKeywordsAndReturnType/source.php',
+            'with-methods-named-after-keywords-and-return-type' => [
+                __DIR__ . '/../Fixture/Classy/WithMethodsNamedAfterKeywordsAndReturnType/source.php',
                 [
                     'Foo\\Bar\\Baz\\Foo',
+                ],
+            ],
+            'without-namespace' => [
+                __DIR__ . '/../Fixture/Classy/WithoutNamespace/source.php',
+                [
+                    'Bar',
+                    'Baz',
+                    'Foo',
+                ],
+            ],
+            'without-namespace-and-multi-line-comments' => [
+                __DIR__ . '/../Fixture/Classy/WithoutNamespaceAndMultiLineComments/source.php',
+                [
+                    'Bar',
+                    'Baz',
+                    'Foo',
+                ],
+            ],
+            'without-namespace-and-shell-line-comments' => [
+                __DIR__ . '/../Fixture/Classy/WithoutNamespaceAndShellStyleComments/source.php',
+                [
+                    'Bar',
+                    'Baz',
+                    'Foo',
+                ],
+            ],
+            'without-namespace-and-single-line-comments' => [
+                __DIR__ . '/../Fixture/Classy/WithoutNamespaceAndSingleLineComments/source.php',
+                [
+                    'Bar',
+                    'Baz',
+                    'Foo',
                 ],
             ],
         ];
