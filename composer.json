@@ -1,6 +1,6 @@
 {
-  "name": "localheinz/repository",
-  "description": "Provides a finder for classy elements.",
+  "name": "localheinz/classy",
+  "description": "Provides a way to collect classy constructs from source or a directory.",
   "type": "library",
   "license": "MIT",
   "authors": [

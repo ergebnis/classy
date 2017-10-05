@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "30d1fb9da2ec86be28fe03450c8d0d54",
+    "content-hash": "f0434baf0b28cc97b338083305ecb90c",
     "packages": [
         {
             "name": "localheinz/token",
