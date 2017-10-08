@@ -16,6 +16,18 @@ $ make test
 
 to run all the tests.
 
+## Benchmarks
+
+We're using [`phpbench/phpbench`](http://github.com/phpbench/phpbench) to benchmark performance and memory consumption.
+
+Run
+
+```
+$ make bench
+```
+
+to run all the benchmarks.
+
 ## Coding Standards
 
 We are using [`friendsofphp/php-cs-fixer`](https://github.com/FriendsOfPHP/PHP-CS-Fixer) to enforce coding standards.
@@ -36,4 +48,4 @@ Run
 $ make
 ```
 
-to run both coding standards check and tests!
+to run coding standards check, tests, and benchmarks!
