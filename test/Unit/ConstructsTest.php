@@ -28,7 +28,7 @@ final class ConstructsTest extends Framework\TestCase
      */
     public function testFromSourceReturnsEmptyArrayIfNoClassyConstructsHaveBeenFound(string $source)
     {
-        $this->assertCount(0, Constructs::fromSource($source));
+        $this->assertEquals([], Constructs::fromSource($source));
     }
 
     public function providerSourceWithoutClassyConstructs(): \Generator

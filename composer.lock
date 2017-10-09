@@ -4,52 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "42a684b6a55dc8a6e70f13ae62c22a39",
-    "packages": [
-        {
-            "name": "localheinz/token",
-            "version": "0.2.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/localheinz/token.git",
-                "reference": "3af3575d24b2363e6e3a67f46f94d02476b38e6b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/localheinz/token/zipball/3af3575d24b2363e6e3a67f46f94d02476b38e6b",
-                "reference": "3af3575d24b2363e6e3a67f46f94d02476b38e6b",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.0"
-            },
-            "require-dev": {
-                "codeclimate/php-test-reporter": "0.4.4",
-                "localheinz/php-cs-fixer-config": "~1.6.2",
-                "localheinz/test-util": "0.2.2",
-                "phpbench/phpbench": "0.13.0",
-                "phpunit/phpunit": "^6.3.1"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Localheinz\\Token\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Andreas Möller",
-                    "email": "am@localheinz.com"
-                }
-            ],
-            "description": "Provides a simple abstraction for a token and a sequence of tokens.",
-            "time": "2017-10-09T16:45:13+00:00"
-        }
-    ],
+    "content-hash": "3e17fef3fe067cce02e1140e8a82e02f",
+    "packages": [],
     "packages-dev": [
         {
             "name": "beberlei/assert",
