@@ -1,6 +1,11 @@
-.PHONY: composer coverage cs it test
+.PHONY: bench composer coverage cs it test
 
-it: cs test
+it: cs test bench
+
+bench: composer
+	composer require --dev zendframework/zend-file:^2.7.1
+	vendor/bin/phpbench run --report=aggregate
+	composer remove --dev zendframework/zend-file
 
 composer:
 	composer self-update
