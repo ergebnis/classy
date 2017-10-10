@@ -13,8 +13,6 @@ declare(strict_types=1);
 
 namespace Localheinz\Classy;
 
-use Localheinz\Token\Sequence;
-
 final class Constructs
 {
     /**
@@ -28,29 +26,36 @@ final class Constructs
     {
         $constructs = [];
 
-        $sequence = Sequence::fromSource($source);
+        $sequence = \token_get_all(
+            $source,
+            TOKEN_PARSE
+        );
+
         $count = \count($sequence);
         $namespacePrefix = '';
 
         for ($index = 0; $index < $count; ++$index) {
-            $token = $sequence->at($index);
+            $token = $sequence[$index];
 
             // collect namespace name
-            if ($token->isType(T_NAMESPACE)) {
+            if (\is_array($token) && T_NAMESPACE === $token[0]) {
                 $namespaceSegments = [];
 
-                for ($index = $sequence->significantAfter($index)->index(); $index < $count; ++$index) {
-                    $token = $sequence->at($index);
+                // collect namespace segments
+                for ($index = self::significantAfter($index, $sequence, $count); $index < $count; ++$index) {
+                    $token = $sequence[$index];
 
-                    if (!$token->isType(T_STRING)) {
+                    if (\is_array($token) && T_STRING !== $token[0]) {
                         continue;
                     }
 
-                    if ($token->isContent('{', ';')) {
+                    $content = self::content($token);
+
+                    if (\in_array($content, ['{', ';'], true)) {
                         break;
                     }
 
-                    $namespaceSegments[] = $token->content();
+                    $namespaceSegments[] = $content;
                 }
 
                 $namespace = \implode('\\', $namespaceSegments);
@@ -58,19 +63,25 @@ final class Constructs
             }
 
             // skip non-classy tokens
-            if (!$token->isType(T_CLASS, T_INTERFACE, T_TRAIT)) {
+            if (!\is_array($token) || !\in_array($token[0], [T_CLASS, T_INTERFACE, T_TRAIT], true)) {
                 continue;
             }
 
             // skip anonymous classes
-            if ($token->isType(T_CLASS) && $sequence->significantBefore($index)->isType(T_NEW)) {
-                continue;
+            if (T_CLASS === $token[0]) {
+                $current = self::significantBefore($index, $sequence);
+                $token = $sequence[$current];
+
+                // if significant token before T_CLASS is T_NEW, it's an instantiation of an anonymous class
+                if (\is_array($token) && T_NEW === $token[0]) {
+                    continue;
+                }
             }
 
-            // collect construct name
-            $token = $sequence->significantAfter($index);
+            $index = self::significantAfter($index, $sequence, $count);
+            $token = $sequence[$index];
 
-            $constructs[] = Construct::fromName($namespacePrefix . $token->content());
+            $constructs[] = Construct::fromName($namespacePrefix . self::content($token));
         }
 
         \usort($constructs, function (Construct $a, Construct $b) {
@@ -151,5 +162,64 @@ final class Constructs
         }
 
         return \array_values($constructs);
+    }
+
+    /**
+     * Returns the index of the significant token after the index.
+     *
+     * @param int   $index
+     * @param array $sequence
+     * @param int   $count
+     *
+     * @return int
+     */
+    private static function significantAfter(int $index, array $sequence, int $count): int
+    {
+        for ($current = $index + 1; $current < $count; ++$current) {
+            $token = $sequence[$current];
+
+            if (\is_array($token) && \in_array($token[0], [T_COMMENT, T_DOC_COMMENT, T_WHITESPACE], true)) {
+                continue;
+            }
+
+            return $current;
+        }
+    }
+
+    /**
+     * Returns the index of the significant token after the index.
+     *
+     * @param int   $index
+     * @param array $sequence
+     *
+     * @return int
+     */
+    private static function significantBefore(int $index, array $sequence): int
+    {
+        for ($current = $index - 1; $current > -1; --$current) {
+            $token = $sequence[$current];
+
+            if (\is_array($token) && \in_array($token[0], [T_COMMENT, T_DOC_COMMENT, T_WHITESPACE], true)) {
+                continue;
+            }
+
+            return $current;
+        }
+    }
+
+    /**
+     * Returns the string content of a token.
+     *
+     * @param array|string $token
+     *
+     * @return string
+     */
+    private static function content($token): string
+    {
+        if (\is_array($token)) {
+            return $token[1];
+        }
+
+        return $token;
     }
 }
