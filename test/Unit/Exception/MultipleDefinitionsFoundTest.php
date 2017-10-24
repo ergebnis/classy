@@ -14,20 +14,10 @@ declare(strict_types=1);
 namespace Localheinz\Classy\Test\Unit\Exception;
 
 use Localheinz\Classy\Construct;
-use Localheinz\Classy\Exception\ExceptionInterface;
 use Localheinz\Classy\Exception\MultipleDefinitionsFound;
-use Localheinz\Test\Util\Helper;
-use PHPUnit\Framework;
 
-final class MultipleDefinitionsFoundTest extends Framework\TestCase
+final class MultipleDefinitionsFoundTest extends AbstractTestCase
 {
-    use Helper;
-
-    public function testImplementsExceptionInterface()
-    {
-        $this->assertClassImplementsInterface(ExceptionInterface::class, MultipleDefinitionsFound::class);
-    }
-
     public function testFromConstructsReturnsException()
     {
         $name = 'Foo\\Bar\\Baz';

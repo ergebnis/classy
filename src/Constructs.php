@@ -20,16 +20,22 @@ final class Constructs
      *
      * @param string $source
      *
+     * @throws Exception\ParseError
+     *
      * @return Construct[]
      */
     public static function fromSource(string $source): array
     {
         $constructs = [];
 
-        $sequence = \token_get_all(
-            $source,
-            TOKEN_PARSE
-        );
+        try {
+            $sequence = \token_get_all(
+                $source,
+                TOKEN_PARSE
+            );
+        } catch (\ParseError $exception) {
+            throw Exception\ParseError::fromParseError($exception);
+        }
 
         $count = \count($sequence);
         $namespacePrefix = '';
@@ -129,7 +135,14 @@ final class Constructs
 
             $fileName = $fileInfo->getRealPath();
 
-            $constructsFromFile = self::fromSource(\file_get_contents($fileName));
+            try {
+                $constructsFromFile = self::fromSource(\file_get_contents($fileName));
+            } catch (Exception\ParseError $exception) {
+                throw Exception\ParseError::fromFileNameAndParseError(
+                    $fileName,
+                    $exception
+                );
+            }
 
             if (0 === \count($constructsFromFile)) {
                 continue;
