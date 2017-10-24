@@ -22,6 +22,30 @@ use PHPUnit\Framework;
 final class ConstructsTest extends Framework\TestCase
 {
     /**
+     * @var string
+     */
+    private $fileWithParseError = __DIR__ . '/../Fixture/ParseError/MessedUp.php';
+
+    protected function setUp()
+    {
+        \file_put_contents($this->fileWithParseError, $this->sourceTriggeringParseError());
+    }
+
+    protected function tearDown()
+    {
+        \unlink($this->fileWithParseError);
+    }
+
+    public function testFromSourceThrowsParseErrorIfParseErrorIsThrownDuringParsing()
+    {
+        $source = $this->sourceTriggeringParseError();
+
+        $this->expectException(Exception\ParseError::class);
+
+        Constructs::fromSource($source);
+    }
+
+    /**
      * @dataProvider providerSourceWithoutClassyConstructs
      *
      * @param string $source
@@ -70,6 +94,15 @@ final class ConstructsTest extends Framework\TestCase
         $directory = __DIR__ . '/NonExistent';
 
         $this->expectException(Exception\DirectoryDoesNotExist::class);
+
+        Constructs::fromDirectory($directory);
+    }
+
+    public function testFromDirectoryThrowsParseErrorIfParseErrorIsThrownDuringParsing()
+    {
+        $directory = __DIR__ . '/../Fixture/ParseError';
+
+        $this->expectException(Exception\ParseError::class);
 
         Constructs::fromDirectory($directory);
     }
@@ -255,5 +288,15 @@ final class ConstructsTest extends Framework\TestCase
                 ],
             ],
         ];
+    }
+
+    private function sourceTriggeringParseError(): string
+    {
+        return <<<'TXT'
+<?php
+
+final class MessedUp
+{
+TXT;
     }
 }
