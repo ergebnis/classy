@@ -15,7 +15,7 @@ namespace Localheinz\Classy\Exception;
 
 use Localheinz\Classy\Construct;
 
-final class MultipleDefinitionsFound extends \RuntimeException
+final class MultipleDefinitionsFound extends \RuntimeException implements ExceptionInterface
 {
     /**
      * @var Construct[]

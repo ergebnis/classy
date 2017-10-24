@@ -14,12 +14,18 @@ declare(strict_types=1);
 namespace Localheinz\Classy\Test\Unit\Exception;
 
 use Localheinz\Classy\Exception\DirectoryDoesNotExist;
+use Localheinz\Classy\Exception\ExceptionInterface;
 use Localheinz\Test\Util\Helper;
 use PHPUnit\Framework;
 
 final class DirectoryDoesNotExistTest extends Framework\TestCase
 {
     use Helper;
+
+    public function testImplementsExceptionInterface()
+    {
+        $this->assertClassImplementsInterface(ExceptionInterface::class, DirectoryDoesNotExist::class);
+    }
 
     public function testFromDirectoryReturnsException()
     {

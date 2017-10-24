@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Localheinz\Classy\Exception;
 
-final class DirectoryDoesNotExist extends \InvalidArgumentException
+final class DirectoryDoesNotExist extends \InvalidArgumentException implements ExceptionInterface
 {
     /**
      * @var string
