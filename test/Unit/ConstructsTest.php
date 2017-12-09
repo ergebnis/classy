@@ -8,7 +8,7 @@ declare(strict_types=1);
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
  *
- * @link https://github.com/localheinz/classy
+ * @see https://github.com/localheinz/classy
  */
 
 namespace Localheinz\Classy\Test\Unit;
@@ -247,7 +247,7 @@ final class ConstructsTest extends Framework\TestCase
                 ],
             ],
             /**
-             * @link https://github.com/zendframework/zend-file/pull/41
+             * @see https://github.com/zendframework/zend-file/pull/41
              */
             'with-methods-named-after-keywords-and-return-type' => [
                 __DIR__ . '/../Fixture/Classy/WithMethodsNamedAfterKeywordsAndReturnType/source.php',
