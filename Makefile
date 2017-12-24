@@ -1,4 +1,4 @@
-.PHONY: bench composer coverage cs it test
+.PHONY: bench composer coverage cs infection it test
 
 it: cs test bench
 
@@ -17,6 +17,9 @@ coverage: composer
 
 cs: composer
 	vendor/bin/php-cs-fixer fix --config=.php_cs --diff --verbose
+
+infection: composer
+	vendor/bin/infection --min-covered-msi=80 --min-msi=80
 
 test: composer
 	vendor/bin/phpunit --configuration=test/Unit/phpunit.xml
