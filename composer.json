@@ -1,7 +1,7 @@
 {
   "name": "localheinz/classy",
-  "description": "Provides a way to collect classy constructs from source or a directory.",
   "type": "library",
+  "description": "Provides a way to collect classy constructs from source or a directory.",
   "license": "MIT",
   "authors": [
     {
@@ -9,10 +9,6 @@
       "email": "am@localheinz.com"
     }
   ],
-  "config": {
-    "preferred-install": "dist",
-    "sort-packages": true
-  },
   "require": {
     "php": "^7.0"
   },
@@ -22,6 +18,10 @@
     "localheinz/test-util": "0.2.2",
     "phpbench/phpbench": "0.13.0",
     "phpunit/phpunit": "^6.4.1"
+  },
+  "config": {
+    "preferred-install": "dist",
+    "sort-packages": true
   },
   "autoload": {
     "psr-4": {
