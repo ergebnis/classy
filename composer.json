@@ -2,6 +2,7 @@
   "name": "localheinz/classy",
   "type": "library",
   "description": "Provides a way to collect classy constructs from source or a directory.",
+  "homepage": "https://github.com/localheinz/classy",
   "license": "MIT",
   "authors": [
     {
@@ -32,5 +33,9 @@
     "psr-4": {
       "Localheinz\\Classy\\Test\\": "test/"
     }
+  },
+  "support": {
+    "issues": "https://github.com/localheinz/classy/issues",
+    "source": "https://github.com/localheinz/classy"
   }
 }
