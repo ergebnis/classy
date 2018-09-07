@@ -77,3 +77,8 @@ Please have a look at [`CODE_OF_CONDUCT.md`](.github/CODE_OF_CONDUCT.md).
 ## License
 
 This package is licensed using the MIT License.
+
+## Credits
+
+The algorithm for finding classes in PHP files in [`Constructs`](src/Constructs.php) has
+been adopted from [`Zend\File\ClassFileLocator`](https://github.com/zendframework/zend-file/blob/release-2.7.1/src/ClassFileLocator.php) (originally licensed under BSD-3-Clause).
