@@ -77,7 +77,7 @@ final class ConstructsTest extends Framework\TestCase
 
     public function providerSourceWithClassyConstructs(): \Generator
     {
-        foreach ($this->casesWithClassyConstructs() as $key => list($fileName, $names)) {
+        foreach ($this->casesWithClassyConstructs() as $key => [$fileName, $names]) {
             \sort($names);
 
             yield $key => [
@@ -139,7 +139,7 @@ final class ConstructsTest extends Framework\TestCase
 
     public function providerDirectoryWithClassyConstructs(): \Generator
     {
-        foreach ($this->casesWithClassyConstructs() as $key => list($fileName, $names)) {
+        foreach ($this->casesWithClassyConstructs() as $key => [$fileName, $names]) {
             \sort($names);
 
             yield $key => [
