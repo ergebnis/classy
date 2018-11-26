@@ -1,4 +1,5 @@
 includes:
+	- vendor/localheinz/phpstan-rules/rules.neon
 	- vendor/phpstan/phpstan-strict-rules/rules.neon
 
 parameters:
