@@ -20,12 +20,12 @@ use Localheinz\Classy\Exception\ParseError;
  */
 final class ParseErrorTest extends AbstractTestCase
 {
-    public function testExtendsParseError()
+    public function testExtendsParseError(): void
     {
         $this->assertClassExtends(\ParseError::class, ParseError::class);
     }
 
-    public function testFromParseErrorReturnsException()
+    public function testFromParseErrorReturnsException(): void
     {
         $parseError = new \ParseError($this->faker()->sentence());
 
@@ -37,7 +37,7 @@ final class ParseErrorTest extends AbstractTestCase
         $this->assertSame($parseError, $exception->getPrevious());
     }
 
-    public function testFromFileNameAndParseErrorReturnsException()
+    public function testFromFileNameAndParseErrorReturnsException(): void
     {
         $fileName = __FILE__;
         $parseError = new \ParseError($this->faker()->sentence());

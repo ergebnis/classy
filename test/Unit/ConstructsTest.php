@@ -39,7 +39,7 @@ final class ConstructsTest extends Framework\TestCase
         \unlink($this->fileWithParseError);
     }
 
-    public function testFromSourceThrowsParseErrorIfParseErrorIsThrownDuringParsing()
+    public function testFromSourceThrowsParseErrorIfParseErrorIsThrownDuringParsing(): void
     {
         $source = $this->sourceTriggeringParseError();
 
@@ -53,7 +53,7 @@ final class ConstructsTest extends Framework\TestCase
      *
      * @param string $source
      */
-    public function testFromSourceReturnsEmptyArrayIfNoClassyConstructsHaveBeenFound(string $source)
+    public function testFromSourceReturnsEmptyArrayIfNoClassyConstructsHaveBeenFound(string $source): void
     {
         $this->assertEquals([], Constructs::fromSource($source));
     }
@@ -73,7 +73,7 @@ final class ConstructsTest extends Framework\TestCase
      * @param string   $source
      * @param string[] $constructs
      */
-    public function testFromSourceReturnsArrayOfClassyConstructsSortedByName(string $source, array $constructs)
+    public function testFromSourceReturnsArrayOfClassyConstructsSortedByName(string $source, array $constructs): void
     {
         $this->assertEquals($constructs, Constructs::fromSource($source));
     }
@@ -92,7 +92,7 @@ final class ConstructsTest extends Framework\TestCase
         }
     }
 
-    public function testFromDirectoryThrowsDirectoryDoesNotExistIfDirectoryDoesNotExist()
+    public function testFromDirectoryThrowsDirectoryDoesNotExistIfDirectoryDoesNotExist(): void
     {
         $directory = __DIR__ . '/NonExistent';
 
@@ -101,7 +101,7 @@ final class ConstructsTest extends Framework\TestCase
         Constructs::fromDirectory($directory);
     }
 
-    public function testFromDirectoryThrowsParseErrorIfParseErrorIsThrownDuringParsing()
+    public function testFromDirectoryThrowsParseErrorIfParseErrorIsThrownDuringParsing(): void
     {
         $directory = __DIR__ . '/../Fixture/ParseError';
 
@@ -115,7 +115,7 @@ final class ConstructsTest extends Framework\TestCase
      *
      * @param string $directory
      */
-    public function testFromDirectoryReturnsEmptyArrayIfNoClassyConstructsHaveBeenFound(string $directory)
+    public function testFromDirectoryReturnsEmptyArrayIfNoClassyConstructsHaveBeenFound(string $directory): void
     {
         $this->assertCount(0, Constructs::fromDirectory($directory));
     }
@@ -135,7 +135,7 @@ final class ConstructsTest extends Framework\TestCase
      * @param string   $directory
      * @param string[] $classyConstructs
      */
-    public function testFromDirectoryReturnsArrayOfClassyConstructsSortedByName(string $directory, array $classyConstructs = [])
+    public function testFromDirectoryReturnsArrayOfClassyConstructsSortedByName(string $directory, array $classyConstructs = []): void
     {
         $this->assertEquals($classyConstructs, Constructs::fromDirectory($directory));
     }
@@ -154,7 +154,7 @@ final class ConstructsTest extends Framework\TestCase
         }
     }
 
-    public function testFromDirectoryTraversesDirectoriesAndReturnsArrayOfClassyConstructsSortedByName()
+    public function testFromDirectoryTraversesDirectoriesAndReturnsArrayOfClassyConstructsSortedByName(): void
     {
         $directory = __DIR__ . '/../Fixture/Traversal';
 
@@ -167,7 +167,7 @@ final class ConstructsTest extends Framework\TestCase
         $this->assertEquals($classyConstructs, Constructs::fromDirectory($directory));
     }
 
-    public function testFromDirectoryThrowsMultipleDefinitionsFoundIfMultipleDefinitionsOfSameConstructHaveBeenFound()
+    public function testFromDirectoryThrowsMultipleDefinitionsFoundIfMultipleDefinitionsOfSameConstructHaveBeenFound(): void
     {
         $directory = __DIR__ . '/../Fixture/MultipleDefinitions';
 

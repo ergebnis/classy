@@ -24,7 +24,7 @@ final class ConstructTest extends Framework\TestCase
 {
     use Helper;
 
-    public function testFromNameReturnsConstruct()
+    public function testFromNameReturnsConstruct(): void
     {
         $name = $this->faker()->word;
 
@@ -34,7 +34,7 @@ final class ConstructTest extends Framework\TestCase
         $this->assertSame($name, $construct->name());
     }
 
-    public function testDefaults()
+    public function testDefaults(): void
     {
         $construct = Construct::fromName($this->faker()->word);
 
@@ -42,7 +42,7 @@ final class ConstructTest extends Framework\TestCase
         $this->assertCount(0, $construct->fileNames());
     }
 
-    public function testToStringReturnsName()
+    public function testToStringReturnsName(): void
     {
         $name = $this->faker()->word;
 
@@ -51,7 +51,7 @@ final class ConstructTest extends Framework\TestCase
         $this->assertSame($name, $construct->__toString());
     }
 
-    public function testDefinedInClonesInstanceAndAddsFileNames()
+    public function testDefinedInClonesInstanceAndAddsFileNames(): void
     {
         $faker = $this->faker();
 
