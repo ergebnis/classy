@@ -18,7 +18,7 @@ use Localheinz\Classy\Exception\MultipleDefinitionsFound;
 
 final class MultipleDefinitionsFoundTest extends AbstractTestCase
 {
-    public function testFromConstructsReturnsException()
+    public function testFromConstructsReturnsException(): void
     {
         $name = 'Foo\\Bar\\Baz';
 

@@ -17,7 +17,7 @@ use Localheinz\Classy\Exception\DirectoryDoesNotExist;
 
 final class DirectoryDoesNotExistTest extends AbstractTestCase
 {
-    public function testFromDirectoryReturnsException()
+    public function testFromDirectoryReturnsException(): void
     {
         $directory = $this->faker()->sentence;
 
