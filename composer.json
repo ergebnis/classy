@@ -17,7 +17,7 @@
     "infection/infection": "~0.7.0",
     "localheinz/php-cs-fixer-config": "~1.16.1",
     "localheinz/test-util": "0.2.2",
-    "phpbench/phpbench": "0.13.0",
+    "phpbench/phpbench": "~0.14.0",
     "phpunit/phpunit": "^6.4.1"
   },
   "config": {
