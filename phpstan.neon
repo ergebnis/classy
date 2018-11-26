@@ -1,0 +1,2 @@
+parameters:
+	tmpDir: %rootDir%/.phpstan

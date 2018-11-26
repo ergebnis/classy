@@ -135,8 +135,11 @@ final class Constructs
 
             $fileName = $fileInfo->getRealPath();
 
+            /** @var string $source */
+            $source = \file_get_contents($fileName);
+
             try {
-                $constructsFromFile = self::fromSource(\file_get_contents($fileName));
+                $constructsFromFile = self::fromSource($source);
             } catch (Exception\ParseError $exception) {
                 throw Exception\ParseError::fromFileNameAndParseError(
                     $fileName,

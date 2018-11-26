@@ -1,6 +1,6 @@
-.PHONY: bench coverage cs infection it test
+.PHONY: bench coverage cs infection it stan test
 
-it: cs test bench
+it: cs stan test bench
 
 bench: vendor
 	composer require --dev zendframework/zend-file:^2.7.1
@@ -15,6 +15,10 @@ cs: vendor
 
 infection: vendor
 	vendor/bin/infection --min-covered-msi=87 --min-msi=87
+
+stan: vendor
+	mkdir -p .phpstan
+	vendor/bin/phpstan analyse --configuration=phpstan.neon --level=max src
 
 test: vendor
 	vendor/bin/phpunit --configuration=test/AutoReview/phpunit.xml
