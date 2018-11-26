@@ -25,7 +25,7 @@ final class ClassyBench
     {
         \array_reduce(
             \iterator_to_array(new File\ClassFileLocator($this->directory())),
-            function (array $classes, File\PhpClassFile $file) {
+            static function (array $classes, File\PhpClassFile $file) {
                 return \array_merge(
                     $classes,
                     $file->getClasses()

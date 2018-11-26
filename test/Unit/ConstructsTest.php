@@ -19,6 +19,9 @@ use Localheinz\Classy\Exception;
 use Localheinz\Classy\Test\Fixture;
 use PHPUnit\Framework;
 
+/**
+ * @internal
+ */
 final class ConstructsTest extends Framework\TestCase
 {
     /**
@@ -82,7 +85,7 @@ final class ConstructsTest extends Framework\TestCase
 
             yield $key => [
                 \file_get_contents($fileName),
-                \array_map(function (string $name) {
+                \array_map(static function (string $name) {
                     return Construct::fromName($name);
                 }, $names),
             ];
@@ -144,7 +147,7 @@ final class ConstructsTest extends Framework\TestCase
 
             yield $key => [
                 \dirname($fileName),
-                \array_map(function (string $name) use ($fileName) {
+                \array_map(static function (string $name) use ($fileName) {
                     return Construct::fromName($name)->definedIn(\realpath($fileName));
                 }, $names),
             ];

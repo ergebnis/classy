@@ -15,6 +15,9 @@ namespace Localheinz\Classy\Test\Unit\Exception;
 
 use Localheinz\Classy\Exception\ParseError;
 
+/**
+ * @internal
+ */
 final class ParseErrorTest extends AbstractTestCase
 {
     public function testExtendsParseError()

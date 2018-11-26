@@ -17,6 +17,9 @@ use Localheinz\Classy\Construct;
 use Localheinz\Test\Util\Helper;
 use PHPUnit\Framework;
 
+/**
+ * @internal
+ */
 final class ConstructTest extends Framework\TestCase
 {
     use Helper;
@@ -54,7 +57,7 @@ final class ConstructTest extends Framework\TestCase
 
         $name = $faker->word;
 
-        $fileNames = \array_map(function () use ($faker) {
+        $fileNames = \array_map(static function () use ($faker) {
             return \sprintf(
                 '%s.%s',
                 $faker->word,
