@@ -12,6 +12,7 @@ cache:
 stages:
   - style
   - test
+  - infection
 
 jobs:
   include:
