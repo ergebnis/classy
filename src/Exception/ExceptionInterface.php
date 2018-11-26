@@ -13,6 +13,6 @@ declare(strict_types=1);
 
 namespace Localheinz\Classy\Exception;
 
-interface ExceptionInterface
+interface ExceptionInterface extends \Throwable
 {
 }
