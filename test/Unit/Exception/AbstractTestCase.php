@@ -17,6 +17,9 @@ use Localheinz\Classy\Exception\ExceptionInterface;
 use Localheinz\Test\Util\Helper;
 use PHPUnit\Framework;
 
+/**
+ * @internal
+ */
 abstract class AbstractTestCase extends Framework\TestCase
 {
     use Helper;

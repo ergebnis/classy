@@ -15,6 +15,9 @@ namespace Localheinz\Classy\Test\Unit\Exception;
 
 use Localheinz\Classy\Exception\DirectoryDoesNotExist;
 
+/**
+ * @internal
+ */
 final class DirectoryDoesNotExistTest extends AbstractTestCase
 {
     public function testFromDirectoryReturnsException()

@@ -31,7 +31,7 @@ final class Constructs
         try {
             $sequence = \token_get_all(
                 $source,
-                TOKEN_PARSE
+                \TOKEN_PARSE
             );
         } catch (\ParseError $exception) {
             throw Exception\ParseError::fromParseError($exception);
@@ -44,14 +44,14 @@ final class Constructs
             $token = $sequence[$index];
 
             // collect namespace name
-            if (\is_array($token) && T_NAMESPACE === $token[0]) {
+            if (\is_array($token) && \T_NAMESPACE === $token[0]) {
                 $namespaceSegments = [];
 
                 // collect namespace segments
                 for ($index = self::significantAfter($index, $sequence, $count); $index < $count; ++$index) {
                     $token = $sequence[$index];
 
-                    if (\is_array($token) && T_STRING !== $token[0]) {
+                    if (\is_array($token) && \T_STRING !== $token[0]) {
                         continue;
                     }
 
@@ -69,17 +69,17 @@ final class Constructs
             }
 
             // skip non-classy tokens
-            if (!\is_array($token) || !\in_array($token[0], [T_CLASS, T_INTERFACE, T_TRAIT], true)) {
+            if (!\is_array($token) || !\in_array($token[0], [\T_CLASS, \T_INTERFACE, \T_TRAIT], true)) {
                 continue;
             }
 
             // skip anonymous classes
-            if (T_CLASS === $token[0]) {
+            if (\T_CLASS === $token[0]) {
                 $current = self::significantBefore($index, $sequence);
                 $token = $sequence[$current];
 
                 // if significant token before T_CLASS is T_NEW, it's an instantiation of an anonymous class
-                if (\is_array($token) && T_NEW === $token[0]) {
+                if (\is_array($token) && \T_NEW === $token[0]) {
                     continue;
                 }
             }
@@ -90,7 +90,7 @@ final class Constructs
             $constructs[] = Construct::fromName($namespacePrefix . self::content($token));
         }
 
-        \usort($constructs, function (Construct $a, Construct $b) {
+        \usort($constructs, static function (Construct $a, Construct $b) {
             return \strcmp(
                 $a->name(),
                 $b->name()
@@ -159,14 +159,14 @@ final class Constructs
             }
         }
 
-        \usort($constructs, function (Construct $a, Construct $b) {
+        \usort($constructs, static function (Construct $a, Construct $b) {
             return \strcmp(
                 $a->name(),
                 $b->name()
             );
         });
 
-        $constructsWithMultipleDefinitions = \array_filter($constructs, function (Construct $construct) {
+        $constructsWithMultipleDefinitions = \array_filter($constructs, static function (Construct $construct) {
             return 1 < \count($construct->fileNames());
         });
 
@@ -191,7 +191,7 @@ final class Constructs
         for ($current = $index + 1; $current < $count; ++$current) {
             $token = $sequence[$current];
 
-            if (\is_array($token) && \in_array($token[0], [T_COMMENT, T_DOC_COMMENT, T_WHITESPACE], true)) {
+            if (\is_array($token) && \in_array($token[0], [\T_COMMENT, \T_DOC_COMMENT, \T_WHITESPACE], true)) {
                 continue;
             }
 
@@ -209,10 +209,10 @@ final class Constructs
      */
     private static function significantBefore(int $index, array $sequence): int
     {
-        for ($current = $index - 1; $current > -1; --$current) {
+        for ($current = $index - 1; -1 < $current; --$current) {
             $token = $sequence[$current];
 
-            if (\is_array($token) && \in_array($token[0], [T_COMMENT, T_DOC_COMMENT, T_WHITESPACE], true)) {
+            if (\is_array($token) && \in_array($token[0], [\T_COMMENT, \T_DOC_COMMENT, \T_WHITESPACE], true)) {
                 continue;
             }
 

@@ -16,6 +16,9 @@ namespace Localheinz\Classy\Test\Unit\Exception;
 use Localheinz\Classy\Construct;
 use Localheinz\Classy\Exception\MultipleDefinitionsFound;
 
+/**
+ * @internal
+ */
 final class MultipleDefinitionsFoundTest extends AbstractTestCase
 {
     public function testFromConstructsReturnsException()

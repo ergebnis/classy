@@ -33,7 +33,7 @@ final class MultipleDefinitionsFound extends \RuntimeException implements Except
     {
         $exception = new self(\sprintf(
             "Multiple definitions have been found for the following constructs:\n\n%s",
-            \implode("\n", \array_map(function (Construct $construct) {
+            \implode("\n", \array_map(static function (Construct $construct) {
                 return \sprintf(
                     ' - "%s" defined in "%s"',
                     $construct->name(),
