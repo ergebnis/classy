@@ -65,7 +65,7 @@ final class Construct
     /**
      * Returns an array of file names in which the construct is defined.
      *
-     * @return array
+     * @return string[]
      */
     public function fileNames(): array
     {
