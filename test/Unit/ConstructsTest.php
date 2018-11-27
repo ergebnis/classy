@@ -29,12 +29,12 @@ final class ConstructsTest extends Framework\TestCase
      */
     private $fileWithParseError = __DIR__ . '/../Fixture/ParseError/MessedUp.php';
 
-    protected function setUp()
+    protected function setUp(): void
     {
         \file_put_contents($this->fileWithParseError, $this->sourceTriggeringParseError());
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         \unlink($this->fileWithParseError);
     }
