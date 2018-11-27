@@ -21,7 +21,7 @@ final class ClassyBench
     /**
      * @Revs(10)
      */
-    public function benchBaseline()
+    public function benchBaseline(): void
     {
         \array_reduce(
             \iterator_to_array(new File\ClassFileLocator($this->directory())),
@@ -38,7 +38,7 @@ final class ClassyBench
     /**
      * @Revs(10)
      */
-    public function benchConstructsFromDirectory()
+    public function benchConstructsFromDirectory(): void
     {
         Constructs::fromDirectory($this->directory());
     }

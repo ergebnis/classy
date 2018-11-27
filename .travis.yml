@@ -54,7 +54,7 @@ jobs:
         - mkdir -p $HOME/.phpstan
 
       script:
-        - vendor/bin/phpstan analyse --configuration=phpstan.neon --level=max src
+        - vendor/bin/phpstan analyse --configuration=phpstan.neon --level=max src test
 
     - &TEST
 

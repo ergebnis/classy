@@ -18,7 +18,7 @@ infection: vendor
 
 stan: vendor
 	mkdir -p .phpstan
-	vendor/bin/phpstan analyse --configuration=phpstan.neon --level=max src
+	vendor/bin/phpstan analyse --configuration=phpstan.neon --level=max src test
 
 test: vendor
 	vendor/bin/phpunit --configuration=test/AutoReview/phpunit.xml
