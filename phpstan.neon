@@ -3,4 +3,6 @@ includes:
 	- vendor/phpstan/phpstan-strict-rules/rules.neon
 
 parameters:
+	ignoreErrors:
+		- '#Parameter \#1 ...\$fileNames of method Localheinz\\Classy\\Construct::definedIn\(\) expects string, string\|false given.#'
 	tmpDir: %rootDir%/.phpstan
