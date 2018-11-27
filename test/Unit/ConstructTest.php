@@ -30,16 +30,16 @@ final class ConstructTest extends Framework\TestCase
 
         $construct = Construct::fromName($name);
 
-        $this->assertInstanceOf(Construct::class, $construct);
-        $this->assertSame($name, $construct->name());
+        self::assertInstanceOf(Construct::class, $construct);
+        self::assertSame($name, $construct->name());
     }
 
     public function testDefaults(): void
     {
         $construct = Construct::fromName($this->faker()->word);
 
-        $this->assertInternalType('array', $construct->fileNames());
-        $this->assertCount(0, $construct->fileNames());
+        self::assertInternalType('array', $construct->fileNames());
+        self::assertCount(0, $construct->fileNames());
     }
 
     public function testToStringReturnsName(): void
@@ -48,7 +48,7 @@ final class ConstructTest extends Framework\TestCase
 
         $construct = Construct::fromName($name);
 
-        $this->assertSame($name, $construct->__toString());
+        self::assertSame($name, $construct->__toString());
     }
 
     public function testDefinedInClonesInstanceAndAddsFileNames(): void
@@ -69,11 +69,11 @@ final class ConstructTest extends Framework\TestCase
 
         $mutated = $construct->definedIn(...$fileNames);
 
-        $this->assertInstanceOf(Construct::class, $mutated);
-        $this->assertNotSame($construct, $mutated);
-        $this->assertSame($name, $mutated->name());
-        $this->assertInternalType('array', $mutated->fileNames());
-        $this->assertCount(\count($fileNames), $mutated->fileNames());
-        $this->assertArraySubset($fileNames, $mutated->fileNames());
+        self::assertInstanceOf(Construct::class, $mutated);
+        self::assertNotSame($construct, $mutated);
+        self::assertSame($name, $mutated->name());
+        self::assertInternalType('array', $mutated->fileNames());
+        self::assertCount(\count($fileNames), $mutated->fileNames());
+        self::assertArraySubset($fileNames, $mutated->fileNames());
     }
 }

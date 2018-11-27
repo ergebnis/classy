@@ -26,15 +26,15 @@ final class DirectoryDoesNotExistTest extends AbstractTestCase
 
         $exception = DirectoryDoesNotExist::fromDirectory($directory);
 
-        $this->assertInstanceOf(DirectoryDoesNotExist::class, $exception);
+        self::assertInstanceOf(DirectoryDoesNotExist::class, $exception);
 
         $message = \sprintf(
             'Directory "%s" does not exist.',
             $directory
         );
 
-        $this->assertSame($message, $exception->getMessage());
-        $this->assertSame(0, $exception->getCode());
-        $this->assertSame($directory, $exception->directory());
+        self::assertSame($message, $exception->getMessage());
+        self::assertSame(0, $exception->getCode());
+        self::assertSame($directory, $exception->directory());
     }
 }

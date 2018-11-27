@@ -31,10 +31,10 @@ final class ParseErrorTest extends AbstractTestCase
 
         $exception = ParseError::fromParseError($parseError);
 
-        $this->assertInstanceOf(ParseError::class, $exception);
-        $this->assertSame($parseError->getMessage(), $exception->getMessage());
-        $this->assertSame(0, $exception->getCode());
-        $this->assertSame($parseError, $exception->getPrevious());
+        self::assertInstanceOf(ParseError::class, $exception);
+        self::assertSame($parseError->getMessage(), $exception->getMessage());
+        self::assertSame(0, $exception->getCode());
+        self::assertSame($parseError, $exception->getPrevious());
     }
 
     public function testFromFileNameAndParseErrorReturnsException(): void
@@ -47,7 +47,7 @@ final class ParseErrorTest extends AbstractTestCase
             $parseError
         );
 
-        $this->assertInstanceOf(ParseError::class, $exception);
+        self::assertInstanceOf(ParseError::class, $exception);
 
         $expectedMessage = \sprintf(
             'A parse error occurred when parsing "%s": "%s".',
@@ -55,8 +55,8 @@ final class ParseErrorTest extends AbstractTestCase
             $parseError->getMessage()
         );
 
-        $this->assertSame($expectedMessage, $exception->getMessage());
-        $this->assertSame(0, $exception->getCode());
-        $this->assertSame($parseError, $exception->getPrevious());
+        self::assertSame($expectedMessage, $exception->getMessage());
+        self::assertSame(0, $exception->getCode());
+        self::assertSame($parseError, $exception->getPrevious());
     }
 }

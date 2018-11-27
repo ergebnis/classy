@@ -55,7 +55,7 @@ final class ConstructsTest extends Framework\TestCase
      */
     public function testFromSourceReturnsEmptyArrayIfNoClassyConstructsHaveBeenFound(string $source): void
     {
-        $this->assertEquals([], Constructs::fromSource($source));
+        self::assertEquals([], Constructs::fromSource($source));
     }
 
     public function providerSourceWithoutClassyConstructs(): \Generator
@@ -75,7 +75,7 @@ final class ConstructsTest extends Framework\TestCase
      */
     public function testFromSourceReturnsArrayOfClassyConstructsSortedByName(string $source, array $constructs): void
     {
-        $this->assertEquals($constructs, Constructs::fromSource($source));
+        self::assertEquals($constructs, Constructs::fromSource($source));
     }
 
     public function providerSourceWithClassyConstructs(): \Generator
@@ -117,7 +117,7 @@ final class ConstructsTest extends Framework\TestCase
      */
     public function testFromDirectoryReturnsEmptyArrayIfNoClassyConstructsHaveBeenFound(string $directory): void
     {
-        $this->assertCount(0, Constructs::fromDirectory($directory));
+        self::assertCount(0, Constructs::fromDirectory($directory));
     }
 
     public function providerDirectoryWithoutClassyConstructs(): \Generator
@@ -137,7 +137,7 @@ final class ConstructsTest extends Framework\TestCase
      */
     public function testFromDirectoryReturnsArrayOfClassyConstructsSortedByName(string $directory, array $classyConstructs = []): void
     {
-        $this->assertEquals($classyConstructs, Constructs::fromDirectory($directory));
+        self::assertEquals($classyConstructs, Constructs::fromDirectory($directory));
     }
 
     public function providerDirectoryWithClassyConstructs(): \Generator
@@ -164,7 +164,7 @@ final class ConstructsTest extends Framework\TestCase
             Construct::fromName(Fixture\Traversal\Foo\Baz::class)->definedIn(\realpath($directory . '/Foo/Baz.php')),
         ];
 
-        $this->assertEquals($classyConstructs, Constructs::fromDirectory($directory));
+        self::assertEquals($classyConstructs, Constructs::fromDirectory($directory));
     }
 
     public function testFromDirectoryThrowsMultipleDefinitionsFoundIfMultipleDefinitionsOfSameConstructHaveBeenFound(): void

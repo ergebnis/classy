@@ -36,7 +36,7 @@ final class MultipleDefinitionsFoundTest extends AbstractTestCase
 
         $exception = MultipleDefinitionsFound::fromConstructs($constructs);
 
-        $this->assertInstanceOf(MultipleDefinitionsFound::class, $exception);
+        self::assertInstanceOf(MultipleDefinitionsFound::class, $exception);
 
         $format = <<<'PHP'
 Multiple definitions have been found for the following constructs:
@@ -50,8 +50,8 @@ PHP;
             \implode('", "', $fileNames)
         );
 
-        $this->assertSame($message, $exception->getMessage());
-        $this->assertSame(0, $exception->getCode());
-        $this->assertSame($constructs, $exception->constructs());
+        self::assertSame($message, $exception->getMessage());
+        self::assertSame(0, $exception->getCode());
+        self::assertSame($constructs, $exception->constructs());
     }
 }
