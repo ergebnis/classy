@@ -4,30 +4,6 @@ We're using [Travis CI](https://travis-ci.com) as a continuous integration syste
 
 For details, see [`.travis.yml`](../.travis.yml).
 
-## Tests
-
-We're using [`phpunit/phpunit`](https://github.com/sebastianbergmann/phpunit) to drive the development.
-
-Run
-
-```
-$ make test
-```
-
-to run all the tests.
-
-## Benchmarks
-
-We're using [`phpbench/phpbench`](http://github.com/phpbench/phpbench) to benchmark performance and memory consumption.
-
-Run
-
-```
-$ make bench
-```
-
-to run all the benchmarks.
-
 ## Coding Standards
 
 We are using [`friendsofphp/php-cs-fixer`](https://github.com/FriendsOfPHP/PHP-CS-Fixer) to enforce coding standards.
@@ -52,6 +28,18 @@ $ make stan
 
 to run a static code analysis.
 
+## Tests
+
+We're using [`phpunit/phpunit`](https://github.com/sebastianbergmann/phpunit) to drive the development.
+
+Run
+
+```
+$ make test
+```
+
+to run all the tests.
+
 ## Mutation Testing
 
 We are using [`infection/infection`](https://github.com/infection/infection) to ensure a minimum quality of the tests.
@@ -64,6 +52,19 @@ $ make infection
 
 to run mutation tests.
 
+## Benchmarks
+
+We're using [`phpbench/phpbench`](http://github.com/phpbench/phpbench) to benchmark performance and memory consumption.
+
+Run
+
+```
+$ make bench
+```
+
+to run all the benchmarks.
+
+
 ## Extra lazy?
 
 Run
@@ -72,4 +73,4 @@ Run
 $ make
 ```
 
-to enforce coding standards, perform a static code analysis, and run tests!
+to enforce coding standards, perform a static code analysis, run tests, and run benchmarks!
