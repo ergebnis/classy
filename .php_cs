@@ -28,10 +28,8 @@ $config->getFinder()
     ->ignoreDotFiles(false)
     ->in(__DIR__)
     ->exclude([
+        '.build',
         '.github',
-        '.infection',
-        '.php-cs-fixer',
-        '.phpstan',
         '.travis',
         'test/Fixture',
     ])
@@ -39,6 +37,6 @@ $config->getFinder()
 
 $directory = \getenv('TRAVIS') ? \getenv('HOME') : __DIR__;
 
-$config->setCacheFile($directory . '/.php-cs-fixer/.php_cs.cache');
+$config->setCacheFile($directory . '/.build/php-cs-fixer/.php_cs.cache');
 
 return $config;

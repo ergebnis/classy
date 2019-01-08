@@ -9,4 +9,7 @@ parameters:
 		- %currentWorkingDirectory%/test/Fixture
 	ignoreErrors:
 		- '#Parameter \#1 ...\$fileNames of method Localheinz\\Classy\\Construct::definedIn\(\) expects string, string\|false given.#'
-	tmpDir: %currentWorkingDirectory%/.phpstan
+	paths:
+		- src
+		- test
+	tmpDir: %currentWorkingDirectory%/.build/phpstan
