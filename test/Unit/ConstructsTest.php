@@ -101,20 +101,16 @@ final class ConstructsTest extends Framework\TestCase
 
     public function testFromDirectoryThrowsDirectoryDoesNotExistIfDirectoryDoesNotExist(): void
     {
-        $directory = __DIR__ . '/NonExistent';
-
         $this->expectException(Exception\DirectoryDoesNotExist::class);
 
-        Constructs::fromDirectory($directory);
+        Constructs::fromDirectory(__DIR__ . '/NonExistent');
     }
 
     public function testFromDirectoryThrowsParseErrorIfParseErrorIsThrownDuringParsing(): void
     {
-        $directory = __DIR__ . '/../Fixture/ParseError';
-
         $this->expectException(Exception\ParseError::class);
 
-        Constructs::fromDirectory($directory);
+        Constructs::fromDirectory(__DIR__ . '/../Fixture/ParseError');
     }
 
     /**
@@ -163,24 +159,20 @@ final class ConstructsTest extends Framework\TestCase
 
     public function testFromDirectoryTraversesDirectoriesAndReturnsArrayOfClassyConstructsSortedByName(): void
     {
-        $directory = __DIR__ . '/../Fixture/Traversal';
-
         $classyConstructs = [
-            Construct::fromName(Fixture\Traversal\Foo::class)->definedIn(\realpath($directory . '/Foo.php')),
-            Construct::fromName(Fixture\Traversal\Foo\Bar::class)->definedIn(\realpath($directory . '/Foo/Bar.php')),
-            Construct::fromName(Fixture\Traversal\Foo\Baz::class)->definedIn(\realpath($directory . '/Foo/Baz.php')),
+            Construct::fromName(Fixture\Traversal\Foo::class)->definedIn(\realpath(__DIR__ . '/../Fixture/Traversal/Foo.php')),
+            Construct::fromName(Fixture\Traversal\Foo\Bar::class)->definedIn(\realpath(__DIR__ . '/../Fixture/Traversal/Foo/Bar.php')),
+            Construct::fromName(Fixture\Traversal\Foo\Baz::class)->definedIn(\realpath(__DIR__ . '/../Fixture/Traversal/Foo/Baz.php')),
         ];
 
-        self::assertEquals($classyConstructs, Constructs::fromDirectory($directory));
+        self::assertEquals($classyConstructs, Constructs::fromDirectory(__DIR__ . '/../Fixture/Traversal'));
     }
 
     public function testFromDirectoryThrowsMultipleDefinitionsFoundIfMultipleDefinitionsOfSameConstructHaveBeenFound(): void
     {
-        $directory = __DIR__ . '/../Fixture/MultipleDefinitions';
-
         $this->expectException(Exception\MultipleDefinitionsFound::class);
 
-        Constructs::fromDirectory($directory);
+        Constructs::fromDirectory(__DIR__ . '/../Fixture/MultipleDefinitions');
     }
 
     private function casesWithoutClassyConstructs(): array
