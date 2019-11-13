@@ -19,6 +19,8 @@ use PHPUnit\Framework;
 
 /**
  * @internal
+ *
+ * @covers \Localheinz\Classy\Construct
  */
 final class ConstructTest extends Framework\TestCase
 {

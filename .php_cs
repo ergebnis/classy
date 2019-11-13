@@ -29,14 +29,12 @@ $config->getFinder()
     ->in(__DIR__)
     ->exclude([
         '.build',
+        '.dependabot',
         '.github',
-        '.travis',
         'test/Fixture',
     ])
     ->name('.php_cs');
 
-$directory = \getenv('TRAVIS') ? \getenv('HOME') : __DIR__;
-
-$config->setCacheFile($directory . '/.build/php-cs-fixer/.php_cs.cache');
+$config->setCacheFile(__DIR__ . '/.build/php-cs-fixer/.php_cs.cache');
 
 return $config;

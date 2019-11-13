@@ -17,6 +17,8 @@ use Localheinz\Classy\Exception\ParseError;
 
 /**
  * @internal
+ *
+ * @covers \Localheinz\Classy\Exception\ParseError
  */
 final class ParseErrorTest extends AbstractTestCase
 {
