@@ -59,7 +59,7 @@ final class ConstructTest extends Framework\TestCase
 
         $name = $faker->word;
 
-        $fileNames = \array_map(static function () use ($faker) {
+        $fileNames = \array_map(static function () use ($faker): string {
             return \sprintf(
                 '%s.%s',
                 $faker->word,
