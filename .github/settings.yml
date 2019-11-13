@@ -14,7 +14,7 @@ branches:
           -  "Static Code Analysis"
           -  "Tests (php7.1, lowest)"
           -  "Tests (php7.1, locked)"
-          -  "Tests (php7.!, highest)"
+          -  "Tests (php7.1, highest)"
           -  "Tests (php7.2, lowest)"
           -  "Tests (php7.2, locked)"
           -  "Tests (php7.2, highest)"
