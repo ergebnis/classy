@@ -38,7 +38,7 @@ final class ConstructsTest extends Framework\TestCase
 
     protected function setUp(): void
     {
-        \file_put_contents($this->fileWithParseError, $this->sourceTriggeringParseError());
+        \file_put_contents($this->fileWithParseError, self::sourceTriggeringParseError());
     }
 
     protected function tearDown(): void
@@ -48,7 +48,7 @@ final class ConstructsTest extends Framework\TestCase
 
     public function testFromSourceThrowsParseErrorIfParseErrorIsThrownDuringParsing(): void
     {
-        $source = $this->sourceTriggeringParseError();
+        $source = self::sourceTriggeringParseError();
 
         $this->expectException(Exception\ParseError::class);
 
@@ -300,7 +300,7 @@ final class ConstructsTest extends Framework\TestCase
         ];
     }
 
-    private function sourceTriggeringParseError(): string
+    private static function sourceTriggeringParseError(): string
     {
         return <<<'TXT'
 <?php
