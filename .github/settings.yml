@@ -54,7 +54,7 @@ repository:
   default_branch: master
   description: ":mag: Provides a finder for classy elements."
   has_downloads: true
-  has_issues: false
+  has_issues: true
   has_pages: false
   has_projects: false
   has_wiki: false
