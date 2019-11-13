@@ -13,10 +13,6 @@ parameters:
 		- RuntimeException
 	excludes_analyse:
 		- %currentWorkingDirectory%/test/Fixture
-	ignoreErrors:
-		- '#Call to deprecated method assertArraySubset\(\) of class PHPUnit\\Framework\\Assert:.*#'
-		- '#Parameter \#1 ...\$fileNames of method Localheinz\\Classy\\Construct::definedIn\(\) expects string, string\|false given\.#'
-		- '#Parameter \#1 \$filename of function file_get_contents expects string, string|false given\.#'
 	inferPrivatePropertyTypeFromConstructor: true
 	paths:
 		- src
