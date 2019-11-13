@@ -92,7 +92,7 @@ final class ConstructsTest extends Framework\TestCase
 
             yield $key => [
                 \file_get_contents($fileName),
-                \array_map(static function (string $name) {
+                \array_map(static function (string $name): Construct {
                     return Construct::fromName($name);
                 }, $names),
             ];
@@ -150,7 +150,7 @@ final class ConstructsTest extends Framework\TestCase
 
             yield $key => [
                 \dirname($fileName),
-                \array_map(static function (string $name) use ($fileName) {
+                \array_map(static function (string $name) use ($fileName): Construct {
                     return Construct::fromName($name)->definedIn(\realpath($fileName));
                 }, $names),
             ];
