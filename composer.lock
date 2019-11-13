@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6977ef70310ccdf0d20af896f84d8e63",
+    "content-hash": "869eefeab82f397589dc1d1f2983914c",
     "packages": [],
     "packages-dev": [
         {
@@ -5207,16 +5207,16 @@
         },
         {
             "name": "zendframework/zend-file",
-            "version": "2.8.2",
+            "version": "2.8.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-file.git",
-                "reference": "d267733fbc3a15c9ca82708cf6e634e2fabb29e7"
+                "reference": "b6e167e056ce8594be1db93460cddb503de341ed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-file/zipball/d267733fbc3a15c9ca82708cf6e634e2fabb29e7",
-                "reference": "d267733fbc3a15c9ca82708cf6e634e2fabb29e7",
+                "url": "https://api.github.com/repos/zendframework/zend-file/zipball/b6e167e056ce8594be1db93460cddb503de341ed",
+                "reference": "b6e167e056ce8594be1db93460cddb503de341ed",
                 "shasum": ""
             },
             "require": {
@@ -5260,7 +5260,7 @@
                 "file",
                 "zf"
             ],
-            "time": "2018-10-15T08:11:50+00:00"
+            "time": "2019-02-06T16:53:31+00:00"
         },
         {
             "name": "zendframework/zend-stdlib",

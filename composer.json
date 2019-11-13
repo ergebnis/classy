@@ -23,7 +23,8 @@
     "phpstan/phpstan": "~0.11.19",
     "phpstan/phpstan-deprecation-rules": "~0.11.2",
     "phpstan/phpstan-strict-rules": "~0.11.1",
-    "phpunit/phpunit": "^7.5.17"
+    "phpunit/phpunit": "^7.5.17",
+    "zendframework/zend-file": "^2.8.3"
   },
   "config": {
     "preferred-install": "dist",
