@@ -56,7 +56,7 @@ final class ConstructsTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider providerSourceWithoutClassyConstructs
+     * @dataProvider provideSourceWithoutClassyConstructs
      *
      * @param string $source
      */
@@ -65,7 +65,7 @@ final class ConstructsTest extends Framework\TestCase
         self::assertEquals([], Constructs::fromSource($source));
     }
 
-    public function providerSourceWithoutClassyConstructs(): \Generator
+    public function provideSourceWithoutClassyConstructs(): \Generator
     {
         foreach ($this->casesWithoutClassyConstructs() as $key => $fileName) {
             yield $key => [
@@ -75,7 +75,7 @@ final class ConstructsTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider providerSourceWithClassyConstructs
+     * @dataProvider provideSourceWithClassyConstructs
      *
      * @param string   $source
      * @param string[] $constructs
@@ -85,7 +85,7 @@ final class ConstructsTest extends Framework\TestCase
         self::assertEquals($constructs, Constructs::fromSource($source));
     }
 
-    public function providerSourceWithClassyConstructs(): \Generator
+    public function provideSourceWithClassyConstructs(): \Generator
     {
         foreach ($this->casesWithClassyConstructs() as $key => [$fileName, $names]) {
             \sort($names);
@@ -114,7 +114,7 @@ final class ConstructsTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider providerDirectoryWithoutClassyConstructs
+     * @dataProvider provideDirectoryWithoutClassyConstructs
      *
      * @param string $directory
      */
@@ -123,7 +123,7 @@ final class ConstructsTest extends Framework\TestCase
         self::assertCount(0, Constructs::fromDirectory($directory));
     }
 
-    public function providerDirectoryWithoutClassyConstructs(): \Generator
+    public function provideDirectoryWithoutClassyConstructs(): \Generator
     {
         foreach ($this->casesWithoutClassyConstructs() as $key => $fileName) {
             yield $key => [
@@ -133,7 +133,7 @@ final class ConstructsTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider providerDirectoryWithClassyConstructs
+     * @dataProvider provideDirectoryWithClassyConstructs
      *
      * @param string   $directory
      * @param string[] $classyConstructs
@@ -143,7 +143,7 @@ final class ConstructsTest extends Framework\TestCase
         self::assertEquals($classyConstructs, Constructs::fromDirectory($directory));
     }
 
-    public function providerDirectoryWithClassyConstructs(): \Generator
+    public function provideDirectoryWithClassyConstructs(): \Generator
     {
         foreach ($this->casesWithClassyConstructs() as $key => [$fileName, $names]) {
             \sort($names);
