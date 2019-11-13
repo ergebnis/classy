@@ -151,7 +151,7 @@ final class ConstructsTest extends Framework\TestCase
             yield $key => [
                 \dirname($fileName),
                 \array_map(static function (string $name) use ($fileName): Construct {
-                    return Construct::fromName($name)->definedIn(\realpath($fileName));
+                    return Construct::fromName($name)->definedIn(self::realPath($fileName));
                 }, $names),
             ];
         }
@@ -160,9 +160,9 @@ final class ConstructsTest extends Framework\TestCase
     public function testFromDirectoryTraversesDirectoriesAndReturnsArrayOfClassyConstructsSortedByName(): void
     {
         $classyConstructs = [
-            Construct::fromName(Fixture\Traversal\Foo::class)->definedIn(\realpath(__DIR__ . '/../Fixture/Traversal/Foo.php')),
-            Construct::fromName(Fixture\Traversal\Foo\Bar::class)->definedIn(\realpath(__DIR__ . '/../Fixture/Traversal/Foo/Bar.php')),
-            Construct::fromName(Fixture\Traversal\Foo\Baz::class)->definedIn(\realpath(__DIR__ . '/../Fixture/Traversal/Foo/Baz.php')),
+            Construct::fromName(Fixture\Traversal\Foo::class)->definedIn(self::realPath(__DIR__ . '/../Fixture/Traversal/Foo.php')),
+            Construct::fromName(Fixture\Traversal\Foo\Bar::class)->definedIn(self::realPath(__DIR__ . '/../Fixture/Traversal/Foo/Bar.php')),
+            Construct::fromName(Fixture\Traversal\Foo\Baz::class)->definedIn(self::realPath(__DIR__ . '/../Fixture/Traversal/Foo/Baz.php')),
         ];
 
         self::assertEquals($classyConstructs, Constructs::fromDirectory(__DIR__ . '/../Fixture/Traversal'));
@@ -290,6 +290,20 @@ final class ConstructsTest extends Framework\TestCase
                 ],
             ],
         ];
+    }
+
+    private static function realPath(string $path): string
+    {
+        $resolved = \realpath($path);
+
+        if (!\is_string($resolved)) {
+            throw new \RuntimeException(\sprintf(
+                'Failed resolving the real path of "%s".',
+                $path
+            ));
+        }
+
+        return $resolved;
     }
 
     private static function sourceTriggeringParseError(): string
