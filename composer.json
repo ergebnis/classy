@@ -14,16 +14,16 @@
     "php": "^7.1"
   },
   "require-dev": {
-    "infection/infection": "~0.11.4",
+    "infection/infection": "~0.13.6",
     "localheinz/composer-normalize": "^1.1.0",
-    "localheinz/php-cs-fixer-config": "~1.19.0",
-    "localheinz/phpstan-rules": "~0.5.0",
+    "localheinz/php-cs-fixer-config": "~1.24.0",
+    "localheinz/phpstan-rules": "~0.13.0",
     "localheinz/test-util": "0.2.2",
-    "phpbench/phpbench": "~0.15.0",
-    "phpstan/phpstan": "~0.10.7",
-    "phpstan/phpstan-deprecation-rules": "~0.10.2",
-    "phpstan/phpstan-strict-rules": "~0.10.1",
-    "phpunit/phpunit": "^7.5.0"
+    "phpbench/phpbench": "~0.16.10",
+    "phpstan/phpstan": "~0.11.19",
+    "phpstan/phpstan-deprecation-rules": "~0.11.2",
+    "phpstan/phpstan-strict-rules": "~0.11.1",
+    "phpunit/phpunit": "^7.5.17"
   },
   "config": {
     "preferred-install": "dist",

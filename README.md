@@ -1,6 +1,6 @@
 # classy
 
-[![Build Status](https://travis-ci.com/localheinz/classy.svg?branch=master)](https://travis-ci.com/localheinz/classy)
+[![CI Status](https://github.com/localheinz/classy/workflows/Continuous%20Integration/badge.svg)](https://github.com/localheinz/classy/actions)
 [![codecov](https://codecov.io/gh/localheinz/classy/branch/master/graph/badge.svg)](https://codecov.io/gh/localheinz/classy)
 [![Latest Stable Version](https://poser.pugx.org/localheinz/classy/v/stable)](https://packagist.org/packages/localheinz/classy)
 [![Total Downloads](https://poser.pugx.org/localheinz/classy/downloads)](https://packagist.org/packages/localheinz/classy)
@@ -65,6 +65,10 @@ $names = array_map(function (Construct $construct) {
 
 var_dump($names); // ['Example\Bar', 'Example\Bar\Baz', 'Example\Foo\Bar\Baz']
 ```
+
+## Changelog
+
+Please have a look at [`CHANGELOG.md`](CHANGELOG.md).
 
 ## Contributing
 

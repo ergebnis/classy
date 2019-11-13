@@ -1,8 +1,8 @@
 # CONTRIBUTING
 
-We're using [Travis CI](https://travis-ci.com) as a continuous integration system.
+We are using [GitHub Actions](https://github.com/features/actions) as a continuous integration system.
 
-For details, see [`.travis.yml`](../.travis.yml).
+For details, see [`workflows/continuous-integration.yml`](workflows/continuous-integration.yml).
 
 ## Coding Standards
 
@@ -30,7 +30,7 @@ to run a static code analysis.
 
 ## Tests
 
-We're using [`phpunit/phpunit`](https://github.com/sebastianbergmann/phpunit) to drive the development.
+We are using [`phpunit/phpunit`](https://github.com/sebastianbergmann/phpunit) to drive the development.
 
 Run
 
@@ -40,11 +40,11 @@ $ make test
 
 to run all the tests.
 
-## Mutation Testing
+## Mutation Tests
 
 We are using [`infection/infection`](https://github.com/infection/infection) to ensure a minimum quality of the tests.
 
-Enable `xdebug` and run
+Enable `Xdebug` and run
 
 ```
 $ make infection
@@ -54,7 +54,7 @@ to run mutation tests.
 
 ## Benchmarks
 
-We're using [`phpbench/phpbench`](http://github.com/phpbench/phpbench) to benchmark performance and memory consumption.
+We are using [`phpbench/phpbench`](http://github.com/phpbench/phpbench) to benchmark performance and memory consumption.
 
 Run
 
@@ -74,3 +74,13 @@ $ make
 ```
 
 to enforce coding standards, perform a static code analysis, run tests, and run benchmarks!
+
+## Help
+
+:bulb: Run
+
+```
+$ make help
+```
+
+to display a list of available targets with corresponding descriptions.

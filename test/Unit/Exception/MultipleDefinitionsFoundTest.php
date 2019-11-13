@@ -18,6 +18,10 @@ use Localheinz\Classy\Exception\MultipleDefinitionsFound;
 
 /**
  * @internal
+ *
+ * @covers \Localheinz\Classy\Exception\MultipleDefinitionsFound
+ *
+ * @uses \Localheinz\Classy\Construct
  */
 final class MultipleDefinitionsFoundTest extends AbstractTestCase
 {

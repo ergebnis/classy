@@ -17,6 +17,8 @@ use Localheinz\Classy\Exception\DirectoryDoesNotExist;
 
 /**
  * @internal
+ *
+ * @covers \Localheinz\Classy\Exception\DirectoryDoesNotExist
  */
 final class DirectoryDoesNotExistTest extends AbstractTestCase
 {

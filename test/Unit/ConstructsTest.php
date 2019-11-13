@@ -21,6 +21,13 @@ use PHPUnit\Framework;
 
 /**
  * @internal
+ *
+ * @covers \Localheinz\Classy\Constructs
+ *
+ * @uses \Localheinz\Classy\Construct
+ * @uses \Localheinz\Classy\Exception\DirectoryDoesNotExist
+ * @uses \Localheinz\Classy\Exception\MultipleDefinitionsFound
+ * @uses \Localheinz\Classy\Exception\ParseError
  */
 final class ConstructsTest extends Framework\TestCase
 {
