@@ -2,6 +2,9 @@
 
 it: cs stan test bench ## Runs the cs, stan, test, and bench targets
 
+bench: vendor ## Runs benchmarks with phpbench
+	vendor/bin/phpbench run --report=aggregate
+
 coverage: vendor ## Collects coverage from running unit tests with phpunit
 	mkdir -p .build/phpunit
 	vendor/bin/phpunit --configuration=test/Unit/phpunit.xml --dump-xdebug-filter=.build/phpunit/xdebug-filter.php
