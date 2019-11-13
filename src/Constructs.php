@@ -133,6 +133,7 @@ final class Constructs
                 continue;
             }
 
+            /** @var string $fileName */
             $fileName = $fileInfo->getRealPath();
 
             /** @var string $source */

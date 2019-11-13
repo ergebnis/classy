@@ -76,6 +76,6 @@ final class ConstructTest extends Framework\TestCase
         self::assertSame($name, $mutated->name());
         self::assertIsArray($mutated->fileNames());
         self::assertCount(\count($fileNames), $mutated->fileNames());
-        self::assertArraySubset($fileNames, $mutated->fileNames());
+        self::assertEquals($fileNames, $mutated->fileNames());
     }
 }
