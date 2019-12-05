@@ -10,4 +10,4 @@ For a full diff see [`0.4.0...master`](https://github.com/ergebnis/classy/compar
 
 ### Fixed
 
-* Dropped support for PHP 7.1 ([#9000](https://github.com/ergebnis/classy/pull/9000)), by [@localheinz](https://github.com/localheinz)
+* Dropped support for PHP 7.1 ([#77](https://github.com/ergebnis/classy/pull/77)), by [@localheinz](https://github.com/localheinz)
