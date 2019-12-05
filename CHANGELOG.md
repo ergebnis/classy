@@ -14,7 +14,7 @@ For a full diff see [`0.4.0...0.5.0`][0.4.0...0.5.0].
 
 ### Changed
 
-* Renamed vendor namespace `Localheinz` to `Ergebnis` after move to [@ergebnis] ([#78]), by [@localheinz]
+* Renamed vendor namespace `Localheinz` to `Ergebnis` after move to [@ergebnis] ([#88]), by [@localheinz]
 
 ### Fixed
 
@@ -28,4 +28,5 @@ For a full diff see [`0.4.0...0.5.0`][0.4.0...0.5.0].
 [#77]: https://github.com/ergebnis/classy/pull/77
 [#88]: https://github.com/ergebnis/classy/pull/88
 
+[@ergebnis]: https://github.com/localheinz
 [@localheinz]: https://github.com/localheinz
