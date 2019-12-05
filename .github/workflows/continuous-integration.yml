@@ -262,4 +262,4 @@ jobs:
         run: composer install --no-interaction --no-progress --no-suggest
 
       - name: "Run mutation tests with infection/infection"
-        run: php vendor/bin/infection --ignore-msi-with-no-mutations --min-covered-msi=91 --min-msi=91
+        run: vendor/bin/infection --ignore-msi-with-no-mutations --min-covered-msi=89 --min-msi=89
