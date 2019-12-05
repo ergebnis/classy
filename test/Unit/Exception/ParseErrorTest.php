@@ -11,14 +11,14 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/classy
  */
 
-namespace Localheinz\Classy\Test\Unit\Exception;
+namespace Ergebnis\Classy\Test\Unit\Exception;
 
-use Localheinz\Classy\Exception\ParseError;
+use Ergebnis\Classy\Exception\ParseError;
 
 /**
  * @internal
  *
- * @covers \Localheinz\Classy\Exception\ParseError
+ * @covers \Ergebnis\Classy\Exception\ParseError
  */
 final class ParseErrorTest extends AbstractTestCase
 {

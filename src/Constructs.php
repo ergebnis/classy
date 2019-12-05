@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/classy
  */
 
-namespace Localheinz\Classy;
+namespace Ergebnis\Classy;
 
 final class Constructs
 {

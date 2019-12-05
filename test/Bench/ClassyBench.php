@@ -11,9 +11,9 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/classy
  */
 
-namespace Localheinz\Classy\Test\Bench;
+namespace Ergebnis\Classy\Test\Bench;
 
-use Localheinz\Classy\Constructs;
+use Ergebnis\Classy\Constructs;
 use Zend\File;
 
 final class ClassyBench

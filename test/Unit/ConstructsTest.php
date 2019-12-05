@@ -11,23 +11,23 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/classy
  */
 
-namespace Localheinz\Classy\Test\Unit;
+namespace Ergebnis\Classy\Test\Unit;
 
-use Localheinz\Classy\Construct;
-use Localheinz\Classy\Constructs;
-use Localheinz\Classy\Exception;
-use Localheinz\Classy\Test\Fixture;
+use Ergebnis\Classy\Construct;
+use Ergebnis\Classy\Constructs;
+use Ergebnis\Classy\Exception;
+use Ergebnis\Classy\Test\Fixture;
 use PHPUnit\Framework;
 
 /**
  * @internal
  *
- * @covers \Localheinz\Classy\Constructs
+ * @covers \Ergebnis\Classy\Constructs
  *
- * @uses \Localheinz\Classy\Construct
- * @uses \Localheinz\Classy\Exception\DirectoryDoesNotExist
- * @uses \Localheinz\Classy\Exception\MultipleDefinitionsFound
- * @uses \Localheinz\Classy\Exception\ParseError
+ * @uses \Ergebnis\Classy\Construct
+ * @uses \Ergebnis\Classy\Exception\DirectoryDoesNotExist
+ * @uses \Ergebnis\Classy\Exception\MultipleDefinitionsFound
+ * @uses \Ergebnis\Classy\Exception\ParseError
  */
 final class ConstructsTest extends Framework\TestCase
 {

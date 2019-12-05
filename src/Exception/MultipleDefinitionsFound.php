@@ -11,9 +11,9 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/classy
  */
 
-namespace Localheinz\Classy\Exception;
+namespace Ergebnis\Classy\Exception;
 
-use Localheinz\Classy\Construct;
+use Ergebnis\Classy\Construct;
 
 final class MultipleDefinitionsFound extends \RuntimeException implements ExceptionInterface
 {

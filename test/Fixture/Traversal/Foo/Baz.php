@@ -1,6 +1,6 @@
 <?php
 
-namespace Localheinz\Classy\Test\Fixture\Traversal\Foo;
+namespace Ergebnis\Classy\Test\Fixture\Traversal\Foo;
 
 trait Baz
 {

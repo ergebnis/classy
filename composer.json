@@ -33,12 +33,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Localheinz\\Classy\\": "src/"
+      "Ergebnis\\Classy\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Localheinz\\Classy\\Test\\": "test/"
+      "Ergebnis\\Classy\\Test\\": "test/"
     }
   },
   "support": {

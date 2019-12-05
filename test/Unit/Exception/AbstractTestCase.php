@@ -11,9 +11,9 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/classy
  */
 
-namespace Localheinz\Classy\Test\Unit\Exception;
+namespace Ergebnis\Classy\Test\Unit\Exception;
 
-use Localheinz\Classy\Exception\ExceptionInterface;
+use Ergebnis\Classy\Exception\ExceptionInterface;
 use Localheinz\Test\Util\Helper;
 use PHPUnit\Framework;
 
@@ -35,8 +35,8 @@ abstract class AbstractTestCase extends Framework\TestCase
             '/Test$/',
             '',
             \str_replace(
-                'Localheinz\\Classy\\Test\\Unit\\',
-                'Localheinz\\Classy\\',
+                'Ergebnis\\Classy\\Test\\Unit\\',
+                'Ergebnis\\Classy\\',
                 static::class
             )
         );
