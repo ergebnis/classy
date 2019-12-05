@@ -11,16 +11,16 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/classy
  */
 
-namespace Localheinz\Classy\Test\Unit;
+namespace Ergebnis\Classy\Test\Unit;
 
-use Localheinz\Classy\Construct;
+use Ergebnis\Classy\Construct;
 use Localheinz\Test\Util\Helper;
 use PHPUnit\Framework;
 
 /**
  * @internal
  *
- * @covers \Localheinz\Classy\Construct
+ * @covers \Ergebnis\Classy\Construct
  */
 final class ConstructTest extends Framework\TestCase
 {

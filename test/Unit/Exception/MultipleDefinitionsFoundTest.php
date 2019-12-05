@@ -11,17 +11,17 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/classy
  */
 
-namespace Localheinz\Classy\Test\Unit\Exception;
+namespace Ergebnis\Classy\Test\Unit\Exception;
 
-use Localheinz\Classy\Construct;
-use Localheinz\Classy\Exception\MultipleDefinitionsFound;
+use Ergebnis\Classy\Construct;
+use Ergebnis\Classy\Exception\MultipleDefinitionsFound;
 
 /**
  * @internal
  *
- * @covers \Localheinz\Classy\Exception\MultipleDefinitionsFound
+ * @covers \Ergebnis\Classy\Exception\MultipleDefinitionsFound
  *
- * @uses \Localheinz\Classy\Construct
+ * @uses \Ergebnis\Classy\Construct
  */
 final class MultipleDefinitionsFoundTest extends AbstractTestCase
 {

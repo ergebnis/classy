@@ -11,14 +11,14 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/classy
  */
 
-namespace Localheinz\Classy\Test\Unit\Exception;
+namespace Ergebnis\Classy\Test\Unit\Exception;
 
-use Localheinz\Classy\Exception\DirectoryDoesNotExist;
+use Ergebnis\Classy\Exception\DirectoryDoesNotExist;
 
 /**
  * @internal
  *
- * @covers \Localheinz\Classy\Exception\DirectoryDoesNotExist
+ * @covers \Ergebnis\Classy\Exception\DirectoryDoesNotExist
  */
 final class DirectoryDoesNotExistTest extends AbstractTestCase
 {

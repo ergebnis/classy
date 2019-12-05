@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/classy
  */
 
-namespace Localheinz\Classy\Exception;
+namespace Ergebnis\Classy\Exception;
 
 final class DirectoryDoesNotExist extends \InvalidArgumentException implements ExceptionInterface
 {

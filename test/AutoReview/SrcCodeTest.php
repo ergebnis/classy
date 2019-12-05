@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/classy
  */
 
-namespace Localheinz\Classy\Test\AutoReview;
+namespace Ergebnis\Classy\Test\AutoReview;
 
 use Localheinz\Test\Util\Helper;
 use PHPUnit\Framework;
@@ -29,8 +29,8 @@ final class SrcCodeTest extends Framework\TestCase
     {
         $this->assertClassesHaveTests(
             __DIR__ . '/../../src',
-            'Localheinz\\Classy\\',
-            'Localheinz\\Classy\\Test\\Unit\\'
+            'Ergebnis\\Classy\\',
+            'Ergebnis\\Classy\\Test\\Unit\\'
         );
     }
 }
