@@ -11,7 +11,8 @@
     }
   ],
   "require": {
-    "php": "^7.2"
+    "php": "^7.2",
+    "ext-tokenizer": "*"
   },
   "require-dev": {
     "ergebnis/php-cs-fixer-config": "~1.1.0",
