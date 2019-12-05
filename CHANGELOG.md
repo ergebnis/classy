@@ -6,8 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`0.4.0...master`](https://github.com/localheinz/classy/compare/0.4.0...master).
+For a full diff see [`0.4.0...master`](https://github.com/ergebnis/classy/compare/0.4.0...master).
 
 ### Fixed
 
-* Dropped support for PHP 7.1 ([#9000](https://github.com/localheinz/classy/pull/9000)), by [@localheinz](https://github.com/localheinz)
+* Dropped support for PHP 7.1 ([#9000](https://github.com/ergebnis/classy/pull/9000)), by [@localheinz](https://github.com/localheinz)

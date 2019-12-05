@@ -1,8 +1,8 @@
 {
-  "name": "localheinz/classy",
+  "name": "ergebnis/classy",
   "type": "library",
   "description": "Provides a way to collect classy constructs from source or a directory.",
-  "homepage": "https://github.com/localheinz/classy",
+  "homepage": "https://github.com/ergebnis/classy",
   "license": "MIT",
   "authors": [
     {
@@ -41,7 +41,7 @@
     }
   },
   "support": {
-    "issues": "https://github.com/localheinz/classy/issues",
-    "source": "https://github.com/localheinz/classy"
+    "issues": "https://github.com/ergebnis/classy/issues",
+    "source": "https://github.com/ergebnis/classy"
   }
 }
