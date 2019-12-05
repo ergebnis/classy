@@ -23,8 +23,10 @@ $ composer require ergebnis/classy
 Use `Constructs::fromSource()` to collect classy constructs in source code:
 
 ```php
-use Localheinz\Classy\Construct;
-use Localheinz\Classy\Constructs;
+<?php
+
+use Ergebnis\Classy\Construct;
+use Ergebnis\Classy\Constructs;
 
 $source = <<<'PHP'
 <?php
@@ -41,7 +43,7 @@ PHP;
 /** @var Construct[] $constructs */
 $constructs = Constructs::fromSource($source);
 
-$names = array_map(function (Construct $construct) {
+$names = array_map(static function (Construct $construct): string {
     return $construct->name();
 }, $constructs);
 
@@ -53,13 +55,15 @@ var_dump($names); // ['Example\Bar', 'Example\Baz', 'Example\Foo']
 Use `Constructs::fromDirectory()` to collect classy constructs in a directory:
 
 ```php
-use Localheinz\Classy\Construct;
-use Localheinz\Classy\Constructs;
+<?php
+
+use Ergebnis\Classy\Construct;
+use Ergebnis\Classy\Constructs;
 
 /** @var Construct[] $constructs */
 $constructs = Constructs::fromDirectory(__DIR__ . '/example');
 
-$names = array_map(function (Construct $construct) {
+$names = array_map(static function (Construct $construct): string {
     return $construct->name();
 }, $constructs);
 
