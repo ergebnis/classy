@@ -1,9 +1,9 @@
 # classy
 
-[![CI Status](https://github.com/localheinz/classy/workflows/Continuous%20Integration/badge.svg)](https://github.com/localheinz/classy/actions)
-[![codecov](https://codecov.io/gh/localheinz/classy/branch/master/graph/badge.svg)](https://codecov.io/gh/localheinz/classy)
-[![Latest Stable Version](https://poser.pugx.org/localheinz/classy/v/stable)](https://packagist.org/packages/localheinz/classy)
-[![Total Downloads](https://poser.pugx.org/localheinz/classy/downloads)](https://packagist.org/packages/localheinz/classy)
+[![CI Status](https://github.com/ergebnis/classy/workflows/Continuous%20Integration/badge.svg)](https://github.com/ergebnis/classy/actions)
+[![codecov](https://codecov.io/gh/ergebnis/classy/branch/master/graph/badge.svg)](https://codecov.io/gh/ergebnis/classy)
+[![Latest Stable Version](https://poser.pugx.org/ergebnis/classy/v/stable)](https://packagist.org/packages/ergebnis/classy)
+[![Total Downloads](https://poser.pugx.org/ergebnis/classy/downloads)](https://packagist.org/packages/ergebnis/classy)
 
 Provides a finder for classy elements.
 
@@ -12,7 +12,7 @@ Provides a finder for classy elements.
 Run
 
 ```
-$ composer require localheinz/classy
+$ composer require ergebnis/classy
 ```
 
 
