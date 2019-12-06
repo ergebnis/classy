@@ -28,5 +28,5 @@ For a full diff see [`0.4.0...0.5.0`][0.4.0...0.5.0].
 [#77]: https://github.com/ergebnis/classy/pull/77
 [#88]: https://github.com/ergebnis/classy/pull/88
 
-[@ergebnis]: https://github.com/localheinz
+[@ergebnis]: https://github.com/ergebnis
 [@localheinz]: https://github.com/localheinz
