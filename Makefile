@@ -45,6 +45,7 @@ tests: vendor ## Runs auto-review, unit, and integration tests with phpunit/phpu
 	mkdir -p .build/phpunit
 	vendor/bin/phpunit --configuration=test/AutoReview/phpunit.xml
 	vendor/bin/phpunit --configuration=test/Unit/phpunit.xml
+	vendor/bin/phpunit --configuration=test/Integration/phpunit.xml
 
 vendor: composer.json composer.lock
 	composer validate --strict
