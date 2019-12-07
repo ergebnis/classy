@@ -3,8 +3,8 @@ includes:
 
 parameters:
 	classesAllowedToBeExtended:
+		- Ergebnis\Classy\Test\Unit\Exception\AbstractTestCase
 		- InvalidArgumentException
-		- Localheinz\Classy\Test\Unit\Exception\AbstractTestCase
 		- ParseError
 		- RuntimeException
 	excludes_analyse:
