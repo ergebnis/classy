@@ -27,7 +27,7 @@ help: ## Displays this list of targets with descriptions
 .PHONY: mutation-tests
 mutation-tests: vendor ## Runs mutation tests with infection/infection
 	mkdir -p .build/infection
-	vendor/bin/infection --ignore-msi-with-no-mutations --min-covered-msi=89 --min-msi=89
+	vendor/bin/infection --ignore-msi-with-no-mutations --min-covered-msi=88 --min-msi=88
 
 .PHONY: static-code-analysis
 static-code-analysis: vendor ## Runs a static code analysis with phpstan/phpstan
