@@ -16,6 +16,36 @@ For a full diff see [`0.4.0...0.5.0`][0.4.0...0.5.0].
 
 * Renamed vendor namespace `Localheinz` to `Ergebnis` after move to [@ergebnis] ([#88]), by [@localheinz]
 
+  Run
+
+  ```
+  $ composer remove localheinz/classy
+  ```
+
+  and
+
+  ```
+  $ composer require ergebnis/classy
+  ```
+
+  to update.
+
+  Run
+
+  ```
+  $ find . -type f -exec sed -i '.bak' 's/Localheinz\\Classy/Ergebnis\\Classy/g' {} \;
+  ```
+
+  to replace occurrences of `Localheinz\Classy` with `Ergebnis\Classy`.
+
+  Run
+
+  ```
+  $ find -type f -name '*.bak' -delete
+  ```
+
+  to delete backup files created in the previous step.
+
 ### Fixed
 
 * Dropped support for PHP 7.1 ([#77]), by [@localheinz]
