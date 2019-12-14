@@ -14,9 +14,6 @@
     "php": "^7.2",
     "ext-tokenizer": "*"
   },
-  "replace": {
-    "localheinz/classy": "*"
-  },
   "require-dev": {
     "ergebnis/php-cs-fixer-config": "~1.1.0",
     "ergebnis/phpstan-rules": "~0.14.0",
