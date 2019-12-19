@@ -2,12 +2,11 @@ includes:
 	- phpstan-baseline.neon
 
 parameters:
-	ergebnis:
-		classesAllowedToBeExtended:
-			- Ergebnis\Classy\Test\Unit\Exception\AbstractTestCase
-			- InvalidArgumentException
-			- ParseError
-			- RuntimeException
+	classesAllowedToBeExtended:
+		- Ergebnis\Classy\Test\Unit\Exception\AbstractTestCase
+		- InvalidArgumentException
+		- ParseError
+		- RuntimeException
 	excludes_analyse:
 		- %currentWorkingDirectory%/test/Fixture
 	inferPrivatePropertyTypeFromConstructor: true
