@@ -1,7 +1,7 @@
 # classy
 
 [![Continuous Integration](https://github.com/ergebnis/classy/workflows/Continuous%20Integration/badge.svg)](https://github.com/ergebnis/classy/actions)
-[![codecov](https://codecov.io/gh/ergebnis/classy/branch/master/graph/badge.svg)](https://codecov.io/gh/ergebnis/classy)
+[![Code Coverage](https://codecov.io/gh/ergebnis/classy/branch/master/graph/badge.svg)](https://codecov.io/gh/ergebnis/classy)
 [![Latest Stable Version](https://poser.pugx.org/ergebnis/classy/v/stable)](https://packagist.org/packages/ergebnis/classy)
 [![Total Downloads](https://poser.pugx.org/ergebnis/classy/downloads)](https://packagist.org/packages/ergebnis/classy)
 
