@@ -21,7 +21,7 @@ final class Construct
     private $name;
 
     /**
-     * @var array
+     * @var string[]
      */
     private $fileNames = [];
 
