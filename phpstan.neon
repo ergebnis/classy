@@ -6,6 +6,7 @@ parameters:
 		classesAllowedToBeExtended:
 			- Ergebnis\Classy\Test\Unit\Exception\AbstractTestCase
 			- InvalidArgumentException
+			- LogicException
 			- ParseError
 			- RuntimeException
 	excludes_analyse:

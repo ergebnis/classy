@@ -65,11 +65,23 @@ final class ConstructsTest extends Framework\TestCase
         self::assertEquals([], Constructs::fromSource($source));
     }
 
+    /**
+     * @return \Generator<array<string>>
+     */
     public function provideSourceWithoutClassyConstructs(): \Generator
     {
         foreach ($this->casesWithoutClassyConstructs() as $key => $fileName) {
+            $source = \file_get_contents($fileName);
+
+            if (!\is_string($source)) {
+                throw new \RuntimeException(\sprintf(
+                    'File "%s" should exist and be readable.',
+                    $fileName
+                ));
+            }
+
             yield $key => [
-                \file_get_contents($fileName),
+                $source,
             ];
         }
     }
@@ -85,13 +97,25 @@ final class ConstructsTest extends Framework\TestCase
         self::assertEquals($constructs, Constructs::fromSource($source));
     }
 
+    /**
+     * @return \Generator<array{0: string, 1: Construct[]}>
+     */
     public function provideSourceWithClassyConstructs(): \Generator
     {
         foreach ($this->casesWithClassyConstructs() as $key => [$fileName, $names]) {
             \sort($names);
 
+            $source = \file_get_contents($fileName);
+
+            if (!\is_string($source)) {
+                throw new \RuntimeException(\sprintf(
+                    'File "%s" should exist and be readable.',
+                    $fileName
+                ));
+            }
+
             yield $key => [
-                \file_get_contents($fileName),
+                $source,
                 \array_map(static function (string $name): Construct {
                     return Construct::fromName($name);
                 }, $names),
@@ -123,6 +147,9 @@ final class ConstructsTest extends Framework\TestCase
         self::assertCount(0, Constructs::fromDirectory($directory));
     }
 
+    /**
+     * @return \Generator<array<string>>
+     */
     public function provideDirectoryWithoutClassyConstructs(): \Generator
     {
         foreach ($this->casesWithoutClassyConstructs() as $key => $fileName) {
@@ -143,6 +170,9 @@ final class ConstructsTest extends Framework\TestCase
         self::assertEquals($classyConstructs, Constructs::fromDirectory($directory));
     }
 
+    /**
+     * @return \Generator<array{0: string, 1:Construct[]}>
+     */
     public function provideDirectoryWithClassyConstructs(): \Generator
     {
         foreach ($this->casesWithClassyConstructs() as $key => [$fileName, $names]) {
@@ -175,6 +205,9 @@ final class ConstructsTest extends Framework\TestCase
         Constructs::fromDirectory(__DIR__ . '/../Fixture/MultipleDefinitions');
     }
 
+    /**
+     * @return array<string, string>
+     */
     private function casesWithoutClassyConstructs(): array
     {
         return [
@@ -188,6 +221,9 @@ final class ConstructsTest extends Framework\TestCase
         ];
     }
 
+    /**
+     * @return array<string, array{0: string, 1: string[]}>
+     */
     private function casesWithClassyConstructs(): array
     {
         return [

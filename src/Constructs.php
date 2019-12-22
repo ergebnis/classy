@@ -90,7 +90,7 @@ final class Constructs
             $constructs[] = Construct::fromName($namespacePrefix . self::content($token));
         }
 
-        \usort($constructs, static function (Construct $a, Construct $b) {
+        \usort($constructs, static function (Construct $a, Construct $b): int {
             return \strcmp(
                 $a->name(),
                 $b->name()
@@ -163,14 +163,14 @@ final class Constructs
             }
         }
 
-        \usort($constructs, static function (Construct $a, Construct $b) {
+        \usort($constructs, static function (Construct $a, Construct $b): int {
             return \strcmp(
                 $a->name(),
                 $b->name()
             );
         });
 
-        $constructsWithMultipleDefinitions = \array_filter($constructs, static function (Construct $construct) {
+        $constructsWithMultipleDefinitions = \array_filter($constructs, static function (Construct $construct): bool {
             return 1 < \count($construct->fileNames());
         });
 
@@ -184,9 +184,9 @@ final class Constructs
     /**
      * Returns the index of the significant token after the index.
      *
-     * @param int   $index
-     * @param array $sequence
-     * @param int   $count
+     * @param int                                                 $index
+     * @param array<int, array{0: int, 1: string, 2: int}|string> $sequence
+     * @param int                                                 $count
      *
      * @return int
      */
@@ -201,13 +201,15 @@ final class Constructs
 
             return $current;
         }
+
+        throw Exception\ShouldNotHappen::create();
     }
 
     /**
      * Returns the index of the significant token after the index.
      *
-     * @param int   $index
-     * @param array $sequence
+     * @param int                                                 $index
+     * @param array<int, array{0: int, 1: string, 2: int}|string> $sequence
      *
      * @return int
      */
@@ -222,12 +224,14 @@ final class Constructs
 
             return $current;
         }
+
+        throw Exception\ShouldNotHappen::create();
     }
 
     /**
      * Returns the string content of a token.
      *
-     * @param array|string $token
+     * @param array{0: int, 1: string, 2: int}|string $token
      *
      * @return string
      */
