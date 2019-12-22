@@ -14,14 +14,19 @@ declare(strict_types=1);
 namespace Ergebnis\Classy\Test\Unit\Exception;
 
 use Ergebnis\Classy\Exception\DirectoryDoesNotExist;
+use Ergebnis\Classy\Exception\ExceptionInterface;
+use Localheinz\Test\Util\Helper;
+use PHPUnit\Framework;
 
 /**
  * @internal
  *
  * @covers \Ergebnis\Classy\Exception\DirectoryDoesNotExist
  */
-final class DirectoryDoesNotExistTest extends AbstractTestCase
+final class DirectoryDoesNotExistTest extends Framework\TestCase
 {
+    use Helper;
+
     public function testFromDirectoryReturnsException(): void
     {
         $directory = $this->faker()->sentence;
@@ -29,6 +34,8 @@ final class DirectoryDoesNotExistTest extends AbstractTestCase
         $exception = DirectoryDoesNotExist::fromDirectory($directory);
 
         self::assertInstanceOf(DirectoryDoesNotExist::class, $exception);
+        self::assertInstanceOf(\InvalidArgumentException::class, $exception);
+        self::assertInstanceOf(ExceptionInterface::class, $exception);
 
         $message = \sprintf(
             'Directory "%s" does not exist.',

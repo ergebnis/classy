@@ -4,7 +4,6 @@ includes:
 parameters:
 	ergebnis:
 		classesAllowedToBeExtended:
-			- Ergebnis\Classy\Test\Unit\Exception\AbstractTestCase
 			- InvalidArgumentException
 			- LogicException
 			- ParseError

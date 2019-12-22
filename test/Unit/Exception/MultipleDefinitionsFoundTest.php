@@ -14,7 +14,10 @@ declare(strict_types=1);
 namespace Ergebnis\Classy\Test\Unit\Exception;
 
 use Ergebnis\Classy\Construct;
+use Ergebnis\Classy\Exception\ExceptionInterface;
 use Ergebnis\Classy\Exception\MultipleDefinitionsFound;
+use Localheinz\Test\Util\Helper;
+use PHPUnit\Framework;
 
 /**
  * @internal
@@ -23,8 +26,10 @@ use Ergebnis\Classy\Exception\MultipleDefinitionsFound;
  *
  * @uses \Ergebnis\Classy\Construct
  */
-final class MultipleDefinitionsFoundTest extends AbstractTestCase
+final class MultipleDefinitionsFoundTest extends Framework\TestCase
 {
+    use Helper;
+
     public function testFromConstructsReturnsException(): void
     {
         $name = 'Foo\\Bar\\Baz';
@@ -41,6 +46,8 @@ final class MultipleDefinitionsFoundTest extends AbstractTestCase
         $exception = MultipleDefinitionsFound::fromConstructs($constructs);
 
         self::assertInstanceOf(MultipleDefinitionsFound::class, $exception);
+        self::assertInstanceOf(\RuntimeException::class, $exception);
+        self::assertInstanceOf(ExceptionInterface::class, $exception);
 
         $format = <<<'PHP'
 Multiple definitions have been found for the following constructs:
