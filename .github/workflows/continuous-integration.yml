@@ -238,7 +238,7 @@ jobs:
         run: "vendor/bin/phpunit --configuration=test/Unit/phpunit.xml --dump-xdebug-filter=.build/phpunit/xdebug-filter.php"
 
       - name: "Collect code coverage with Xdebug and phpunit/phpunit"
-        run: "vendor/bin/phpunit --configuration=test/Unit/phpunit.xml --coverage-clover=build/logs/clover.xml --prepend=.build/phpunit/xdebug-filter.php"
+        run: "vendor/bin/phpunit --configuration=test/Unit/phpunit.xml --coverage-clover=.build/logs/clover.xml --prepend=.build/phpunit/xdebug-filter.php"
 
       - name: "Send code coverage report to Codecov.io"
         env:
