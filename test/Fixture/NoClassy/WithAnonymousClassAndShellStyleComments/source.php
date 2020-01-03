@@ -1,5 +1,7 @@
 <?php
 
+namespace Ergebnis\Classy\Test\Fixture\NoClassy\WithAnonymousClassAndShellStyleComments;
+
 function foo()
 {
     return // foo

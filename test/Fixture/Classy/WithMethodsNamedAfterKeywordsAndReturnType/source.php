@@ -1,6 +1,7 @@
 <?php
 
-namespace Foo\Bar\Baz;
+namespace Ergebnis\Classy\Test\Fixture\Classy\WithMethodsNamedAfterKeywordsAndReturnType;
+
 
 class Foo
 {
