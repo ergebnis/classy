@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="3.8.1@8e54e3aa060fc490d86d0e2abbf62750516d40fd">
+  <file src="src/Constructs.php">
+    <LoopInvalidation occurrences="2">
+      <code>$index</code>
+      <code>$index</code>
+    </LoopInvalidation>
+  </file>
+  <file src="src/Exception/DirectoryDoesNotExist.php">
+    <MissingConstructor occurrences="1">
+      <code>$directory</code>
+    </MissingConstructor>
+  </file>
+  <file src="src/Exception/MultipleDefinitionsFound.php">
+    <MissingConstructor occurrences="1">
+      <code>$constructs</code>
+    </MissingConstructor>
+  </file>
+  <file src="test/Fixture/Classy/WithMethodsNamedAfterKeywords/source.php">
+    <DuplicateClass occurrences="1">
+      <code>Foo</code>
+    </DuplicateClass>
+  </file>
+  <file src="test/Fixture/Classy/WithMethodsNamedAfterKeywordsAndReturnType/source.php">
+    <DuplicateClass occurrences="1">
+      <code>Foo</code>
+    </DuplicateClass>
+  </file>
+  <file src="test/Fixture/Classy/WithinMultipleNamespaces/source.php">
+    <DuplicateClass occurrences="1">
+      <code>Foo</code>
+    </DuplicateClass>
+  </file>
+  <file src="test/Fixture/Classy/WithinNamespace/source.php">
+    <DuplicateClass occurrences="1">
+      <code>Foo</code>
+    </DuplicateClass>
+  </file>
+  <file src="test/Fixture/Classy/WithinNamespaceAndShellStyleComments/source.php">
+    <DuplicateClass occurrences="1">
+      <code>Foo</code>
+    </DuplicateClass>
+  </file>
+  <file src="test/Fixture/Classy/WithinNamespaceAndSingleLineComments/source.php">
+    <DuplicateClass occurrences="1">
+      <code>Foo</code>
+    </DuplicateClass>
+  </file>
+  <file src="test/Fixture/Classy/WithinNamespaceWithBraces/source.php">
+    <DuplicateClass occurrences="1">
+      <code>Foo</code>
+    </DuplicateClass>
+  </file>
+  <file src="test/Fixture/Classy/WithoutNamespaceAndMultiLineComments/source.php">
+    <DuplicateClass occurrences="1">
+      <code>Foo</code>
+    </DuplicateClass>
+  </file>
+  <file src="test/Fixture/Classy/WithoutNamespaceAndShellStyleComments/source.php">
+    <DuplicateClass occurrences="1">
+      <code>Foo</code>
+    </DuplicateClass>
+  </file>
+  <file src="test/Fixture/Classy/WithoutNamespaceAndSingleLineComments/source.php">
+    <DuplicateClass occurrences="1">
+      <code>Foo</code>
+    </DuplicateClass>
+  </file>
+  <file src="test/Fixture/MultipleDefinitions/One/Foo.php">
+    <DuplicateClass occurrences="1">
+      <code>Foo</code>
+    </DuplicateClass>
+  </file>
+  <file src="test/Fixture/MultipleDefinitions/Two/Foo.php">
+    <DuplicateClass occurrences="1">
+      <code>Foo</code>
+    </DuplicateClass>
+  </file>
+  <file src="test/Fixture/NoClassy/WithAnonymousClass/source.php">
+    <MissingReturnType occurrences="1">
+      <code>foo</code>
+    </MissingReturnType>
+  </file>
+  <file src="test/Fixture/NoClassy/WithAnonymousClassAndMultiLineComments/source.php">
+    <MissingReturnType occurrences="1">
+      <code>foo</code>
+    </MissingReturnType>
+  </file>
+  <file src="test/Fixture/NoClassy/WithAnonymousClassAndShellStyleComments/source.php">
+    <MissingReturnType occurrences="1">
+      <code>foo</code>
+    </MissingReturnType>
+  </file>
+  <file src="test/Fixture/NoClassy/WithAnonymousClassAndSingleLineComments/source.php">
+    <MissingReturnType occurrences="1">
+      <code>foo</code>
+    </MissingReturnType>
+  </file>
+  <file src="test/Fixture/NoClassy/WithClassKeyword/source.php">
+    <MissingReturnType occurrences="1">
+      <code>foo</code>
+    </MissingReturnType>
+  </file>
+  <file src="test/Fixture/NoClassy/WithNothing/source.php">
+    <MissingReturnType occurrences="1">
+      <code>foo</code>
+    </MissingReturnType>
+  </file>
+  <file src="test/Unit/ConstructTest.php">
+    <RedundantConditionGivenDocblockType occurrences="2">
+      <code>assertInstanceOf</code>
+      <code>assertInstanceOf</code>
+    </RedundantConditionGivenDocblockType>
+    <TooManyArguments occurrences="1"/>
+  </file>
+  <file src="test/Unit/Exception/DirectoryDoesNotExistTest.php">
+    <RedundantConditionGivenDocblockType occurrences="3">
+      <code>assertInstanceOf</code>
+      <code>assertInstanceOf</code>
+      <code>assertInstanceOf</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="test/Unit/Exception/MultipleDefinitionsFoundTest.php">
+    <RedundantConditionGivenDocblockType occurrences="3">
+      <code>assertInstanceOf</code>
+      <code>assertInstanceOf</code>
+      <code>assertInstanceOf</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="test/Unit/Exception/ParseErrorTest.php">
+    <RedundantCondition occurrences="6">
+      <code>assertInstanceOf</code>
+      <code>assertInstanceOf</code>
+      <code>assertInstanceOf</code>
+      <code>assertInstanceOf</code>
+      <code>assertInstanceOf</code>
+      <code>assertInstanceOf</code>
+    </RedundantCondition>
+  </file>
+  <file src="test/Unit/Exception/ShouldNotHappenTest.php">
+    <RedundantCondition occurrences="3">
+      <code>assertInstanceOf</code>
+      <code>assertInstanceOf</code>
+      <code>assertInstanceOf</code>
+    </RedundantCondition>
+  </file>
+</files>
