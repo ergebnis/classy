@@ -17,54 +17,18 @@
     </MissingConstructor>
   </file>
   <file src="test/Fixture/Classy/WithMethodsNamedAfterKeywords/source.php">
-    <DuplicateClass occurrences="1">
-      <code>Foo</code>
-    </DuplicateClass>
+    <MissingReturnType occurrences="3">
+      <code>class</code>
+      <code>interface</code>
+      <code>trait</code>
+    </MissingReturnType>
   </file>
   <file src="test/Fixture/Classy/WithMethodsNamedAfterKeywordsAndReturnType/source.php">
-    <DuplicateClass occurrences="1">
-      <code>Foo</code>
-    </DuplicateClass>
-  </file>
-  <file src="test/Fixture/Classy/WithinMultipleNamespaces/source.php">
-    <DuplicateClass occurrences="1">
-      <code>Foo</code>
-    </DuplicateClass>
-  </file>
-  <file src="test/Fixture/Classy/WithinNamespace/source.php">
-    <DuplicateClass occurrences="1">
-      <code>Foo</code>
-    </DuplicateClass>
-  </file>
-  <file src="test/Fixture/Classy/WithinNamespaceAndShellStyleComments/source.php">
-    <DuplicateClass occurrences="1">
-      <code>Foo</code>
-    </DuplicateClass>
-  </file>
-  <file src="test/Fixture/Classy/WithinNamespaceAndSingleLineComments/source.php">
-    <DuplicateClass occurrences="1">
-      <code>Foo</code>
-    </DuplicateClass>
-  </file>
-  <file src="test/Fixture/Classy/WithinNamespaceWithBraces/source.php">
-    <DuplicateClass occurrences="1">
-      <code>Foo</code>
-    </DuplicateClass>
-  </file>
-  <file src="test/Fixture/Classy/WithoutNamespaceAndMultiLineComments/source.php">
-    <DuplicateClass occurrences="1">
-      <code>Foo</code>
-    </DuplicateClass>
-  </file>
-  <file src="test/Fixture/Classy/WithoutNamespaceAndShellStyleComments/source.php">
-    <DuplicateClass occurrences="1">
-      <code>Foo</code>
-    </DuplicateClass>
-  </file>
-  <file src="test/Fixture/Classy/WithoutNamespaceAndSingleLineComments/source.php">
-    <DuplicateClass occurrences="1">
-      <code>Foo</code>
-    </DuplicateClass>
+    <InvalidReturnType occurrences="3">
+      <code>string</code>
+      <code>string</code>
+      <code>string</code>
+    </InvalidReturnType>
   </file>
   <file src="test/Fixture/MultipleDefinitions/One/Foo.php">
     <DuplicateClass occurrences="1">

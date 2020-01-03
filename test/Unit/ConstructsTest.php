@@ -230,58 +230,58 @@ final class ConstructsTest extends Framework\TestCase
             'within-namespace' => [
                 __DIR__ . '/../Fixture/Classy/WithinNamespace/source.php',
                 [
-                    'Foo\\Bar\\Baz\\Bar',
-                    'Foo\\Bar\\Baz\\Baz',
-                    'Foo\\Bar\\Baz\\Foo',
+                    'Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespace\\Bar',
+                    'Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespace\\Baz',
+                    'Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespace\\Foo',
                 ],
             ],
             'within-namespace-and-shell-style-comments' => [
                 __DIR__ . '/../Fixture/Classy/WithinNamespaceAndShellStyleComments/source.php',
                 [
-                    'Foo\\Bar\\Baz\\Bar',
-                    'Foo\\Bar\\Baz\\Baz',
-                    'Foo\\Bar\\Baz\\Foo',
+                    'Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespaceAndShellStyleComments\\Bar',
+                    'Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespaceAndShellStyleComments\\Baz',
+                    'Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespaceAndShellStyleComments\\Foo',
                 ],
             ],
             'within-namespace-and-single-line-comments' => [
                 __DIR__ . '/../Fixture/Classy/WithinNamespaceAndSingleLineComments/source.php',
                 [
-                    'Foo\\Bar\\Baz\\Bar',
-                    'Foo\\Bar\\Baz\\Baz',
-                    'Foo\\Bar\\Baz\\Foo',
+                    'Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespaceAndSingleLineComments\\Bar',
+                    'Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespaceAndSingleLineComments\\Baz',
+                    'Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespaceAndSingleLineComments\\Foo',
                 ],
             ],
             'within-namespace-and-multi-line-comments' => [
                 __DIR__ . '/../Fixture/Classy/WithinNamespaceAndMultiLineComments/source.php',
                 [
-                    'Foo\\Bar\\Baz\\Bar',
-                    'Foo\\Bar\\Baz\\Baz',
-                    'Foo\\Bar\\Baz\\Foo',
+                    'Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespaceAndMultiLineComments\\Bar',
+                    'Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespaceAndMultiLineComments\\Baz',
+                    'Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespaceAndMultiLineComments\\Foo',
                 ],
             ],
             'within-namespace-with-braces' => [
                 __DIR__ . '/../Fixture/Classy/WithinNamespaceWithBraces/source.php',
                 [
-                    'Foo\\Bar\\Baz\\Bar',
-                    'Foo\\Bar\\Baz\\Baz',
-                    'Foo\\Bar\\Baz\\Foo',
+                    'Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespaceWithBraces\\Bar',
+                    'Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespaceWithBraces\\Baz',
+                    'Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespaceWithBraces\\Foo',
                 ],
             ],
             'within-multiple-namespaces-with-braces' => [
                 __DIR__ . '/../Fixture/Classy/WithinMultipleNamespaces/source.php',
                 [
-                    'Baz\\Bar\\Foo\\Bar',
-                    'Baz\\Bar\\Foo\\Baz',
-                    'Baz\\Bar\\Foo\\Foo',
-                    'Foo\\Bar\\Baz\\Bar',
-                    'Foo\\Bar\\Baz\\Baz',
-                    'Foo\\Bar\\Baz\\Foo',
+                    'Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinMultipleNamespaces\\Bar\\Bar',
+                    'Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinMultipleNamespaces\\Bar\\Baz',
+                    'Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinMultipleNamespaces\\Bar\\Foo',
+                    'Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinMultipleNamespaces\\Foo\\Bar',
+                    'Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinMultipleNamespaces\\Foo\\Baz',
+                    'Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinMultipleNamespaces\\Foo\\Foo',
                 ],
             ],
             'with-methods-named-after-keywords' => [
                 __DIR__ . '/../Fixture/Classy/WithMethodsNamedAfterKeywords/source.php',
                 [
-                    'Foo\\Bar\\Baz\\Foo',
+                    'Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithMethodsNamedAfterKeywords\\Foo',
                 ],
             ],
             /**
@@ -290,7 +290,7 @@ final class ConstructsTest extends Framework\TestCase
             'with-methods-named-after-keywords-and-return-type' => [
                 __DIR__ . '/../Fixture/Classy/WithMethodsNamedAfterKeywordsAndReturnType/source.php',
                 [
-                    'Foo\\Bar\\Baz\\Foo',
+                    'Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithMethodsNamedAfterKeywordsAndReturnType\\Foo',
                 ],
             ],
             'without-namespace' => [
@@ -304,25 +304,25 @@ final class ConstructsTest extends Framework\TestCase
             'without-namespace-and-multi-line-comments' => [
                 __DIR__ . '/../Fixture/Classy/WithoutNamespaceAndMultiLineComments/source.php',
                 [
-                    'Bar',
-                    'Baz',
-                    'Foo',
+                    'Qux',
+                    'Quux',
+                    'Quuz',
                 ],
             ],
             'without-namespace-and-shell-line-comments' => [
                 __DIR__ . '/../Fixture/Classy/WithoutNamespaceAndShellStyleComments/source.php',
                 [
-                    'Bar',
-                    'Baz',
-                    'Foo',
+                    'Corge',
+                    'Garply',
+                    'Grault',
                 ],
             ],
             'without-namespace-and-single-line-comments' => [
                 __DIR__ . '/../Fixture/Classy/WithoutNamespaceAndSingleLineComments/source.php',
                 [
-                    'Bar',
-                    'Baz',
-                    'Foo',
+                    'Fred',
+                    'Plugh',
+                    'Waldo',
                 ],
             ],
         ];

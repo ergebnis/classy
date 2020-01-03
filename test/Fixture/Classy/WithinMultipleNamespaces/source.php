@@ -1,6 +1,6 @@
 <?php
 
-namespace Foo\Bar\Baz
+namespace Ergebnis\Classy\Test\Fixture\Classy\WithinMultipleNamespaces\Foo;
 {
     class Foo {}
 
@@ -9,7 +9,7 @@ namespace Foo\Bar\Baz
     trait Baz {}
 }
 
-namespace Baz\Bar\Foo
+namespace Ergebnis\Classy\Test\Fixture\Classy\WithinMultipleNamespaces\Bar;
 {
     class Foo {}
 
