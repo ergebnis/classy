@@ -1,7 +1,15 @@
 {
   "name": "ergebnis/classy",
   "type": "library",
-  "description": "Provides a way to collect classy constructs from source or a directory.",
+  "description": "Provides a finder for classy constructs (classes, interfaces, and traits).",
+  "keywords": [
+    "finder",
+    "classy",
+    "constructs",
+    "classes",
+    "interfaces",
+    "traits"
+  ],
   "homepage": "https://github.com/ergebnis/classy",
   "license": "MIT",
   "authors": [
