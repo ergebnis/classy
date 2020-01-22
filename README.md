@@ -9,7 +9,7 @@
 [![Latest Stable Version](https://poser.pugx.org/ergebnis/classy/v/stable)](https://packagist.org/packages/ergebnis/classy)
 [![Total Downloads](https://poser.pugx.org/ergebnis/classy/downloads)](https://packagist.org/packages/ergebnis/classy)
 
-Provides a finder for classy elements.
+Provides a finder for classy constructs (classes, interfaces, and traits).
 
 ## Installation
 
