@@ -10,10 +10,10 @@ parameters:
 			- ParseError
 			- RuntimeException
 	excludes_analyse:
-		- %currentWorkingDirectory%/test/Fixture
+		- %currentWorkingDirectory%/test/Fixture/
 	inferPrivatePropertyTypeFromConstructor: true
 	level: max
 	paths:
-		- src
-		- test
+		- src/
+		- test/
 	tmpDir: %currentWorkingDirectory%/.build/phpstan
