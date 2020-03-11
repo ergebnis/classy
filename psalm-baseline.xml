@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="3.8.1@8e54e3aa060fc490d86d0e2abbf62750516d40fd">
+<files psalm-version="3.9.5@0cfe565d0afbcd31eadcc281b9017b5692911661">
   <file src="src/Constructs.php">
     <LoopInvalidation occurrences="2">
       <code>$index</code>
       <code>$index</code>
     </LoopInvalidation>
+    <MixedAssignment occurrences="1">
+      <code>$fileInfo</code>
+    </MixedAssignment>
+    <MixedMethodCall occurrences="4">
+      <code>isFile</code>
+      <code>getBasename</code>
+      <code>getBasename</code>
+      <code>getRealPath</code>
+    </MixedMethodCall>
   </file>
   <file src="src/Exception/DirectoryDoesNotExist.php">
     <MissingConstructor occurrences="1">
@@ -16,60 +25,6 @@
       <code>$constructs</code>
     </MissingConstructor>
   </file>
-  <file src="test/Fixture/Classy/WithMethodsNamedAfterKeywords/source.php">
-    <MissingReturnType occurrences="3">
-      <code>class</code>
-      <code>interface</code>
-      <code>trait</code>
-    </MissingReturnType>
-  </file>
-  <file src="test/Fixture/Classy/WithMethodsNamedAfterKeywordsAndReturnType/source.php">
-    <InvalidReturnType occurrences="3">
-      <code>string</code>
-      <code>string</code>
-      <code>string</code>
-    </InvalidReturnType>
-  </file>
-  <file src="test/Fixture/MultipleDefinitions/One/Foo.php">
-    <DuplicateClass occurrences="1">
-      <code>Foo</code>
-    </DuplicateClass>
-  </file>
-  <file src="test/Fixture/MultipleDefinitions/Two/Foo.php">
-    <DuplicateClass occurrences="1">
-      <code>Foo</code>
-    </DuplicateClass>
-  </file>
-  <file src="test/Fixture/NoClassy/WithAnonymousClass/source.php">
-    <MissingReturnType occurrences="1">
-      <code>foo</code>
-    </MissingReturnType>
-  </file>
-  <file src="test/Fixture/NoClassy/WithAnonymousClassAndMultiLineComments/source.php">
-    <MissingReturnType occurrences="1">
-      <code>foo</code>
-    </MissingReturnType>
-  </file>
-  <file src="test/Fixture/NoClassy/WithAnonymousClassAndShellStyleComments/source.php">
-    <MissingReturnType occurrences="1">
-      <code>foo</code>
-    </MissingReturnType>
-  </file>
-  <file src="test/Fixture/NoClassy/WithAnonymousClassAndSingleLineComments/source.php">
-    <MissingReturnType occurrences="1">
-      <code>foo</code>
-    </MissingReturnType>
-  </file>
-  <file src="test/Fixture/NoClassy/WithClassKeyword/source.php">
-    <MissingReturnType occurrences="1">
-      <code>foo</code>
-    </MissingReturnType>
-  </file>
-  <file src="test/Fixture/NoClassy/WithNothing/source.php">
-    <MissingReturnType occurrences="1">
-      <code>foo</code>
-    </MissingReturnType>
-  </file>
   <file src="test/Unit/ConstructTest.php">
     <RedundantConditionGivenDocblockType occurrences="2">
       <code>assertInstanceOf</code>
@@ -77,34 +32,32 @@
     </RedundantConditionGivenDocblockType>
     <TooManyArguments occurrences="1"/>
   </file>
+  <file src="test/Unit/ConstructsTest.php">
+    <MixedInferredReturnType occurrences="4">
+      <code>\Generator&lt;array&lt;string&gt;&gt;</code>
+      <code>\Generator&lt;array{0: string, 1: Construct[]}&gt;</code>
+      <code>\Generator&lt;array&lt;string&gt;&gt;</code>
+      <code>\Generator&lt;array{0: string, 1:Construct[]}&gt;</code>
+    </MixedInferredReturnType>
+  </file>
   <file src="test/Unit/Exception/DirectoryDoesNotExistTest.php">
-    <RedundantConditionGivenDocblockType occurrences="3">
-      <code>assertInstanceOf</code>
-      <code>assertInstanceOf</code>
+    <RedundantConditionGivenDocblockType occurrences="1">
       <code>assertInstanceOf</code>
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="test/Unit/Exception/MultipleDefinitionsFoundTest.php">
-    <RedundantConditionGivenDocblockType occurrences="3">
-      <code>assertInstanceOf</code>
-      <code>assertInstanceOf</code>
+    <RedundantConditionGivenDocblockType occurrences="1">
       <code>assertInstanceOf</code>
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="test/Unit/Exception/ParseErrorTest.php">
-    <RedundantCondition occurrences="6">
-      <code>assertInstanceOf</code>
-      <code>assertInstanceOf</code>
-      <code>assertInstanceOf</code>
-      <code>assertInstanceOf</code>
+    <RedundantCondition occurrences="2">
       <code>assertInstanceOf</code>
       <code>assertInstanceOf</code>
     </RedundantCondition>
   </file>
   <file src="test/Unit/Exception/ShouldNotHappenTest.php">
-    <RedundantCondition occurrences="3">
-      <code>assertInstanceOf</code>
-      <code>assertInstanceOf</code>
+    <RedundantCondition occurrences="1">
       <code>assertInstanceOf</code>
     </RedundantCondition>
   </file>

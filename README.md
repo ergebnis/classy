@@ -1,7 +1,9 @@
 # classy
 
-[![Continuous Deployment](https://github.com/ergebnis/classy/workflows/Continuous%20Deployment/badge.svg)](https://github.com/ergebnis/classy/actions)
-[![Continuous Integration](https://github.com/ergebnis/classy/workflows/Continuous%20Integration/badge.svg)](https://github.com/ergebnis/classy/actions)
+[![Integrate](https://github.com/ergebnis/classy/workflows/Integrate/badge.svg?branch=master)](https://github.com/ergebnis/classy/actions)
+[![Prune](https://github.com/ergebnis/classy/workflows/Prune/badge.svg?branch=master)](https://github.com/ergebnis/classy/actions)
+[![Release](https://github.com/ergebnis/classy/workflows/Release/badge.svg?branch=master)](https://github.com/ergebnis/classy/actions)
+[![Renew](https://github.com/ergebnis/classy/workflows/Renew/badge.svg?branch=master)](https://github.com/ergebnis/classy/actions)
 
 [![Code Coverage](https://codecov.io/gh/ergebnis/classy/branch/master/graph/badge.svg)](https://codecov.io/gh/ergebnis/classy)
 [![Type Coverage](https://shepherd.dev/github/ergebnis/classy/coverage.svg)](https://shepherd.dev/github/ergebnis/classy)
@@ -94,5 +96,4 @@ Please have a look at [`LICENSE.md`](LICENSE.md).
 
 ## Credits
 
-The algorithm for finding classes in PHP files in [`Constructs`](src/Constructs.php) has
-been adopted from [`Zend\File\ClassFileLocator`](https://github.com/zendframework/zend-file/blob/release-2.7.1/src/ClassFileLocator.php) (originally licensed under BSD-3-Clause).
+The algorithm for finding classes in PHP files in [`Constructs`](src/Constructs.php) has been adopted from [`Zend\File\ClassFileLocator`](https://github.com/zendframework/zend-file/blob/release-2.7.1/src/ClassFileLocator.php) (originally licensed under BSD-3-Clause).
