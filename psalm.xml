@@ -20,8 +20,8 @@
         <directory name="src/" />
         <directory name="test/" />
         <ignoreFiles>
-            <directory name="test/Fixture" />
-            <directory name="vendor" />
+            <directory name="test/Fixture/" />
+            <directory name="vendor/" />
         </ignoreFiles>
     </projectFiles>
 </psalm>
