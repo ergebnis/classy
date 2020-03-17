@@ -32,10 +32,10 @@ $config->getFinder()
     ->ignoreDotFiles(false)
     ->in(__DIR__)
     ->exclude([
-        '.build',
-        '.dependabot',
-        '.github',
-        'test/Fixture',
+        '.build/',
+        '.dependabot/',
+        '.github/',
+        'test/Fixture/',
     ])
     ->name('.php_cs');
 
