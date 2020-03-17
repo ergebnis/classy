@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Ergebnis\Classy\Test\Unit;
 
 use Ergebnis\Classy\Construct;
-use Localheinz\Test\Util\Helper;
+use Ergebnis\Test\Util\Helper;
 use PHPUnit\Framework;
 
 /**
@@ -28,7 +28,7 @@ final class ConstructTest extends Framework\TestCase
 
     public function testFromNameReturnsConstruct(): void
     {
-        $name = $this->faker()->word;
+        $name = self::faker()->word;
 
         $construct = Construct::fromName($name);
 
@@ -38,7 +38,7 @@ final class ConstructTest extends Framework\TestCase
 
     public function testDefaults(): void
     {
-        $construct = Construct::fromName($this->faker()->word);
+        $construct = Construct::fromName(self::faker()->word);
 
         self::assertIsArray($construct->fileNames());
         self::assertCount(0, $construct->fileNames());
@@ -46,7 +46,7 @@ final class ConstructTest extends Framework\TestCase
 
     public function testToStringReturnsName(): void
     {
-        $name = $this->faker()->word;
+        $name = self::faker()->word;
 
         $construct = Construct::fromName($name);
 
@@ -55,7 +55,7 @@ final class ConstructTest extends Framework\TestCase
 
     public function testDefinedInClonesInstanceAndAddsFileNames(): void
     {
-        $faker = $this->faker();
+        $faker = self::faker();
 
         $name = $faker->word;
 

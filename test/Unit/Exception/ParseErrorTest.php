@@ -15,7 +15,7 @@ namespace Ergebnis\Classy\Test\Unit\Exception;
 
 use Ergebnis\Classy\Exception\ExceptionInterface;
 use Ergebnis\Classy\Exception\ParseError;
-use Localheinz\Test\Util\Helper;
+use Ergebnis\Test\Util\Helper;
 use PHPUnit\Framework;
 
 /**
@@ -29,7 +29,7 @@ final class ParseErrorTest extends Framework\TestCase
 
     public function testFromParseErrorReturnsException(): void
     {
-        $parseError = new \ParseError($this->faker()->sentence());
+        $parseError = new \ParseError(self::faker()->sentence());
 
         $exception = ParseError::fromParseError($parseError);
 
@@ -44,7 +44,7 @@ final class ParseErrorTest extends Framework\TestCase
     public function testFromFileNameAndParseErrorReturnsException(): void
     {
         $fileName = __FILE__;
-        $parseError = new \ParseError($this->faker()->sentence());
+        $parseError = new \ParseError(self::faker()->sentence());
 
         $exception = ParseError::fromFileNameAndParseError(
             $fileName,
