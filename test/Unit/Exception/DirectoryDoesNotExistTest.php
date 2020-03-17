@@ -15,7 +15,7 @@ namespace Ergebnis\Classy\Test\Unit\Exception;
 
 use Ergebnis\Classy\Exception\DirectoryDoesNotExist;
 use Ergebnis\Classy\Exception\ExceptionInterface;
-use Localheinz\Test\Util\Helper;
+use Ergebnis\Test\Util\Helper;
 use PHPUnit\Framework;
 
 /**
@@ -29,7 +29,7 @@ final class DirectoryDoesNotExistTest extends Framework\TestCase
 
     public function testFromDirectoryReturnsException(): void
     {
-        $directory = $this->faker()->sentence;
+        $directory = self::faker()->sentence;
 
         $exception = DirectoryDoesNotExist::fromDirectory($directory);
 

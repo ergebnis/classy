@@ -16,7 +16,7 @@ namespace Ergebnis\Classy\Test\Unit\Exception;
 use Ergebnis\Classy\Construct;
 use Ergebnis\Classy\Exception\ExceptionInterface;
 use Ergebnis\Classy\Exception\MultipleDefinitionsFound;
-use Localheinz\Test\Util\Helper;
+use Ergebnis\Test\Util\Helper;
 use PHPUnit\Framework;
 
 /**
