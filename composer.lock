@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4eb29b0532973ed5283a8365332290b6",
+    "content-hash": "2cc116a065f59521035b838a43777199",
     "packages": [],
     "packages-dev": [
         {
@@ -615,24 +615,6 @@
                 "normalizer",
                 "plugin"
             ],
-            "funding": [
-                {
-                    "url": "https://paypal.me/localheinz",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://www.amazon.de/hz/wishlist/ls/2NCHMSJ4BC1OW",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://www.buymeacoffee.com/localheinz",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/localheinz",
-                    "type": "github"
-                }
-            ],
             "time": "2020-03-13T20:09:01+00:00"
         },
         {
@@ -930,24 +912,6 @@
                 "phpstan-extreme-rules",
                 "phpstan-rules"
             ],
-            "funding": [
-                {
-                    "url": "https://paypal.me/localheinz",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://www.amazon.de/hz/wishlist/ls/2NCHMSJ4BC1OW",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://www.buymeacoffee.com/localheinz",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/localheinz",
-                    "type": "github"
-                }
-            ],
             "time": "2020-03-13T20:00:07+00:00"
         },
         {
@@ -1007,20 +971,6 @@
                 "faker",
                 "phpunit",
                 "test"
-            ],
-            "funding": [
-                {
-                    "url": "http://paypal.me/localheinz",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://www.buymeacoffee.com/localheinz",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/localheinz",
-                    "type": "github"
-                }
             ],
             "time": "2020-03-11T11:08:49+00:00"
         },
@@ -2744,16 +2694,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "0.12.16",
+            "version": "0.12.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "766dd42f741faa174391e8888babeb5150fcde8d"
+                "reference": "b2c37bda79fdb11d801ce208ce391cffc0f572e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/766dd42f741faa174391e8888babeb5150fcde8d",
-                "reference": "766dd42f741faa174391e8888babeb5150fcde8d",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/b2c37bda79fdb11d801ce208ce391cffc0f572e6",
+                "reference": "b2c37bda79fdb11d801ce208ce391cffc0f572e6",
                 "shasum": ""
             },
             "require": {
@@ -2779,21 +2729,7 @@
                 "MIT"
             ],
             "description": "PHPStan - PHP Static Analysis Tool",
-            "funding": [
-                {
-                    "url": "https://github.com/ondrejmirtes",
-                    "type": "github"
-                },
-                {
-                    "url": "https://www.patreon.com/phpstan",
-                    "type": "patreon"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/phpstan/phpstan",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2020-03-17T14:31:10+00:00"
+            "time": "2020-03-17T15:39:11+00:00"
         },
         {
             "name": "phpstan/phpstan-deprecation-rules",
@@ -5364,6 +5300,5 @@
     "platform-dev": [],
     "platform-overrides": {
         "php": "7.1.33"
-    },
-    "plugin-api-version": "1.1.0"
+    }
 }
