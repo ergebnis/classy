@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="3.9.5@0cfe565d0afbcd31eadcc281b9017b5692911661">
+<files psalm-version="3.11.2@d470903722cfcbc1cd04744c5491d3e6d13ec3d9">
   <file src="src/Constructs.php">
     <LoopInvalidation occurrences="2">
       <code>$index</code>
@@ -41,12 +41,14 @@
     </MixedInferredReturnType>
   </file>
   <file src="test/Unit/Exception/DirectoryDoesNotExistTest.php">
-    <RedundantConditionGivenDocblockType occurrences="1">
+    <RedundantConditionGivenDocblockType occurrences="2">
+      <code>assertInstanceOf</code>
       <code>assertInstanceOf</code>
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="test/Unit/Exception/MultipleDefinitionsFoundTest.php">
-    <RedundantConditionGivenDocblockType occurrences="1">
+    <RedundantConditionGivenDocblockType occurrences="2">
+      <code>assertInstanceOf</code>
       <code>assertInstanceOf</code>
     </RedundantConditionGivenDocblockType>
   </file>
@@ -55,10 +57,17 @@
       <code>assertInstanceOf</code>
       <code>assertInstanceOf</code>
     </RedundantCondition>
+    <RedundantConditionGivenDocblockType occurrences="2">
+      <code>assertInstanceOf</code>
+      <code>assertInstanceOf</code>
+    </RedundantConditionGivenDocblockType>
   </file>
   <file src="test/Unit/Exception/ShouldNotHappenTest.php">
     <RedundantCondition occurrences="1">
       <code>assertInstanceOf</code>
     </RedundantCondition>
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>assertInstanceOf</code>
+    </RedundantConditionGivenDocblockType>
   </file>
 </files>
