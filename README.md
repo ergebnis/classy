@@ -1,11 +1,11 @@
 # classy
 
-[![Integrate](https://github.com/ergebnis/classy/workflows/Integrate/badge.svg?branch=master)](https://github.com/ergebnis/classy/actions)
-[![Prune](https://github.com/ergebnis/classy/workflows/Prune/badge.svg?branch=master)](https://github.com/ergebnis/classy/actions)
-[![Release](https://github.com/ergebnis/classy/workflows/Release/badge.svg?branch=master)](https://github.com/ergebnis/classy/actions)
-[![Renew](https://github.com/ergebnis/classy/workflows/Renew/badge.svg?branch=master)](https://github.com/ergebnis/classy/actions)
+[![Integrate](https://github.com/ergebnis/classy/workflows/Integrate/badge.svg?branch=main)](https://github.com/ergebnis/classy/actions)
+[![Prune](https://github.com/ergebnis/classy/workflows/Prune/badge.svg?branch=main)](https://github.com/ergebnis/classy/actions)
+[![Release](https://github.com/ergebnis/classy/workflows/Release/badge.svg?branch=main)](https://github.com/ergebnis/classy/actions)
+[![Renew](https://github.com/ergebnis/classy/workflows/Renew/badge.svg?branch=main)](https://github.com/ergebnis/classy/actions)
 
-[![Code Coverage](https://codecov.io/gh/ergebnis/classy/branch/master/graph/badge.svg)](https://codecov.io/gh/ergebnis/classy)
+[![Code Coverage](https://codecov.io/gh/ergebnis/classy/branch/main/graph/badge.svg)](https://codecov.io/gh/ergebnis/classy)
 [![Type Coverage](https://shepherd.dev/github/ergebnis/classy/coverage.svg)](https://shepherd.dev/github/ergebnis/classy)
 
 [![Latest Stable Version](https://poser.pugx.org/ergebnis/classy/v/stable)](https://packagist.org/packages/ergebnis/classy)
@@ -86,7 +86,7 @@ Please have a look at [`CONTRIBUTING.md`](.github/CONTRIBUTING.md).
 
 ## Code of Conduct
 
-Please have a look at [`CODE_OF_CONDUCT.md`](https://github.com/ergebnis/.github/blob/master/CODE_OF_CONDUCT.md).
+Please have a look at [`CODE_OF_CONDUCT.md`](https://github.com/ergebnis/.github/blob/main/CODE_OF_CONDUCT.md).
 
 ## License
 
