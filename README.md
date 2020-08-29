@@ -17,10 +17,9 @@ Provides a finder for classy constructs (classes, interfaces, and traits).
 
 Run
 
-```
+```sh
 $ composer require ergebnis/classy
 ```
-
 
 ## Usage
 
