@@ -1,5 +1,5 @@
-MIN_COVERED_MSI:=88
-MIN_MSI:=88
+MIN_COVERED_MSI:=89
+MIN_MSI:=87
 
 .PHONY: it
 it: coding-standards static-code-analysis tests ## Runs the coding-standards, static-code-analysis, and tests targets
@@ -11,14 +11,15 @@ code-coverage: vendor ## Collects coverage from running unit tests with phpunit/
 	vendor/bin/phpunit --configuration=test/Unit/phpunit.xml --coverage-text --prepend=.build/phpunit/xdebug-filter.php
 
 .PHONY: coding-standards
-coding-standards: vendor ## Lints YAML files with yamllint and fixes code style issues with friendsofphp/php-cs-fixer
+coding-standards: vendor ## Normalizes composer.json with ergebnis/composer-normalize, lints YAML files with yamllint and fixes code style issues with friendsofphp/php-cs-fixer
+	composer normalize
 	yamllint -c .yamllint.yaml --strict .
 	mkdir -p .build/php-cs-fixer
 	vendor/bin/php-cs-fixer fix --config=.php_cs --diff --diff-format=udiff --verbose
 
 .PHONY: dependency-analysis
 dependency-analysis: vendor ## Runs a dependency analysis with maglnet/composer-require-checker
-	tools/composer-require-checker check
+	tools/composer-require-checker check --config-file=$(shell pwd)/composer-require-checker.json
 
 .PHONY: help
 help: ## Displays this list of targets with descriptions
@@ -32,7 +33,7 @@ mutation-tests: vendor ## Runs mutation tests with infection/infection
 .PHONY: static-code-analysis
 static-code-analysis: vendor ## Runs a static code analysis with phpstan/phpstan and vimeo/psalm
 	mkdir -p .build/phpstan
-	vendor/bin/phpstan analyse --configuration=phpstan.neon
+	vendor/bin/phpstan analyse --configuration=phpstan.neon --memory-limit=-1
 	mkdir -p .build/psalm
 	vendor/bin/psalm --config=psalm.xml --diff --diff-methods --show-info=false --stats --threads=4
 
@@ -40,7 +41,7 @@ static-code-analysis: vendor ## Runs a static code analysis with phpstan/phpstan
 static-code-analysis-baseline: vendor ## Generates a baseline for static code analysis with phpstan/phpstan and vimeo/psalm
 	mkdir -p .build/phpstan
 	echo '' > phpstan-baseline.neon
-	vendor/bin/phpstan analyze --configuration=phpstan.neon --error-format=baselineNeon > phpstan-baseline.neon || true
+	vendor/bin/phpstan analyze --configuration=phpstan.neon --error-format=baselineNeon --memory-limit=-1 > phpstan-baseline.neon || true
 	mkdir -p .build/psalm
 	vendor/bin/psalm --config=psalm.xml --set-baseline=psalm-baseline.xml
 
@@ -54,4 +55,3 @@ tests: vendor ## Runs auto-review, unit, and integration tests with phpunit/phpu
 vendor: composer.json composer.lock
 	composer validate --strict
 	composer install --no-interaction --no-progress --no-suggest
-	composer normalize
