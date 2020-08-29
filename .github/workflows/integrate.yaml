@@ -60,7 +60,7 @@ jobs:
           restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
 
       - name: "Set COMPOSER_ROOT_VERSION environment variable"
-        uses: "docker://ergebnis/composer-root-version-action:0.1.3"
+        uses: "docker://ergebnis/composer-root-version-action:0.2.0"
 
       - name: "Install lowest dependencies from composer.json"
         if: "matrix.dependencies == 'lowest'"
@@ -126,7 +126,7 @@ jobs:
           restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
 
       - name: "Set COMPOSER_ROOT_VERSION environment variable"
-        uses: "docker://ergebnis/composer-root-version-action:0.1.3"
+        uses: "docker://ergebnis/composer-root-version-action:0.2.0"
 
       - name: "Install lowest dependencies from composer.json"
         if: "matrix.dependencies == 'lowest'"
@@ -179,7 +179,7 @@ jobs:
           restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
 
       - name: "Set COMPOSER_ROOT_VERSION environment variable"
-        uses: "docker://ergebnis/composer-root-version-action:0.1.3"
+        uses: "docker://ergebnis/composer-root-version-action:0.2.0"
 
       - name: "Install lowest dependencies from composer.json"
         if: "matrix.dependencies == 'lowest'"
@@ -260,7 +260,7 @@ jobs:
           restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
 
       - name: "Set COMPOSER_ROOT_VERSION environment variable"
-        uses: "docker://ergebnis/composer-root-version-action:0.1.3"
+        uses: "docker://ergebnis/composer-root-version-action:0.2.0"
 
       - name: "Install lowest dependencies from composer.json"
         if: "matrix.dependencies == 'lowest'"
@@ -319,7 +319,7 @@ jobs:
           restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
 
       - name: "Set COMPOSER_ROOT_VERSION environment variable"
-        uses: "docker://ergebnis/composer-root-version-action:0.1.3"
+        uses: "docker://ergebnis/composer-root-version-action:0.2.0"
 
       - name: "Install lowest dependencies from composer.json"
         if: "matrix.dependencies == 'lowest'"
@@ -380,7 +380,7 @@ jobs:
           restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
 
       - name: "Set COMPOSER_ROOT_VERSION environment variable"
-        uses: "docker://ergebnis/composer-root-version-action:0.1.3"
+        uses: "docker://ergebnis/composer-root-version-action:0.2.0"
 
       - name: "Install lowest dependencies from composer.json"
         if: "matrix.dependencies == 'lowest'"
