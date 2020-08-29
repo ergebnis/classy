@@ -6,7 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`0.5.2...main`][0.5.2...main].
+For a full diff see [`0.5.3...main`][0.5.3...main].
+
+## [`0.5.3`][0.5.3]
+
+For a full diff see [`0.5.2...0.5.3`][0.5.2...0.5.3].
+
+### Changed
+
+* Dropped support for PHP 7.1 ([#231]), by [@localheinz]
 
 ## [`0.5.2`][0.5.2]
 
@@ -69,16 +77,19 @@ For a full diff see [`0.4.0...0.5.0`][0.4.0...0.5.0].
 [0.5.0]: https://github.com/localheinz/ergebnis/classy/releases/tag/0.5.0
 [0.5.1]: https://github.com/localheinz/ergebnis/classy/releases/tag/0.5.1
 [0.5.2]: https://github.com/localheinz/ergebnis/classy/releases/tag/0.5.2
+[0.5.3]: https://github.com/localheinz/ergebnis/classy/releases/tag/0.5.3
 
 [0.4.0...0.5.0]: https://github.com/ergebnis/classy/compare/0.4.0...0.5.0
 [0.5.0...0.5.1]: https://github.com/ergebnis/classy/compare/0.5.0...0.5.1
 [0.5.1...0.5.2]: https://github.com/ergebnis/classy/compare/0.5.1...0.5.2
-[0.5.2...main]: https://github.com/ergebnis/classy/compare/0.5.2...main
+[0.5.2...0.5.3]: https://github.com/ergebnis/classy/compare/0.5.2...0.5.3
+[0.5.3...main]: https://github.com/ergebnis/classy/compare/0.5.3...main
 
 [#77]: https://github.com/ergebnis/classy/pull/77
 [#88]: https://github.com/ergebnis/classy/pull/88
 [#100]: https://github.com/ergebnis/classy/pull/100
 [#103]: https://github.com/ergebnis/classy/pull/103
+[#231]: https://github.com/ergebnis/classy/pull/231
 
 [@ergebnis]: https://github.com/ergebnis
 [@localheinz]: https://github.com/localheinz
