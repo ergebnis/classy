@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a4c81115c45002fd6b3080969b181dba",
+    "content-hash": "2e00b3f2b3a7cd5316407bb440eca6d6",
     "packages": [],
     "packages-dev": [
         {
@@ -916,16 +916,16 @@
         },
         {
             "name": "ergebnis/phpstan-rules",
-            "version": "0.15.0",
+            "version": "0.15.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/phpstan-rules.git",
-                "reference": "f0c49d0efdaebd9e663e9e5637253ebcc41048d7"
+                "reference": "e6e2bbf0edd7f78b26dfd72daa01d28500ad3e6c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/phpstan-rules/zipball/f0c49d0efdaebd9e663e9e5637253ebcc41048d7",
-                "reference": "f0c49d0efdaebd9e663e9e5637253ebcc41048d7",
+                "url": "https://api.github.com/repos/ergebnis/phpstan-rules/zipball/e6e2bbf0edd7f78b26dfd72daa01d28500ad3e6c",
+                "reference": "e6e2bbf0edd7f78b26dfd72daa01d28500ad3e6c",
                 "shasum": ""
             },
             "require": {
@@ -935,18 +935,18 @@
                 "phpstan/phpstan": "~0.11.15 || ~0.12.0"
             },
             "require-dev": {
-                "ergebnis/composer-normalize": "^2.5.1",
-                "ergebnis/license": "~1.0.0",
-                "ergebnis/php-cs-fixer-config": "^2.1.2",
-                "ergebnis/test-util": "~1.0.0",
+                "ergebnis/composer-normalize": "^2.6.1",
+                "ergebnis/license": "^1.0.0",
+                "ergebnis/php-cs-fixer-config": "^2.2.1",
+                "ergebnis/test-util": "^1.0.0",
                 "infection/infection": "~0.13.6",
                 "nette/di": "^3.0.1",
                 "phpstan/phpstan-deprecation-rules": "~0.11.2",
                 "phpstan/phpstan-strict-rules": "~0.11.1",
                 "phpunit/phpunit": "^7.5.20",
-                "psalm/plugin-phpunit": "~0.10.0",
+                "psalm/plugin-phpunit": "~0.10.1",
                 "psr/container": "^1.0.0",
-                "vimeo/psalm": "^3.11.2",
+                "vimeo/psalm": "^3.13.1",
                 "zendframework/zend-servicemanager": "^2.0.0"
             },
             "type": "phpstan-extension",
@@ -981,23 +981,11 @@
             ],
             "funding": [
                 {
-                    "url": "https://paypal.me/localheinz",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://www.amazon.de/hz/wishlist/ls/2NCHMSJ4BC1OW",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://www.buymeacoffee.com/localheinz",
-                    "type": "custom"
-                },
-                {
                     "url": "https://github.com/localheinz",
                     "type": "github"
                 }
             ],
-            "time": "2020-05-10T18:39:28+00:00"
+            "time": "2020-07-31T18:01:05+00:00"
         },
         {
             "name": "ergebnis/test-util",
@@ -1774,16 +1762,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v4.4.0",
+            "version": "v4.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "bd43ec7152eaaab3bd8c6d0aa95ceeb1df8ee120"
+                "reference": "aaee038b912e567780949787d5fe1977be11a778"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/bd43ec7152eaaab3bd8c6d0aa95ceeb1df8ee120",
-                "reference": "bd43ec7152eaaab3bd8c6d0aa95ceeb1df8ee120",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/aaee038b912e567780949787d5fe1977be11a778",
+                "reference": "aaee038b912e567780949787d5fe1977be11a778",
                 "shasum": ""
             },
             "require": {
@@ -1791,8 +1779,8 @@
                 "php": ">=7.0"
             },
             "require-dev": {
-                "ircmaxell/php-yacc": "0.0.5",
-                "phpunit/phpunit": "^6.5 || ^7.0 || ^8.0"
+                "ircmaxell/php-yacc": "^0.0.7",
+                "phpunit/phpunit": "^6.5 || ^7.0 || ^8.0 || ^9.0"
             },
             "bin": [
                 "bin/php-parse"
@@ -1800,7 +1788,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.3-dev"
+                    "dev-master": "4.9-dev"
                 }
             },
             "autoload": {
@@ -1822,7 +1810,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2020-04-10T16:34:50+00:00"
+            "time": "2020-08-18T19:48:01+00:00"
         },
         {
             "name": "ocramius/package-versions",
