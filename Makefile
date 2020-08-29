@@ -1,3 +1,4 @@
+COMPOSER_ROOT_VERSION:=1.0-dev
 MIN_COVERED_MSI:=89
 MIN_MSI:=87
 
@@ -54,4 +55,4 @@ tests: vendor ## Runs auto-review, unit, and integration tests with phpunit/phpu
 
 vendor: composer.json composer.lock
 	composer validate --strict
-	composer install --no-interaction --no-progress --no-suggest
+	COMPOSER_ROOT_VERSION=${COMPOSER_ROOT_VERSION} composer install --no-interaction --no-progress --no-suggest
