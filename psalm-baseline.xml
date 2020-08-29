@@ -1,19 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="3.11.2@d470903722cfcbc1cd04744c5491d3e6d13ec3d9">
+<files psalm-version="3.14.2@3538fe1955d47f6ee926c0769d71af6db08aa488">
   <file src="src/Constructs.php">
-    <LoopInvalidation occurrences="2">
-      <code>$index</code>
-      <code>$index</code>
-    </LoopInvalidation>
     <MixedAssignment occurrences="1">
       <code>$fileInfo</code>
     </MixedAssignment>
-    <MixedMethodCall occurrences="4">
-      <code>isFile</code>
-      <code>getBasename</code>
-      <code>getBasename</code>
-      <code>getRealPath</code>
-    </MixedMethodCall>
   </file>
   <file src="src/Exception/DirectoryDoesNotExist.php">
     <MissingConstructor occurrences="1">
@@ -26,10 +16,12 @@
     </MissingConstructor>
   </file>
   <file src="test/Unit/ConstructTest.php">
-    <RedundantConditionGivenDocblockType occurrences="2">
+    <RedundantCondition occurrences="4">
       <code>assertInstanceOf</code>
+      <code>assertIsArray</code>
       <code>assertInstanceOf</code>
-    </RedundantConditionGivenDocblockType>
+      <code>assertIsArray</code>
+    </RedundantCondition>
     <TooManyArguments occurrences="1"/>
   </file>
   <file src="test/Unit/ConstructsTest.php">
@@ -41,14 +33,18 @@
     </MixedInferredReturnType>
   </file>
   <file src="test/Unit/Exception/DirectoryDoesNotExistTest.php">
-    <RedundantConditionGivenDocblockType occurrences="2">
+    <RedundantCondition occurrences="1">
       <code>assertInstanceOf</code>
+    </RedundantCondition>
+    <RedundantConditionGivenDocblockType occurrences="1">
       <code>assertInstanceOf</code>
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="test/Unit/Exception/MultipleDefinitionsFoundTest.php">
-    <RedundantConditionGivenDocblockType occurrences="2">
+    <RedundantCondition occurrences="1">
       <code>assertInstanceOf</code>
+    </RedundantCondition>
+    <RedundantConditionGivenDocblockType occurrences="1">
       <code>assertInstanceOf</code>
     </RedundantConditionGivenDocblockType>
   </file>
