@@ -275,7 +275,7 @@ jobs:
       - name: "Install PHP with extensions"
         uses: "shivammathur/setup-php@2.4.3"
         with:
-          coverage: "xdebug"
+          coverage: "pcov"
           extensions: "${{ env.PHP_EXTENSIONS }}"
           php-version: "${{ matrix.php-version }}"
 
@@ -300,11 +300,8 @@ jobs:
         with:
           dependencies: "${{ matrix.dependencies }}"
 
-      - name: "Dump Xdebug filter with phpunit/phpunit"
-        run: "vendor/bin/phpunit --configuration=test/Unit/phpunit.xml --dump-xdebug-filter=.build/phpunit/xdebug-filter.php"
-
-      - name: "Collect code coverage with Xdebug and phpunit/phpunit"
-        run: "vendor/bin/phpunit --configuration=test/Unit/phpunit.xml --coverage-clover=.build/logs/clover.xml --prepend=.build/phpunit/xdebug-filter.php"
+      - name: "Collect code coverage with pcov and phpunit/phpunit"
+        run: "vendor/bin/phpunit --configuration=test/Unit/phpunit.xml --coverage-clover=.build/logs/clover.xml"
 
       - name: "Send code coverage report to Codecov.io"
         env:
@@ -331,7 +328,7 @@ jobs:
       - name: "Install PHP with extensions"
         uses: "shivammathur/setup-php@2.4.3"
         with:
-          coverage: "xdebug"
+          coverage: "pcov"
           extensions: "${{ env.PHP_EXTENSIONS }}"
           php-version: "${{ matrix.php-version }}"
 
@@ -353,7 +350,7 @@ jobs:
         with:
           dependencies: "${{ matrix.dependencies }}"
 
-      - name: "Run mutation tests with Xdebug and infection/infection"
+      - name: "Run mutation tests with pcov and infection/infection"
         run: "vendor/bin/infection --ignore-msi-with-no-mutations --min-covered-msi=${{ env.MIN_COVERED_MSI }} --min-msi=${{ env.MIN_MSI }}"
 
   merge:
