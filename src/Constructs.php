@@ -40,6 +40,14 @@ final class Constructs
         $count = \count($sequence);
         $namespacePrefix = '';
 
+        $namespaceSegmentOrNamespaceToken = \T_STRING;
+
+        // https://wiki.php.net/rfc/namespaced_names_as_token
+        if (\PHP_VERSION_ID >= 80000 && \defined('T_NAME_QUALIFIED')) {
+            /** @var int $namespaceSegmentOrNamespaceToken */
+            $namespaceSegmentOrNamespaceToken = T_NAME_QUALIFIED;
+        }
+
         for ($index = 0; $index < $count; ++$index) {
             $token = $sequence[$index];
 
@@ -51,7 +59,7 @@ final class Constructs
                 for ($index = self::significantAfter($index, $sequence, $count); $index < $count; ++$index) {
                     $token = $sequence[$index];
 
-                    if (\is_array($token) && \T_STRING !== $token[0]) {
+                    if (\is_array($token) && $namespaceSegmentOrNamespaceToken !== $token[0]) {
                         continue;
                     }
 
