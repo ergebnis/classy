@@ -23,6 +23,10 @@ For a full diff see [`1.0.0...1.0.1`][1.0.0...1.0.1].
 ### Changed
 
 * Dropped support for PHP 7.1 ([#231]), by [@localheinz]
+*
+## [`1.0.0`][1.0.0]
+
+For a full diff see [`0.5.2...1.0.0`][0.5.2...1.0.0].
 
 ## [`0.5.2`][0.5.2]
 
@@ -85,12 +89,14 @@ For a full diff see [`0.4.0...0.5.0`][0.4.0...0.5.0].
 [0.5.0]: https://github.com/localheinz/ergebnis/classy/releases/tag/0.5.0
 [0.5.1]: https://github.com/localheinz/ergebnis/classy/releases/tag/0.5.1
 [0.5.2]: https://github.com/localheinz/ergebnis/classy/releases/tag/0.5.2
+[1.0.0]: https://github.com/localheinz/ergebnis/classy/releases/tag/1.0.0
 [1.0.1]: https://github.com/localheinz/ergebnis/classy/releases/tag/1.0.1
 [1.1.0]: https://github.com/localheinz/ergebnis/classy/releases/tag/1.1.0
 
 [0.4.0...0.5.0]: https://github.com/ergebnis/classy/compare/0.4.0...0.5.0
 [0.5.0...0.5.1]: https://github.com/ergebnis/classy/compare/0.5.0...0.5.1
 [0.5.1...0.5.2]: https://github.com/ergebnis/classy/compare/0.5.1...0.5.2
+[0.5.2...1.0.0]: https://github.com/ergebnis/classy/compare/0.5.2...1.0.0
 [1.0.0...1.0.1]: https://github.com/ergebnis/classy/compare/1.0.0...1.0.1
 [1.0.1...1.1.0]: https://github.com/ergebnis/classy/compare/1.0.1...1.1.0
 [1.1.0...main]: https://github.com/ergebnis/classy/compare/1.1.0...main
