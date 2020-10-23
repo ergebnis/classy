@@ -18,8 +18,6 @@ final class Constructs
     /**
      * Returns an array of names of classy constructs (classes, interfaces, traits) found in source.
      *
-     * @param string $source
-     *
      * @throws Exception\ParseError
      *
      * @return Construct[]
@@ -111,8 +109,6 @@ final class Constructs
     /**
      * Returns an array of constructs defined in a directory.
      *
-     * @param string $directory
-     *
      * @throws Exception\DirectoryDoesNotExist
      * @throws Exception\MultipleDefinitionsFound
      *
@@ -192,11 +188,7 @@ final class Constructs
     /**
      * Returns the index of the significant token after the index.
      *
-     * @param int                                                 $index
      * @param array<int, array{0: int, 1: string, 2: int}|string> $sequence
-     * @param int                                                 $count
-     *
-     * @return int
      */
     private static function significantAfter(int $index, array $sequence, int $count): int
     {
@@ -216,10 +208,7 @@ final class Constructs
     /**
      * Returns the index of the significant token after the index.
      *
-     * @param int                                                 $index
      * @param array<int, array{0: int, 1: string, 2: int}|string> $sequence
-     *
-     * @return int
      */
     private static function significantBefore(int $index, array $sequence): int
     {
@@ -240,8 +229,6 @@ final class Constructs
      * Returns the string content of a token.
      *
      * @param array{0: int, 1: string, 2: int}|string $token
-     *
-     * @return string
      */
     private static function content($token): string
     {

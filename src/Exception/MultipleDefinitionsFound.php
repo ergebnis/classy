@@ -26,8 +26,6 @@ final class MultipleDefinitionsFound extends \RuntimeException implements Except
      * Returns a new exception from constructs.
      *
      * @param Construct[] $constructs
-     *
-     * @return self
      */
     public static function fromConstructs(array $constructs): self
     {
