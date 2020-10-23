@@ -32,8 +32,6 @@ final class Construct
 
     /**
      * Returns a string representation of the construct.
-     *
-     * @return string
      */
     public function __toString(): string
     {
@@ -42,10 +40,6 @@ final class Construct
 
     /**
      * Creates a new construct from a construct name.
-     *
-     * @param string $name
-     *
-     * @return self
      */
     public static function fromName(string $name): self
     {
@@ -54,8 +48,6 @@ final class Construct
 
     /**
      * Returns the name of the construct.
-     *
-     * @return string
      */
     public function name(): string
     {
@@ -76,8 +68,6 @@ final class Construct
      * Clones the construct and adds the file name to the list of files the construct is defined in.
      *
      * @param string ...$fileNames
-     *
-     * @return self
      */
     public function definedIn(string ...$fileNames): self
     {

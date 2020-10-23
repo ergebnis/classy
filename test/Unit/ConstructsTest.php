@@ -57,8 +57,6 @@ final class ConstructsTest extends Framework\TestCase
 
     /**
      * @dataProvider provideSourceWithoutClassyConstructs
-     *
-     * @param string $source
      */
     public function testFromSourceReturnsEmptyArrayIfNoClassyConstructsHaveBeenFound(string $source): void
     {
@@ -89,7 +87,6 @@ final class ConstructsTest extends Framework\TestCase
     /**
      * @dataProvider provideSourceWithClassyConstructs
      *
-     * @param string   $source
      * @param string[] $constructs
      */
     public function testFromSourceReturnsArrayOfClassyConstructsSortedByName(string $source, array $constructs): void
@@ -139,8 +136,6 @@ final class ConstructsTest extends Framework\TestCase
 
     /**
      * @dataProvider provideDirectoryWithoutClassyConstructs
-     *
-     * @param string $directory
      */
     public function testFromDirectoryReturnsEmptyArrayIfNoClassyConstructsHaveBeenFound(string $directory): void
     {
@@ -162,7 +157,6 @@ final class ConstructsTest extends Framework\TestCase
     /**
      * @dataProvider provideDirectoryWithClassyConstructs
      *
-     * @param string   $directory
      * @param string[] $classyConstructs
      */
     public function testFromDirectoryReturnsArrayOfClassyConstructsSortedByName(string $directory, array $classyConstructs = []): void

@@ -22,10 +22,6 @@ final class DirectoryDoesNotExist extends \InvalidArgumentException implements E
 
     /**
      * Returns a new exception from a directory.
-     *
-     * @param string $directory
-     *
-     * @return self
      */
     public static function fromDirectory(string $directory): self
     {
@@ -41,8 +37,6 @@ final class DirectoryDoesNotExist extends \InvalidArgumentException implements E
 
     /**
      * Returns the directory.
-     *
-     * @return string
      */
     public function directory(): string
     {
