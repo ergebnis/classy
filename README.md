@@ -1,9 +1,9 @@
 # classy
 
-[![Integrate](https://github.com/ergebnis/classy/workflows/Integrate/badge.svg?branch=main)](https://github.com/ergebnis/classy/actions)
-[![Prune](https://github.com/ergebnis/classy/workflows/Prune/badge.svg?branch=main)](https://github.com/ergebnis/classy/actions)
-[![Release](https://github.com/ergebnis/classy/workflows/Release/badge.svg?branch=main)](https://github.com/ergebnis/classy/actions)
-[![Renew](https://github.com/ergebnis/classy/workflows/Renew/badge.svg?branch=main)](https://github.com/ergebnis/classy/actions)
+[![Integrate](https://github.com/ergebnis/classy/workflows/Integrate/badge.svg)](https://github.com/ergebnis/classy/actions)
+[![Prune](https://github.com/ergebnis/classy/workflows/Prune/badge.svg)](https://github.com/ergebnis/classy/actions)
+[![Release](https://github.com/ergebnis/classy/workflows/Release/badge.svg)](https://github.com/ergebnis/classy/actions)
+[![Renew](https://github.com/ergebnis/classy/workflows/Renew/badge.svg)](https://github.com/ergebnis/classy/actions)
 
 [![Code Coverage](https://codecov.io/gh/ergebnis/classy/branch/main/graph/badge.svg)](https://codecov.io/gh/ergebnis/classy)
 [![Type Coverage](https://shepherd.dev/github/ergebnis/classy/coverage.svg)](https://shepherd.dev/github/ergebnis/classy)
