@@ -9,7 +9,6 @@ on: # yamllint disable-line rule:truthy
       - "main"
 
 env:
-  ERGEBNIS_BOT_NAME: "ergebnis-bot"
   MIN_COVERED_MSI: 86
   MIN_MSI: 85
   PHP_EXTENSIONS: "mbstring, tokenizer"
