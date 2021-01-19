@@ -30,7 +30,7 @@
     "ergebnis/test-util": "^1.0.0",
     "infection/infection": "~0.15.3",
     "phpstan/extension-installer": "^1.1.0",
-    "phpstan/phpstan": "~0.12.67",
+    "phpstan/phpstan": "~0.12.68",
     "phpstan/phpstan-deprecation-rules": "~0.12.6",
     "phpstan/phpstan-strict-rules": "~0.12.9",
     "phpunit/phpunit": "^8.5.14",
