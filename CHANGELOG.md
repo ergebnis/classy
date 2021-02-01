@@ -6,7 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`1.1.0...main`][1.1.0...main].
+For a full diff see [`1.1.1...main`][1.1.1...main].
+
+## [`1.1.1`][1.1.1]
+
+For a full diff see [`1.1.0...1.1.1`][1.1.0...1.1.1].
+
+### Fixed
+
+* Determine classy names within namespace with single segment on PHP 8.0 ([#343]), by [@localheinz]
 
 ## [`1.1.0`][1.1.0]
 
@@ -92,6 +100,7 @@ For a full diff see [`0.4.0...0.5.0`][0.4.0...0.5.0].
 [1.0.0]: https://github.com/localheinz/ergebnis/classy/releases/tag/1.0.0
 [1.0.1]: https://github.com/localheinz/ergebnis/classy/releases/tag/1.0.1
 [1.1.0]: https://github.com/localheinz/ergebnis/classy/releases/tag/1.1.0
+[1.1.1]: https://github.com/localheinz/ergebnis/classy/releases/tag/1.1.1
 
 [0.4.0...0.5.0]: https://github.com/ergebnis/classy/compare/0.4.0...0.5.0
 [0.5.0...0.5.1]: https://github.com/ergebnis/classy/compare/0.5.0...0.5.1
@@ -99,7 +108,8 @@ For a full diff see [`0.4.0...0.5.0`][0.4.0...0.5.0].
 [0.5.2...1.0.0]: https://github.com/ergebnis/classy/compare/0.5.2...1.0.0
 [1.0.0...1.0.1]: https://github.com/ergebnis/classy/compare/1.0.0...1.0.1
 [1.0.1...1.1.0]: https://github.com/ergebnis/classy/compare/1.0.1...1.1.0
-[1.1.0...main]: https://github.com/ergebnis/classy/compare/1.1.0...main
+[1.1.0...1.1.1]: https://github.com/ergebnis/classy/compare/1.1.0...1.1.1
+[1.1.1...main]: https://github.com/ergebnis/classy/compare/1.1.1...main
 
 [#77]: https://github.com/ergebnis/classy/pull/77
 [#88]: https://github.com/ergebnis/classy/pull/88
@@ -107,6 +117,7 @@ For a full diff see [`0.4.0...0.5.0`][0.4.0...0.5.0].
 [#103]: https://github.com/ergebnis/classy/pull/103
 [#231]: https://github.com/ergebnis/classy/pull/231
 [#235]: https://github.com/ergebnis/classy/pull/235
+[#343]: https://github.com/ergebnis/classy/pull/343
 
 [@ergebnis]: https://github.com/ergebnis
 [@localheinz]: https://github.com/localheinz
