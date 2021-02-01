@@ -272,6 +272,14 @@ final class ConstructsTest extends Framework\TestCase
                     'Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinMultipleNamespaces\\Foo\\Foo',
                 ],
             ],
+            'within-namespace-with-single-segment' => [
+                __DIR__ . '/../Fixture/Classy/WithinNamespaceWithSingleSegment/source.php',
+                [
+                    'Ergebnis\\Bar',
+                    'Ergebnis\\Baz',
+                    'Ergebnis\\Foo',
+                ],
+            ],
             'with-methods-named-after-keywords' => [
                 __DIR__ . '/../Fixture/Classy/WithMethodsNamedAfterKeywords/source.php',
                 [
