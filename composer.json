@@ -58,7 +58,10 @@
   "autoload-dev": {
     "psr-4": {
       "Ergebnis\\Classy\\Test\\": "test/"
-    }
+    },
+    "classmap": [
+      "test/Fixture"
+    ]
   },
   "support": {
     "issues": "https://github.com/ergebnis/classy/issues",
