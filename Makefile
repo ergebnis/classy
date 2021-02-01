@@ -1,6 +1,6 @@
 COMPOSER_ROOT_VERSION:=1.0-dev
 MIN_COVERED_MSI:=86
-MIN_MSI:=85
+MIN_MSI:=84
 
 .PHONY: it
 it: coding-standards static-code-analysis tests ## Runs the coding-standards, static-code-analysis, and tests targets
