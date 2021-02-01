@@ -43,7 +43,7 @@ final class Constructs
         // https://wiki.php.net/rfc/namespaced_names_as_token
         if (\PHP_VERSION_ID >= 80000 && \defined('T_NAME_QUALIFIED')) {
             /** @var int $namespaceSegmentOrNamespaceToken */
-            $namespaceSegmentOrNamespaceToken = T_NAME_QUALIFIED;
+            $namespaceSegmentOrNamespaceToken = \T_NAME_QUALIFIED;
         }
 
         for ($index = 0; $index < $count; ++$index) {
