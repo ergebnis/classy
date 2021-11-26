@@ -39,7 +39,7 @@ jobs:
           strict: true
 
       - name: "Set up PHP"
-        uses: "shivammathur/setup-php@2.15.0"
+        uses: "shivammathur/setup-php@2.16.0"
         with:
           coverage: "none"
           extensions: "${{ env.PHP_EXTENSIONS }}"
@@ -100,7 +100,7 @@ jobs:
         uses: "actions/checkout@v2.4.0"
 
       - name: "Set up PHP"
-        uses: "shivammathur/setup-php@2.15.0"
+        uses: "shivammathur/setup-php@2.16.0"
         with:
           coverage: "none"
           extensions: "${{ env.PHP_EXTENSIONS }}"
@@ -145,7 +145,7 @@ jobs:
         uses: "actions/checkout@v2.4.0"
 
       - name: "Set up PHP"
-        uses: "shivammathur/setup-php@2.15.0"
+        uses: "shivammathur/setup-php@2.16.0"
         with:
           coverage: "none"
           extensions: "${{ env.PHP_EXTENSIONS }}"
@@ -218,7 +218,7 @@ jobs:
         uses: "actions/checkout@v2.4.0"
 
       - name: "Set up PHP"
-        uses: "shivammathur/setup-php@2.15.0"
+        uses: "shivammathur/setup-php@2.16.0"
         with:
           coverage: "none"
           extensions: "${{ env.PHP_EXTENSIONS }}"
@@ -272,7 +272,7 @@ jobs:
         uses: "actions/checkout@v2.4.0"
 
       - name: "Set up PHP"
-        uses: "shivammathur/setup-php@2.15.0"
+        uses: "shivammathur/setup-php@2.16.0"
         with:
           coverage: "xdebug"
           extensions: "${{ env.PHP_EXTENSIONS }}"
@@ -325,7 +325,7 @@ jobs:
         uses: "actions/checkout@v2.4.0"
 
       - name: "Set up PHP"
-        uses: "shivammathur/setup-php@2.15.0"
+        uses: "shivammathur/setup-php@2.16.0"
         with:
           coverage: "xdebug"
           extensions: "${{ env.PHP_EXTENSIONS }}"
