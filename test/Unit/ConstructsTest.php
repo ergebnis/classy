@@ -165,47 +165,47 @@ final class ConstructsTest extends Framework\TestCase
             Test\Util\Scenario::create(
                 'within-namespace',
                 __DIR__ . '/../Fixture/Classy/WithinNamespace/source.php',
-                Construct::fromName('Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespace\\Bar'),
-                Construct::fromName('Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespace\\Baz'),
-                Construct::fromName('Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespace\\Foo')
+                Construct::fromName(Test\Fixture\Classy\WithinNamespace\Bar::class),
+                Construct::fromName(Test\Fixture\Classy\WithinNamespace\Baz::class),
+                Construct::fromName(Test\Fixture\Classy\WithinNamespace\Foo::class)
             ),
             Test\Util\Scenario::create(
                 'within-namespace-and-shell-style-comments',
                 __DIR__ . '/../Fixture/Classy/WithinNamespaceAndShellStyleComments/source.php',
-                Construct::fromName('Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespaceAndShellStyleComments\\Bar'),
-                Construct::fromName('Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespaceAndShellStyleComments\\Baz'),
-                Construct::fromName('Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespaceAndShellStyleComments\\Foo')
+                Construct::fromName(Test\Fixture\Classy\WithinNamespaceAndShellStyleComments\Bar::class),
+                Construct::fromName(Test\Fixture\Classy\WithinNamespaceAndShellStyleComments\Baz::class),
+                Construct::fromName(Test\Fixture\Classy\WithinNamespaceAndShellStyleComments\Foo::class)
             ),
             Test\Util\Scenario::create(
                 'within-namespace-and-single-line-comments',
                 __DIR__ . '/../Fixture/Classy/WithinNamespaceAndSingleLineComments/source.php',
-                Construct::fromName('Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespaceAndSingleLineComments\\Bar'),
-                Construct::fromName('Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespaceAndSingleLineComments\\Baz'),
-                Construct::fromName('Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespaceAndSingleLineComments\\Foo')
+                Construct::fromName(Test\Fixture\Classy\WithinNamespaceAndSingleLineComments\Bar::class),
+                Construct::fromName(Test\Fixture\Classy\WithinNamespaceAndSingleLineComments\Baz::class),
+                Construct::fromName(Test\Fixture\Classy\WithinNamespaceAndSingleLineComments\Foo::class)
             ),
             Test\Util\Scenario::create(
                 'within-namespace-and-multi-line-comments',
                 __DIR__ . '/../Fixture/Classy/WithinNamespaceAndMultiLineComments/source.php',
-                Construct::fromName('Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespaceAndMultiLineComments\\Bar'),
-                Construct::fromName('Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespaceAndMultiLineComments\\Baz'),
-                Construct::fromName('Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespaceAndMultiLineComments\\Foo')
+                Construct::fromName(Test\Fixture\Classy\WithinNamespaceAndMultiLineComments\Bar::class),
+                Construct::fromName(Test\Fixture\Classy\WithinNamespaceAndMultiLineComments\Baz::class),
+                Construct::fromName(Test\Fixture\Classy\WithinNamespaceAndMultiLineComments\Foo::class)
             ),
             Test\Util\Scenario::create(
                 'within-namespace-with-braces',
                 __DIR__ . '/../Fixture/Classy/WithinNamespaceWithBraces/source.php',
-                Construct::fromName('Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespaceWithBraces\\Bar'),
-                Construct::fromName('Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespaceWithBraces\\Baz'),
-                Construct::fromName('Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespaceWithBraces\\Foo')
+                Construct::fromName(Test\Fixture\Classy\WithinNamespaceWithBraces\Bar::class),
+                Construct::fromName(Test\Fixture\Classy\WithinNamespaceWithBraces\Baz::class),
+                Construct::fromName(Test\Fixture\Classy\WithinNamespaceWithBraces\Foo::class)
             ),
             Test\Util\Scenario::create(
                 'within-multiple-namespaces-with-braces',
                 __DIR__ . '/../Fixture/Classy/WithinMultipleNamespaces/source.php',
-                Construct::fromName('Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinMultipleNamespaces\\Bar\\Bar'),
-                Construct::fromName('Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinMultipleNamespaces\\Bar\\Baz'),
-                Construct::fromName('Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinMultipleNamespaces\\Bar\\Foo'),
-                Construct::fromName('Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinMultipleNamespaces\\Foo\\Bar'),
-                Construct::fromName('Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinMultipleNamespaces\\Foo\\Baz'),
-                Construct::fromName('Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinMultipleNamespaces\\Foo\\Foo')
+                Construct::fromName(Test\Fixture\Classy\WithinMultipleNamespaces\Bar\Bar::class),
+                Construct::fromName(Test\Fixture\Classy\WithinMultipleNamespaces\Bar\Baz::class),
+                Construct::fromName(Test\Fixture\Classy\WithinMultipleNamespaces\Bar\Foo::class),
+                Construct::fromName(Test\Fixture\Classy\WithinMultipleNamespaces\Foo\Bar::class),
+                Construct::fromName(Test\Fixture\Classy\WithinMultipleNamespaces\Foo\Baz::class),
+                Construct::fromName(Test\Fixture\Classy\WithinMultipleNamespaces\Foo\Foo::class)
             ),
             Test\Util\Scenario::create(
                 'within-namespace-with-single-segment',
@@ -217,7 +217,7 @@ final class ConstructsTest extends Framework\TestCase
             Test\Util\Scenario::create(
                 'with-methods-named-after-keywords',
                 __DIR__ . '/../Fixture/Classy/WithMethodsNamedAfterKeywords/source.php',
-                Construct::fromName('Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithMethodsNamedAfterKeywords\\Foo')
+                Construct::fromName(Test\Fixture\Classy\WithMethodsNamedAfterKeywords\Foo::class)
             ),
             /**
              * @see https://github.com/zendframework/zend-file/pull/41
@@ -225,7 +225,7 @@ final class ConstructsTest extends Framework\TestCase
             Test\Util\Scenario::create(
                 'with-methods-named-after-keywords-and-return-type',
                 __DIR__ . '/../Fixture/Classy/WithMethodsNamedAfterKeywordsAndReturnType/source.php',
-                Construct::fromName('Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithMethodsNamedAfterKeywordsAndReturnType\\Foo')
+                Construct::fromName(Test\Fixture\Classy\WithMethodsNamedAfterKeywordsAndReturnType\Foo::class)
             ),
             Test\Util\Scenario::create(
                 'without-namespace',
