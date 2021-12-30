@@ -14,7 +14,7 @@ For a full diff see [`1.1.0...1.1.1`][1.1.0...1.1.1].
 
 ### Fixed
 
-* Determine classy names within namespace with single segment on PHP 8.0 ([#343]), by [@localheinz]
+- Determine classy names within namespace with single segment on PHP 8.0 ([#343]), by [@localheinz]
 
 ## [`1.1.0`][1.1.0]
 
@@ -22,7 +22,7 @@ For a full diff see [`1.0.1...1.1.0`][1.0.1...1.1.0].
 
 ### Changed
 
-* Added support for PHP 8.0 ([#235]), by [@localheinz]
+- Added support for PHP 8.0 ([#235]), by [@localheinz]
 
 ## [`1.0.1`][1.0.1]
 
@@ -30,7 +30,7 @@ For a full diff see [`1.0.0...1.0.1`][1.0.0...1.0.1].
 
 ### Changed
 
-* Dropped support for PHP 7.1 ([#231]), by [@localheinz]
+- Dropped support for PHP 7.1 ([#231]), by [@localheinz]
 *
 ## [`1.0.0`][1.0.0]
 
@@ -42,7 +42,7 @@ For a full diff see [`0.5.1...0.5.2`][0.5.1...0.5.2].
 
 ### Fixed
 
-* Brought back support for PHP 7.1 ([#103]), by [@localheinz]
+- Brought back support for PHP 7.1 ([#103]), by [@localheinz]
 
 ## [`0.5.1`][0.5.1]
 
@@ -50,7 +50,7 @@ For a full diff see [`0.5.0...0.5.1`][0.5.0...0.5.1].
 
 ### Fixed
 
-* Removed an inappropriate `replace` configuration from `composer.json` ([#100]), by [@localheinz]
+- Removed an inappropriate `replace` configuration from `composer.json` ([#100]), by [@localheinz]
 
 ## [`0.5.0`][0.5.0]
 
@@ -58,7 +58,7 @@ For a full diff see [`0.4.0...0.5.0`][0.4.0...0.5.0].
 
 ### Changed
 
-* Renamed vendor namespace `Localheinz` to `Ergebnis` after move to [@ergebnis] ([#88]), by [@localheinz]
+- Renamed vendor namespace `Localheinz` to `Ergebnis` after move to [@ergebnis] ([#88]), by [@localheinz]
 
   Run
 
@@ -92,7 +92,7 @@ For a full diff see [`0.4.0...0.5.0`][0.4.0...0.5.0].
 
 ### Fixed
 
-* Dropped support for PHP 7.1 ([#77]), by [@localheinz]
+- Dropped support for PHP 7.1 ([#77]), by [@localheinz]
 
 [0.5.0]: https://github.com/localheinz/ergebnis/classy/releases/tag/0.5.0
 [0.5.1]: https://github.com/localheinz/ergebnis/classy/releases/tag/0.5.1
