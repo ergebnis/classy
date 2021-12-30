@@ -49,9 +49,6 @@ jobs:
           key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
           restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
 
-      - name: "Set COMPOSER_ROOT_VERSION environment variable"
-        uses: "docker://ergebnis/composer-root-version-action:0.2.1"
-
       - name: "Install ${{ matrix.dependencies }} dependencies with composer"
         uses: "./.github/actions/composer/composer/install"
         with:
