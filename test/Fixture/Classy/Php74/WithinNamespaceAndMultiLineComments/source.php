@@ -1,6 +1,6 @@
 <?php
 
-namespace Ergebnis\Classy\Test\Fixture\Classy\Php73\WithinNamespaceAndMultiLineComments;
+namespace Ergebnis\Classy\Test\Fixture\Classy\Php74\WithinNamespaceAndMultiLineComments;
 
 /* foo */ class /* bar */ Foo /* baz */ {}
 

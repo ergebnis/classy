@@ -11,6 +11,7 @@ For a full diff see [`1.2.0...main`][1.2.0...main].
 ### Fixed
 
 - Dropped support for PHP 7.2 ([#481]), by [@localheinz]
+- Dropped support for PHP 7.3 ([#486]), by [@localheinz]
 
 ## [`1.2.0`][1.2.0]
 
@@ -139,6 +140,7 @@ For a full diff see [`0.4.0...0.5.0`][0.4.0...0.5.0].
 [#467]: https://github.com/ergebnis/classy/pull/467
 [#478]: https://github.com/ergebnis/classy/pull/478
 [#481]: https://github.com/ergebnis/classy/pull/481
+[#486]: https://github.com/ergebnis/classy/pull/486
 
 [@ergebnis]: https://github.com/ergebnis
 [@localheinz]: https://github.com/localheinz

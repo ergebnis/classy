@@ -1,6 +1,6 @@
 <?php
 
-namespace Ergebnis\Classy\Test\Fixture\Classy\Php73\WithinNamespaceAndShellStyleComments;
+namespace Ergebnis\Classy\Test\Fixture\Classy\Php74\WithinNamespaceAndShellStyleComments;
 
 class # foo
 Foo # bar
