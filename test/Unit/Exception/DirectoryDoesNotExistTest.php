@@ -29,7 +29,7 @@ final class DirectoryDoesNotExistTest extends Framework\TestCase
 
     public function testFromDirectoryReturnsException(): void
     {
-        $directory = self::faker()->sentence;
+        $directory = self::faker()->sentence();
 
         $exception = DirectoryDoesNotExist::fromDirectory($directory);
 
