@@ -16,7 +16,7 @@ namespace Ergebnis\Classy\Test\Unit;
 use Ergebnis\Classy\Construct;
 use Ergebnis\Classy\Constructs;
 use Ergebnis\Classy\Exception;
-use Ergebnis\Classy\Test\Fixture;
+use Ergebnis\Classy\Test;
 use PHPUnit\Framework;
 
 /**
@@ -188,9 +188,9 @@ final class ConstructsTest extends Framework\TestCase
     public function testFromDirectoryTraversesDirectoriesAndReturnsArrayOfClassyConstructsSortedByName(): void
     {
         $classyConstructs = [
-            Construct::fromName(Fixture\Traversal\Foo::class)->definedIn(self::realPath(__DIR__ . '/../Fixture/Traversal/Foo.php')),
-            Construct::fromName(Fixture\Traversal\Foo\Bar::class)->definedIn(self::realPath(__DIR__ . '/../Fixture/Traversal/Foo/Bar.php')),
-            Construct::fromName(Fixture\Traversal\Foo\Baz::class)->definedIn(self::realPath(__DIR__ . '/../Fixture/Traversal/Foo/Baz.php')),
+            Construct::fromName(Test\Fixture\Traversal\Foo::class)->definedIn(self::realPath(__DIR__ . '/../Fixture/Traversal/Foo.php')),
+            Construct::fromName(Test\Fixture\Traversal\Foo\Bar::class)->definedIn(self::realPath(__DIR__ . '/../Fixture/Traversal/Foo/Bar.php')),
+            Construct::fromName(Test\Fixture\Traversal\Foo\Baz::class)->definedIn(self::realPath(__DIR__ . '/../Fixture/Traversal/Foo/Baz.php')),
         ];
 
         self::assertEquals($classyConstructs, Constructs::fromDirectory(__DIR__ . '/../Fixture/Traversal'));

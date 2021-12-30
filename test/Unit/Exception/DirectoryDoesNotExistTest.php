@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\Classy\Test\Unit\Exception;
 
-use Ergebnis\Classy\Exception\DirectoryDoesNotExist;
+use Ergebnis\Classy\Exception;
 use Ergebnis\Classy\Test;
 use PHPUnit\Framework;
 
@@ -30,7 +30,7 @@ final class DirectoryDoesNotExistTest extends Framework\TestCase
     {
         $directory = self::faker()->sentence();
 
-        $exception = DirectoryDoesNotExist::fromDirectory($directory);
+        $exception = Exception\DirectoryDoesNotExist::fromDirectory($directory);
 
         $message = \sprintf(
             'Directory "%s" does not exist.',
