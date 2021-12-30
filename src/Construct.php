@@ -21,7 +21,7 @@ final class Construct
     private $name;
 
     /**
-     * @var string[]
+     * @var array<int, string>
      */
     private $fileNames = [];
 
@@ -59,7 +59,7 @@ final class Construct
     /**
      * Returns an array of file names in which the construct is defined.
      *
-     * @return string[]
+     * @return array<int, string>
      */
     public function fileNames(): array
     {
