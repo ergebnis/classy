@@ -53,7 +53,7 @@ PHP;
         $message = \sprintf(
             $format,
             $name,
-            \implode('", "', $fileNames)
+            \implode('", "', $fileNames),
         );
 
         self::assertSame($message, $exception->getMessage());

@@ -20,7 +20,7 @@ final class ParseError extends \ParseError implements ExceptionInterface
         return new self(
             $exception->getMessage(),
             0,
-            $exception
+            $exception,
         );
     }
 
@@ -32,10 +32,10 @@ final class ParseError extends \ParseError implements ExceptionInterface
             \sprintf(
                 'A parse error occurred when parsing "%s": "%s".',
                 $fileName,
-                $exception->getMessage()
+                $exception->getMessage(),
             ),
             0,
-            $exception
+            $exception,
         );
     }
 }

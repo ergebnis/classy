@@ -44,13 +44,13 @@ final class ParseErrorTest extends Framework\TestCase
 
         $exception = Exception\ParseError::fromFileNameAndParseError(
             $fileName,
-            $parseError
+            $parseError,
         );
 
         $expectedMessage = \sprintf(
             'A parse error occurred when parsing "%s": "%s".',
             $fileName,
-            $parseError->getMessage()
+            $parseError->getMessage(),
         );
 
         self::assertSame($expectedMessage, $exception->getMessage());
