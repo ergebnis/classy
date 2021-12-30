@@ -37,4 +37,14 @@ final class PhpVersion
     {
         return $this->value;
     }
+
+    public function isLessThan(self $other): bool
+    {
+        return $this->value < $other->value;
+    }
+
+    public function isLessThanOrEqualTo(self $other): bool
+    {
+        return $this->value <= $other->value;
+    }
 }

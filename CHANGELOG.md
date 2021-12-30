@@ -6,7 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`1.1.1...main`][1.1.1...main].
+For a full diff see [`1.2.0...main`][1.2.0...main].
+
+## [`1.2.0`][1.2.0]
+
+For a full diff see [`1.1.1...1.2.0`][1.1.0...1.2.0].
+
+### Added
+
+- Added support for `enum` ([#478]), by [@localheinz]
 
 ### Deprecated
 
@@ -105,6 +113,7 @@ For a full diff see [`0.4.0...0.5.0`][0.4.0...0.5.0].
 [1.0.1]: https://github.com/localheinz/ergebnis/classy/releases/tag/1.0.1
 [1.1.0]: https://github.com/localheinz/ergebnis/classy/releases/tag/1.1.0
 [1.1.1]: https://github.com/localheinz/ergebnis/classy/releases/tag/1.1.1
+[1.2.0]: https://github.com/localheinz/ergebnis/classy/releases/tag/1.2.0
 
 [0.4.0...0.5.0]: https://github.com/ergebnis/classy/compare/0.4.0...0.5.0
 [0.5.0...0.5.1]: https://github.com/ergebnis/classy/compare/0.5.0...0.5.1
@@ -113,7 +122,8 @@ For a full diff see [`0.4.0...0.5.0`][0.4.0...0.5.0].
 [1.0.0...1.0.1]: https://github.com/ergebnis/classy/compare/1.0.0...1.0.1
 [1.0.1...1.1.0]: https://github.com/ergebnis/classy/compare/1.0.1...1.1.0
 [1.1.0...1.1.1]: https://github.com/ergebnis/classy/compare/1.1.0...1.1.1
-[1.1.1...main]: https://github.com/ergebnis/classy/compare/1.1.1...main
+[1.1.1...1.2.0]: https://github.com/ergebnis/classy/compare/1.1.1...1.2.0
+[1.2.0...main]: https://github.com/ergebnis/classy/compare/1.2.0...main
 
 [#77]: https://github.com/ergebnis/classy/pull/77
 [#88]: https://github.com/ergebnis/classy/pull/88
@@ -123,6 +133,7 @@ For a full diff see [`0.4.0...0.5.0`][0.4.0...0.5.0].
 [#235]: https://github.com/ergebnis/classy/pull/235
 [#343]: https://github.com/ergebnis/classy/pull/343
 [#467]: https://github.com/ergebnis/classy/pull/467
+[#478]: https://github.com/ergebnis/classy/pull/478
 
 [@ergebnis]: https://github.com/ergebnis
 [@localheinz]: https://github.com/localheinz

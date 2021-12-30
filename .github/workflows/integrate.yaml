@@ -9,8 +9,8 @@ on: # yamllint disable-line rule:truthy
       - "main"
 
 env:
-  MIN_COVERED_MSI: 86
-  MIN_MSI: 84
+  MIN_COVERED_MSI: 85
+  MIN_MSI: 82
   PHP_EXTENSIONS: "mbstring, tokenizer"
 
 jobs:
