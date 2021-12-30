@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bebc83543c7440058bb1f3218af0108b",
+    "content-hash": "e2aa3faea3605db9bbdfb4780e3adce2",
     "packages": [],
     "packages-dev": [
         {
@@ -651,16 +651,16 @@
         },
         {
             "name": "ergebnis/composer-normalize",
-            "version": "2.19.0",
+            "version": "2.20.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/composer-normalize.git",
-                "reference": "ff00fd4dc084928b684b217041a87f7bd0eeddc5"
+                "reference": "c172e90a0afa77f2665031dfde3fccb9415bddd7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/composer-normalize/zipball/ff00fd4dc084928b684b217041a87f7bd0eeddc5",
-                "reference": "ff00fd4dc084928b684b217041a87f7bd0eeddc5",
+                "url": "https://api.github.com/repos/ergebnis/composer-normalize/zipball/c172e90a0afa77f2665031dfde3fccb9415bddd7",
+                "reference": "c172e90a0afa77f2665031dfde3fccb9415bddd7",
                 "shasum": ""
             },
             "require": {
@@ -669,14 +669,14 @@
                 "ergebnis/json-printer": "^3.1.1",
                 "justinrainbow/json-schema": "^5.2.11",
                 "localheinz/diff": "^1.1.1",
-                "php": "^7.2 || ^8.0"
+                "php": "^7.3 || ^8.0"
             },
             "require-dev": {
                 "composer/composer": "^2.2.1",
                 "ergebnis/license": "^1.1.0",
-                "ergebnis/php-cs-fixer-config": "^2.14.0",
+                "ergebnis/php-cs-fixer-config": "^3.4.0",
                 "fakerphp/faker": "^1.17.0",
-                "phpunit/phpunit": "^8.5.22",
+                "phpunit/phpunit": "^9.5.11",
                 "psalm/plugin-phpunit": "~0.16.1",
                 "symfony/filesystem": "^5.4.0",
                 "vimeo/psalm": "^4.16.1"
@@ -722,7 +722,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-12-28T10:38:12+00:00"
+            "time": "2021-12-28T11:05:22+00:00"
         },
         {
             "name": "ergebnis/json-normalizer",
@@ -5677,5 +5677,5 @@
     "platform-overrides": {
         "php": "7.3.32"
     },
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.1.0"
 }
