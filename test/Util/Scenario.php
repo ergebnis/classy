@@ -20,30 +20,15 @@ use Ergebnis\Classy;
  */
 final class Scenario
 {
-    /**
-     * @var PhpVersion
-     */
-    private $phpVersion;
-
-    /**
-     * @var string
-     */
-    private $description;
-
-    /**
-     * @var string
-     */
-    private $fileName;
-
-    /**
-     * @var string
-     */
-    private $fileContent;
+    private PhpVersion $phpVersion;
+    private string $description;
+    private string $fileName;
+    private string $fileContent;
 
     /**
      * @var array<int, Classy\Construct>
      */
-    private $constructs;
+    private array $constructs;
 
     private function __construct(
         PhpVersion $phpVersion,
