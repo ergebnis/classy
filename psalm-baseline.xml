@@ -19,11 +19,17 @@
     </MissingConstructor>
   </file>
   <file src="test/Unit/ConstructTest.php">
+    <MixedArgument occurrences="1">
+      <code>$faker-&gt;fileExtension()</code>
+    </MixedArgument>
     <RedundantCondition occurrences="2">
       <code>assertIsArray</code>
       <code>assertIsArray</code>
     </RedundantCondition>
     <TooManyArguments occurrences="1"/>
+    <UndefinedMagicMethod occurrences="1">
+      <code>fileExtension</code>
+    </UndefinedMagicMethod>
   </file>
   <file src="test/Unit/ConstructsTest.php">
     <MixedInferredReturnType occurrences="4">

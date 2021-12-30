@@ -28,7 +28,7 @@ final class ConstructTest extends Framework\TestCase
 
     public function testFromNameReturnsConstruct(): void
     {
-        $name = self::faker()->word;
+        $name = self::faker()->word();
 
         $construct = Construct::fromName($name);
 
@@ -38,7 +38,7 @@ final class ConstructTest extends Framework\TestCase
 
     public function testDefaults(): void
     {
-        $construct = Construct::fromName(self::faker()->word);
+        $construct = Construct::fromName(self::faker()->word());
 
         self::assertIsArray($construct->fileNames());
         self::assertCount(0, $construct->fileNames());
@@ -46,7 +46,7 @@ final class ConstructTest extends Framework\TestCase
 
     public function testToStringReturnsName(): void
     {
-        $name = self::faker()->word;
+        $name = self::faker()->word();
 
         $construct = Construct::fromName($name);
 
@@ -57,13 +57,13 @@ final class ConstructTest extends Framework\TestCase
     {
         $faker = self::faker();
 
-        $name = $faker->word;
+        $name = $faker->word();
 
         $fileNames = \array_map(static function () use ($faker): string {
             return \sprintf(
                 '%s.%s',
-                $faker->word,
-                $faker->fileExtension
+                $faker->word(),
+                $faker->fileExtension()
             );
         }, \array_fill(0, 5, null));
 
