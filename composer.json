@@ -1,6 +1,6 @@
 {
   "name": "ergebnis/classy",
-  "description": "Provides a finder for classy constructs (classes, interfaces, and traits).",
+  "description": "Provides a finder for classy constructs (classes, enums, interfaces, and traits).",
   "license": "MIT",
   "type": "library",
   "keywords": [
