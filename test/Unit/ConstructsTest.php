@@ -172,58 +172,58 @@ final class ConstructsTest extends Framework\TestCase
             Test\Util\Scenario::create(
                 Test\Util\PhpVersion::fromInt(70200),
                 'within-namespace',
-                __DIR__ . '/../Fixture/Classy/WithinNamespace/source.php',
-                Construct::fromName(Test\Fixture\Classy\WithinNamespace\Bar::class),
-                Construct::fromName(Test\Fixture\Classy\WithinNamespace\Baz::class),
-                Construct::fromName(Test\Fixture\Classy\WithinNamespace\Foo::class)
+                __DIR__ . '/../Fixture/Classy/Php72/WithinNamespace/source.php',
+                Construct::fromName(Test\Fixture\Classy\Php72\WithinNamespace\Bar::class),
+                Construct::fromName(Test\Fixture\Classy\Php72\WithinNamespace\Baz::class),
+                Construct::fromName(Test\Fixture\Classy\Php72\WithinNamespace\Foo::class)
             ),
             Test\Util\Scenario::create(
                 Test\Util\PhpVersion::fromInt(70200),
                 'within-namespace-and-shell-style-comments',
-                __DIR__ . '/../Fixture/Classy/WithinNamespaceAndShellStyleComments/source.php',
-                Construct::fromName(Test\Fixture\Classy\WithinNamespaceAndShellStyleComments\Bar::class),
-                Construct::fromName(Test\Fixture\Classy\WithinNamespaceAndShellStyleComments\Baz::class),
-                Construct::fromName(Test\Fixture\Classy\WithinNamespaceAndShellStyleComments\Foo::class)
+                __DIR__ . '/../Fixture/Classy/Php72/WithinNamespaceAndShellStyleComments/source.php',
+                Construct::fromName(Test\Fixture\Classy\Php72\WithinNamespaceAndShellStyleComments\Bar::class),
+                Construct::fromName(Test\Fixture\Classy\Php72\WithinNamespaceAndShellStyleComments\Baz::class),
+                Construct::fromName(Test\Fixture\Classy\Php72\WithinNamespaceAndShellStyleComments\Foo::class)
             ),
             Test\Util\Scenario::create(
                 Test\Util\PhpVersion::fromInt(70200),
                 'within-namespace-and-single-line-comments',
-                __DIR__ . '/../Fixture/Classy/WithinNamespaceAndSingleLineComments/source.php',
-                Construct::fromName(Test\Fixture\Classy\WithinNamespaceAndSingleLineComments\Bar::class),
-                Construct::fromName(Test\Fixture\Classy\WithinNamespaceAndSingleLineComments\Baz::class),
-                Construct::fromName(Test\Fixture\Classy\WithinNamespaceAndSingleLineComments\Foo::class)
+                __DIR__ . '/../Fixture/Classy/Php72/WithinNamespaceAndSingleLineComments/source.php',
+                Construct::fromName(Test\Fixture\Classy\Php72\WithinNamespaceAndSingleLineComments\Bar::class),
+                Construct::fromName(Test\Fixture\Classy\Php72\WithinNamespaceAndSingleLineComments\Baz::class),
+                Construct::fromName(Test\Fixture\Classy\Php72\WithinNamespaceAndSingleLineComments\Foo::class)
             ),
             Test\Util\Scenario::create(
                 Test\Util\PhpVersion::fromInt(70200),
                 'within-namespace-and-multi-line-comments',
-                __DIR__ . '/../Fixture/Classy/WithinNamespaceAndMultiLineComments/source.php',
-                Construct::fromName(Test\Fixture\Classy\WithinNamespaceAndMultiLineComments\Bar::class),
-                Construct::fromName(Test\Fixture\Classy\WithinNamespaceAndMultiLineComments\Baz::class),
-                Construct::fromName(Test\Fixture\Classy\WithinNamespaceAndMultiLineComments\Foo::class)
+                __DIR__ . '/../Fixture/Classy/Php72/WithinNamespaceAndMultiLineComments/source.php',
+                Construct::fromName(Test\Fixture\Classy\Php72\WithinNamespaceAndMultiLineComments\Bar::class),
+                Construct::fromName(Test\Fixture\Classy\Php72\WithinNamespaceAndMultiLineComments\Baz::class),
+                Construct::fromName(Test\Fixture\Classy\Php72\WithinNamespaceAndMultiLineComments\Foo::class)
             ),
             Test\Util\Scenario::create(
                 Test\Util\PhpVersion::fromInt(70200),
                 'within-namespace-with-braces',
-                __DIR__ . '/../Fixture/Classy/WithinNamespaceWithBraces/source.php',
-                Construct::fromName(Test\Fixture\Classy\WithinNamespaceWithBraces\Bar::class),
-                Construct::fromName(Test\Fixture\Classy\WithinNamespaceWithBraces\Baz::class),
-                Construct::fromName(Test\Fixture\Classy\WithinNamespaceWithBraces\Foo::class)
+                __DIR__ . '/../Fixture/Classy/Php72/WithinNamespaceWithBraces/source.php',
+                Construct::fromName(Test\Fixture\Classy\Php72\WithinNamespaceWithBraces\Bar::class),
+                Construct::fromName(Test\Fixture\Classy\Php72\WithinNamespaceWithBraces\Baz::class),
+                Construct::fromName(Test\Fixture\Classy\Php72\WithinNamespaceWithBraces\Foo::class)
             ),
             Test\Util\Scenario::create(
                 Test\Util\PhpVersion::fromInt(70200),
                 'within-multiple-namespaces-with-braces',
-                __DIR__ . '/../Fixture/Classy/WithinMultipleNamespaces/source.php',
-                Construct::fromName(Test\Fixture\Classy\WithinMultipleNamespaces\Bar\Bar::class),
-                Construct::fromName(Test\Fixture\Classy\WithinMultipleNamespaces\Bar\Baz::class),
-                Construct::fromName(Test\Fixture\Classy\WithinMultipleNamespaces\Bar\Foo::class),
-                Construct::fromName(Test\Fixture\Classy\WithinMultipleNamespaces\Foo\Bar::class),
-                Construct::fromName(Test\Fixture\Classy\WithinMultipleNamespaces\Foo\Baz::class),
-                Construct::fromName(Test\Fixture\Classy\WithinMultipleNamespaces\Foo\Foo::class)
+                __DIR__ . '/../Fixture/Classy/Php72/WithinMultipleNamespaces/source.php',
+                Construct::fromName(Test\Fixture\Classy\Php72\WithinMultipleNamespaces\Bar\Bar::class),
+                Construct::fromName(Test\Fixture\Classy\Php72\WithinMultipleNamespaces\Bar\Baz::class),
+                Construct::fromName(Test\Fixture\Classy\Php72\WithinMultipleNamespaces\Bar\Foo::class),
+                Construct::fromName(Test\Fixture\Classy\Php72\WithinMultipleNamespaces\Foo\Bar::class),
+                Construct::fromName(Test\Fixture\Classy\Php72\WithinMultipleNamespaces\Foo\Baz::class),
+                Construct::fromName(Test\Fixture\Classy\Php72\WithinMultipleNamespaces\Foo\Foo::class)
             ),
             Test\Util\Scenario::create(
                 Test\Util\PhpVersion::fromInt(70200),
                 'within-namespace-with-single-segment',
-                __DIR__ . '/../Fixture/Classy/WithinNamespaceWithSingleSegment/source.php',
+                __DIR__ . '/../Fixture/Classy/Php72/WithinNamespaceWithSingleSegment/source.php',
                 Construct::fromName('Ergebnis\\Bar'),
                 Construct::fromName('Ergebnis\\Baz'),
                 Construct::fromName('Ergebnis\\Foo')
@@ -231,8 +231,8 @@ final class ConstructsTest extends Framework\TestCase
             Test\Util\Scenario::create(
                 Test\Util\PhpVersion::fromInt(70200),
                 'with-methods-named-after-keywords',
-                __DIR__ . '/../Fixture/Classy/WithMethodsNamedAfterKeywords/source.php',
-                Construct::fromName(Test\Fixture\Classy\WithMethodsNamedAfterKeywords\Foo::class)
+                __DIR__ . '/../Fixture/Classy/Php72/WithMethodsNamedAfterKeywords/source.php',
+                Construct::fromName(Test\Fixture\Classy\Php72\WithMethodsNamedAfterKeywords\Foo::class)
             ),
             /**
              * @see https://github.com/zendframework/zend-file/pull/41
@@ -240,13 +240,13 @@ final class ConstructsTest extends Framework\TestCase
             Test\Util\Scenario::create(
                 Test\Util\PhpVersion::fromInt(70200),
                 'with-methods-named-after-keywords-and-return-type',
-                __DIR__ . '/../Fixture/Classy/WithMethodsNamedAfterKeywordsAndReturnType/source.php',
-                Construct::fromName(Test\Fixture\Classy\WithMethodsNamedAfterKeywordsAndReturnType\Foo::class)
+                __DIR__ . '/../Fixture/Classy/Php72/WithMethodsNamedAfterKeywordsAndReturnType/source.php',
+                Construct::fromName(Test\Fixture\Classy\Php72\WithMethodsNamedAfterKeywordsAndReturnType\Foo::class)
             ),
             Test\Util\Scenario::create(
                 Test\Util\PhpVersion::fromInt(70200),
                 'without-namespace',
-                __DIR__ . '/../Fixture/Classy/WithoutNamespace/source.php',
+                __DIR__ . '/../Fixture/Classy/Php72/WithoutNamespace/source.php',
                 Construct::fromName('Bar'),
                 Construct::fromName('Baz'),
                 Construct::fromName('Foo')
@@ -254,7 +254,7 @@ final class ConstructsTest extends Framework\TestCase
             Test\Util\Scenario::create(
                 Test\Util\PhpVersion::fromInt(70200),
                 'without-namespace-and-multi-line-comments',
-                __DIR__ . '/../Fixture/Classy/WithoutNamespaceAndMultiLineComments/source.php',
+                __DIR__ . '/../Fixture/Classy/Php72/WithoutNamespaceAndMultiLineComments/source.php',
                 Construct::fromName('Quux'),
                 Construct::fromName('Quuz'),
                 Construct::fromName('Qux')
@@ -262,7 +262,7 @@ final class ConstructsTest extends Framework\TestCase
             Test\Util\Scenario::create(
                 Test\Util\PhpVersion::fromInt(70200),
                 'without-namespace-and-shell-line-comments',
-                __DIR__ . '/../Fixture/Classy/WithoutNamespaceAndShellStyleComments/source.php',
+                __DIR__ . '/../Fixture/Classy/Php72/WithoutNamespaceAndShellStyleComments/source.php',
                 Construct::fromName('Corge'),
                 Construct::fromName('Garply'),
                 Construct::fromName('Grault')
@@ -270,7 +270,7 @@ final class ConstructsTest extends Framework\TestCase
             Test\Util\Scenario::create(
                 Test\Util\PhpVersion::fromInt(70200),
                 'without-namespace-and-single-line-comments',
-                __DIR__ . '/../Fixture/Classy/WithoutNamespaceAndSingleLineComments/source.php',
+                __DIR__ . '/../Fixture/Classy/Php72/WithoutNamespaceAndSingleLineComments/source.php',
                 Construct::fromName('Fred'),
                 Construct::fromName('Plugh'),
                 Construct::fromName('Waldo')
