@@ -19,6 +19,9 @@
     </MissingConstructor>
   </file>
   <file src="test/Unit/ConstructTest.php">
+    <DeprecatedMethod occurrences="1">
+      <code>__toString</code>
+    </DeprecatedMethod>
     <MixedArgument occurrences="1">
       <code>$faker-&gt;fileExtension()</code>
     </MixedArgument>

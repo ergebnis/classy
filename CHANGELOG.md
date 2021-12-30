@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`1.1.1...main`][1.1.1...main].
 
+### Deprecated
+
+- Deprecated `Construct::__toString()` ([#467]), by [@localheinz]
+
 ## [`1.1.1`][1.1.1]
 
 For a full diff see [`1.1.0...1.1.1`][1.1.0...1.1.1].
@@ -118,6 +122,7 @@ For a full diff see [`0.4.0...0.5.0`][0.4.0...0.5.0].
 [#231]: https://github.com/ergebnis/classy/pull/231
 [#235]: https://github.com/ergebnis/classy/pull/235
 [#343]: https://github.com/ergebnis/classy/pull/343
+[#467]: https://github.com/ergebnis/classy/pull/467
 
 [@ergebnis]: https://github.com/ergebnis
 [@localheinz]: https://github.com/localheinz
