@@ -65,7 +65,7 @@ final class ConstructTest extends Framework\TestCase
                 $faker->word(),
                 $faker->fileExtension()
             );
-        }, \array_fill(0, 5, null));
+        }, \range(0, 5));
 
         $construct = Construct::fromName($name);
 
