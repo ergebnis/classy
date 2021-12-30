@@ -89,8 +89,10 @@ final class ConstructsTest extends Framework\TestCase
      *
      * @param string[] $constructs
      */
-    public function testFromSourceReturnsArrayOfClassyConstructsSortedByName(string $source, array $constructs): void
-    {
+    public function testFromSourceReturnsArrayOfClassyConstructsSortedByName(
+        string $source,
+        array $constructs
+    ): void {
         self::assertEquals($constructs, Constructs::fromSource($source));
     }
 
@@ -159,8 +161,10 @@ final class ConstructsTest extends Framework\TestCase
      *
      * @param string[] $classyConstructs
      */
-    public function testFromDirectoryReturnsArrayOfClassyConstructsSortedByName(string $directory, array $classyConstructs = []): void
-    {
+    public function testFromDirectoryReturnsArrayOfClassyConstructsSortedByName(
+        string $directory,
+        array $classyConstructs = []
+    ): void {
         self::assertEquals($classyConstructs, Constructs::fromDirectory($directory));
     }
 
