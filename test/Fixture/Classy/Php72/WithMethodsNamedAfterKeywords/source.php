@@ -1,6 +1,6 @@
 <?php
 
-namespace Ergebnis\Classy\Test\Fixture\Classy\WithMethodsNamedAfterKeywords;
+namespace Ergebnis\Classy\Test\Fixture\Classy\Php72\WithMethodsNamedAfterKeywords;
 
 class Foo
 {
