@@ -30,7 +30,7 @@
     "infection/infection": "~0.15.3",
     "phpunit/phpunit": "^8.5.22",
     "psalm/plugin-phpunit": "~0.16.1",
-    "vimeo/psalm": "^4.13.1",
+    "vimeo/psalm": "^4.16.1",
     "zendframework/zend-file": "^2.8.3"
   },
   "config": {
