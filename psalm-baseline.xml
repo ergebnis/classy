@@ -8,16 +8,6 @@
       <code>\array_values</code>
     </RedundantCast>
   </file>
-  <file src="src/Exception/DirectoryDoesNotExist.php">
-    <MissingConstructor occurrences="1">
-      <code>$directory</code>
-    </MissingConstructor>
-  </file>
-  <file src="src/Exception/MultipleDefinitionsFound.php">
-    <MissingConstructor occurrences="1">
-      <code>$constructs</code>
-    </MissingConstructor>
-  </file>
   <file src="test/Fixture/Classy/Php81/WithinMultipleNamespaces/source.php">
     <ParseError occurrences="1">
       <code>Qux</code>

@@ -29,6 +29,13 @@ final class MultipleDefinitionsFoundTest extends Framework\TestCase
 {
     use Test\Util\Helper;
 
+    public function testDefaults(): void
+    {
+        $exception = new Exception\MultipleDefinitionsFound();
+
+        self::assertSame([], $exception->constructs());
+    }
+
     public function testFromConstructsReturnsException(): void
     {
         $name = 'Foo\\Bar\\Baz';
