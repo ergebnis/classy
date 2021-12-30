@@ -71,7 +71,7 @@ final class Scenario
         if (!\is_file($fileName)) {
             throw new \InvalidArgumentException(\sprintf(
                 'File "%s" does not exist.',
-                $fileName
+                $fileName,
             ));
         }
 
@@ -80,7 +80,7 @@ final class Scenario
         if (!\is_string($fileContent)) {
             throw new \InvalidArgumentException(\sprintf(
                 'File "%s" could not be read.',
-                $fileName
+                $fileName,
             ));
         }
 
@@ -89,14 +89,14 @@ final class Scenario
         if (!\is_string($resolvedFileName)) {
             throw new \RuntimeException(\sprintf(
                 'Failed resolving the real path of "%s".',
-                $fileName
+                $fileName,
             ));
         }
 
         \usort($constructs, static function (Classy\Construct $a, Classy\Construct $b): int {
             return \strcmp(
                 $a->name(),
-                $b->name()
+                $b->name(),
             );
         });
 
@@ -107,7 +107,7 @@ final class Scenario
             $fileContent,
             ...\array_map(static function (Classy\Construct $construct) use ($resolvedFileName): Classy\Construct {
                 return $construct->definedIn($resolvedFileName);
-            }, \array_values($constructs))
+            }, \array_values($constructs)),
         );
     }
 

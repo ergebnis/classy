@@ -27,7 +27,7 @@ final class DirectoryDoesNotExist extends \InvalidArgumentException implements E
     {
         $exception = new self(\sprintf(
             'Directory "%s" does not exist.',
-            $directory
+            $directory,
         ));
 
         $exception->directory = $directory;

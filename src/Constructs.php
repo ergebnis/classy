@@ -29,7 +29,7 @@ final class Constructs
         try {
             $sequence = \token_get_all(
                 $source,
-                \TOKEN_PARSE
+                \TOKEN_PARSE,
             );
         } catch (\ParseError $exception) {
             throw Exception\ParseError::fromParseError($exception);
@@ -120,7 +120,7 @@ final class Constructs
         \usort($constructs, static function (Construct $a, Construct $b): int {
             return \strcmp(
                 $a->name(),
-                $b->name()
+                $b->name(),
             );
         });
 
@@ -143,7 +143,7 @@ final class Constructs
 
         $iterator = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator(
             $directory,
-            \RecursiveDirectoryIterator::FOLLOW_SYMLINKS
+            \RecursiveDirectoryIterator::FOLLOW_SYMLINKS,
         ));
 
         $constructs = [];
@@ -169,7 +169,7 @@ final class Constructs
             } catch (Exception\ParseError $exception) {
                 throw Exception\ParseError::fromFileNameAndParseError(
                     $fileName,
-                    $exception
+                    $exception,
                 );
             }
 
@@ -191,7 +191,7 @@ final class Constructs
         \usort($constructs, static function (Construct $a, Construct $b): int {
             return \strcmp(
                 $a->name(),
-                $b->name()
+                $b->name(),
             );
         });
 

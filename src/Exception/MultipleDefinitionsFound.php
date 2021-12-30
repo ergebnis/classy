@@ -35,9 +35,9 @@ final class MultipleDefinitionsFound extends \RuntimeException implements Except
                 return \sprintf(
                     ' - "%s" defined in "%s"',
                     $construct->name(),
-                    \implode('", "', $construct->fileNames())
+                    \implode('", "', $construct->fileNames()),
                 );
-            }, $constructs))
+            }, $constructs)),
         ));
 
         $exception->constructs = $constructs;

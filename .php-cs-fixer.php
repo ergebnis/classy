@@ -18,15 +18,15 @@ $license = License\Type\MIT::markdown(
     __DIR__ . '/LICENSE.md',
     License\Range::since(
         License\Year::fromString('2017'),
-        new \DateTimeZone('UTC')
+        new \DateTimeZone('UTC'),
     ),
     License\Holder::fromString('Andreas Möller'),
-    License\Url::fromString('https://github.com/ergebnis/classy')
+    License\Url::fromString('https://github.com/ergebnis/classy'),
 );
 
 $license->save();
 
-$config = PhpCsFixer\Config\Factory::fromRuleSet(new PhpCsFixer\Config\RuleSet\Php72($license->header()));
+$config = PhpCsFixer\Config\Factory::fromRuleSet(new PhpCsFixer\Config\RuleSet\Php73($license->header()));
 
 $config->getFinder()
     ->exclude([

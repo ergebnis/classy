@@ -34,7 +34,7 @@ final class DirectoryDoesNotExistTest extends Framework\TestCase
 
         $message = \sprintf(
             'Directory "%s" does not exist.',
-            $directory
+            $directory,
         );
 
         self::assertSame($message, $exception->getMessage());

@@ -61,7 +61,7 @@ final class ConstructTest extends Framework\TestCase
             return \sprintf(
                 '%s.%s',
                 $faker->word(),
-                $faker->fileExtension()
+                $faker->fileExtension(),
             );
         }, \range(0, 5));
 
