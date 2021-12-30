@@ -53,7 +53,8 @@
   "config": {
     "allow-plugins": {
       "composer/package-versions-deprecated": true,
-      "ergebnis/composer-normalize": true
+      "ergebnis/composer-normalize": true,
+      "infection/extension-installer": true
     },
     "platform": {
       "php": "7.4.26"
