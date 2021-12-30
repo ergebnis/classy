@@ -26,6 +26,13 @@ final class DirectoryDoesNotExistTest extends Framework\TestCase
 {
     use Test\Util\Helper;
 
+    public function testDefaults(): void
+    {
+        $exception = new Exception\DirectoryDoesNotExist();
+
+        self::assertSame('', $exception->directory());
+    }
+
     public function testFromDirectoryReturnsException(): void
     {
         $directory = self::faker()->sentence();
