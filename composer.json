@@ -27,7 +27,7 @@
     "ext-tokenizer": "*"
   },
   "require-dev": {
-    "ergebnis/composer-normalize": "^2.19.0",
+    "ergebnis/composer-normalize": "^2.20.0",
     "ergebnis/license": "^1.1.0",
     "ergebnis/php-cs-fixer-config": "^2.14.0",
     "fakerphp/faker": "^1.17.0",
