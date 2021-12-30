@@ -20,7 +20,7 @@ final class Constructs
      *
      * @throws Exception\ParseError
      *
-     * @return Construct[]
+     * @return array<int, Construct>
      */
     public static function fromSource(string $source): array
     {
@@ -117,7 +117,7 @@ final class Constructs
      * @throws Exception\DirectoryDoesNotExist
      * @throws Exception\MultipleDefinitionsFound
      *
-     * @return Construct[]
+     * @return array<int, Construct>
      */
     public static function fromDirectory(string $directory): array
     {

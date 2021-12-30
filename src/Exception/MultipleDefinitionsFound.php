@@ -18,14 +18,14 @@ use Ergebnis\Classy\Construct;
 final class MultipleDefinitionsFound extends \RuntimeException implements ExceptionInterface
 {
     /**
-     * @var Construct[]
+     * @var array<int, Construct>
      */
     private $constructs;
 
     /**
      * Returns a new exception from constructs.
      *
-     * @param Construct[] $constructs
+     * @param array<int, Construct> $constructs
      */
     public static function fromConstructs(array $constructs): self
     {
@@ -48,7 +48,7 @@ final class MultipleDefinitionsFound extends \RuntimeException implements Except
     /**
      * Returns an array of constructs.
      *
-     * @return Construct[]
+     * @return array<int, Construct>
      */
     public function constructs(): array
     {
