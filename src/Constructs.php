@@ -215,8 +215,10 @@ final class Constructs
      *
      * @param array<int, array{0: int, 1: string, 2: int}|string> $sequence
      */
-    private static function significantBefore(int $index, array $sequence): int
-    {
+    private static function significantBefore(
+        int $index,
+        array $sequence
+    ): int {
         for ($current = $index - 1; -1 < $current; --$current) {
             $token = $sequence[$current];
 
