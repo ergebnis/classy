@@ -27,12 +27,9 @@
     </MixedArgument>
     <TooManyArguments occurrences="1"/>
   </file>
-  <file src="test/Unit/ConstructsTest.php">
-    <MixedInferredReturnType occurrences="4">
-      <code>\Generator&lt;array&lt;string&gt;&gt;</code>
-      <code>\Generator&lt;array&lt;string&gt;&gt;</code>
-      <code>\Generator&lt;array{0: string, 1: Construct[]}&gt;</code>
-      <code>\Generator&lt;array{0: string, 1:Construct[]}&gt;</code>
-    </MixedInferredReturnType>
+  <file src="test/Util/Scenario.php">
+    <RedundantCast occurrences="1">
+      <code>\array_values</code>
+    </RedundantCast>
   </file>
 </files>

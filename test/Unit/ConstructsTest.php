@@ -46,7 +46,7 @@ final class ConstructsTest extends Framework\TestCase
         \unlink($this->fileWithParseError);
     }
 
-    public function testFromSourceThrowsParseErrorIfParseErrorIsThrownDuringParsing(): void
+    public function testFromSourceThrowsParseErrorWhenParseErrorIsThrownDuringParsing(): void
     {
         $source = self::sourceTriggeringParseError();
 
@@ -56,70 +56,70 @@ final class ConstructsTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider provideSourceWithoutClassyConstructs
+     * @dataProvider provideScenarioWithoutClassyConstructs
      */
-    public function testFromSourceReturnsEmptyArrayIfNoClassyConstructsHaveBeenFound(string $source): void
+    public function testFromSourceReturnsEmptyArrayWhenNoClassyConstructsHaveBeenFound(Test\Util\Scenario $scenario): void
     {
-        self::assertEquals([], Constructs::fromSource($source));
+        $constructs = Constructs::fromSource($scenario->source());
+
+        self::assertSame([], $constructs);
     }
 
     /**
-     * @return \Generator<array<string>>
+     * @return \Generator<string, array{0: Test\Util\Scenario}>
      */
-    public function provideSourceWithoutClassyConstructs(): \Generator
+    public function provideScenarioWithoutClassyConstructs(): \Generator
     {
-        foreach ($this->casesWithoutClassyConstructs() as $key => $fileName) {
-            $source = \file_get_contents($fileName);
+        $scenariosWithoutClassyConstructs = [
+            Test\Util\Scenario::create(
+                'no-php-file',
+                __DIR__ . '/../Fixture/NoClassy/NoPhpFile/source.md'
+            ),
+            Test\Util\Scenario::create(
+                'with-anonymous-class',
+                __DIR__ . '/../Fixture/NoClassy/WithAnonymousClass/source.php'
+            ),
+            Test\Util\Scenario::create(
+                'with-anonymous-class-and-multi-line-comments',
+                __DIR__ . '/../Fixture/NoClassy/WithAnonymousClassAndMultiLineComments/source.php'
+            ),
+            Test\Util\Scenario::create(
+                'with-anonymous-class-and-shell-style-comments',
+                __DIR__ . '/../Fixture/NoClassy/WithAnonymousClassAndShellStyleComments/source.php'
+            ),
+            Test\Util\Scenario::create(
+                'with-anonymous-class-and-single-line-comments',
+                __DIR__ . '/../Fixture/NoClassy/WithAnonymousClassAndSingleLineComments/source.php'
+            ),
+            Test\Util\Scenario::create(
+                'with-class-keyword',
+                __DIR__ . '/../Fixture/NoClassy/WithClassKeyword/source.php'
+            ),
+            Test\Util\Scenario::create(
+                'with-nothing',
+                __DIR__ . '/../Fixture/NoClassy/WithNothing/source.php'
+            ),
+        ];
 
-            if (!\is_string($source)) {
-                throw new \RuntimeException(\sprintf(
-                    'File "%s" should exist and be readable.',
-                    $fileName
-                ));
-            }
-
-            yield $key => [
-                $source,
+        foreach ($scenariosWithoutClassyConstructs as $scenario) {
+            yield $scenario->description() => [
+                $scenario,
             ];
         }
     }
 
     /**
-     * @dataProvider provideSourceWithClassyConstructs
-     *
-     * @param string[] $constructs
+     * @dataProvider provideScenarioWithClassyConstructs
      */
-    public function testFromSourceReturnsArrayOfClassyConstructsSortedByName(
-        string $source,
-        array $constructs
-    ): void {
-        self::assertEquals($constructs, Constructs::fromSource($source));
-    }
-
-    /**
-     * @return \Generator<array{0: string, 1: Construct[]}>
-     */
-    public function provideSourceWithClassyConstructs(): \Generator
+    public function testFromSourceReturnsArrayOfClassyConstructsWithoutFileNamesWhenClassyConstructsHaveBeenFound(Test\Util\Scenario $scenario): void
     {
-        foreach ($this->casesWithClassyConstructs() as $key => [$fileName, $names]) {
-            \sort($names);
+        $constructs = Constructs::fromSource($scenario->source());
 
-            $source = \file_get_contents($fileName);
+        $expected = \array_map(static function (Construct $construct): Construct {
+            return Construct::fromName($construct->name());
+        }, $scenario->constructsSortedByName());
 
-            if (!\is_string($source)) {
-                throw new \RuntimeException(\sprintf(
-                    'File "%s" should exist and be readable.',
-                    $fileName
-                ));
-            }
-
-            yield $key => [
-                $source,
-                \array_map(static function (string $name): Construct {
-                    return Construct::fromName($name);
-                }, $names),
-            ];
-        }
+        self::assertEquals($expected, $constructs);
     }
 
     public function testFromDirectoryThrowsDirectoryDoesNotExistIfDirectoryDoesNotExist(): void
@@ -137,50 +137,129 @@ final class ConstructsTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider provideDirectoryWithoutClassyConstructs
+     * @dataProvider provideScenarioWithoutClassyConstructs
      */
-    public function testFromDirectoryReturnsEmptyArrayIfNoClassyConstructsHaveBeenFound(string $directory): void
+    public function testFromDirectoryReturnsEmptyArrayWhenNoClassyConstructsHaveBeenFound(Test\Util\Scenario $scenario): void
     {
-        self::assertCount(0, Constructs::fromDirectory($directory));
+        $constructs = Constructs::fromDirectory($scenario->directory());
+
+        self::assertSame([], $constructs);
     }
 
     /**
-     * @return \Generator<array<string>>
+     * @dataProvider provideScenarioWithClassyConstructs
      */
-    public function provideDirectoryWithoutClassyConstructs(): \Generator
+    public function testFromDirectoryReturnsArrayOfClassyConstructsSortedByNameWhenClassyConstructsHaveBeenFound(Test\Util\Scenario $scenario): void
     {
-        foreach ($this->casesWithoutClassyConstructs() as $key => $fileName) {
-            yield $key => [
-                \dirname($fileName),
-            ];
-        }
+        $constructs = Constructs::fromDirectory($scenario->directory());
+
+        self::assertEquals($scenario->constructsSortedByName(), $constructs);
     }
 
     /**
-     * @dataProvider provideDirectoryWithClassyConstructs
-     *
-     * @param string[] $classyConstructs
+     * @return \Generator<string, array{0: Test\Util\Scenario}>
      */
-    public function testFromDirectoryReturnsArrayOfClassyConstructsSortedByName(
-        string $directory,
-        array $classyConstructs = []
-    ): void {
-        self::assertEquals($classyConstructs, Constructs::fromDirectory($directory));
-    }
-
-    /**
-     * @return \Generator<array{0: string, 1:Construct[]}>
-     */
-    public function provideDirectoryWithClassyConstructs(): \Generator
+    public function provideScenarioWithClassyConstructs(): \Generator
     {
-        foreach ($this->casesWithClassyConstructs() as $key => [$fileName, $names]) {
-            \sort($names);
+        $scenariosWithClassyConstructs = [
+            Test\Util\Scenario::create(
+                'within-namespace',
+                __DIR__ . '/../Fixture/Classy/WithinNamespace/source.php',
+                Construct::fromName('Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespace\\Bar'),
+                Construct::fromName('Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespace\\Baz'),
+                Construct::fromName('Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespace\\Foo')
+            ),
+            Test\Util\Scenario::create(
+                'within-namespace-and-shell-style-comments',
+                __DIR__ . '/../Fixture/Classy/WithinNamespaceAndShellStyleComments/source.php',
+                Construct::fromName('Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespaceAndShellStyleComments\\Bar'),
+                Construct::fromName('Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespaceAndShellStyleComments\\Baz'),
+                Construct::fromName('Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespaceAndShellStyleComments\\Foo')
+            ),
+            Test\Util\Scenario::create(
+                'within-namespace-and-single-line-comments',
+                __DIR__ . '/../Fixture/Classy/WithinNamespaceAndSingleLineComments/source.php',
+                Construct::fromName('Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespaceAndSingleLineComments\\Bar'),
+                Construct::fromName('Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespaceAndSingleLineComments\\Baz'),
+                Construct::fromName('Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespaceAndSingleLineComments\\Foo')
+            ),
+            Test\Util\Scenario::create(
+                'within-namespace-and-multi-line-comments',
+                __DIR__ . '/../Fixture/Classy/WithinNamespaceAndMultiLineComments/source.php',
+                Construct::fromName('Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespaceAndMultiLineComments\\Bar'),
+                Construct::fromName('Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespaceAndMultiLineComments\\Baz'),
+                Construct::fromName('Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespaceAndMultiLineComments\\Foo')
+            ),
+            Test\Util\Scenario::create(
+                'within-namespace-with-braces',
+                __DIR__ . '/../Fixture/Classy/WithinNamespaceWithBraces/source.php',
+                Construct::fromName('Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespaceWithBraces\\Bar'),
+                Construct::fromName('Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespaceWithBraces\\Baz'),
+                Construct::fromName('Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespaceWithBraces\\Foo')
+            ),
+            Test\Util\Scenario::create(
+                'within-multiple-namespaces-with-braces',
+                __DIR__ . '/../Fixture/Classy/WithinMultipleNamespaces/source.php',
+                Construct::fromName('Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinMultipleNamespaces\\Bar\\Bar'),
+                Construct::fromName('Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinMultipleNamespaces\\Bar\\Baz'),
+                Construct::fromName('Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinMultipleNamespaces\\Bar\\Foo'),
+                Construct::fromName('Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinMultipleNamespaces\\Foo\\Bar'),
+                Construct::fromName('Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinMultipleNamespaces\\Foo\\Baz'),
+                Construct::fromName('Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinMultipleNamespaces\\Foo\\Foo')
+            ),
+            Test\Util\Scenario::create(
+                'within-namespace-with-single-segment',
+                __DIR__ . '/../Fixture/Classy/WithinNamespaceWithSingleSegment/source.php',
+                Construct::fromName('Ergebnis\\Bar'),
+                Construct::fromName('Ergebnis\\Baz'),
+                Construct::fromName('Ergebnis\\Foo')
+            ),
+            Test\Util\Scenario::create(
+                'with-methods-named-after-keywords',
+                __DIR__ . '/../Fixture/Classy/WithMethodsNamedAfterKeywords/source.php',
+                Construct::fromName('Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithMethodsNamedAfterKeywords\\Foo')
+            ),
+            /**
+             * @see https://github.com/zendframework/zend-file/pull/41
+             */
+            Test\Util\Scenario::create(
+                'with-methods-named-after-keywords-and-return-type',
+                __DIR__ . '/../Fixture/Classy/WithMethodsNamedAfterKeywordsAndReturnType/source.php',
+                Construct::fromName('Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithMethodsNamedAfterKeywordsAndReturnType\\Foo')
+            ),
+            Test\Util\Scenario::create(
+                'without-namespace',
+                __DIR__ . '/../Fixture/Classy/WithoutNamespace/source.php',
+                Construct::fromName('Bar'),
+                Construct::fromName('Baz'),
+                Construct::fromName('Foo')
+            ),
+            Test\Util\Scenario::create(
+                'without-namespace-and-multi-line-comments',
+                __DIR__ . '/../Fixture/Classy/WithoutNamespaceAndMultiLineComments/source.php',
+                Construct::fromName('Quux'),
+                Construct::fromName('Quuz'),
+                Construct::fromName('Qux')
+            ),
+            Test\Util\Scenario::create(
+                'without-namespace-and-shell-line-comments',
+                __DIR__ . '/../Fixture/Classy/WithoutNamespaceAndShellStyleComments/source.php',
+                Construct::fromName('Corge'),
+                Construct::fromName('Garply'),
+                Construct::fromName('Grault')
+            ),
+            Test\Util\Scenario::create(
+                'without-namespace-and-single-line-comments',
+                __DIR__ . '/../Fixture/Classy/WithoutNamespaceAndSingleLineComments/source.php',
+                Construct::fromName('Fred'),
+                Construct::fromName('Plugh'),
+                Construct::fromName('Waldo')
+            ),
+        ];
 
-            yield $key => [
-                \dirname($fileName),
-                \array_map(static function (string $name) use ($fileName): Construct {
-                    return Construct::fromName($name)->definedIn(self::realPath($fileName));
-                }, $names),
+        foreach ($scenariosWithClassyConstructs as $scenario) {
+            yield $scenario->description() => [
+                $scenario,
             ];
         }
     }
@@ -201,137 +280,6 @@ final class ConstructsTest extends Framework\TestCase
         $this->expectException(Exception\MultipleDefinitionsFound::class);
 
         Constructs::fromDirectory(__DIR__ . '/../Fixture/MultipleDefinitions');
-    }
-
-    /**
-     * @return array<string, string>
-     */
-    private function casesWithoutClassyConstructs(): array
-    {
-        return [
-            'no-php-file' => __DIR__ . '/../Fixture/NoClassy/NoPhpFile/source.md',
-            'with-anonymous-class' => __DIR__ . '/../Fixture/NoClassy/WithAnonymousClass/source.php',
-            'with-anonymous-class-and-multi-line-comments' => __DIR__ . '/../Fixture/NoClassy/WithAnonymousClassAndMultiLineComments/source.php',
-            'with-anonymous-class-and-shell-style-comments' => __DIR__ . '/../Fixture/NoClassy/WithAnonymousClassAndShellStyleComments/source.php',
-            'with-anonymous-class-and-single-line-comments' => __DIR__ . '/../Fixture/NoClassy/WithAnonymousClassAndSingleLineComments/source.php',
-            'with-class-keyword' => __DIR__ . '/../Fixture/NoClassy/WithClassKeyword/source.php',
-            'with-nothing' => __DIR__ . '/../Fixture/NoClassy/WithNothing/source.php',
-        ];
-    }
-
-    /**
-     * @return array<string, array{0: string, 1: string[]}>
-     */
-    private function casesWithClassyConstructs(): array
-    {
-        return [
-            'within-namespace' => [
-                __DIR__ . '/../Fixture/Classy/WithinNamespace/source.php',
-                [
-                    'Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespace\\Bar',
-                    'Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespace\\Baz',
-                    'Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespace\\Foo',
-                ],
-            ],
-            'within-namespace-and-shell-style-comments' => [
-                __DIR__ . '/../Fixture/Classy/WithinNamespaceAndShellStyleComments/source.php',
-                [
-                    'Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespaceAndShellStyleComments\\Bar',
-                    'Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespaceAndShellStyleComments\\Baz',
-                    'Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespaceAndShellStyleComments\\Foo',
-                ],
-            ],
-            'within-namespace-and-single-line-comments' => [
-                __DIR__ . '/../Fixture/Classy/WithinNamespaceAndSingleLineComments/source.php',
-                [
-                    'Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespaceAndSingleLineComments\\Bar',
-                    'Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespaceAndSingleLineComments\\Baz',
-                    'Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespaceAndSingleLineComments\\Foo',
-                ],
-            ],
-            'within-namespace-and-multi-line-comments' => [
-                __DIR__ . '/../Fixture/Classy/WithinNamespaceAndMultiLineComments/source.php',
-                [
-                    'Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespaceAndMultiLineComments\\Bar',
-                    'Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespaceAndMultiLineComments\\Baz',
-                    'Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespaceAndMultiLineComments\\Foo',
-                ],
-            ],
-            'within-namespace-with-braces' => [
-                __DIR__ . '/../Fixture/Classy/WithinNamespaceWithBraces/source.php',
-                [
-                    'Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespaceWithBraces\\Bar',
-                    'Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespaceWithBraces\\Baz',
-                    'Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinNamespaceWithBraces\\Foo',
-                ],
-            ],
-            'within-multiple-namespaces-with-braces' => [
-                __DIR__ . '/../Fixture/Classy/WithinMultipleNamespaces/source.php',
-                [
-                    'Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinMultipleNamespaces\\Bar\\Bar',
-                    'Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinMultipleNamespaces\\Bar\\Baz',
-                    'Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinMultipleNamespaces\\Bar\\Foo',
-                    'Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinMultipleNamespaces\\Foo\\Bar',
-                    'Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinMultipleNamespaces\\Foo\\Baz',
-                    'Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithinMultipleNamespaces\\Foo\\Foo',
-                ],
-            ],
-            'within-namespace-with-single-segment' => [
-                __DIR__ . '/../Fixture/Classy/WithinNamespaceWithSingleSegment/source.php',
-                [
-                    'Ergebnis\\Bar',
-                    'Ergebnis\\Baz',
-                    'Ergebnis\\Foo',
-                ],
-            ],
-            'with-methods-named-after-keywords' => [
-                __DIR__ . '/../Fixture/Classy/WithMethodsNamedAfterKeywords/source.php',
-                [
-                    'Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithMethodsNamedAfterKeywords\\Foo',
-                ],
-            ],
-            /**
-             * @see https://github.com/zendframework/zend-file/pull/41
-             */
-            'with-methods-named-after-keywords-and-return-type' => [
-                __DIR__ . '/../Fixture/Classy/WithMethodsNamedAfterKeywordsAndReturnType/source.php',
-                [
-                    'Ergebnis\\Classy\\Test\\Fixture\\Classy\\WithMethodsNamedAfterKeywordsAndReturnType\\Foo',
-                ],
-            ],
-            'without-namespace' => [
-                __DIR__ . '/../Fixture/Classy/WithoutNamespace/source.php',
-                [
-                    'Bar',
-                    'Baz',
-                    'Foo',
-                ],
-            ],
-            'without-namespace-and-multi-line-comments' => [
-                __DIR__ . '/../Fixture/Classy/WithoutNamespaceAndMultiLineComments/source.php',
-                [
-                    'Qux',
-                    'Quux',
-                    'Quuz',
-                ],
-            ],
-            'without-namespace-and-shell-line-comments' => [
-                __DIR__ . '/../Fixture/Classy/WithoutNamespaceAndShellStyleComments/source.php',
-                [
-                    'Corge',
-                    'Garply',
-                    'Grault',
-                ],
-            ],
-            'without-namespace-and-single-line-comments' => [
-                __DIR__ . '/../Fixture/Classy/WithoutNamespaceAndSingleLineComments/source.php',
-                [
-                    'Fred',
-                    'Plugh',
-                    'Waldo',
-                ],
-            ],
-        ];
     }
 
     private static function realPath(string $path): string
