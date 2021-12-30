@@ -15,7 +15,7 @@ namespace Ergebnis\Classy\Test\Unit\Exception;
 
 use Ergebnis\Classy\Exception\DirectoryDoesNotExist;
 use Ergebnis\Classy\Exception\ExceptionInterface;
-use Ergebnis\Test\Util\Helper;
+use Ergebnis\Classy\Test;
 use PHPUnit\Framework;
 
 /**
@@ -25,7 +25,7 @@ use PHPUnit\Framework;
  */
 final class DirectoryDoesNotExistTest extends Framework\TestCase
 {
-    use Helper;
+    use Test\Util\Helper;
 
     public function testFromDirectoryReturnsException(): void
     {

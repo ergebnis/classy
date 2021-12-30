@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Ergebnis\Classy\Test\Unit;
 
 use Ergebnis\Classy\Construct;
-use Ergebnis\Test\Util\Helper;
+use Ergebnis\Classy\Test;
 use PHPUnit\Framework;
 
 /**
@@ -24,7 +24,7 @@ use PHPUnit\Framework;
  */
 final class ConstructTest extends Framework\TestCase
 {
-    use Helper;
+    use Test\Util\Helper;
 
     public function testFromNameReturnsConstruct(): void
     {

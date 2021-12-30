@@ -16,7 +16,7 @@ namespace Ergebnis\Classy\Test\Unit\Exception;
 use Ergebnis\Classy\Construct;
 use Ergebnis\Classy\Exception\ExceptionInterface;
 use Ergebnis\Classy\Exception\MultipleDefinitionsFound;
-use Ergebnis\Test\Util\Helper;
+use Ergebnis\Classy\Test;
 use PHPUnit\Framework;
 
 /**
@@ -28,7 +28,7 @@ use PHPUnit\Framework;
  */
 final class MultipleDefinitionsFoundTest extends Framework\TestCase
 {
-    use Helper;
+    use Test\Util\Helper;
 
     public function testFromConstructsReturnsException(): void
     {
