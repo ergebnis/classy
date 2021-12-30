@@ -32,7 +32,6 @@ final class ConstructTest extends Framework\TestCase
 
         $construct = Construct::fromName($name);
 
-        self::assertInstanceOf(Construct::class, $construct);
         self::assertSame($name, $construct->name());
     }
 
@@ -40,7 +39,6 @@ final class ConstructTest extends Framework\TestCase
     {
         $construct = Construct::fromName(self::faker()->word());
 
-        self::assertIsArray($construct->fileNames());
         self::assertCount(0, $construct->fileNames());
     }
 
@@ -71,10 +69,8 @@ final class ConstructTest extends Framework\TestCase
 
         $mutated = $construct->definedIn(...$fileNames);
 
-        self::assertInstanceOf(Construct::class, $mutated);
         self::assertNotSame($construct, $mutated);
         self::assertSame($name, $mutated->name());
-        self::assertIsArray($mutated->fileNames());
         self::assertCount(\count($fileNames), $mutated->fileNames());
         self::assertEquals($fileNames, $mutated->fileNames());
     }
