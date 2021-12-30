@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace Ergebnis\Classy\Test\Unit\Exception;
 
-use Ergebnis\Classy\Exception\ExceptionInterface;
 use Ergebnis\Classy\Exception\ParseError;
 use Ergebnis\Classy\Test;
 use PHPUnit\Framework;
@@ -33,9 +32,6 @@ final class ParseErrorTest extends Framework\TestCase
 
         $exception = ParseError::fromParseError($parseError);
 
-        self::assertInstanceOf(ParseError::class, $exception);
-        self::assertInstanceOf(\ParseError::class, $exception);
-        self::assertInstanceOf(ExceptionInterface::class, $exception);
         self::assertSame($parseError->getMessage(), $exception->getMessage());
         self::assertSame(0, $exception->getCode());
         self::assertSame($parseError, $exception->getPrevious());
@@ -50,10 +46,6 @@ final class ParseErrorTest extends Framework\TestCase
             $fileName,
             $parseError
         );
-
-        self::assertInstanceOf(ParseError::class, $exception);
-        self::assertInstanceOf(\ParseError::class, $exception);
-        self::assertInstanceOf(ExceptionInterface::class, $exception);
 
         $expectedMessage = \sprintf(
             'A parse error occurred when parsing "%s": "%s".',
