@@ -72,30 +72,37 @@ final class ConstructsTest extends Framework\TestCase
     {
         $scenariosWithoutClassyConstructs = [
             Test\Util\Scenario::create(
+                Test\Util\PhpVersion::fromInt(70200),
                 'no-php-file',
                 __DIR__ . '/../Fixture/NoClassy/NoPhpFile/source.md'
             ),
             Test\Util\Scenario::create(
+                Test\Util\PhpVersion::fromInt(70200),
                 'with-anonymous-class',
                 __DIR__ . '/../Fixture/NoClassy/WithAnonymousClass/source.php'
             ),
             Test\Util\Scenario::create(
+                Test\Util\PhpVersion::fromInt(70200),
                 'with-anonymous-class-and-multi-line-comments',
                 __DIR__ . '/../Fixture/NoClassy/WithAnonymousClassAndMultiLineComments/source.php'
             ),
             Test\Util\Scenario::create(
+                Test\Util\PhpVersion::fromInt(70200),
                 'with-anonymous-class-and-shell-style-comments',
                 __DIR__ . '/../Fixture/NoClassy/WithAnonymousClassAndShellStyleComments/source.php'
             ),
             Test\Util\Scenario::create(
+                Test\Util\PhpVersion::fromInt(70200),
                 'with-anonymous-class-and-single-line-comments',
                 __DIR__ . '/../Fixture/NoClassy/WithAnonymousClassAndSingleLineComments/source.php'
             ),
             Test\Util\Scenario::create(
+                Test\Util\PhpVersion::fromInt(70200),
                 'with-class-keyword',
                 __DIR__ . '/../Fixture/NoClassy/WithClassKeyword/source.php'
             ),
             Test\Util\Scenario::create(
+                Test\Util\PhpVersion::fromInt(70200),
                 'with-nothing',
                 __DIR__ . '/../Fixture/NoClassy/WithNothing/source.php'
             ),
@@ -163,6 +170,7 @@ final class ConstructsTest extends Framework\TestCase
     {
         $scenariosWithClassyConstructs = [
             Test\Util\Scenario::create(
+                Test\Util\PhpVersion::fromInt(70200),
                 'within-namespace',
                 __DIR__ . '/../Fixture/Classy/WithinNamespace/source.php',
                 Construct::fromName(Test\Fixture\Classy\WithinNamespace\Bar::class),
@@ -170,6 +178,7 @@ final class ConstructsTest extends Framework\TestCase
                 Construct::fromName(Test\Fixture\Classy\WithinNamespace\Foo::class)
             ),
             Test\Util\Scenario::create(
+                Test\Util\PhpVersion::fromInt(70200),
                 'within-namespace-and-shell-style-comments',
                 __DIR__ . '/../Fixture/Classy/WithinNamespaceAndShellStyleComments/source.php',
                 Construct::fromName(Test\Fixture\Classy\WithinNamespaceAndShellStyleComments\Bar::class),
@@ -177,6 +186,7 @@ final class ConstructsTest extends Framework\TestCase
                 Construct::fromName(Test\Fixture\Classy\WithinNamespaceAndShellStyleComments\Foo::class)
             ),
             Test\Util\Scenario::create(
+                Test\Util\PhpVersion::fromInt(70200),
                 'within-namespace-and-single-line-comments',
                 __DIR__ . '/../Fixture/Classy/WithinNamespaceAndSingleLineComments/source.php',
                 Construct::fromName(Test\Fixture\Classy\WithinNamespaceAndSingleLineComments\Bar::class),
@@ -184,6 +194,7 @@ final class ConstructsTest extends Framework\TestCase
                 Construct::fromName(Test\Fixture\Classy\WithinNamespaceAndSingleLineComments\Foo::class)
             ),
             Test\Util\Scenario::create(
+                Test\Util\PhpVersion::fromInt(70200),
                 'within-namespace-and-multi-line-comments',
                 __DIR__ . '/../Fixture/Classy/WithinNamespaceAndMultiLineComments/source.php',
                 Construct::fromName(Test\Fixture\Classy\WithinNamespaceAndMultiLineComments\Bar::class),
@@ -191,6 +202,7 @@ final class ConstructsTest extends Framework\TestCase
                 Construct::fromName(Test\Fixture\Classy\WithinNamespaceAndMultiLineComments\Foo::class)
             ),
             Test\Util\Scenario::create(
+                Test\Util\PhpVersion::fromInt(70200),
                 'within-namespace-with-braces',
                 __DIR__ . '/../Fixture/Classy/WithinNamespaceWithBraces/source.php',
                 Construct::fromName(Test\Fixture\Classy\WithinNamespaceWithBraces\Bar::class),
@@ -198,6 +210,7 @@ final class ConstructsTest extends Framework\TestCase
                 Construct::fromName(Test\Fixture\Classy\WithinNamespaceWithBraces\Foo::class)
             ),
             Test\Util\Scenario::create(
+                Test\Util\PhpVersion::fromInt(70200),
                 'within-multiple-namespaces-with-braces',
                 __DIR__ . '/../Fixture/Classy/WithinMultipleNamespaces/source.php',
                 Construct::fromName(Test\Fixture\Classy\WithinMultipleNamespaces\Bar\Bar::class),
@@ -208,6 +221,7 @@ final class ConstructsTest extends Framework\TestCase
                 Construct::fromName(Test\Fixture\Classy\WithinMultipleNamespaces\Foo\Foo::class)
             ),
             Test\Util\Scenario::create(
+                Test\Util\PhpVersion::fromInt(70200),
                 'within-namespace-with-single-segment',
                 __DIR__ . '/../Fixture/Classy/WithinNamespaceWithSingleSegment/source.php',
                 Construct::fromName('Ergebnis\\Bar'),
@@ -215,6 +229,7 @@ final class ConstructsTest extends Framework\TestCase
                 Construct::fromName('Ergebnis\\Foo')
             ),
             Test\Util\Scenario::create(
+                Test\Util\PhpVersion::fromInt(70200),
                 'with-methods-named-after-keywords',
                 __DIR__ . '/../Fixture/Classy/WithMethodsNamedAfterKeywords/source.php',
                 Construct::fromName(Test\Fixture\Classy\WithMethodsNamedAfterKeywords\Foo::class)
@@ -223,11 +238,13 @@ final class ConstructsTest extends Framework\TestCase
              * @see https://github.com/zendframework/zend-file/pull/41
              */
             Test\Util\Scenario::create(
+                Test\Util\PhpVersion::fromInt(70200),
                 'with-methods-named-after-keywords-and-return-type',
                 __DIR__ . '/../Fixture/Classy/WithMethodsNamedAfterKeywordsAndReturnType/source.php',
                 Construct::fromName(Test\Fixture\Classy\WithMethodsNamedAfterKeywordsAndReturnType\Foo::class)
             ),
             Test\Util\Scenario::create(
+                Test\Util\PhpVersion::fromInt(70200),
                 'without-namespace',
                 __DIR__ . '/../Fixture/Classy/WithoutNamespace/source.php',
                 Construct::fromName('Bar'),
@@ -235,6 +252,7 @@ final class ConstructsTest extends Framework\TestCase
                 Construct::fromName('Foo')
             ),
             Test\Util\Scenario::create(
+                Test\Util\PhpVersion::fromInt(70200),
                 'without-namespace-and-multi-line-comments',
                 __DIR__ . '/../Fixture/Classy/WithoutNamespaceAndMultiLineComments/source.php',
                 Construct::fromName('Quux'),
@@ -242,6 +260,7 @@ final class ConstructsTest extends Framework\TestCase
                 Construct::fromName('Qux')
             ),
             Test\Util\Scenario::create(
+                Test\Util\PhpVersion::fromInt(70200),
                 'without-namespace-and-shell-line-comments',
                 __DIR__ . '/../Fixture/Classy/WithoutNamespaceAndShellStyleComments/source.php',
                 Construct::fromName('Corge'),
@@ -249,6 +268,7 @@ final class ConstructsTest extends Framework\TestCase
                 Construct::fromName('Grault')
             ),
             Test\Util\Scenario::create(
+                Test\Util\PhpVersion::fromInt(70200),
                 'without-namespace-and-single-line-comments',
                 __DIR__ . '/../Fixture/Classy/WithoutNamespaceAndSingleLineComments/source.php',
                 Construct::fromName('Fred'),

@@ -21,6 +21,11 @@ use Ergebnis\Classy;
 final class Scenario
 {
     /**
+     * @var PhpVersion
+     */
+    private $phpVersion;
+
+    /**
      * @var string
      */
     private $description;
@@ -41,11 +46,13 @@ final class Scenario
     private $constructs;
 
     private function __construct(
+        PhpVersion $phpVersion,
         string $description,
         string $fileName,
         string $fileContent,
         Classy\Construct ...$constructs
     ) {
+        $this->phpVersion = $phpVersion;
         $this->description = $description;
         $this->fileName = $fileName;
         $this->fileContent = $fileContent;
@@ -56,6 +63,7 @@ final class Scenario
      * @throws \InvalidArgumentException
      */
     public static function create(
+        PhpVersion $phpVersion,
         string $description,
         string $fileName,
         Classy\Construct ...$constructs
@@ -93,6 +101,7 @@ final class Scenario
         });
 
         return new self(
+            $phpVersion,
             $description,
             $fileName,
             $fileContent,
@@ -100,6 +109,11 @@ final class Scenario
                 return $construct->definedIn($resolvedFileName);
             }, \array_values($constructs))
         );
+    }
+
+    public function phpVersion(): PhpVersion
+    {
+        return $this->phpVersion;
     }
 
     public function description(): string
