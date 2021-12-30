@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\Classy\Test\Unit\Exception;
 
-use Ergebnis\Classy\Exception\ParseError;
+use Ergebnis\Classy\Exception;
 use Ergebnis\Classy\Test;
 use PHPUnit\Framework;
 
@@ -30,7 +30,7 @@ final class ParseErrorTest extends Framework\TestCase
     {
         $parseError = new \ParseError(self::faker()->sentence());
 
-        $exception = ParseError::fromParseError($parseError);
+        $exception = Exception\ParseError::fromParseError($parseError);
 
         self::assertSame($parseError->getMessage(), $exception->getMessage());
         self::assertSame(0, $exception->getCode());
@@ -42,7 +42,7 @@ final class ParseErrorTest extends Framework\TestCase
         $fileName = __FILE__;
         $parseError = new \ParseError(self::faker()->sentence());
 
-        $exception = ParseError::fromFileNameAndParseError(
+        $exception = Exception\ParseError::fromFileNameAndParseError(
             $fileName,
             $parseError
         );

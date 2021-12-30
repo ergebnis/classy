@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Ergebnis\Classy\Test\Unit\Exception;
 
 use Ergebnis\Classy\Construct;
-use Ergebnis\Classy\Exception\MultipleDefinitionsFound;
+use Ergebnis\Classy\Exception;
 use Ergebnis\Classy\Test;
 use PHPUnit\Framework;
 
@@ -42,7 +42,7 @@ final class MultipleDefinitionsFoundTest extends Framework\TestCase
             Construct::fromName($name)->definedIn(...$fileNames),
         ];
 
-        $exception = MultipleDefinitionsFound::fromConstructs($constructs);
+        $exception = Exception\MultipleDefinitionsFound::fromConstructs($constructs);
 
         $format = <<<'PHP'
 Multiple definitions have been found for the following constructs:
