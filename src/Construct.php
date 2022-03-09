@@ -68,8 +68,6 @@ final class Construct
 
     /**
      * Clones the construct and adds the file name to the list of files the construct is defined in.
-     *
-     * @param string ...$fileNames
      */
     public function definedIn(string ...$fileNames): self
     {
