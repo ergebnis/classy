@@ -22,16 +22,19 @@ jobs:
 
     steps:
       - name: "Checkout"
-        uses: "actions/checkout@v2.4.0"
+        uses: "actions/checkout@v3"
         with:
           token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
 
       - name: "Set up PHP"
-        uses: "shivammathur/setup-php@2.16.0"
+        uses: "shivammathur/setup-php@2.17.1"
         with:
           coverage: "none"
           extensions: "none, ctype, dom, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter"
           php-version: "${{ matrix.php-version }}"
+
+      - name: "Set up problem matchers for PHP"
+        run: "echo \"::add-matcher::${{ runner.tool_cache }}/php.json\""
 
       - name: "Validate composer.json and composer.lock"
         run: "composer validate --ansi --strict"
