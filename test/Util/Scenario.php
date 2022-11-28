@@ -35,7 +35,7 @@ final class Scenario
         string $description,
         string $fileName,
         string $fileContent,
-        Classy\Construct ...$constructs
+        Classy\Construct ...$constructs,
     ) {
         $this->phpVersion = $phpVersion;
         $this->description = $description;
@@ -51,7 +51,7 @@ final class Scenario
         PhpVersion $phpVersion,
         string $description,
         string $fileName,
-        Classy\Construct ...$constructs
+        Classy\Construct ...$constructs,
     ): self {
         if (!\is_file($fileName)) {
             throw new \InvalidArgumentException(\sprintf(

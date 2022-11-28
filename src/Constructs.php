@@ -225,7 +225,7 @@ final class Constructs
      */
     private static function significantBefore(
         int $index,
-        array $sequence
+        array $sequence,
     ): int {
         for ($current = $index - 1; -1 < $current; --$current) {
             $token = $sequence[$current];
