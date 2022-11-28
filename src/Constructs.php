@@ -40,16 +40,8 @@ final class Constructs
 
         $namespaceSegmentOrNamespaceTokens = [
             \T_STRING,
+            \T_NAME_QUALIFIED,
         ];
-
-        // https://wiki.php.net/rfc/namespaced_names_as_token
-        if (\PHP_VERSION_ID >= 80000 && \defined('T_NAME_QUALIFIED')) {
-            /** @var array<int> $namespaceSegmentOrNamespaceTokens */
-            $namespaceSegmentOrNamespaceTokens = [
-                \T_STRING,
-                \T_NAME_QUALIFIED,
-            ];
-        }
 
         $classyTokens = [
             \T_CLASS,
