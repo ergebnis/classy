@@ -31,6 +31,8 @@ Use `Constructs::fromSource()` to collect classy constructs in source code:
 ```php
 <?php
 
+declare(strict_types=1);
+
 use Ergebnis\Classy\Construct;
 use Ergebnis\Classy\Constructs;
 
@@ -63,6 +65,8 @@ Use `Constructs::fromDirectory()` to collect classy constructs in a directory:
 
 ```php
 <?php
+
+declare(strict_types=1);
 
 use Ergebnis\Classy\Construct;
 use Ergebnis\Classy\Constructs;
