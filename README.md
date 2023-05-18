@@ -26,15 +26,14 @@ composer require ergebnis/classy
 
 ### Collect classy constructs from source code
 
-Use `Constructs::fromSource()` to collect classy constructs in source code:
+Use `Classy\Constructs::fromSource()` to collect classy constructs in source code:
 
 ```php
 <?php
 
 declare(strict_types=1);
 
-use Ergebnis\Classy\Construct;
-use Ergebnis\Classy\Constructs;
+use Ergebnis\Classy;
 
 $source = <<<'PHP'
 <?php
@@ -50,9 +49,9 @@ interface Baz {}
 trait Qux {}
 PHP;
 
-$constructs = Constructs::fromSource($source);
+$constructs = Classy\Constructs::fromSource($source);
 
-$names = array_map(static function (Construct $construct): string {
+$names = array_map(static function (Classy\Construct $construct): string {
     return $construct->name();
 }, $constructs);
 
@@ -61,19 +60,18 @@ var_dump($names); // ['Example\Bar', 'Example\Baz', 'Example\Foo', 'Example\Qux'
 
 ### Collect classy constructs from a directory
 
-Use `Constructs::fromDirectory()` to collect classy constructs in a directory:
+Use `Classy\Constructs::fromDirectory()` to collect classy constructs in a directory:
 
 ```php
 <?php
 
 declare(strict_types=1);
 
-use Ergebnis\Classy\Construct;
-use Ergebnis\Classy\Constructs;
+use Ergebnis\Classy;
 
-$constructs = Constructs::fromDirectory(__DIR__ . '/example');
+$constructs = Classy\Constructs::fromDirectory(__DIR__ . '/example');
 
-$names = array_map(static function (Construct $construct): string {
+$names = array_map(static function (Classy\Construct $construct): string {
     return $construct->name();
 }, $constructs);
 
