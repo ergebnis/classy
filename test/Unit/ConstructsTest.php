@@ -65,7 +65,7 @@ final class ConstructsTest extends Framework\TestCase
     /**
      * @return \Generator<string, array{0: Test\Util\Scenario}>
      */
-    public function provideScenarioWithoutClassyConstructs(): \Generator
+    public static function provideScenarioWithoutClassyConstructs(): \Generator
     {
         $scenariosWithoutClassyConstructs = [
             Test\Util\Scenario::create(
@@ -179,7 +179,7 @@ final class ConstructsTest extends Framework\TestCase
     /**
      * @return \Generator<string, array{0: Test\Util\Scenario}>
      */
-    public function provideScenarioWithClassyConstructsBeforePhp81(): \Generator
+    public static function provideScenarioWithClassyConstructsBeforePhp81(): \Generator
     {
         $phpVersion = Test\Util\PhpVersion::fromInt(80100);
 
@@ -209,7 +209,7 @@ final class ConstructsTest extends Framework\TestCase
     /**
      * @return \Generator<string, array{0: Test\Util\Scenario}>
      */
-    public function provideScenarioWithClassyConstructsOnPhp81(): \Generator
+    public static function provideScenarioWithClassyConstructsOnPhp81(): \Generator
     {
         $phpVersion = Test\Util\PhpVersion::fromInt(80100);
 
