@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.11.0@c9b192ab8400fdaf04b2b13d110575adc879aa90">
+<files psalm-version="5.13.0@a0a9c27630bcf8301ee78cb06741d2907d8c9fef">
   <file src="src/Constructs.php">
     <MixedAssignment>
       <code>$fileInfo</code>
@@ -24,38 +24,6 @@
             );
         }]]></code>
     </TooManyArguments>
-  </file>
-  <file src="test/Unit/ConstructsTest.php">
-    <MixedArgument>
-      <code>Test\Fixture\Classy\Php81\WithinMultipleNamespaces\Bar\Bar::class</code>
-      <code>Test\Fixture\Classy\Php81\WithinMultipleNamespaces\Bar\Baz::class</code>
-      <code>Test\Fixture\Classy\Php81\WithinMultipleNamespaces\Bar\Foo::class</code>
-      <code>Test\Fixture\Classy\Php81\WithinMultipleNamespaces\Bar\Qux::class</code>
-      <code>Test\Fixture\Classy\Php81\WithinMultipleNamespaces\Foo\Bar::class</code>
-      <code>Test\Fixture\Classy\Php81\WithinMultipleNamespaces\Foo\Baz::class</code>
-      <code>Test\Fixture\Classy\Php81\WithinMultipleNamespaces\Foo\Foo::class</code>
-      <code>Test\Fixture\Classy\Php81\WithinMultipleNamespaces\Foo\Qux::class</code>
-      <code>Test\Fixture\Classy\Php81\WithinNamespaceWithBraces\Bar::class</code>
-      <code>Test\Fixture\Classy\Php81\WithinNamespaceWithBraces\Baz::class</code>
-      <code>Test\Fixture\Classy\Php81\WithinNamespaceWithBraces\Foo::class</code>
-      <code>Test\Fixture\Classy\Php81\WithinNamespaceWithBraces\Qux::class</code>
-      <code>Test\Fixture\Classy\Php81\WithinNamespace\Qux::class</code>
-    </MixedArgument>
-    <UndefinedClass>
-      <code>Test\Fixture\Classy\Php81\WithinMultipleNamespaces\Bar\Bar</code>
-      <code>Test\Fixture\Classy\Php81\WithinMultipleNamespaces\Bar\Baz</code>
-      <code>Test\Fixture\Classy\Php81\WithinMultipleNamespaces\Bar\Foo</code>
-      <code>Test\Fixture\Classy\Php81\WithinMultipleNamespaces\Bar\Qux</code>
-      <code>Test\Fixture\Classy\Php81\WithinMultipleNamespaces\Foo\Bar</code>
-      <code>Test\Fixture\Classy\Php81\WithinMultipleNamespaces\Foo\Baz</code>
-      <code>Test\Fixture\Classy\Php81\WithinMultipleNamespaces\Foo\Foo</code>
-      <code>Test\Fixture\Classy\Php81\WithinMultipleNamespaces\Foo\Qux</code>
-      <code>Test\Fixture\Classy\Php81\WithinNamespaceWithBraces\Bar</code>
-      <code>Test\Fixture\Classy\Php81\WithinNamespaceWithBraces\Baz</code>
-      <code>Test\Fixture\Classy\Php81\WithinNamespaceWithBraces\Foo</code>
-      <code>Test\Fixture\Classy\Php81\WithinNamespaceWithBraces\Qux</code>
-      <code>Test\Fixture\Classy\Php81\WithinNamespace\Qux</code>
-    </UndefinedClass>
   </file>
   <file src="test/Util/PhpVersion.php">
     <PossiblyUnusedMethod>

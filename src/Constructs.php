@@ -45,19 +45,10 @@ final class Constructs
 
         $classyTokens = [
             \T_CLASS,
+            \T_ENUM,
             \T_INTERFACE,
             \T_TRAIT,
         ];
-
-        // https://wiki.php.net/rfc/enumerations
-        if (\PHP_VERSION_ID >= 80100 && \defined('T_ENUM')) {
-            $classyTokens = [
-                \T_CLASS,
-                \T_ENUM,
-                \T_INTERFACE,
-                \T_TRAIT,
-            ];
-        }
 
         for ($index = 0; $index < $count; ++$index) {
             $token = $sequence[$index];
