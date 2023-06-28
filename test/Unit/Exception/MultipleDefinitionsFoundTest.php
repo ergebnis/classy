@@ -18,13 +18,8 @@ use Ergebnis\Classy\Exception;
 use Ergebnis\Classy\Test;
 use PHPUnit\Framework;
 
-/**
- * @internal
- *
- * @covers \Ergebnis\Classy\Exception\MultipleDefinitionsFound
- *
- * @uses \Ergebnis\Classy\Construct
- */
+#[Framework\Attributes\CoversClass(Exception\MultipleDefinitionsFound::class)]
+#[Framework\Attributes\UsesClass(Construct::class)]
 final class MultipleDefinitionsFoundTest extends Framework\TestCase
 {
     use Test\Util\Helper;

@@ -10,7 +10,7 @@ The following versions of `ergebnis/classy` have active support:
 
 The following versions of `ergebnis/classy` have reached their end of life:
 
-- `<=1.3.0`
+- `<1.4.0`
 
 ## Reporting a Vulnerability
 
