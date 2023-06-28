@@ -25,6 +25,13 @@
         }]]></code>
     </TooManyArguments>
   </file>
+  <file src="test/Unit/ConstructsTest.php">
+    <PossiblyUnusedMethod>
+      <code>provideScenarioWithClassyConstructsBeforePhp81</code>
+      <code>provideScenarioWithClassyConstructsOnPhp81</code>
+      <code>provideScenarioWithoutClassyConstructs</code>
+    </PossiblyUnusedMethod>
+  </file>
   <file src="test/Util/PhpVersion.php">
     <PossiblyUnusedMethod>
       <code>toInt</code>

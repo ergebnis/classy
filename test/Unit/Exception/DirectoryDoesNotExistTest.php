@@ -17,11 +17,7 @@ use Ergebnis\Classy\Exception;
 use Ergebnis\Classy\Test;
 use PHPUnit\Framework;
 
-/**
- * @internal
- *
- * @covers \Ergebnis\Classy\Exception\DirectoryDoesNotExist
- */
+#[Framework\Attributes\CoversClass(Exception\DirectoryDoesNotExist::class)]
 final class DirectoryDoesNotExistTest extends Framework\TestCase
 {
     use Test\Util\Helper;

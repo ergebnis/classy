@@ -18,7 +18,7 @@ namespace Ergebnis\Classy\Test\Util;
  */
 final class PhpVersion
 {
-    private int $value;
+    private readonly int $value;
 
     private function __construct(int $value)
     {

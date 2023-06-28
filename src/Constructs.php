@@ -194,8 +194,11 @@ final class Constructs
      *
      * @param array<int, array{0: int, 1: string, 2: int}|string> $sequence
      */
-    private static function significantAfter(int $index, array $sequence, int $count): int
-    {
+    private static function significantAfter(
+        int $index,
+        array $sequence,
+        int $count,
+    ): int {
         for ($current = $index + 1; $current < $count; ++$current) {
             $token = $sequence[$current];
 

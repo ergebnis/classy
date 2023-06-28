@@ -19,16 +19,11 @@ use Ergebnis\Classy\Exception;
 use Ergebnis\Classy\Test;
 use PHPUnit\Framework;
 
-/**
- * @internal
- *
- * @covers \Ergebnis\Classy\Constructs
- *
- * @uses \Ergebnis\Classy\Construct
- * @uses \Ergebnis\Classy\Exception\DirectoryDoesNotExist
- * @uses \Ergebnis\Classy\Exception\MultipleDefinitionsFound
- * @uses \Ergebnis\Classy\Exception\ParseError
- */
+#[Framework\Attributes\CoversClass(Constructs::class)]
+#[Framework\Attributes\UsesClass(Construct::class)]
+#[Framework\Attributes\UsesClass(Exception\DirectoryDoesNotExist::class)]
+#[Framework\Attributes\UsesClass(Exception\MultipleDefinitionsFound::class)]
+#[Framework\Attributes\UsesClass(Exception\ParseError::class)]
 final class ConstructsTest extends Framework\TestCase
 {
     private string $fileWithParseError = __DIR__ . '/../Fixture/ParseError/MessedUp.php';
@@ -52,9 +47,7 @@ final class ConstructsTest extends Framework\TestCase
         Constructs::fromSource($source);
     }
 
-    /**
-     * @dataProvider provideScenarioWithoutClassyConstructs
-     */
+    #[Framework\Attributes\DataProvider('provideScenarioWithoutClassyConstructs')]
     public function testFromSourceReturnsEmptyArrayWhenNoClassyConstructsHaveBeenFound(Test\Util\Scenario $scenario): void
     {
         $constructs = Constructs::fromSource($scenario->source());
@@ -112,9 +105,7 @@ final class ConstructsTest extends Framework\TestCase
         }
     }
 
-    /**
-     * @dataProvider provideScenarioWithClassyConstructsBeforePhp81
-     */
+    #[Framework\Attributes\DataProvider('provideScenarioWithClassyConstructsBeforePhp81')]
     public function testFromSourceReturnsArrayOfClassyConstructsWithoutFileNamesWhenClassyConstructsHaveBeenFoundBeforePhp81(Test\Util\Scenario $scenario): void
     {
         $constructs = Constructs::fromSource($scenario->source());
@@ -128,9 +119,8 @@ final class ConstructsTest extends Framework\TestCase
 
     /**
      * @requires PHP 8.1
-     *
-     * @dataProvider provideScenarioWithClassyConstructsOnPhp81
      */
+    #[Framework\Attributes\DataProvider('provideScenarioWithClassyConstructsOnPhp81')]
     public function testFromSourceReturnsArrayOfClassyConstructsWithoutFileNamesWhenClassyConstructsHaveBeenFoundOnPhp81(Test\Util\Scenario $scenario): void
     {
         $constructs = Constructs::fromSource($scenario->source());
@@ -156,9 +146,7 @@ final class ConstructsTest extends Framework\TestCase
         Constructs::fromDirectory(__DIR__ . '/../Fixture/ParseError');
     }
 
-    /**
-     * @dataProvider provideScenarioWithoutClassyConstructs
-     */
+    #[Framework\Attributes\DataProvider('provideScenarioWithoutClassyConstructs')]
     public function testFromDirectoryReturnsEmptyArrayWhenNoClassyConstructsHaveBeenFound(Test\Util\Scenario $scenario): void
     {
         $constructs = Constructs::fromDirectory($scenario->directory());
@@ -166,9 +154,7 @@ final class ConstructsTest extends Framework\TestCase
         self::assertSame([], $constructs);
     }
 
-    /**
-     * @dataProvider provideScenarioWithClassyConstructsBeforePhp81
-     */
+    #[Framework\Attributes\DataProvider('provideScenarioWithClassyConstructsBeforePhp81')]
     public function testFromDirectoryReturnsArrayOfClassyConstructsSortedByNameWhenClassyConstructsHaveBeenFoundBeforePhp81(Test\Util\Scenario $scenario): void
     {
         $constructs = Constructs::fromDirectory($scenario->directory());
@@ -196,9 +182,8 @@ final class ConstructsTest extends Framework\TestCase
 
     /**
      * @requires PHP 8.1
-     *
-     * @dataProvider provideScenarioWithClassyConstructsOnPhp81
      */
+    #[Framework\Attributes\DataProvider('provideScenarioWithClassyConstructsOnPhp81')]
     public function testFromDirectoryReturnsArrayOfClassyConstructsSortedByNameWhenClassyConstructsHaveBeenFoundOnPhp81(Test\Util\Scenario $scenario): void
     {
         $constructs = Constructs::fromDirectory($scenario->directory());
