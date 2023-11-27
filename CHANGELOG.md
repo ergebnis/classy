@@ -154,7 +154,7 @@ For a full diff see [`0.4.0...0.5.0`][0.4.0...0.5.0].
 [1.2.0...1.3.0]: https://github.com/ergebnis/classy/compare/1.2.0...1.3.0
 [1.3.0...1.4.0]: https://github.com/ergebnis/classy/compare/1.3.0...1.4.0
 [1.4.0...1.5.0]: https://github.com/ergebnis/classy/compare/1.4.0...1.5.0
-[1.4.0...main]: https://github.com/ergebnis/classy/compare/1.5.0...main
+[1.5.0...main]: https://github.com/ergebnis/classy/compare/1.5.0...main
 
 [#77]: https://github.com/ergebnis/classy/pull/77
 [#88]: https://github.com/ergebnis/classy/pull/88
