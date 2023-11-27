@@ -1,9 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.15.0@5c774aca4746caf3d239d9c8cadb9f882ca29352">
+<files psalm-version="5.16.0@2897ba636551a8cb61601cc26f6ccfbba6c36591">
   <file src="src/Constructs.php">
+    <MixedArgumentTypeCoercion>
+      <code>$constructsWithMultipleDefinitions</code>
+      <code><![CDATA[\usort($constructs, static function (Construct $a, Construct $b): int {
+            return \strcmp(
+                $a->name(),
+                $b->name(),
+            );
+        })]]></code>
+    </MixedArgumentTypeCoercion>
     <MixedAssignment>
+      <code>$construct</code>
+      <code>$constructs[$name]</code>
       <code>$fileInfo</code>
     </MixedAssignment>
+    <MixedMethodCall>
+      <code>definedIn</code>
+    </MixedMethodCall>
+    <MixedReturnTypeCoercion>
+      <code>\array_values($constructs)</code>
+      <code><![CDATA[array<int, Construct>]]></code>
+    </MixedReturnTypeCoercion>
     <RedundantFunctionCall>
       <code>\array_values</code>
     </RedundantFunctionCall>
