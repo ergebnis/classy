@@ -91,4 +91,4 @@ repository:
 
   # https://docs.github.com/en/rest/reference/repos#replace-all-repository-topics
 
-  topics: "finder, classy, constructs, classes, interfaces, traits"
+  topics: "finder, classy, constructs, classes, enums, interfaces, traits"
