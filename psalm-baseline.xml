@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.18.0@b113f3ed0259fd6e212d87c3df80eec95a6abf19">
+<files psalm-version="5.24.0@462c80e31c34e58cc4f750c656be3927e80e550e">
   <file src="src/Constructs.php">
     <MixedArgumentTypeCoercion>
-      <code>$constructsWithMultipleDefinitions</code>
+      <code><![CDATA[$constructsWithMultipleDefinitions]]></code>
       <code><![CDATA[\usort($constructs, static function (Construct $a, Construct $b): int {
             return \strcmp(
                 $a->name(),
@@ -11,24 +11,24 @@
         })]]></code>
     </MixedArgumentTypeCoercion>
     <MixedAssignment>
-      <code>$construct</code>
-      <code>$constructs[$name]</code>
-      <code>$fileInfo</code>
+      <code><![CDATA[$construct]]></code>
+      <code><![CDATA[$constructs[$name]]]></code>
+      <code><![CDATA[$fileInfo]]></code>
     </MixedAssignment>
     <MixedMethodCall>
-      <code>definedIn</code>
+      <code><![CDATA[definedIn]]></code>
     </MixedMethodCall>
     <MixedReturnTypeCoercion>
-      <code>\array_values($constructs)</code>
+      <code><![CDATA[\array_values($constructs)]]></code>
       <code><![CDATA[array<int, Construct>]]></code>
     </MixedReturnTypeCoercion>
     <RedundantFunctionCall>
-      <code>\array_values</code>
+      <code><![CDATA[\array_values]]></code>
     </RedundantFunctionCall>
   </file>
   <file src="test/Unit/ConstructTest.php">
     <DeprecatedMethod>
-      <code>__toString</code>
+      <code><![CDATA[__toString]]></code>
     </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[$faker->fileExtension()]]></code>
@@ -45,19 +45,19 @@
   </file>
   <file src="test/Unit/ConstructsTest.php">
     <PossiblyUnusedMethod>
-      <code>provideScenarioWithClassyConstructsBeforePhp81</code>
-      <code>provideScenarioWithClassyConstructsOnPhp81</code>
-      <code>provideScenarioWithoutClassyConstructs</code>
+      <code><![CDATA[provideScenarioWithClassyConstructsBeforePhp81]]></code>
+      <code><![CDATA[provideScenarioWithClassyConstructsOnPhp81]]></code>
+      <code><![CDATA[provideScenarioWithoutClassyConstructs]]></code>
     </PossiblyUnusedMethod>
   </file>
   <file src="test/Util/PhpVersion.php">
     <PossiblyUnusedMethod>
-      <code>toInt</code>
+      <code><![CDATA[toInt]]></code>
     </PossiblyUnusedMethod>
   </file>
   <file src="test/Util/Scenario.php">
     <RedundantFunctionCall>
-      <code>\array_values</code>
+      <code><![CDATA[\array_values]]></code>
     </RedundantFunctionCall>
   </file>
 </files>

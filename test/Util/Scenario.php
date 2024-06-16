@@ -15,9 +15,6 @@ namespace Ergebnis\Classy\Test\Util;
 
 use Ergebnis\Classy;
 
-/**
- * @psalm-immutable
- */
 final class Scenario
 {
     private readonly PhpVersion $phpVersion;

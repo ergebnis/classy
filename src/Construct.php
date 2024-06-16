@@ -13,9 +13,6 @@ declare(strict_types=1);
 
 namespace Ergebnis\Classy;
 
-/**
- * @psalm-immutable
- */
 final class Construct
 {
     /**
