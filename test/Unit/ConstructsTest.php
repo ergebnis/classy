@@ -106,7 +106,7 @@ final class ConstructsTest extends Framework\TestCase
     }
 
     #[Framework\Attributes\DataProvider('provideScenarioWithClassyConstructsBeforePhp81')]
-    public function testFromSourceReturnsArrayOfClassyConstructsWithoutFileNamesWhenClassyConstructsHaveBeenFoundBeforePhp81(Test\Util\Scenario $scenario): void
+    public function testFromSourceReturnsListOfClassyConstructsWithoutFileNamesWhenClassyConstructsHaveBeenFoundBeforePhp81(Test\Util\Scenario $scenario): void
     {
         $constructs = Constructs::fromSource($scenario->source());
 
@@ -119,7 +119,7 @@ final class ConstructsTest extends Framework\TestCase
 
     #[Framework\Attributes\DataProvider('provideScenarioWithClassyConstructsOnPhp81')]
     #[Framework\Attributes\RequiresPhp('8.1')]
-    public function testFromSourceReturnsArrayOfClassyConstructsWithoutFileNamesWhenClassyConstructsHaveBeenFoundOnPhp81(Test\Util\Scenario $scenario): void
+    public function testFromSourceReturnsListOfClassyConstructsWithoutFileNamesWhenClassyConstructsHaveBeenFoundOnPhp81(Test\Util\Scenario $scenario): void
     {
         $constructs = Constructs::fromSource($scenario->source());
 
@@ -153,7 +153,7 @@ final class ConstructsTest extends Framework\TestCase
     }
 
     #[Framework\Attributes\DataProvider('provideScenarioWithClassyConstructsBeforePhp81')]
-    public function testFromDirectoryReturnsArrayOfClassyConstructsSortedByNameWhenClassyConstructsHaveBeenFoundBeforePhp81(Test\Util\Scenario $scenario): void
+    public function testFromDirectoryReturnsListOfClassyConstructsSortedByNameWhenClassyConstructsHaveBeenFoundBeforePhp81(Test\Util\Scenario $scenario): void
     {
         $constructs = Constructs::fromDirectory($scenario->directory());
 
@@ -180,7 +180,7 @@ final class ConstructsTest extends Framework\TestCase
 
     #[Framework\Attributes\DataProvider('provideScenarioWithClassyConstructsOnPhp81')]
     #[Framework\Attributes\RequiresPhp('8.1')]
-    public function testFromDirectoryReturnsArrayOfClassyConstructsSortedByNameWhenClassyConstructsHaveBeenFoundOnPhp81(Test\Util\Scenario $scenario): void
+    public function testFromDirectoryReturnsListOfClassyConstructsSortedByNameWhenClassyConstructsHaveBeenFoundOnPhp81(Test\Util\Scenario $scenario): void
     {
         $constructs = Constructs::fromDirectory($scenario->directory());
 
@@ -205,7 +205,7 @@ final class ConstructsTest extends Framework\TestCase
         }
     }
 
-    public function testFromDirectoryTraversesDirectoriesAndReturnsArrayOfClassyConstructsSortedByName(): void
+    public function testFromDirectoryTraversesDirectoriesAndReturnsListOfClassyConstructsSortedByName(): void
     {
         $classyConstructs = [
             Construct::fromName(Test\Fixture\Traversal\Foo::class)->definedIn(self::realPath(__DIR__ . '/../Fixture/Traversal/Foo.php')),
