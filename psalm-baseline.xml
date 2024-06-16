@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="5.24.0@462c80e31c34e58cc4f750c656be3927e80e550e">
   <file src="src/Constructs.php">
-    <MixedArgumentTypeCoercion>
+    <ArgumentTypeCoercion>
       <code><![CDATA[$constructsWithMultipleDefinitions]]></code>
+    </ArgumentTypeCoercion>
+    <MixedArgumentTypeCoercion>
       <code><![CDATA[\usort($constructs, static function (Construct $a, Construct $b): int {
             return \strcmp(
                 $a->name(),
@@ -20,7 +22,7 @@
     </MixedMethodCall>
     <MixedReturnTypeCoercion>
       <code><![CDATA[\array_values($constructs)]]></code>
-      <code><![CDATA[array<int, Construct>]]></code>
+      <code><![CDATA[list<Construct>]]></code>
     </MixedReturnTypeCoercion>
     <RedundantFunctionCall>
       <code><![CDATA[\array_values]]></code>

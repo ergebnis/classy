@@ -16,7 +16,7 @@ namespace Ergebnis\Classy;
 final class Construct
 {
     /**
-     * @var array<int, string>
+     * @var list<string>
      */
     private array $fileNames = [];
 
@@ -51,9 +51,9 @@ final class Construct
     }
 
     /**
-     * Returns an array of file names in which the construct is defined.
+     * Returns a list of file names in which the construct is defined.
      *
-     * @return array<int, string>
+     * @return list<string>
      */
     public function fileNames(): array
     {

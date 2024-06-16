@@ -23,7 +23,7 @@ final class Scenario
     private readonly string $fileContent;
 
     /**
-     * @var array<int, Classy\Construct>
+     * @var list<Classy\Construct>
      */
     private readonly array $constructs;
 
@@ -114,7 +114,7 @@ final class Scenario
     }
 
     /**
-     * @return array<int, Classy\Construct>
+     * @return list<Classy\Construct>
      */
     public function constructsSortedByName(): array
     {

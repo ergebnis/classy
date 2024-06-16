@@ -16,11 +16,11 @@ namespace Ergebnis\Classy;
 final class Constructs
 {
     /**
-     * Returns an array of names of classy constructs (classes, interfaces, traits) found in source.
+     * Returns a list of constructs defined in source code.
      *
      * @throws Exception\ParseError
      *
-     * @return array<int, Construct>
+     * @return list<Construct>
      */
     public static function fromSource(string $source): array
     {
@@ -111,12 +111,12 @@ final class Constructs
     }
 
     /**
-     * Returns an array of constructs defined in a directory.
+     * Returns a list of constructs defined in a directory.
      *
      * @throws Exception\DirectoryDoesNotExist
      * @throws Exception\MultipleDefinitionsFound
      *
-     * @return array<int, Construct>
+     * @return list<Construct>
      */
     public static function fromDirectory(string $directory): array
     {
