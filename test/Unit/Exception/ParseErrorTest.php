@@ -17,7 +17,9 @@ use Ergebnis\Classy\Exception;
 use Ergebnis\Classy\Test;
 use PHPUnit\Framework;
 
-#[Framework\Attributes\CoversClass(Exception\ParseError::class)]
+/**
+ * @covers \Ergebnis\Classy\Exception\ParseError
+ */
 final class ParseErrorTest extends Framework\TestCase
 {
     use Test\Util\Helper;
