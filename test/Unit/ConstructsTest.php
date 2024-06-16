@@ -117,10 +117,8 @@ final class ConstructsTest extends Framework\TestCase
         self::assertEquals($expected, $constructs);
     }
 
-    /**
-     * @requires PHP 8.1
-     */
     #[Framework\Attributes\DataProvider('provideScenarioWithClassyConstructsOnPhp81')]
+    #[Framework\Attributes\RequiresPhp('8.1')]
     public function testFromSourceReturnsArrayOfClassyConstructsWithoutFileNamesWhenClassyConstructsHaveBeenFoundOnPhp81(Test\Util\Scenario $scenario): void
     {
         $constructs = Constructs::fromSource($scenario->source());
@@ -180,10 +178,8 @@ final class ConstructsTest extends Framework\TestCase
         }
     }
 
-    /**
-     * @requires PHP 8.1
-     */
     #[Framework\Attributes\DataProvider('provideScenarioWithClassyConstructsOnPhp81')]
+    #[Framework\Attributes\RequiresPhp('8.1')]
     public function testFromDirectoryReturnsArrayOfClassyConstructsSortedByNameWhenClassyConstructsHaveBeenFoundOnPhp81(Test\Util\Scenario $scenario): void
     {
         $constructs = Constructs::fromDirectory($scenario->directory());
