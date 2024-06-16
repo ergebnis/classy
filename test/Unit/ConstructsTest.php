@@ -228,7 +228,7 @@ final class ConstructsTest extends Framework\TestCase
     }
 
     /**
-     * @return array<int, Test\Util\Scenario>
+     * @return list<Test\Util\Scenario>
      */
     private static function scenariosWithClassyConstructs(): array
     {
