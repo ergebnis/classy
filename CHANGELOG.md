@@ -11,6 +11,7 @@ For a full diff see [`1.6.0...main`][1.6.0...main].
 ### Added
 
 - Added support for PHP 8.0 ([#926]), by [@localheinz]
+- Added support for PHP 7.4 ([#929]), by [@localheinz]
 
 ## [`1.6.0`][1.6.0]
 
@@ -185,6 +186,7 @@ For a full diff see [`0.4.0...0.5.0`][0.4.0...0.5.0].
 [#702]: https://github.com/ergebnis/classy/pull/702
 [#795]: https://github.com/ergebnis/classy/pull/795
 [#926]: https://github.com/ergebnis/classy/pull/926
+[#929]: https://github.com/ergebnis/classy/pull/929
 
 [@ergebnis]: https://github.com/ergebnis
 [@localheinz]: https://github.com/localheinz
