@@ -107,21 +107,7 @@ final class ConstructsTest extends Framework\TestCase
 
     #[Framework\Attributes\DataProvider('provideScenarioWithClassyConstructsOnPhp74')]
     #[Framework\Attributes\DataProvider('provideScenarioWithClassyConstructsOnPhp81')]
-    public function testFromSourceReturnsListOfClassyConstructsWithoutFileNamesWhenClassyConstructsHaveBeenFoundBeforePhp81(Test\Util\Scenario $scenario): void
-    {
-        $constructs = Constructs::fromSource($scenario->source());
-
-        $expected = \array_map(static function (Construct $construct): Construct {
-            return Construct::fromName($construct->name());
-        }, $scenario->constructsSortedByName());
-
-        self::assertIsList($constructs);
-        self::assertEquals($expected, $constructs);
-    }
-
-    #[Framework\Attributes\DataProvider('provideScenarioWithClassyConstructsOnPhp74')]
-    #[Framework\Attributes\DataProvider('provideScenarioWithClassyConstructsOnPhp81')]
-    public function testFromSourceReturnsListOfClassyConstructsWithoutFileNamesWhenClassyConstructsHaveBeenFoundOnPhp81(Test\Util\Scenario $scenario): void
+    public function testFromSourceReturnsListOfClassyConstructs(Test\Util\Scenario $scenario): void
     {
         $constructs = Constructs::fromSource($scenario->source());
 
@@ -157,7 +143,7 @@ final class ConstructsTest extends Framework\TestCase
 
     #[Framework\Attributes\DataProvider('provideScenarioWithClassyConstructsOnPhp74')]
     #[Framework\Attributes\DataProvider('provideScenarioWithClassyConstructsOnPhp81')]
-    public function testFromDirectoryReturnsListOfClassyConstructsSortedByNameWhenClassyConstructsHaveBeenFoundBeforePhp81(Test\Util\Scenario $scenario): void
+    public function testFromDirectoryReturnsListOfClassyConstructs(Test\Util\Scenario $scenario): void
     {
         $constructs = Constructs::fromDirectory($scenario->directory());
 
