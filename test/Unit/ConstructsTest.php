@@ -105,7 +105,8 @@ final class ConstructsTest extends Framework\TestCase
         }
     }
 
-    #[Framework\Attributes\DataProvider('provideScenarioWithClassyConstructs')]
+    #[Framework\Attributes\DataProvider('provideScenarioWithClassyConstructsOnPhp74')]
+    #[Framework\Attributes\DataProvider('provideScenarioWithClassyConstructsOnPhp81')]
     public function testFromSourceReturnsListOfClassyConstructsWithoutFileNamesWhenClassyConstructsHaveBeenFoundBeforePhp81(Test\Util\Scenario $scenario): void
     {
         $constructs = Constructs::fromSource($scenario->source());
@@ -118,7 +119,8 @@ final class ConstructsTest extends Framework\TestCase
         self::assertEquals($expected, $constructs);
     }
 
-    #[Framework\Attributes\DataProvider('provideScenarioWithClassyConstructs')]
+    #[Framework\Attributes\DataProvider('provideScenarioWithClassyConstructsOnPhp74')]
+    #[Framework\Attributes\DataProvider('provideScenarioWithClassyConstructsOnPhp81')]
     public function testFromSourceReturnsListOfClassyConstructsWithoutFileNamesWhenClassyConstructsHaveBeenFoundOnPhp81(Test\Util\Scenario $scenario): void
     {
         $constructs = Constructs::fromSource($scenario->source());
@@ -153,7 +155,8 @@ final class ConstructsTest extends Framework\TestCase
         self::assertSame([], $constructs);
     }
 
-    #[Framework\Attributes\DataProvider('provideScenarioWithClassyConstructs')]
+    #[Framework\Attributes\DataProvider('provideScenarioWithClassyConstructsOnPhp74')]
+    #[Framework\Attributes\DataProvider('provideScenarioWithClassyConstructsOnPhp81')]
     public function testFromDirectoryReturnsListOfClassyConstructsSortedByNameWhenClassyConstructsHaveBeenFoundBeforePhp81(Test\Util\Scenario $scenario): void
     {
         $constructs = Constructs::fromDirectory($scenario->directory());
@@ -165,42 +168,9 @@ final class ConstructsTest extends Framework\TestCase
     /**
      * @return \Generator<string, array{0: Test\Util\Scenario}>
      */
-    public static function provideScenarioWithClassyConstructs(): \Generator
+    public static function provideScenarioWithClassyConstructsOnPhp74(): \Generator
     {
-        foreach (self::scenariosWithClassyConstructs() as $scenario) {
-            yield $scenario->description() => [
-                $scenario,
-            ];
-        }
-    }
-
-    public function testFromDirectoryTraversesDirectoriesAndReturnsListOfClassyConstructsSortedByName(): void
-    {
-        $expected = [
-            Construct::fromName(Test\Fixture\Traversal\Foo::class)->definedIn(self::realPath(__DIR__ . '/../Fixture/Traversal/Foo.php')),
-            Construct::fromName(Test\Fixture\Traversal\Foo\Bar::class)->definedIn(self::realPath(__DIR__ . '/../Fixture/Traversal/Foo/Bar.php')),
-            Construct::fromName(Test\Fixture\Traversal\Foo\Baz::class)->definedIn(self::realPath(__DIR__ . '/../Fixture/Traversal/Foo/Baz.php')),
-        ];
-
-        $constructs = Constructs::fromDirectory(__DIR__ . '/../Fixture/Traversal');
-
-        self::assertIsList($constructs);
-        self::assertEquals($expected, $constructs);
-    }
-
-    public function testFromDirectoryThrowsMultipleDefinitionsFoundIfMultipleDefinitionsOfSameConstructHaveBeenFound(): void
-    {
-        $this->expectException(Exception\MultipleDefinitionsFound::class);
-
-        Constructs::fromDirectory(__DIR__ . '/../Fixture/MultipleDefinitions');
-    }
-
-    /**
-     * @return list<Test\Util\Scenario>
-     */
-    private static function scenariosWithClassyConstructs(): array
-    {
-        return [
+        $scenarios = [
             Test\Util\Scenario::create(
                 Test\Util\PhpVersion::fromInt(70400),
                 'php74-within-namespace',
@@ -208,15 +178,6 @@ final class ConstructsTest extends Framework\TestCase
                 Construct::fromName(Test\Fixture\Classy\Php74\WithinNamespace\Bar::class),
                 Construct::fromName(Test\Fixture\Classy\Php74\WithinNamespace\Baz::class),
                 Construct::fromName(Test\Fixture\Classy\Php74\WithinNamespace\Foo::class),
-            ),
-            Test\Util\Scenario::create(
-                Test\Util\PhpVersion::fromInt(80100),
-                'php81-within-namespace',
-                __DIR__ . '/../Fixture/Classy/Php81/WithinNamespace/source.php',
-                Construct::fromName(Test\Fixture\Classy\Php81\WithinNamespace\Bar::class),
-                Construct::fromName(Test\Fixture\Classy\Php81\WithinNamespace\Baz::class),
-                Construct::fromName(Test\Fixture\Classy\Php81\WithinNamespace\Foo::class),
-                Construct::fromName(Test\Fixture\Classy\Php81\WithinNamespace\Qux::class),
             ),
             Test\Util\Scenario::create(
                 Test\Util\PhpVersion::fromInt(70400),
@@ -251,15 +212,6 @@ final class ConstructsTest extends Framework\TestCase
                 Construct::fromName(Test\Fixture\Classy\Php74\WithinNamespaceWithBraces\Foo::class),
             ),
             Test\Util\Scenario::create(
-                Test\Util\PhpVersion::fromInt(80100),
-                'php81-within-namespace-with-braces',
-                __DIR__ . '/../Fixture/Classy/Php81/WithinNamespaceWithBraces/source.php',
-                Construct::fromName(Test\Fixture\Classy\Php81\WithinNamespaceWithBraces\Bar::class),
-                Construct::fromName(Test\Fixture\Classy\Php81\WithinNamespaceWithBraces\Baz::class),
-                Construct::fromName(Test\Fixture\Classy\Php81\WithinNamespaceWithBraces\Foo::class),
-                Construct::fromName(Test\Fixture\Classy\Php81\WithinNamespaceWithBraces\Qux::class),
-            ),
-            Test\Util\Scenario::create(
                 Test\Util\PhpVersion::fromInt(70400),
                 'php74-within-multiple-namespaces-with-braces',
                 __DIR__ . '/../Fixture/Classy/Php74/WithinMultipleNamespaces/source.php',
@@ -271,19 +223,6 @@ final class ConstructsTest extends Framework\TestCase
                 Construct::fromName(Test\Fixture\Classy\Php74\WithinMultipleNamespaces\Foo\Foo::class),
             ),
             Test\Util\Scenario::create(
-                Test\Util\PhpVersion::fromInt(80100),
-                'php81-within-multiple-namespaces-with-braces',
-                __DIR__ . '/../Fixture/Classy/Php81/WithinMultipleNamespaces/source.php',
-                Construct::fromName(Test\Fixture\Classy\Php81\WithinMultipleNamespaces\Bar\Bar::class),
-                Construct::fromName(Test\Fixture\Classy\Php81\WithinMultipleNamespaces\Bar\Baz::class),
-                Construct::fromName(Test\Fixture\Classy\Php81\WithinMultipleNamespaces\Bar\Foo::class),
-                Construct::fromName(Test\Fixture\Classy\Php81\WithinMultipleNamespaces\Bar\Qux::class),
-                Construct::fromName(Test\Fixture\Classy\Php81\WithinMultipleNamespaces\Foo\Bar::class),
-                Construct::fromName(Test\Fixture\Classy\Php81\WithinMultipleNamespaces\Foo\Baz::class),
-                Construct::fromName(Test\Fixture\Classy\Php81\WithinMultipleNamespaces\Foo\Foo::class),
-                Construct::fromName(Test\Fixture\Classy\Php81\WithinMultipleNamespaces\Foo\Qux::class),
-            ),
-            Test\Util\Scenario::create(
                 Test\Util\PhpVersion::fromInt(70400),
                 'php74-within-namespace-with-single-segment',
                 __DIR__ . '/../Fixture/Classy/Php74/WithinNamespaceWithSingleSegment/source.php',
@@ -292,25 +231,10 @@ final class ConstructsTest extends Framework\TestCase
                 Construct::fromName('Ergebnis\\Foo'),
             ),
             Test\Util\Scenario::create(
-                Test\Util\PhpVersion::fromInt(80100),
-                'php81-within-namespace-with-single-segment',
-                __DIR__ . '/../Fixture/Classy/Php81/WithinNamespaceWithSingleSegment/source.php',
-                Construct::fromName('Ergebnis\\Bar'),
-                Construct::fromName('Ergebnis\\Baz'),
-                Construct::fromName('Ergebnis\\Foo'),
-                Construct::fromName('Ergebnis\\Qux'),
-            ),
-            Test\Util\Scenario::create(
                 Test\Util\PhpVersion::fromInt(70400),
                 'php74-with-methods-named-after-keywords',
                 __DIR__ . '/../Fixture/Classy/Php74/WithMethodsNamedAfterKeywords/source.php',
                 Construct::fromName(Test\Fixture\Classy\Php74\WithMethodsNamedAfterKeywords\Foo::class),
-            ),
-            Test\Util\Scenario::create(
-                Test\Util\PhpVersion::fromInt(80100),
-                'php81-with-methods-named-after-keywords',
-                __DIR__ . '/../Fixture/Classy/Php81/WithMethodsNamedAfterKeywords/source.php',
-                Construct::fromName(Test\Fixture\Classy\Php81\WithMethodsNamedAfterKeywords\Foo::class),
             ),
             /**
              * @see https://github.com/zendframework/zend-file/pull/41
@@ -322,27 +246,12 @@ final class ConstructsTest extends Framework\TestCase
                 Construct::fromName(Test\Fixture\Classy\Php74\WithMethodsNamedAfterKeywordsAndReturnType\Foo::class),
             ),
             Test\Util\Scenario::create(
-                Test\Util\PhpVersion::fromInt(80100),
-                'php81-with-methods-named-after-keywords-and-return-type',
-                __DIR__ . '/../Fixture/Classy/Php81/WithMethodsNamedAfterKeywordsAndReturnType/source.php',
-                Construct::fromName(Test\Fixture\Classy\Php81\WithMethodsNamedAfterKeywordsAndReturnType\Foo::class),
-            ),
-            Test\Util\Scenario::create(
                 Test\Util\PhpVersion::fromInt(70400),
                 'php74-without-namespace',
                 __DIR__ . '/../Fixture/Classy/Php74/WithoutNamespace/source.php',
                 Construct::fromName('Bar'),
                 Construct::fromName('Baz'),
                 Construct::fromName('Foo'),
-            ),
-            Test\Util\Scenario::create(
-                Test\Util\PhpVersion::fromInt(80100),
-                'php81-without-namespace',
-                __DIR__ . '/../Fixture/Classy/Php81/WithoutNamespace/source.php',
-                Construct::fromName('Bar'),
-                Construct::fromName('Baz'),
-                Construct::fromName('Foo'),
-                Construct::fromName('Qux'),
             ),
             Test\Util\Scenario::create(
                 Test\Util\PhpVersion::fromInt(70400),
@@ -369,6 +278,112 @@ final class ConstructsTest extends Framework\TestCase
                 Construct::fromName('Waldo'),
             ),
         ];
+
+        foreach ($scenarios as $scenario) {
+            yield $scenario->description() => [
+                $scenario,
+            ];
+        }
+    }
+
+    /**
+     * @return \Generator<string, array{0: Test\Util\Scenario}>
+     */
+    public static function provideScenarioWithClassyConstructsOnPhp81(): \Generator
+    {
+        $scenarios = [
+            Test\Util\Scenario::create(
+                Test\Util\PhpVersion::fromInt(80100),
+                'php81-within-namespace',
+                __DIR__ . '/../Fixture/Classy/Php81/WithinNamespace/source.php',
+                Construct::fromName(Test\Fixture\Classy\Php81\WithinNamespace\Bar::class),
+                Construct::fromName(Test\Fixture\Classy\Php81\WithinNamespace\Baz::class),
+                Construct::fromName(Test\Fixture\Classy\Php81\WithinNamespace\Foo::class),
+                Construct::fromName(Test\Fixture\Classy\Php81\WithinNamespace\Qux::class),
+            ),
+            Test\Util\Scenario::create(
+                Test\Util\PhpVersion::fromInt(80100),
+                'php81-within-namespace-with-braces',
+                __DIR__ . '/../Fixture/Classy/Php81/WithinNamespaceWithBraces/source.php',
+                Construct::fromName(Test\Fixture\Classy\Php81\WithinNamespaceWithBraces\Bar::class),
+                Construct::fromName(Test\Fixture\Classy\Php81\WithinNamespaceWithBraces\Baz::class),
+                Construct::fromName(Test\Fixture\Classy\Php81\WithinNamespaceWithBraces\Foo::class),
+                Construct::fromName(Test\Fixture\Classy\Php81\WithinNamespaceWithBraces\Qux::class),
+            ),
+            Test\Util\Scenario::create(
+                Test\Util\PhpVersion::fromInt(80100),
+                'php81-within-multiple-namespaces-with-braces',
+                __DIR__ . '/../Fixture/Classy/Php81/WithinMultipleNamespaces/source.php',
+                Construct::fromName(Test\Fixture\Classy\Php81\WithinMultipleNamespaces\Bar\Bar::class),
+                Construct::fromName(Test\Fixture\Classy\Php81\WithinMultipleNamespaces\Bar\Baz::class),
+                Construct::fromName(Test\Fixture\Classy\Php81\WithinMultipleNamespaces\Bar\Foo::class),
+                Construct::fromName(Test\Fixture\Classy\Php81\WithinMultipleNamespaces\Bar\Qux::class),
+                Construct::fromName(Test\Fixture\Classy\Php81\WithinMultipleNamespaces\Foo\Bar::class),
+                Construct::fromName(Test\Fixture\Classy\Php81\WithinMultipleNamespaces\Foo\Baz::class),
+                Construct::fromName(Test\Fixture\Classy\Php81\WithinMultipleNamespaces\Foo\Foo::class),
+                Construct::fromName(Test\Fixture\Classy\Php81\WithinMultipleNamespaces\Foo\Qux::class),
+            ),
+            Test\Util\Scenario::create(
+                Test\Util\PhpVersion::fromInt(80100),
+                'php81-within-namespace-with-single-segment',
+                __DIR__ . '/../Fixture/Classy/Php81/WithinNamespaceWithSingleSegment/source.php',
+                Construct::fromName('Ergebnis\\Bar'),
+                Construct::fromName('Ergebnis\\Baz'),
+                Construct::fromName('Ergebnis\\Foo'),
+                Construct::fromName('Ergebnis\\Qux'),
+            ),
+            Test\Util\Scenario::create(
+                Test\Util\PhpVersion::fromInt(80100),
+                'php81-with-methods-named-after-keywords',
+                __DIR__ . '/../Fixture/Classy/Php81/WithMethodsNamedAfterKeywords/source.php',
+                Construct::fromName(Test\Fixture\Classy\Php81\WithMethodsNamedAfterKeywords\Foo::class),
+            ),
+            /**
+             * @see https://github.com/zendframework/zend-file/pull/41
+             */
+            Test\Util\Scenario::create(
+                Test\Util\PhpVersion::fromInt(80100),
+                'php81-with-methods-named-after-keywords-and-return-type',
+                __DIR__ . '/../Fixture/Classy/Php81/WithMethodsNamedAfterKeywordsAndReturnType/source.php',
+                Construct::fromName(Test\Fixture\Classy\Php81\WithMethodsNamedAfterKeywordsAndReturnType\Foo::class),
+            ),
+            Test\Util\Scenario::create(
+                Test\Util\PhpVersion::fromInt(80100),
+                'php81-without-namespace',
+                __DIR__ . '/../Fixture/Classy/Php81/WithoutNamespace/source.php',
+                Construct::fromName('Bar'),
+                Construct::fromName('Baz'),
+                Construct::fromName('Foo'),
+                Construct::fromName('Qux'),
+            ),
+        ];
+
+        foreach ($scenarios as $scenario) {
+            yield $scenario->description() => [
+                $scenario,
+            ];
+        }
+    }
+
+    public function testFromDirectoryTraversesDirectoriesAndReturnsListOfClassyConstructsSortedByName(): void
+    {
+        $expected = [
+            Construct::fromName(Test\Fixture\Traversal\Foo::class)->definedIn(self::realPath(__DIR__ . '/../Fixture/Traversal/Foo.php')),
+            Construct::fromName(Test\Fixture\Traversal\Foo\Bar::class)->definedIn(self::realPath(__DIR__ . '/../Fixture/Traversal/Foo/Bar.php')),
+            Construct::fromName(Test\Fixture\Traversal\Foo\Baz::class)->definedIn(self::realPath(__DIR__ . '/../Fixture/Traversal/Foo/Baz.php')),
+        ];
+
+        $constructs = Constructs::fromDirectory(__DIR__ . '/../Fixture/Traversal');
+
+        self::assertIsList($constructs);
+        self::assertEquals($expected, $constructs);
+    }
+
+    public function testFromDirectoryThrowsMultipleDefinitionsFoundIfMultipleDefinitionsOfSameConstructHaveBeenFound(): void
+    {
+        $this->expectException(Exception\MultipleDefinitionsFound::class);
+
+        Constructs::fromDirectory(__DIR__ . '/../Fixture/MultipleDefinitions');
     }
 
     private static function realPath(string $path): string
