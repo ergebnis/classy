@@ -20,7 +20,7 @@ final class Scenario
     private readonly PhpVersion $phpVersion;
     private readonly string $description;
     private readonly string $fileName;
-    private readonly string $fileContent;
+    private readonly string $source;
 
     /**
      * @var list<Classy\Construct>
@@ -31,13 +31,13 @@ final class Scenario
         PhpVersion $phpVersion,
         string $description,
         string $fileName,
-        string $fileContent,
+        string $source,
         Classy\Construct ...$constructs,
     ) {
         $this->phpVersion = $phpVersion;
         $this->description = $description;
         $this->fileName = $fileName;
-        $this->fileContent = $fileContent;
+        $this->source = $source;
         $this->constructs = \array_values($constructs);
     }
 
@@ -110,7 +110,7 @@ final class Scenario
 
     public function source(): string
     {
-        return $this->fileContent;
+        return $this->source;
     }
 
     /**
