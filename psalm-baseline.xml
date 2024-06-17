@@ -77,14 +77,6 @@
         }]]></code>
     </TooManyArguments>
   </file>
-  <file src="test/Util/PhpVersion.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[fromInt]]></code>
-      <code><![CDATA[isLessThan]]></code>
-      <code><![CDATA[isLessThanOrEqualTo]]></code>
-      <code><![CDATA[toInt]]></code>
-    </PossiblyUnusedMethod>
-  </file>
   <file src="test/Util/Scenario.php">
     <RedundantFunctionCall>
       <code><![CDATA[\array_values]]></code>
