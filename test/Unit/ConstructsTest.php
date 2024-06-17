@@ -211,7 +211,7 @@ final class ConstructsTest extends Framework\TestCase
 
     public function testFromDirectoryTraversesDirectoriesAndReturnsListOfClassyConstructsSortedByName(): void
     {
-        $classyConstructs = [
+        $expected = [
             Construct::fromName(Test\Fixture\Traversal\Foo::class)->definedIn(self::realPath(__DIR__ . '/../Fixture/Traversal/Foo.php')),
             Construct::fromName(Test\Fixture\Traversal\Foo\Bar::class)->definedIn(self::realPath(__DIR__ . '/../Fixture/Traversal/Foo/Bar.php')),
             Construct::fromName(Test\Fixture\Traversal\Foo\Baz::class)->definedIn(self::realPath(__DIR__ . '/../Fixture/Traversal/Foo/Baz.php')),
@@ -220,7 +220,7 @@ final class ConstructsTest extends Framework\TestCase
         $constructs = Constructs::fromDirectory(__DIR__ . '/../Fixture/Traversal');
 
         self::assertIsList($constructs);
-        self::assertEquals($classyConstructs, $constructs);
+        self::assertEquals($expected, $constructs);
     }
 
     public function testFromDirectoryThrowsMultipleDefinitionsFoundIfMultipleDefinitionsOfSameConstructHaveBeenFound(): void
