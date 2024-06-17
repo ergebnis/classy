@@ -57,9 +57,9 @@ final class Scenario
             ));
         }
 
-        $fileContent = \file_get_contents($fileName);
+        $source = \file_get_contents($fileName);
 
-        if (!\is_string($fileContent)) {
+        if (!\is_string($source)) {
             throw new \InvalidArgumentException(\sprintf(
                 'File "%s" could not be read.',
                 $fileName,
@@ -86,7 +86,7 @@ final class Scenario
             $phpVersion,
             $description,
             $fileName,
-            $fileContent,
+            $source,
             ...\array_map(static function (Classy\Construct $construct) use ($resolvedFileName): Classy\Construct {
                 return $construct->definedIn($resolvedFileName);
             }, \array_values($constructs)),
