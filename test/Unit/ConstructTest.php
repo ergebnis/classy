@@ -17,7 +17,9 @@ use Ergebnis\Classy\Construct;
 use Ergebnis\Classy\Test;
 use PHPUnit\Framework;
 
-#[Framework\Attributes\CoversClass(Construct::class)]
+/**
+ * @covers \Ergebnis\Classy\Construct
+ */
 final class ConstructTest extends Framework\TestCase
 {
     use Test\Util\Helper;

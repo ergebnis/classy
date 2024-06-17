@@ -19,11 +19,14 @@ use Ergebnis\Classy\Exception;
 use Ergebnis\Classy\Test;
 use PHPUnit\Framework;
 
-#[Framework\Attributes\CoversClass(Constructs::class)]
-#[Framework\Attributes\UsesClass(Construct::class)]
-#[Framework\Attributes\UsesClass(Exception\DirectoryDoesNotExist::class)]
-#[Framework\Attributes\UsesClass(Exception\MultipleDefinitionsFound::class)]
-#[Framework\Attributes\UsesClass(Exception\ParseError::class)]
+/**
+ * @covers \Ergebnis\Classy\Constructs
+ *
+ * @uses \Ergebnis\Classy\Construct
+ * @uses \Ergebnis\Classy\Exception\DirectoryDoesNotExist
+ * @uses \Ergebnis\Classy\Exception\MultipleDefinitionsFound
+ * @uses \Ergebnis\Classy\Exception\ParseError
+ */
 final class ConstructsTest extends Framework\TestCase
 {
     private string $fileWithParseError = __DIR__ . '/../Fixture/ParseError/MessedUp.php';
@@ -47,7 +50,9 @@ final class ConstructsTest extends Framework\TestCase
         Constructs::fromSource($source);
     }
 
-    #[Framework\Attributes\DataProvider('provideScenarioWithoutClassyConstructs')]
+    /**
+     * @dataProvider provideScenarioWithoutClassyConstructs
+     */
     public function testFromSourceReturnsEmptyArrayWhenNoClassyConstructsHaveBeenFound(Test\Util\Scenario $scenario): void
     {
         $constructs = Constructs::fromSource($scenario->source());
@@ -58,7 +63,7 @@ final class ConstructsTest extends Framework\TestCase
     /**
      * @return \Generator<string, array{0: Test\Util\Scenario}>
      */
-    public static function provideScenarioWithoutClassyConstructs(): \Generator
+    public static function provideScenarioWithoutClassyConstructs(): iterable
     {
         $scenariosWithoutClassyConstructs = [
             Test\Util\Scenario::create(
@@ -105,8 +110,29 @@ final class ConstructsTest extends Framework\TestCase
         }
     }
 
-    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\Php81::class, 'classyConstructs')]
-    public function testFromSourceReturnsListOfClassyConstructs(Test\Util\Scenario $scenario): void
+    /**
+     * @dataProvider \Ergebnis\Classy\Test\DataProvider\Php80::classyConstructs()
+     *
+     * @requires PHP 8.0
+     */
+    public function testFromSourceReturnsListOfClassyConstructsOnPhp80(Test\Util\Scenario $scenario): void
+    {
+        $constructs = Constructs::fromSource($scenario->source());
+
+        $expected = \array_map(static function (Construct $construct): Construct {
+            return Construct::fromName($construct->name());
+        }, $scenario->constructsSortedByName());
+
+        self::assertIsList($constructs);
+        self::assertEquals($expected, $constructs);
+    }
+
+    /**
+     * @dataProvider \Ergebnis\Classy\Test\DataProvider\Php81::classyConstructs()
+     *
+     * @requires PHP 8.1
+     */
+    public function testFromSourceReturnsListOfClassyConstructsOnPhp81(Test\Util\Scenario $scenario): void
     {
         $constructs = Constructs::fromSource($scenario->source());
 
@@ -132,7 +158,9 @@ final class ConstructsTest extends Framework\TestCase
         Constructs::fromDirectory(__DIR__ . '/../Fixture/ParseError');
     }
 
-    #[Framework\Attributes\DataProvider('provideScenarioWithoutClassyConstructs')]
+    /**
+     * @dataProvider provideScenarioWithoutClassyConstructs
+     */
     public function testFromDirectoryReturnsEmptyArrayWhenNoClassyConstructsHaveBeenFound(Test\Util\Scenario $scenario): void
     {
         $constructs = Constructs::fromDirectory($scenario->directory());
@@ -140,8 +168,25 @@ final class ConstructsTest extends Framework\TestCase
         self::assertSame([], $constructs);
     }
 
-    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\Php81::class, 'classyConstructs')]
-    public function testFromDirectoryReturnsListOfClassyConstructs(Test\Util\Scenario $scenario): void
+    /**
+     * @dataProvider \Ergebnis\Classy\Test\DataProvider\Php80::classyConstructs()
+     *
+     * @requires PHP 8.0
+     */
+    public function testFromDirectoryReturnsListOfClassyConstructsOnPhp80(Test\Util\Scenario $scenario): void
+    {
+        $constructs = Constructs::fromDirectory($scenario->directory());
+
+        self::assertIsList($constructs);
+        self::assertEquals($scenario->constructsSortedByName(), $constructs);
+    }
+
+    /**
+     * @dataProvider \Ergebnis\Classy\Test\DataProvider\Php81::classyConstructs()
+     *
+     * @requires PHP 8.1
+     */
+    public function testFromDirectoryReturnsListOfClassyConstructsOnPhp81(Test\Util\Scenario $scenario): void
     {
         $constructs = Constructs::fromDirectory($scenario->directory());
 
@@ -192,5 +237,10 @@ final class ConstructsTest extends Framework\TestCase
 final class MessedUp
 {
 TXT;
+    }
+
+    private static function assertIsList(array $actual): void
+    {
+        self::assertSame(\array_values($actual), $actual);
     }
 }

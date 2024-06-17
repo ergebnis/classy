@@ -1,3 +1,5 @@
 {
-  "symbol-whitelist": []
+  "symbol-whitelist": [
+    "T_ENUM"
+  ]
 }

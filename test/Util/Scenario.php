@@ -17,15 +17,15 @@ use Ergebnis\Classy;
 
 final class Scenario
 {
-    private readonly PhpVersion $phpVersion;
-    private readonly string $description;
-    private readonly string $fileName;
-    private readonly string $source;
+    private PhpVersion $phpVersion;
+    private string $description;
+    private string $fileName;
+    private string $source;
 
     /**
      * @var list<Classy\Construct>
      */
-    private readonly array $constructs;
+    private array $constructs;
 
     private function __construct(
         PhpVersion $phpVersion,
