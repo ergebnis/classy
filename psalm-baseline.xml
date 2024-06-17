@@ -28,6 +28,11 @@
       <code><![CDATA[\array_values]]></code>
     </RedundantFunctionCall>
   </file>
+  <file src="test/DataProvider/Php81.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[classyConstructs]]></code>
+    </PossiblyUnusedMethod>
+  </file>
   <file src="test/Unit/ConstructTest.php">
     <DeprecatedMethod>
       <code><![CDATA[__toString]]></code>
@@ -47,7 +52,6 @@
   </file>
   <file src="test/Unit/ConstructsTest.php">
     <PossiblyUnusedMethod>
-      <code><![CDATA[provideScenarioWithClassyConstructsOnPhp81]]></code>
       <code><![CDATA[provideScenarioWithoutClassyConstructs]]></code>
     </PossiblyUnusedMethod>
   </file>
