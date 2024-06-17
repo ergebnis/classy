@@ -104,6 +104,23 @@ final class ConstructsTest extends Framework\TestCase
     }
 
     /**
+     * @dataProvider \Ergebnis\Classy\Test\DataProvider\Php74::classyConstructs()
+     *
+     * @requires PHP 7.4
+     */
+    public function testFromSourceReturnsListOfClassyConstructsOnPhp74(Test\Util\Scenario $scenario): void
+    {
+        $constructs = Constructs::fromSource($scenario->source());
+
+        $expected = \array_map(static function (Construct $construct): Construct {
+            return Construct::fromName($construct->name());
+        }, $scenario->constructsSortedByName());
+
+        self::assertIsList($constructs);
+        self::assertEquals($expected, $constructs);
+    }
+
+    /**
      * @dataProvider \Ergebnis\Classy\Test\DataProvider\Php80::classyConstructs()
      *
      * @requires PHP 8.0
@@ -159,6 +176,19 @@ final class ConstructsTest extends Framework\TestCase
         $constructs = Constructs::fromDirectory($scenario->directory());
 
         self::assertSame([], $constructs);
+    }
+
+    /**
+     * @dataProvider \Ergebnis\Classy\Test\DataProvider\Php74::classyConstructs()
+     *
+     * @requires PHP 7.4
+     */
+    public function testFromDirectoryReturnsListOfClassyConstructsOnPhp74(Test\Util\Scenario $scenario): void
+    {
+        $constructs = Constructs::fromDirectory($scenario->directory());
+
+        self::assertIsList($constructs);
+        self::assertEquals($scenario->constructsSortedByName(), $constructs);
     }
 
     /**

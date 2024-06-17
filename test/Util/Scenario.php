@@ -30,7 +30,7 @@ final class Scenario
         string $description,
         string $fileName,
         string $source,
-        Classy\Construct ...$constructs,
+        Classy\Construct ...$constructs
     ) {
         $this->description = $description;
         $this->fileName = $fileName;
@@ -44,7 +44,7 @@ final class Scenario
     public static function create(
         string $description,
         string $fileName,
-        Classy\Construct ...$constructs,
+        Classy\Construct ...$constructs
     ): self {
         if (!\is_file($fileName)) {
             throw new \InvalidArgumentException(\sprintf(

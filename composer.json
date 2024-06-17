@@ -24,7 +24,7 @@
     "source": "https://github.com/ergebnis/classy"
   },
   "require": {
-    "php": "~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0",
+    "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0",
     "ext-tokenizer": "*"
   },
   "require-dev": {
@@ -33,7 +33,7 @@
     "ergebnis/php-cs-fixer-config": "^6.31.0",
     "ergebnis/phpunit-slow-test-detector": "^2.15.0",
     "fakerphp/faker": "^1.23.1",
-    "infection/infection": "~0.26.16",
+    "infection/infection": "~0.26.6",
     "phpunit/phpunit": "^9.6.19",
     "psalm/plugin-phpunit": "~0.19.0",
     "rector/rector": "^1.1.0",
@@ -62,7 +62,7 @@
       "abandoned": "report"
     },
     "platform": {
-      "php": "8.0.30"
+      "php": "7.4.33"
     },
     "preferred-install": "dist",
     "sort-packages": true

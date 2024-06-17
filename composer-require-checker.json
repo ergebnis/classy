@@ -1,5 +1,11 @@
 {
   "symbol-whitelist": [
-    "T_ENUM"
+    "array",
+    "int",
+    "self",
+    "string",
+    "T_ENUM",
+    "T_NAME_QUALIFIED",
+    "true"
   ]
 }

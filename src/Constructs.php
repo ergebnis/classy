@@ -40,8 +40,21 @@ final class Constructs
 
         $namespaceSegmentOrNamespaceTokens = [
             \T_STRING,
-            \T_NAME_QUALIFIED,
         ];
+
+        /**
+         * @see https://wiki.php.net/rfc/namespaced_names_as_token
+         */
+        if (
+            \PHP_VERSION_ID >= 80000
+            && \defined('T_NAME_QUALIFIED')
+        ) {
+            /** @var list<int> $namespaceSegmentOrNamespaceTokens */
+            $namespaceSegmentOrNamespaceTokens = [
+                \T_STRING,
+                \T_NAME_QUALIFIED,
+            ];
+        }
 
         $classyTokens = [
             \T_CLASS,
@@ -211,7 +224,7 @@ final class Constructs
     private static function significantAfter(
         int $index,
         array $sequence,
-        int $count,
+        int $count
     ): int {
         for ($current = $index + 1; $current < $count; ++$current) {
             $token = $sequence[$current];
@@ -233,7 +246,7 @@ final class Constructs
      */
     private static function significantBefore(
         int $index,
-        array $sequence,
+        array $sequence
     ): int {
         for ($current = $index - 1; -1 < $current; --$current) {
             $token = $sequence[$current];
