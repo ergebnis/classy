@@ -114,6 +114,7 @@ final class ConstructsTest extends Framework\TestCase
             return Construct::fromName($construct->name());
         }, $scenario->constructsSortedByName());
 
+        self::assertIsList($constructs);
         self::assertEquals($expected, $constructs);
     }
 
@@ -127,6 +128,7 @@ final class ConstructsTest extends Framework\TestCase
             return Construct::fromName($construct->name());
         }, $scenario->constructsSortedByName());
 
+        self::assertIsList($constructs);
         self::assertEquals($expected, $constructs);
     }
 
@@ -157,6 +159,7 @@ final class ConstructsTest extends Framework\TestCase
     {
         $constructs = Constructs::fromDirectory($scenario->directory());
 
+        self::assertIsList($constructs);
         self::assertEquals($scenario->constructsSortedByName(), $constructs);
     }
 
@@ -184,6 +187,7 @@ final class ConstructsTest extends Framework\TestCase
     {
         $constructs = Constructs::fromDirectory($scenario->directory());
 
+        self::assertIsList($constructs);
         self::assertEquals($scenario->constructsSortedByName(), $constructs);
     }
 
@@ -213,7 +217,10 @@ final class ConstructsTest extends Framework\TestCase
             Construct::fromName(Test\Fixture\Traversal\Foo\Baz::class)->definedIn(self::realPath(__DIR__ . '/../Fixture/Traversal/Foo/Baz.php')),
         ];
 
-        self::assertEquals($classyConstructs, Constructs::fromDirectory(__DIR__ . '/../Fixture/Traversal'));
+        $constructs = Constructs::fromDirectory(__DIR__ . '/../Fixture/Traversal');
+
+        self::assertIsList($constructs);
+        self::assertEquals($classyConstructs, $constructs);
     }
 
     public function testFromDirectoryThrowsMultipleDefinitionsFoundIfMultipleDefinitionsOfSameConstructHaveBeenFound(): void
