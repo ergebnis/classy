@@ -25,7 +25,6 @@ final class Php81
     {
         $scenarios = [
             Test\Util\Scenario::create(
-                Test\Util\PhpVersion::fromInt(80100),
                 'php81-within-namespace',
                 __DIR__ . '/../Fixture/Classy/Php81/WithinNamespace/source.php',
                 Construct::fromName(Test\Fixture\Classy\Php81\WithinNamespace\Bar::class),
@@ -34,7 +33,6 @@ final class Php81
                 Construct::fromName(Test\Fixture\Classy\Php81\WithinNamespace\Qux::class),
             ),
             Test\Util\Scenario::create(
-                Test\Util\PhpVersion::fromInt(80100),
                 'php81-within-namespace-with-braces',
                 __DIR__ . '/../Fixture/Classy/Php81/WithinNamespaceWithBraces/source.php',
                 Construct::fromName(Test\Fixture\Classy\Php81\WithinNamespaceWithBraces\Bar::class),
@@ -43,7 +41,6 @@ final class Php81
                 Construct::fromName(Test\Fixture\Classy\Php81\WithinNamespaceWithBraces\Qux::class),
             ),
             Test\Util\Scenario::create(
-                Test\Util\PhpVersion::fromInt(80100),
                 'php81-within-multiple-namespaces-with-braces',
                 __DIR__ . '/../Fixture/Classy/Php81/WithinMultipleNamespaces/source.php',
                 Construct::fromName(Test\Fixture\Classy\Php81\WithinMultipleNamespaces\Bar\Bar::class),
@@ -56,7 +53,6 @@ final class Php81
                 Construct::fromName(Test\Fixture\Classy\Php81\WithinMultipleNamespaces\Foo\Qux::class),
             ),
             Test\Util\Scenario::create(
-                Test\Util\PhpVersion::fromInt(80100),
                 'php81-within-namespace-with-single-segment',
                 __DIR__ . '/../Fixture/Classy/Php81/WithinNamespaceWithSingleSegment/source.php',
                 Construct::fromName('Ergebnis\\Bar'),
@@ -65,7 +61,6 @@ final class Php81
                 Construct::fromName('Ergebnis\\Qux'),
             ),
             Test\Util\Scenario::create(
-                Test\Util\PhpVersion::fromInt(80100),
                 'php81-with-methods-named-after-keywords',
                 __DIR__ . '/../Fixture/Classy/Php81/WithMethodsNamedAfterKeywords/source.php',
                 Construct::fromName(Test\Fixture\Classy\Php81\WithMethodsNamedAfterKeywords\Foo::class),
@@ -74,13 +69,11 @@ final class Php81
              * @see https://github.com/zendframework/zend-file/pull/41
              */
             Test\Util\Scenario::create(
-                Test\Util\PhpVersion::fromInt(80100),
                 'php81-with-methods-named-after-keywords-and-return-type',
                 __DIR__ . '/../Fixture/Classy/Php81/WithMethodsNamedAfterKeywordsAndReturnType/source.php',
                 Construct::fromName(Test\Fixture\Classy\Php81\WithMethodsNamedAfterKeywordsAndReturnType\Foo::class),
             ),
             Test\Util\Scenario::create(
-                Test\Util\PhpVersion::fromInt(80100),
                 'php81-without-namespace',
                 __DIR__ . '/../Fixture/Classy/Php81/WithoutNamespace/source.php',
                 Construct::fromName('Bar'),
@@ -89,7 +82,6 @@ final class Php81
                 Construct::fromName('Qux'),
             ),
             Test\Util\Scenario::create(
-                Test\Util\PhpVersion::fromInt(80100),
                 'php81-without-namespace-and-multi-line-comments',
                 __DIR__ . '/../Fixture/Classy/Php81/WithoutNamespaceAndMultiLineComments/source.php',
                 Construct::fromName('Bar'),
@@ -98,7 +90,6 @@ final class Php81
                 Construct::fromName('Qux'),
             ),
             Test\Util\Scenario::create(
-                Test\Util\PhpVersion::fromInt(80100),
                 'php81-without-namespace-and-shell-line-comments',
                 __DIR__ . '/../Fixture/Classy/Php81/WithoutNamespaceAndShellStyleComments/source.php',
                 Construct::fromName('Bar'),
@@ -107,7 +98,6 @@ final class Php81
                 Construct::fromName('Qux'),
             ),
             Test\Util\Scenario::create(
-                Test\Util\PhpVersion::fromInt(80100),
                 'php81-without-namespace-and-single-line-comments',
                 __DIR__ . '/../Fixture/Classy/Php81/WithoutNamespaceAndSingleLineComments/source.php',
                 Construct::fromName('Bar'),

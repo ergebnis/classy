@@ -25,7 +25,6 @@ final class Php80
     {
         $scenarios = [
             Test\Util\Scenario::create(
-                Test\Util\PhpVersion::fromInt(80000),
                 'php80-within-namespace',
                 __DIR__ . '/../Fixture/Classy/Php80/WithinNamespace/source.php',
                 Construct::fromName(Test\Fixture\Classy\Php80\WithinNamespace\Bar::class),
@@ -33,7 +32,6 @@ final class Php80
                 Construct::fromName(Test\Fixture\Classy\Php80\WithinNamespace\Foo::class),
             ),
             Test\Util\Scenario::create(
-                Test\Util\PhpVersion::fromInt(80000),
                 'php80-within-namespace-with-braces',
                 __DIR__ . '/../Fixture/Classy/Php80/WithinNamespaceWithBraces/source.php',
                 Construct::fromName(Test\Fixture\Classy\Php80\WithinNamespaceWithBraces\Bar::class),
@@ -41,7 +39,6 @@ final class Php80
                 Construct::fromName(Test\Fixture\Classy\Php80\WithinNamespaceWithBraces\Foo::class),
             ),
             Test\Util\Scenario::create(
-                Test\Util\PhpVersion::fromInt(80000),
                 'php80-within-multiple-namespaces-with-braces',
                 __DIR__ . '/../Fixture/Classy/Php80/WithinMultipleNamespaces/source.php',
                 Construct::fromName(Test\Fixture\Classy\Php80\WithinMultipleNamespaces\Bar\Bar::class),
@@ -52,7 +49,6 @@ final class Php80
                 Construct::fromName(Test\Fixture\Classy\Php80\WithinMultipleNamespaces\Foo\Foo::class),
             ),
             Test\Util\Scenario::create(
-                Test\Util\PhpVersion::fromInt(80000),
                 'php80-within-namespace-with-single-segment',
                 __DIR__ . '/../Fixture/Classy/Php80/WithinNamespaceWithSingleSegment/source.php',
                 Construct::fromName('Ergebnis\\Bar'),
@@ -60,7 +56,6 @@ final class Php80
                 Construct::fromName('Ergebnis\\Foo'),
             ),
             Test\Util\Scenario::create(
-                Test\Util\PhpVersion::fromInt(80000),
                 'php80-with-methods-named-after-keywords',
                 __DIR__ . '/../Fixture/Classy/Php80/WithMethodsNamedAfterKeywords/source.php',
                 Construct::fromName(Test\Fixture\Classy\Php80\WithMethodsNamedAfterKeywords\Foo::class),
@@ -69,13 +64,11 @@ final class Php80
              * @see https://github.com/zendframework/zend-file/pull/41
              */
             Test\Util\Scenario::create(
-                Test\Util\PhpVersion::fromInt(80000),
                 'php80-with-methods-named-after-keywords-and-return-type',
                 __DIR__ . '/../Fixture/Classy/Php80/WithMethodsNamedAfterKeywordsAndReturnType/source.php',
                 Construct::fromName(Test\Fixture\Classy\Php80\WithMethodsNamedAfterKeywordsAndReturnType\Foo::class),
             ),
             Test\Util\Scenario::create(
-                Test\Util\PhpVersion::fromInt(80000),
                 'php80-without-namespace',
                 __DIR__ . '/../Fixture/Classy/Php80/WithoutNamespace/source.php',
                 Construct::fromName('Bar'),
@@ -83,7 +76,6 @@ final class Php80
                 Construct::fromName('Foo'),
             ),
             Test\Util\Scenario::create(
-                Test\Util\PhpVersion::fromInt(80000),
                 'php80-without-namespace-and-multi-line-comments',
                 __DIR__ . '/../Fixture/Classy/Php80/WithoutNamespaceAndMultiLineComments/source.php',
                 Construct::fromName('Bar'),
@@ -91,7 +83,6 @@ final class Php80
                 Construct::fromName('Foo'),
             ),
             Test\Util\Scenario::create(
-                Test\Util\PhpVersion::fromInt(80000),
                 'php80-without-namespace-and-shell-line-comments',
                 __DIR__ . '/../Fixture/Classy/Php80/WithoutNamespaceAndShellStyleComments/source.php',
                 Construct::fromName('Bar'),
@@ -99,7 +90,6 @@ final class Php80
                 Construct::fromName('Foo'),
             ),
             Test\Util\Scenario::create(
-                Test\Util\PhpVersion::fromInt(80000),
                 'php80-without-namespace-and-single-line-comments',
                 __DIR__ . '/../Fixture/Classy/Php80/WithoutNamespaceAndSingleLineComments/source.php',
                 Construct::fromName('Bar'),

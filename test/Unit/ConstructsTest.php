@@ -67,37 +67,30 @@ final class ConstructsTest extends Framework\TestCase
     {
         $scenariosWithoutClassyConstructs = [
             Test\Util\Scenario::create(
-                Test\Util\PhpVersion::fromInt(70400),
                 'no-php-file',
                 __DIR__ . '/../Fixture/NoClassy/NoPhpFile/source.md',
             ),
             Test\Util\Scenario::create(
-                Test\Util\PhpVersion::fromInt(70400),
                 'with-anonymous-class',
                 __DIR__ . '/../Fixture/NoClassy/WithAnonymousClass/source.php',
             ),
             Test\Util\Scenario::create(
-                Test\Util\PhpVersion::fromInt(70400),
                 'with-anonymous-class-and-multi-line-comments',
                 __DIR__ . '/../Fixture/NoClassy/WithAnonymousClassAndMultiLineComments/source.php',
             ),
             Test\Util\Scenario::create(
-                Test\Util\PhpVersion::fromInt(70400),
                 'with-anonymous-class-and-shell-style-comments',
                 __DIR__ . '/../Fixture/NoClassy/WithAnonymousClassAndShellStyleComments/source.php',
             ),
             Test\Util\Scenario::create(
-                Test\Util\PhpVersion::fromInt(70400),
                 'with-anonymous-class-and-single-line-comments',
                 __DIR__ . '/../Fixture/NoClassy/WithAnonymousClassAndSingleLineComments/source.php',
             ),
             Test\Util\Scenario::create(
-                Test\Util\PhpVersion::fromInt(70400),
                 'with-class-keyword',
                 __DIR__ . '/../Fixture/NoClassy/WithClassKeyword/source.php',
             ),
             Test\Util\Scenario::create(
-                Test\Util\PhpVersion::fromInt(70400),
                 'with-nothing',
                 __DIR__ . '/../Fixture/NoClassy/WithNothing/source.php',
             ),

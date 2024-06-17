@@ -17,7 +17,6 @@ use Ergebnis\Classy;
 
 final class Scenario
 {
-    private PhpVersion $phpVersion;
     private string $description;
     private string $fileName;
     private string $source;
@@ -28,13 +27,11 @@ final class Scenario
     private array $constructs;
 
     private function __construct(
-        PhpVersion $phpVersion,
         string $description,
         string $fileName,
         string $source,
         Classy\Construct ...$constructs,
     ) {
-        $this->phpVersion = $phpVersion;
         $this->description = $description;
         $this->fileName = $fileName;
         $this->source = $source;
@@ -45,7 +42,6 @@ final class Scenario
      * @throws \InvalidArgumentException
      */
     public static function create(
-        PhpVersion $phpVersion,
         string $description,
         string $fileName,
         Classy\Construct ...$constructs,
@@ -83,7 +79,6 @@ final class Scenario
         });
 
         return new self(
-            $phpVersion,
             $description,
             $fileName,
             $source,
@@ -91,11 +86,6 @@ final class Scenario
                 return $construct->definedIn($resolvedFileName);
             }, \array_values($constructs)),
         );
-    }
-
-    public function phpVersion(): PhpVersion
-    {
-        return $this->phpVersion;
     }
 
     public function description(): string
