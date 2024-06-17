@@ -20,7 +20,7 @@ final class MultipleDefinitionsFound extends \RuntimeException implements Except
     /**
      * @var list<Construct>
      */
-    private array $constructs = [];
+    private $constructs = [];
 
     /**
      * Returns a new exception from constructs.

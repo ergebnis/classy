@@ -15,7 +15,10 @@ namespace Ergebnis\Classy\Exception;
 
 final class DirectoryDoesNotExist extends \InvalidArgumentException implements ExceptionInterface
 {
-    private string $directory = '';
+    /**
+     * @var string
+     */
+    private $directory = '';
 
     /**
      * Returns a new exception from a directory.
