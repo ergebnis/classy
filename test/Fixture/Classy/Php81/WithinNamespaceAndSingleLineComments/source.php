@@ -13,3 +13,7 @@ Bar // bar
 trait  // foo
 Baz // bar
 {}
+
+enum
+Qux // bar
+{}

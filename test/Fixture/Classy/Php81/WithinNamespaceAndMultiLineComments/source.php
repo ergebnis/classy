@@ -8,4 +8,4 @@ namespace Ergebnis\Classy\Test\Fixture\Classy\Php81\WithinNamespaceAndMultiLineC
 
 /* foo */ trait  /* bar */ Baz /* baz */ {}
 
-/* foo */ enum  /* bar */ Qux /* baz */ {}
+/* foo */ enum  Qux /* baz */ {}

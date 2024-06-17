@@ -1,7 +1,9 @@
 <?php
 
-/* foo */ class /* bar */ Qux /* baz */ {}
+/* foo */ class /* bar */ Foo /* baz */ {}
 
-/* foo */ interface /* bar */ Quux /* baz */ {}
+/* foo */ interface /* bar */ Bar /* baz */ {}
 
-/* foo */ trait  /* bar */ Quuz /* baz */ {}
+/* foo */ trait  /* bar */ Baz /* baz */ {}
+
+/* foo */ enum Qux /* baz */ {}

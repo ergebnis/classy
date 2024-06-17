@@ -14,6 +14,6 @@ trait  # foo
 Baz // bar
 {}
 
-enum  # foo
-Baz // bar
+enum
+Qux // bar
 {}

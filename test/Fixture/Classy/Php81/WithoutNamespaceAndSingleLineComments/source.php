@@ -1,13 +1,17 @@
 <?php
 
 class // foo
-Waldo // bar
+Foo // bar
 {}
 
 interface // foo
-Fred // bar
+Bar // bar
 {}
 
 trait  // foo
-Plugh // bar
+Baz // bar
+{}
+
+enum
+Qux // bar
 {}

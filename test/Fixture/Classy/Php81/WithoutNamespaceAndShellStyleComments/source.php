@@ -1,13 +1,17 @@
 <?php
 
 class # foo
-Corge # bar
+Foo # bar
 {}
 
 interface # foo
-Garply # bar
+Bar # bar
 {}
 
 trait  # foo
-Grault // bar
+Baz // bar
+{}
+
+enum
+Qux // bar
 {}
