@@ -47,7 +47,6 @@
   </file>
   <file src="test/Unit/ConstructsTest.php">
     <PossiblyUnusedMethod>
-      <code><![CDATA[provideScenarioWithClassyConstructsOnPhp74]]></code>
       <code><![CDATA[provideScenarioWithClassyConstructsOnPhp81]]></code>
       <code><![CDATA[provideScenarioWithoutClassyConstructs]]></code>
     </PossiblyUnusedMethod>
