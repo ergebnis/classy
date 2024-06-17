@@ -17,14 +17,25 @@ use Ergebnis\Classy;
 
 final class Scenario
 {
-    private string $description;
-    private string $fileName;
-    private string $source;
+    /**
+     * @var string
+     */
+    private $description;
+
+    /**
+     * @var string
+     */
+    private $fileName;
+
+    /**
+     * @var string
+     */
+    private $source;
 
     /**
      * @var list<Classy\Construct>
      */
-    private array $constructs;
+    private $constructs;
 
     private function __construct(
         string $description,

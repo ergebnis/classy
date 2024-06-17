@@ -417,6 +417,7 @@ jobs:
       fail-fast: false
       matrix:
         php-version:
+          - "7.3"
           - "7.4"
           - "8.0"
           - "8.1"
@@ -425,7 +426,6 @@ jobs:
 
         dependencies:
           - "lowest"
-          - "locked"
           - "highest"
 
     steps:
@@ -458,9 +458,17 @@ jobs:
           key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
           restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
 
+      - name: "Remove incompatible dependencies with composer"
+        if: "matrix.dependencies != 'locked'"
+        run: "composer remove ergebnis/composer-normalize ergebnis/license ergebnis/php-cs-fixer-config infection/infection psalm/plugin-phpunit rector/rector vimeo/psalm --ansi --dev --no-interaction --no-progress"
+
       - name: "Remove platform configuration with composer"
         if: "matrix.dependencies != 'locked'"
         run: "composer config platform.php --ansi --unset"
+
+      - name: "Require fakerphp/faker:^1.20.0"
+        if: "matrix.dependencies != 'locked' && matrix.php-version == '7.3'"
+        run: "composer require fakerphp/faker:^1.20.0 --ansi --no-interaction --no-progress --update-with-all-dependencies"
 
       - name: "Install ${{ matrix.dependencies }} dependencies with composer"
         uses: "ergebnis/.github/actions/composer/install@1.9.2"

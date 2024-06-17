@@ -29,7 +29,10 @@ use PHPUnit\Framework;
  */
 final class ConstructsTest extends Framework\TestCase
 {
-    private string $fileWithParseError = __DIR__ . '/../Fixture/ParseError/MessedUp.php';
+    /**
+     * @var string
+     */
+    private $fileWithParseError = __DIR__ . '/../Fixture/ParseError/MessedUp.php';
 
     protected function setUp(): void
     {
@@ -101,6 +104,23 @@ final class ConstructsTest extends Framework\TestCase
                 $scenario,
             ];
         }
+    }
+
+    /**
+     * @dataProvider \Ergebnis\Classy\Test\DataProvider\Php73::classyConstructs()
+     *
+     * @requires PHP 7.3
+     */
+    public function testFromSourceReturnsListOfClassyConstructsOnPhp73(Test\Util\Scenario $scenario): void
+    {
+        $constructs = Constructs::fromSource($scenario->source());
+
+        $expected = \array_map(static function (Construct $construct): Construct {
+            return Construct::fromName($construct->name());
+        }, $scenario->constructsSortedByName());
+
+        self::assertIsList($constructs);
+        self::assertEquals($expected, $constructs);
     }
 
     /**
@@ -176,6 +196,19 @@ final class ConstructsTest extends Framework\TestCase
         $constructs = Constructs::fromDirectory($scenario->directory());
 
         self::assertSame([], $constructs);
+    }
+
+    /**
+     * @dataProvider \Ergebnis\Classy\Test\DataProvider\Php73::classyConstructs()
+     *
+     * @requires PHP 7.3
+     */
+    public function testFromDirectoryReturnsListOfClassyConstructsOnPhp73(Test\Util\Scenario $scenario): void
+    {
+        $constructs = Constructs::fromDirectory($scenario->directory());
+
+        self::assertIsList($constructs);
+        self::assertEquals($scenario->constructsSortedByName(), $constructs);
     }
 
     /**
