@@ -105,7 +105,7 @@ final class ConstructsTest extends Framework\TestCase
         }
     }
 
-    #[Framework\Attributes\DataProvider('provideScenarioWithClassyConstructsBeforePhp81')]
+    #[Framework\Attributes\DataProvider('provideScenarioWithClassyConstructs')]
     public function testFromSourceReturnsListOfClassyConstructsWithoutFileNamesWhenClassyConstructsHaveBeenFoundBeforePhp81(Test\Util\Scenario $scenario): void
     {
         $constructs = Constructs::fromSource($scenario->source());
@@ -118,7 +118,7 @@ final class ConstructsTest extends Framework\TestCase
         self::assertEquals($expected, $constructs);
     }
 
-    #[Framework\Attributes\DataProvider('provideScenarioWithClassyConstructsOnPhp81')]
+    #[Framework\Attributes\DataProvider('provideScenarioWithClassyConstructs')]
     public function testFromSourceReturnsListOfClassyConstructsWithoutFileNamesWhenClassyConstructsHaveBeenFoundOnPhp81(Test\Util\Scenario $scenario): void
     {
         $constructs = Constructs::fromSource($scenario->source());
@@ -153,7 +153,7 @@ final class ConstructsTest extends Framework\TestCase
         self::assertSame([], $constructs);
     }
 
-    #[Framework\Attributes\DataProvider('provideScenarioWithClassyConstructsBeforePhp81')]
+    #[Framework\Attributes\DataProvider('provideScenarioWithClassyConstructs')]
     public function testFromDirectoryReturnsListOfClassyConstructsSortedByNameWhenClassyConstructsHaveBeenFoundBeforePhp81(Test\Util\Scenario $scenario): void
     {
         $constructs = Constructs::fromDirectory($scenario->directory());
@@ -165,42 +165,9 @@ final class ConstructsTest extends Framework\TestCase
     /**
      * @return \Generator<string, array{0: Test\Util\Scenario}>
      */
-    public static function provideScenarioWithClassyConstructsBeforePhp81(): \Generator
+    public static function provideScenarioWithClassyConstructs(): \Generator
     {
-        $phpVersion = Test\Util\PhpVersion::fromInt(80100);
-
-        $scenariosWithClassyConstructs = \array_filter(self::scenariosWithClassyConstructs(), static function (Test\Util\Scenario $scenario) use ($phpVersion): bool {
-            return $scenario->phpVersion()->isLessThan($phpVersion);
-        });
-
-        foreach ($scenariosWithClassyConstructs as $scenario) {
-            yield $scenario->description() => [
-                $scenario,
-            ];
-        }
-    }
-
-    #[Framework\Attributes\DataProvider('provideScenarioWithClassyConstructsOnPhp81')]
-    public function testFromDirectoryReturnsListOfClassyConstructsSortedByNameWhenClassyConstructsHaveBeenFoundOnPhp81(Test\Util\Scenario $scenario): void
-    {
-        $constructs = Constructs::fromDirectory($scenario->directory());
-
-        self::assertIsList($constructs);
-        self::assertEquals($scenario->constructsSortedByName(), $constructs);
-    }
-
-    /**
-     * @return \Generator<string, array{0: Test\Util\Scenario}>
-     */
-    public static function provideScenarioWithClassyConstructsOnPhp81(): \Generator
-    {
-        $phpVersion = Test\Util\PhpVersion::fromInt(80100);
-
-        $scenariosWithClassyConstructs = \array_filter(self::scenariosWithClassyConstructs(), static function (Test\Util\Scenario $scenario) use ($phpVersion): bool {
-            return $scenario->phpVersion()->isLessThanOrEqualTo($phpVersion);
-        });
-
-        foreach ($scenariosWithClassyConstructs as $scenario) {
+        foreach (self::scenariosWithClassyConstructs() as $scenario) {
             yield $scenario->description() => [
                 $scenario,
             ];
