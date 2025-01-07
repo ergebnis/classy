@@ -35,7 +35,7 @@ final class Scenario
         $this->description = $description;
         $this->fileName = $fileName;
         $this->source = $source;
-        $this->constructs = \array_values($constructs);
+        $this->constructs = $constructs;
     }
 
     /**

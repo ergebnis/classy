@@ -184,9 +184,3 @@ parameters:
 			identifier: missingType.iterableValue
 			count: 1
 			path: test/Unit/ConstructsTest.php
-
-		-
-			message: '#^Parameter \#1 \$array \(list\<Ergebnis\\Classy\\Construct\>\) of array_values is already a list, call has no effect\.$#'
-			identifier: arrayValues.list
-			count: 1
-			path: test/Util/Scenario.php
