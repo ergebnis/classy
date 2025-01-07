@@ -6,7 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`1.6.0...main`][1.6.0...main].
+For a full diff see [`1.7.0...main`][1.7.0...main].
+
+## [`1.7.0`][1.7.0]
+
+For a full diff see [`1.6.0...1.7.0`][1.6.0...1.7.0].
 
 ### Added
 
@@ -157,6 +161,7 @@ For a full diff see [`0.4.0...0.5.0`][0.4.0...0.5.0].
 [1.4.0]: https://github.com/localheinz/ergebnis/classy/releases/tag/1.4.0
 [1.5.0]: https://github.com/localheinz/ergebnis/classy/releases/tag/1.5.0
 [1.6.0]: https://github.com/localheinz/ergebnis/classy/releases/tag/1.6.0
+[1.7.0]: https://github.com/localheinz/ergebnis/classy/releases/tag/1.7.0
 
 [0.4.0...0.5.0]: https://github.com/ergebnis/classy/compare/0.4.0...0.5.0
 [0.5.0...0.5.1]: https://github.com/ergebnis/classy/compare/0.5.0...0.5.1
@@ -170,7 +175,8 @@ For a full diff see [`0.4.0...0.5.0`][0.4.0...0.5.0].
 [1.3.0...1.4.0]: https://github.com/ergebnis/classy/compare/1.3.0...1.4.0
 [1.4.0...1.5.0]: https://github.com/ergebnis/classy/compare/1.4.0...1.5.0
 [1.5.0...1.6.0]: https://github.com/ergebnis/classy/compare/1.5.0...1.6.0
-[1.6.0...main]: https://github.com/ergebnis/classy/compare/1.6.0...main
+[1.6.0...1.7.0]: https://github.com/ergebnis/classy/compare/1.6.0...1.7.0
+[1.7.0...main]: https://github.com/ergebnis/classy/compare/1.7.0...main
 
 [#77]: https://github.com/ergebnis/classy/pull/77
 [#88]: https://github.com/ergebnis/classy/pull/88
