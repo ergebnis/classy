@@ -84,7 +84,7 @@ final class Scenario
             $source,
             ...\array_map(static function (Classy\Construct $construct) use ($resolvedFileName): Classy\Construct {
                 return $construct->definedIn($resolvedFileName);
-            }, \array_values($constructs)),
+            }, $constructs),
         );
     }
 

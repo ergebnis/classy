@@ -188,6 +188,5 @@ parameters:
 		-
 			message: '#^Parameter \#1 \$array \(list\<Ergebnis\\Classy\\Construct\>\) of array_values is already a list, call has no effect\.$#'
 			identifier: arrayValues.list
-			count: 2
+			count: 1
 			path: test/Util/Scenario.php
-
