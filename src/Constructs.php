@@ -153,7 +153,7 @@ final class Constructs
 
         $iterator = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator(
             $directory,
-            \RecursiveDirectoryIterator::FOLLOW_SYMLINKS,
+            \FilesystemIterator::FOLLOW_SYMLINKS,
         ));
 
         $constructs = [];
