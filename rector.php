@@ -24,9 +24,11 @@ return static function (Config\RectorConfig $rectorConfig): void {
         __DIR__ . '/src/',
         __DIR__ . '/test/Unit/',
         __DIR__ . '/test/Util/',
+        __DIR__ . '/.php-cs-fixer.php',
+        __DIR__ . '/rector.php',
     ]);
 
-    $rectorConfig->phpVersion(ValueObject\PhpVersion::PHP_73);
+    $rectorConfig->phpVersion(ValueObject\PhpVersion::PHP_74);
 
     $rectorConfig->sets([
         PHPUnit\Set\PHPUnitSetList::PHPUNIT_90,
