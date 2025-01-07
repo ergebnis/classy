@@ -29,10 +29,7 @@ use PHPUnit\Framework;
  */
 final class ConstructsTest extends Framework\TestCase
 {
-    /**
-     * @var string
-     */
-    private $fileWithParseError = __DIR__ . '/../Fixture/ParseError/MessedUp.php';
+    private string $fileWithParseError = __DIR__ . '/../Fixture/ParseError/MessedUp.php';
 
     protected function setUp(): void
     {
