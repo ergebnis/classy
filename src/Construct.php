@@ -15,15 +15,12 @@ namespace Ergebnis\Classy;
 
 final class Construct
 {
-    /**
-     * @var string
-     */
-    private $name;
+    private string $name;
 
     /**
      * @var list<string>
      */
-    private $fileNames = [];
+    private array $fileNames = [];
 
     private function __construct(string $name)
     {
