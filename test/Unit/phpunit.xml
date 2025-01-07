@@ -24,9 +24,6 @@
     verbose="true"
 >
     <coverage>
-        <exclude>
-            <directory suffix=".php">../../src/Subscriber/</directory>
-        </exclude>
         <include>
             <directory suffix=".php">../../src/</directory>
         </include>

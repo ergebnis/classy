@@ -426,6 +426,7 @@ jobs:
 
         dependencies:
           - "lowest"
+          - "locked"
           - "highest"
 
     steps:
@@ -457,10 +458,6 @@ jobs:
           path: "${{ env.COMPOSER_CACHE_DIR }}"
           key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
           restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
-
-      - name: "Remove incompatible dependencies with composer"
-        if: "matrix.dependencies != 'locked'"
-        run: "composer remove ergebnis/composer-normalize ergebnis/license ergebnis/php-cs-fixer-config infection/infection psalm/plugin-phpunit rector/rector vimeo/psalm --ansi --dev --no-interaction --no-progress"
 
       - name: "Remove platform configuration with composer"
         if: "matrix.dependencies != 'locked'"
