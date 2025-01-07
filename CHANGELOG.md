@@ -12,7 +12,6 @@ For a full diff see [`1.6.0...main`][1.6.0...main].
 
 - Added support for PHP 8.0 ([#926]), by [@localheinz]
 - Added support for PHP 7.4 ([#929]), by [@localheinz]
-- Added support for PHP 7.3 ([#930]), by [@localheinz]
 
 ## [`1.6.0`][1.6.0]
 
