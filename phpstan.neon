@@ -2,6 +2,14 @@ includes:
 	- phpstan-baseline.neon
 
 parameters:
+	ergebnis:
+		noExtends:
+			classesAllowedToBeExtended:
+				- InvalidArgumentException
+				- LogicException
+				- ParseError
+				- RuntimeException
+
 	excludePaths:
 		- test/Fixture/
 
