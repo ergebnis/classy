@@ -106,7 +106,7 @@ final class ConstructsTest extends Framework\TestCase
     /**
      * @dataProvider \Ergebnis\Classy\Test\DataProvider\Php73::classyConstructs()
      *
-     * @requires PHP 7.3
+     * @requires PHP >= 7.3
      */
     public function testFromSourceReturnsListOfClassyConstructsOnPhp73(Test\Util\Scenario $scenario): void
     {
@@ -123,7 +123,7 @@ final class ConstructsTest extends Framework\TestCase
     /**
      * @dataProvider \Ergebnis\Classy\Test\DataProvider\Php74::classyConstructs()
      *
-     * @requires PHP 7.4
+     * @requires PHP >= 7.4
      */
     public function testFromSourceReturnsListOfClassyConstructsOnPhp74(Test\Util\Scenario $scenario): void
     {
@@ -140,7 +140,7 @@ final class ConstructsTest extends Framework\TestCase
     /**
      * @dataProvider \Ergebnis\Classy\Test\DataProvider\Php80::classyConstructs()
      *
-     * @requires PHP 8.0
+     * @requires PHP >= 8.0
      */
     public function testFromSourceReturnsListOfClassyConstructsOnPhp80(Test\Util\Scenario $scenario): void
     {
@@ -157,7 +157,7 @@ final class ConstructsTest extends Framework\TestCase
     /**
      * @dataProvider \Ergebnis\Classy\Test\DataProvider\Php81::classyConstructs()
      *
-     * @requires PHP 8.1
+     * @requires PHP >= 8.1
      */
     public function testFromSourceReturnsListOfClassyConstructsOnPhp81(Test\Util\Scenario $scenario): void
     {
@@ -198,7 +198,7 @@ final class ConstructsTest extends Framework\TestCase
     /**
      * @dataProvider \Ergebnis\Classy\Test\DataProvider\Php73::classyConstructs()
      *
-     * @requires PHP 7.3
+     * @requires PHP >= 7.3
      */
     public function testFromDirectoryReturnsListOfClassyConstructsOnPhp73(Test\Util\Scenario $scenario): void
     {
@@ -211,7 +211,7 @@ final class ConstructsTest extends Framework\TestCase
     /**
      * @dataProvider \Ergebnis\Classy\Test\DataProvider\Php74::classyConstructs()
      *
-     * @requires PHP 7.4
+     * @requires PHP >= 7.4
      */
     public function testFromDirectoryReturnsListOfClassyConstructsOnPhp74(Test\Util\Scenario $scenario): void
     {
@@ -224,7 +224,7 @@ final class ConstructsTest extends Framework\TestCase
     /**
      * @dataProvider \Ergebnis\Classy\Test\DataProvider\Php80::classyConstructs()
      *
-     * @requires PHP 8.0
+     * @requires PHP >= 8.0
      */
     public function testFromDirectoryReturnsListOfClassyConstructsOnPhp80(Test\Util\Scenario $scenario): void
     {
@@ -237,7 +237,7 @@ final class ConstructsTest extends Framework\TestCase
     /**
      * @dataProvider \Ergebnis\Classy\Test\DataProvider\Php81::classyConstructs()
      *
-     * @requires PHP 8.1
+     * @requires PHP >= 8.1
      */
     public function testFromDirectoryReturnsListOfClassyConstructsOnPhp81(Test\Util\Scenario $scenario): void
     {
