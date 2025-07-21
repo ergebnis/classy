@@ -140,12 +140,12 @@ parameters:
 
 		-
 			message: '''
-				#^Call to deprecated method __toString\(\) of class Ergebnis\\Classy\\Construct\:
+				#^Casting class Ergebnis\\Classy\\Construct to string is deprecated\.\:
 				Will be removed in the next major release\.
 
 				Returns a string representation of the construct\.$#
 			'''
-			identifier: method.deprecated
+			identifier: class.toStringDeprecated
 			count: 1
 			path: test/Unit/ConstructTest.php
 
