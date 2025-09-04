@@ -28,7 +28,7 @@
     "ext-tokenizer": "*"
   },
   "require-dev": {
-    "ergebnis/composer-normalize": "^2.47.0",
+    "ergebnis/composer-normalize": "^2.48.1",
     "ergebnis/license": "^2.6.0",
     "ergebnis/php-cs-fixer-config": "^6.51.0",
     "ergebnis/phpstan-rules": "^2.10.5",
