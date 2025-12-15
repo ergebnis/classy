@@ -22,7 +22,7 @@ final class Scenario
     private string $source;
 
     /**
-     * @var list<Classy\Construct>
+     * @var list<Classy\ConstructFromSource>
      */
     private array $constructs;
 
@@ -30,7 +30,7 @@ final class Scenario
         string $description,
         string $fileName,
         string $source,
-        Classy\Construct ...$constructs
+        Classy\ConstructFromSource ...$constructs
     ) {
         $this->description = $description;
         $this->fileName = $fileName;
@@ -44,7 +44,7 @@ final class Scenario
     public static function create(
         string $description,
         string $fileName,
-        Classy\Construct ...$constructs
+        Classy\ConstructFromSource ...$constructs
     ): self {
         if (!\is_file($fileName)) {
             throw new \InvalidArgumentException(\sprintf(
@@ -71,20 +71,11 @@ final class Scenario
             ));
         }
 
-        \usort($constructs, static function (Classy\Construct $a, Classy\Construct $b): int {
-            return \strcmp(
-                $a->name(),
-                $b->name(),
-            );
-        });
-
         return new self(
             $description,
             $fileName,
             $source,
-            ...\array_map(static function (Classy\Construct $construct) use ($resolvedFileName): Classy\Construct {
-                return $construct->definedIn($resolvedFileName);
-            }, $constructs),
+            ...$constructs,
         );
     }
 
@@ -104,9 +95,9 @@ final class Scenario
     }
 
     /**
-     * @return list<Classy\Construct>
+     * @return list<Classy\ConstructFromSource>
      */
-    public function constructsSortedByName(): array
+    public function constructs(): array
     {
         return $this->constructs;
     }

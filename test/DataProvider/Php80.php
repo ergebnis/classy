@@ -13,8 +13,10 @@ declare(strict_types=1);
 
 namespace Ergebnis\Classy\Test\DataProvider;
 
-use Ergebnis\Classy\Construct;
+use Ergebnis\Classy\ConstructFromSource;
+use Ergebnis\Classy\Name;
 use Ergebnis\Classy\Test;
+use Ergebnis\Classy\Type;
 
 final class Php80
 {
@@ -27,38 +29,86 @@ final class Php80
             Test\Util\Scenario::create(
                 'php80-within-namespace',
                 __DIR__ . '/../Fixture/Classy/Php80/WithinNamespace/source.php',
-                Construct::fromName(Test\Fixture\Classy\Php80\WithinNamespace\Bar::class),
-                Construct::fromName(Test\Fixture\Classy\Php80\WithinNamespace\Baz::class),
-                Construct::fromName(Test\Fixture\Classy\Php80\WithinNamespace\Foo::class),
+                ConstructFromSource::create(
+                    Name::fromString(Test\Fixture\Classy\Php80\WithinNamespace\Foo::class),
+                    Type::class(),
+                ),
+                ConstructFromSource::create(
+                    Name::fromString(Test\Fixture\Classy\Php80\WithinNamespace\Bar::class),
+                    Type::interface(),
+                ),
+                ConstructFromSource::create(
+                    Name::fromString(Test\Fixture\Classy\Php80\WithinNamespace\Baz::class),
+                    Type::trait(),
+                ),
             ),
             Test\Util\Scenario::create(
                 'php80-within-namespace-with-braces',
                 __DIR__ . '/../Fixture/Classy/Php80/WithinNamespaceWithBraces/source.php',
-                Construct::fromName(Test\Fixture\Classy\Php80\WithinNamespaceWithBraces\Bar::class),
-                Construct::fromName(Test\Fixture\Classy\Php80\WithinNamespaceWithBraces\Baz::class),
-                Construct::fromName(Test\Fixture\Classy\Php80\WithinNamespaceWithBraces\Foo::class),
+                ConstructFromSource::create(
+                    Name::fromString(Test\Fixture\Classy\Php80\WithinNamespaceWithBraces\Foo::class),
+                    Type::class(),
+                ),
+                ConstructFromSource::create(
+                    Name::fromString(Test\Fixture\Classy\Php80\WithinNamespaceWithBraces\Bar::class),
+                    Type::interface(),
+                ),
+                ConstructFromSource::create(
+                    Name::fromString(Test\Fixture\Classy\Php80\WithinNamespaceWithBraces\Baz::class),
+                    Type::trait(),
+                ),
             ),
             Test\Util\Scenario::create(
                 'php80-within-multiple-namespaces-with-braces',
                 __DIR__ . '/../Fixture/Classy/Php80/WithinMultipleNamespaces/source.php',
-                Construct::fromName(Test\Fixture\Classy\Php80\WithinMultipleNamespaces\Bar\Bar::class),
-                Construct::fromName(Test\Fixture\Classy\Php80\WithinMultipleNamespaces\Bar\Baz::class),
-                Construct::fromName(Test\Fixture\Classy\Php80\WithinMultipleNamespaces\Bar\Foo::class),
-                Construct::fromName(Test\Fixture\Classy\Php80\WithinMultipleNamespaces\Foo\Bar::class),
-                Construct::fromName(Test\Fixture\Classy\Php80\WithinMultipleNamespaces\Foo\Baz::class),
-                Construct::fromName(Test\Fixture\Classy\Php80\WithinMultipleNamespaces\Foo\Foo::class),
+                ConstructFromSource::create(
+                    Name::fromString(Test\Fixture\Classy\Php80\WithinMultipleNamespaces\Foo\Foo::class),
+                    Type::class(),
+                ),
+                ConstructFromSource::create(
+                    Name::fromString(Test\Fixture\Classy\Php80\WithinMultipleNamespaces\Foo\Bar::class),
+                    Type::interface(),
+                ),
+                ConstructFromSource::create(
+                    Name::fromString(Test\Fixture\Classy\Php80\WithinMultipleNamespaces\Foo\Baz::class),
+                    Type::trait(),
+                ),
+                ConstructFromSource::create(
+                    Name::fromString(Test\Fixture\Classy\Php80\WithinMultipleNamespaces\Bar\Foo::class),
+                    Type::class(),
+                ),
+                ConstructFromSource::create(
+                    Name::fromString(Test\Fixture\Classy\Php80\WithinMultipleNamespaces\Bar\Bar::class),
+                    Type::interface(),
+                ),
+                ConstructFromSource::create(
+                    Name::fromString(Test\Fixture\Classy\Php80\WithinMultipleNamespaces\Bar\Baz::class),
+                    Type::trait(),
+                ),
             ),
             Test\Util\Scenario::create(
                 'php80-within-namespace-with-single-segment',
                 __DIR__ . '/../Fixture/Classy/Php80/WithinNamespaceWithSingleSegment/source.php',
-                Construct::fromName('Ergebnis\\Bar'),
-                Construct::fromName('Ergebnis\\Baz'),
-                Construct::fromName('Ergebnis\\Foo'),
+                ConstructFromSource::create(
+                    Name::fromString('Ergebnis\\Foo'),
+                    Type::class(),
+                ),
+                ConstructFromSource::create(
+                    Name::fromString('Ergebnis\\Bar'),
+                    Type::interface(),
+                ),
+                ConstructFromSource::create(
+                    Name::fromString('Ergebnis\\Baz'),
+                    Type::trait(),
+                ),
             ),
             Test\Util\Scenario::create(
                 'php80-with-methods-named-after-keywords',
                 __DIR__ . '/../Fixture/Classy/Php80/WithMethodsNamedAfterKeywords/source.php',
-                Construct::fromName(Test\Fixture\Classy\Php80\WithMethodsNamedAfterKeywords\Foo::class),
+                ConstructFromSource::create(
+                    Name::fromString(Test\Fixture\Classy\Php80\WithMethodsNamedAfterKeywords\Foo::class),
+                    Type::class(),
+                ),
             ),
             /**
              * @see https://github.com/zendframework/zend-file/pull/41
@@ -66,35 +116,74 @@ final class Php80
             Test\Util\Scenario::create(
                 'php80-with-methods-named-after-keywords-and-return-type',
                 __DIR__ . '/../Fixture/Classy/Php80/WithMethodsNamedAfterKeywordsAndReturnType/source.php',
-                Construct::fromName(Test\Fixture\Classy\Php80\WithMethodsNamedAfterKeywordsAndReturnType\Foo::class),
+                ConstructFromSource::create(
+                    Name::fromString(Test\Fixture\Classy\Php80\WithMethodsNamedAfterKeywordsAndReturnType\Foo::class),
+                    Type::class(),
+                ),
             ),
             Test\Util\Scenario::create(
                 'php80-without-namespace',
                 __DIR__ . '/../Fixture/Classy/Php80/WithoutNamespace/source.php',
-                Construct::fromName('Bar'),
-                Construct::fromName('Baz'),
-                Construct::fromName('Foo'),
+                ConstructFromSource::create(
+                    Name::fromString('Foo'),
+                    Type::class(),
+                ),
+                ConstructFromSource::create(
+                    Name::fromString('Bar'),
+                    Type::interface(),
+                ),
+                ConstructFromSource::create(
+                    Name::fromString('Baz'),
+                    Type::trait(),
+                ),
             ),
             Test\Util\Scenario::create(
                 'php80-without-namespace-and-multi-line-comments',
                 __DIR__ . '/../Fixture/Classy/Php80/WithoutNamespaceAndMultiLineComments/source.php',
-                Construct::fromName('Bar'),
-                Construct::fromName('Baz'),
-                Construct::fromName('Foo'),
+                ConstructFromSource::create(
+                    Name::fromString('Foo'),
+                    Type::class(),
+                ),
+                ConstructFromSource::create(
+                    Name::fromString('Bar'),
+                    Type::interface(),
+                ),
+                ConstructFromSource::create(
+                    Name::fromString('Baz'),
+                    Type::trait(),
+                ),
             ),
             Test\Util\Scenario::create(
                 'php80-without-namespace-and-shell-line-comments',
                 __DIR__ . '/../Fixture/Classy/Php80/WithoutNamespaceAndShellStyleComments/source.php',
-                Construct::fromName('Bar'),
-                Construct::fromName('Baz'),
-                Construct::fromName('Foo'),
+                ConstructFromSource::create(
+                    Name::fromString('Foo'),
+                    Type::class(),
+                ),
+                ConstructFromSource::create(
+                    Name::fromString('Bar'),
+                    Type::interface(),
+                ),
+                ConstructFromSource::create(
+                    Name::fromString('Baz'),
+                    Type::trait(),
+                ),
             ),
             Test\Util\Scenario::create(
                 'php80-without-namespace-and-single-line-comments',
                 __DIR__ . '/../Fixture/Classy/Php80/WithoutNamespaceAndSingleLineComments/source.php',
-                Construct::fromName('Bar'),
-                Construct::fromName('Baz'),
-                Construct::fromName('Foo'),
+                ConstructFromSource::create(
+                    Name::fromString('Foo'),
+                    Type::class(),
+                ),
+                ConstructFromSource::create(
+                    Name::fromString('Bar'),
+                    Type::interface(),
+                ),
+                ConstructFromSource::create(
+                    Name::fromString('Baz'),
+                    Type::trait(),
+                ),
             ),
         ];
 

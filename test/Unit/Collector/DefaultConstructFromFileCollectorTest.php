@@ -1,0 +1,207 @@
+<?php
+
+declare(strict_types=1);
+
+/**
+ * Copyright (c) 2017-2025 Andreas Möller
+ *
+ * For the full copyright and license information, please view
+ * the LICENSE.md file that was distributed with this source code.
+ *
+ * @see https://github.com/ergebnis/classy
+ */
+
+namespace Ergebnis\Classy\Test\Unit\Collector;
+
+use Ergebnis\Classy\Collector;
+use Ergebnis\Classy\ConstructFromFile;
+use Ergebnis\Classy\ConstructFromSource;
+use Ergebnis\Classy\Exception;
+use Ergebnis\Classy\File;
+use Ergebnis\Classy\Test;
+use PHPUnit\Framework;
+
+/**
+ * @covers \Ergebnis\Classy\Collector\DefaultConstructFromFileCollector
+ *
+ * @uses \Ergebnis\Classy\Collector\TokenGetAllConstructFromSourceCollector
+ * @uses \Ergebnis\Classy\ConstructFromFile
+ * @uses \Ergebnis\Classy\ConstructFromSource
+ * @uses \Ergebnis\Classy\Exception\FileCouldNotBeParsed
+ * @uses \Ergebnis\Classy\Exception\FileDoesNotExist
+ * @uses \Ergebnis\Classy\Exception\SourceCouldNotBeParsed
+ * @uses \Ergebnis\Classy\File
+ * @uses \Ergebnis\Classy\Name
+ * @uses \Ergebnis\Classy\Type
+ */
+final class DefaultConstructFromFileCollectorTest extends Framework\TestCase
+{
+    use Test\Util\Helper;
+
+    protected function setUp(): void
+    {
+        self::filesystem()->mkdir(self::temporaryDirectory());
+    }
+
+    protected function tearDown(): void
+    {
+        self::filesystem()->remove(self::temporaryDirectory());
+    }
+
+    public function testCollectFromFileThrowsFileDoesNotExistWhenFileDoesNotExist(): void
+    {
+        $file = \sprintf(
+            '%s/does-not-exist',
+            self::temporaryDirectory(),
+        );
+
+        $collector = new Collector\DefaultConstructFromFileCollector(new Collector\TokenGetAllConstructFromSourceCollector());
+
+        $this->expectException(Exception\FileDoesNotExist::class);
+
+        $collector->collectFromFile($file);
+    }
+
+    public function testCollectFromFileThrowsFileCouldNotBeParsedWhenParseErrorIsThrownDuringParsing(): void
+    {
+        $source = <<<'TXT'
+<?php
+
+final class MessedUp
+{
+TXT;
+
+        $file = self::fileWithSource($source);
+
+        $collector = new Collector\DefaultConstructFromFileCollector(new Collector\TokenGetAllConstructFromSourceCollector());
+
+        $this->expectException(Exception\FileCouldNotBeParsed::class);
+
+        $collector->collectFromFile($file);
+    }
+
+    /**
+     * @dataProvider \Ergebnis\Classy\Test\DataProvider\Any::noClassyConstructs
+     */
+    public function testCollectFromFileReturnsEmptyArrayWhenNoClassyConstructsHaveBeenFound(Test\Util\Scenario $scenario): void
+    {
+        $file = self::fileWithSource($scenario->source());
+
+        $collector = new Collector\DefaultConstructFromFileCollector(new Collector\TokenGetAllConstructFromSourceCollector());
+
+        $constructs = $collector->collectFromFile($file);
+
+        self::assertEquals([], $constructs);
+    }
+
+    /**
+     * @dataProvider \Ergebnis\Classy\Test\DataProvider\Php73::classyConstructs
+     *
+     * @requires PHP >= 7.3
+     */
+    public function testCollectFromFileReturnsArrayWithConstructsFromFileOnPhp73(Test\Util\Scenario $scenario): void
+    {
+        $file = self::fileWithSource($scenario->source());
+
+        $collector = new Collector\DefaultConstructFromFileCollector(new Collector\TokenGetAllConstructFromSourceCollector());
+
+        $constructs = $collector->collectFromFile($file);
+
+        $expectedConstructs = \array_map(static function (ConstructFromSource $constructFromSource) use ($file): ConstructFromFile {
+            return ConstructFromFile::create(
+                File::fromString($file),
+                $constructFromSource->name(),
+                $constructFromSource->type(),
+            );
+        }, $scenario->constructs());
+
+        self::assertEquals($expectedConstructs, $constructs);
+    }
+
+    /**
+     * @dataProvider \Ergebnis\Classy\Test\DataProvider\Php74::classyConstructs
+     *
+     * @requires PHP >= 7.4
+     */
+    public function testCollectFromFileReturnsArrayWithConstructsFromFileOnPhp74(Test\Util\Scenario $scenario): void
+    {
+        $file = self::fileWithSource($scenario->source());
+
+        $collector = new Collector\DefaultConstructFromFileCollector(new Collector\TokenGetAllConstructFromSourceCollector());
+
+        $constructs = $collector->collectFromFile($file);
+
+        $expectedConstructs = \array_map(static function (ConstructFromSource $constructFromSource) use ($file): ConstructFromFile {
+            return ConstructFromFile::create(
+                File::fromString($file),
+                $constructFromSource->name(),
+                $constructFromSource->type(),
+            );
+        }, $scenario->constructs());
+
+        self::assertEquals($expectedConstructs, $constructs);
+    }
+
+    /**
+     * @dataProvider \Ergebnis\Classy\Test\DataProvider\Php80::classyConstructs
+     *
+     * @requires PHP >= 8.0
+     */
+    public function testCollectFromFileReturnsArrayWithConstructsFromFileOnPhp80(Test\Util\Scenario $scenario): void
+    {
+        $file = self::fileWithSource($scenario->source());
+
+        $collector = new Collector\DefaultConstructFromFileCollector(new Collector\TokenGetAllConstructFromSourceCollector());
+
+        $constructs = $collector->collectFromFile($file);
+
+        $expectedConstructs = \array_map(static function (ConstructFromSource $constructFromSource) use ($file): ConstructFromFile {
+            return ConstructFromFile::create(
+                File::fromString($file),
+                $constructFromSource->name(),
+                $constructFromSource->type(),
+            );
+        }, $scenario->constructs());
+
+        self::assertEquals($expectedConstructs, $constructs);
+    }
+
+    /**
+     * @dataProvider \Ergebnis\Classy\Test\DataProvider\Php81::classyConstructs
+     *
+     * @requires PHP >= 8.1
+     */
+    public function testCollectFromFileReturnsArrayWithConstructsFromFileOnPhp81(Test\Util\Scenario $scenario): void
+    {
+        $file = self::fileWithSource($scenario->source());
+
+        $collector = new Collector\DefaultConstructFromFileCollector(new Collector\TokenGetAllConstructFromSourceCollector());
+
+        $constructs = $collector->collectFromFile($file);
+
+        $expectedConstructs = \array_map(static function (ConstructFromSource $constructFromSource) use ($file): ConstructFromFile {
+            return ConstructFromFile::create(
+                File::fromString($file),
+                $constructFromSource->name(),
+                $constructFromSource->type(),
+            );
+        }, $scenario->constructs());
+
+        self::assertEquals($expectedConstructs, $constructs);
+    }
+
+    private static function fileWithSource(string $source): string
+    {
+        $file = \sprintf(
+            '%s/source.php',
+            self::temporaryDirectory(),
+        );
+
+        self::filesystem()->dumpFile(
+            $file,
+            $source,
+        );
+
+        return $file;
+    }
+}

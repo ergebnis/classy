@@ -8,9 +8,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`1.9.0...main`][1.9.0...main].
 
-### Removed
+### Changed
 
-- Removed `Construct::__toString()` ([#1118]), by [@localheinz]
+- Completely changed the way `Construct`s are collected, using `Collector\ConstructFromSourceCollector`, `Collector\ConstructFromFileCollector`, `Collector\ConstructFromSplFileInfoCollector`, and `Collector\ConstructFromFinderCollector`, instead of `Constructs`, which return lists of `ConstructFromSource`, `ConstructFromFile`, and `ConstructFromSplFileInfo`, each of which compose the `Name` and the `Type` of a `Construct` ([#1119]), by [@localheinz]
 
 ## [`1.9.0`][1.9.0]
 
