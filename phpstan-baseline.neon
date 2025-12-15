@@ -145,30 +145,6 @@ parameters:
 			path: test/Unit/ConstructTest.php
 
 		-
-			message: '#^@dataProvider \\Ergebnis\\Classy\\Test\\DataProvider\\Php73\:\:classyConstructs\(\) related method not found\.$#'
-			identifier: phpunit.dataProviderMethod
-			count: 2
-			path: test/Unit/ConstructsTest.php
-
-		-
-			message: '#^@dataProvider \\Ergebnis\\Classy\\Test\\DataProvider\\Php74\:\:classyConstructs\(\) related method not found\.$#'
-			identifier: phpunit.dataProviderMethod
-			count: 2
-			path: test/Unit/ConstructsTest.php
-
-		-
-			message: '#^@dataProvider \\Ergebnis\\Classy\\Test\\DataProvider\\Php80\:\:classyConstructs\(\) related method not found\.$#'
-			identifier: phpunit.dataProviderMethod
-			count: 2
-			path: test/Unit/ConstructsTest.php
-
-		-
-			message: '#^@dataProvider \\Ergebnis\\Classy\\Test\\DataProvider\\Php81\:\:classyConstructs\(\) related method not found\.$#'
-			identifier: phpunit.dataProviderMethod
-			count: 2
-			path: test/Unit/ConstructsTest.php
-
-		-
 			message: '#^Method Ergebnis\\Classy\\Test\\Unit\\ConstructsTest\:\:assertIsList\(\) has parameter \$actual with no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
 			count: 1

@@ -104,7 +104,7 @@ final class ConstructsTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider \Ergebnis\Classy\Test\DataProvider\Php73::classyConstructs()
+     * @dataProvider \Ergebnis\Classy\Test\DataProvider\Php73::classyConstructs
      *
      * @requires PHP >= 7.3
      */
@@ -121,7 +121,7 @@ final class ConstructsTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider \Ergebnis\Classy\Test\DataProvider\Php74::classyConstructs()
+     * @dataProvider \Ergebnis\Classy\Test\DataProvider\Php74::classyConstructs
      *
      * @requires PHP >= 7.4
      */
@@ -138,7 +138,7 @@ final class ConstructsTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider \Ergebnis\Classy\Test\DataProvider\Php80::classyConstructs()
+     * @dataProvider \Ergebnis\Classy\Test\DataProvider\Php80::classyConstructs
      *
      * @requires PHP >= 8.0
      */
@@ -155,7 +155,7 @@ final class ConstructsTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider \Ergebnis\Classy\Test\DataProvider\Php81::classyConstructs()
+     * @dataProvider \Ergebnis\Classy\Test\DataProvider\Php81::classyConstructs
      *
      * @requires PHP >= 8.1
      */
@@ -196,7 +196,7 @@ final class ConstructsTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider \Ergebnis\Classy\Test\DataProvider\Php73::classyConstructs()
+     * @dataProvider \Ergebnis\Classy\Test\DataProvider\Php73::classyConstructs
      *
      * @requires PHP >= 7.3
      */
@@ -209,7 +209,7 @@ final class ConstructsTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider \Ergebnis\Classy\Test\DataProvider\Php74::classyConstructs()
+     * @dataProvider \Ergebnis\Classy\Test\DataProvider\Php74::classyConstructs
      *
      * @requires PHP >= 7.4
      */
@@ -222,7 +222,7 @@ final class ConstructsTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider \Ergebnis\Classy\Test\DataProvider\Php80::classyConstructs()
+     * @dataProvider \Ergebnis\Classy\Test\DataProvider\Php80::classyConstructs
      *
      * @requires PHP >= 8.0
      */
@@ -235,7 +235,7 @@ final class ConstructsTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider \Ergebnis\Classy\Test\DataProvider\Php81::classyConstructs()
+     * @dataProvider \Ergebnis\Classy\Test\DataProvider\Php81::classyConstructs
      *
      * @requires PHP >= 8.1
      */
