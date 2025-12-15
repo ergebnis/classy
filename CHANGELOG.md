@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`1.9.0...main`][1.9.0...main].
 
+### Removed
+
+- Removed `Construct::__toString()` ([#1118]), by [@localheinz]
+
 ## [`1.9.0`][1.9.0]
 
 For a full diff see [`1.8.0...1.9.0`][1.8.0...1.9.0].
@@ -218,6 +222,7 @@ For a full diff see [`0.4.0...0.5.0`][0.4.0...0.5.0].
 [#987]: https://github.com/ergebnis/classy/pull/987
 [#1068]: https://github.com/ergebnis/classy/pull/1068
 [#1075]: https://github.com/ergebnis/classy/pull/1075
+[#1118]: https://github.com/ergebnis/classy/pull/1118
 
 [@ergebnis]: https://github.com/ergebnis
 [@localheinz]: https://github.com/localheinz

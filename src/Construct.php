@@ -28,16 +28,6 @@ final class Construct
     }
 
     /**
-     * @deprecated Will be removed in the next major release.
-     *
-     * Returns a string representation of the construct.
-     */
-    public function __toString(): string
-    {
-        return $this->name;
-    }
-
-    /**
      * Creates a new construct from a construct name.
      */
     public static function fromName(string $name): self
