@@ -11,17 +11,12 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/classy
  */
 
-namespace Ergebnis\Classy;
+namespace Ergebnis\Classy\Exception;
 
-interface Construct
+final class ParsingNotSupported extends \RuntimeException implements ExceptionInterface
 {
-    /**
-     * Returns the name of the construct.
-     */
-    public function name(): Name;
-
-    /**
-     * Returns the type of the construct.
-     */
-    public function type(): Type;
+    public static function php80Required(): self
+    {
+        return new self('Parsing requires PHP 8.0.');
+    }
 }

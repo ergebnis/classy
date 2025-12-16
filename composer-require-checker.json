@@ -1,7 +1,10 @@
 {
   "symbol-whitelist": [
     "array",
+    "bool",
     "int",
+    "iterable",
+    "PhpToken",
     "self",
     "string",
     "T_ENUM",

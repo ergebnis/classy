@@ -23,9 +23,17 @@ composer require ergebnis/classy
 
 ## Usage
 
-### Collect classy constructs from source code
+This package provides the following collectors for finding classy constructs:
 
-Use `Classy\Constructs::fromSource()` to collect classy constructs in source code:
+- [`Ergebnis\Classy\Collector\TokenGetAllConstructFromSourceCollector`](https://github.com/ergebnis/phpstan-rules#collectortokengetallconstructfromsourcecollector)
+- [`Ergebnis\Classy\Collector\PhpTokenTokenizeConstructFromSourceCollector`](https://github.com/ergebnis/phpstan-rules#collectorphptokenizeconstructfromsourcecollector)
+- [`Ergebnis\Classy\Collector\DefaultConstructFromFileCollector`](https://github.com/ergebnis/phpstan-rules#collectordefaultconstructfromfilecollector)
+- [`Ergebnis\Classy\Collector\DefaultConstructFromSplFileInfoCollector`](https://github.com/ergebnis/phpstan-rules#collectordefaultconstructfromsplfileinfocollector)
+- [`Ergebnis\Classy\Collector\DefaultConstructFromFindereCollector`](https://github.com/ergebnis/phpstan-rules#collectordefaultconstructfromfindercollector)
+
+### `Collector\TokenGetAllConstructFromSourceCollector`
+
+Use `Classy\Collector\TokenGetAllConstructFromSourceCollector` to collect classy constructs from source code on PHP 7:
 
 ```php
 <?php
@@ -48,18 +56,28 @@ interface Baz {}
 trait Qux {}
 PHP;
 
-$constructs = Classy\Constructs::fromSource($source);
+$collector = new Classy\Collector\TokenGetAllConstructFromSourceCollector();
 
-$names = array_map(static function (Classy\Construct $construct): string {
-    return $construct->name();
-}, $constructs);
+$constructs = $collector->collectFromSource($source);
 
-var_dump($names); // ['Example\Bar', 'Example\Baz', 'Example\Foo', 'Example\Qux']
+foreach ($constructs as $construct) {
+    /** @var Classy\Construct $construct */
+    echo sprintf(
+        "- %s (%s)\n",
+        $construct->name()->toString(),
+        $construct->type()->toString(),
+    );
+}
+
+// - Example\Foo (class)
+// - Example\Bar (enum)
+// - Example\Baz (interface)
+// - Example\Qux (trait)
 ```
 
-### Collect classy constructs from a directory
+### `Collector\PhpTokenTokenizeConstructFromSourceCollector`
 
-Use `Classy\Constructs::fromDirectory()` to collect classy constructs in a directory:
+Use `Collector\PhpTokenTokenizeConstructFromSourceCollector` to collect classy constructs from source code on PHP 8:
 
 ```php
 <?php
@@ -68,13 +86,136 @@ declare(strict_types=1);
 
 use Ergebnis\Classy;
 
-$constructs = Classy\Constructs::fromDirectory(__DIR__ . '/example');
+$source = <<<'PHP'
+<?php
 
-$names = array_map(static function (Classy\Construct $construct): string {
-    return $construct->name();
-}, $constructs);
+namespace Example;
 
-var_dump($names); // ['Example\Bar', 'Example\Bar\Baz', 'Example\Foo\Bar\Baz']
+class Foo {}
+
+enum Bar {}
+
+interface Baz {}
+
+trait Qux {}
+PHP;
+
+$collector = new Classy\Collector\PhpTokenTokenizeConstructFromSourceCollector();
+
+$constructs = $collector->collectFromSource($source);
+
+foreach ($constructs as $construct) {
+    /** @var Classy\Construct $construct */
+    echo sprintf(
+        "- %s (%s)\n",
+        $construct->name()->toString(),
+        $construct->type()->toString(),
+    );
+}
+
+// - Example\Foo (class)
+// - Example\Bar (enum)
+// - Example\Baz (interface)
+// - Example\Qux (trait)
+```
+
+### `Collector\DefaultConstructFromFileCollector`
+
+Use `Collector\DefaultConstructFromFileCollector` to collect classy constructs from a file:
+
+```php
+<?php
+
+declare(strict_types=1);
+
+use Ergebnis\Classy;
+
+$file = __DIR__ . '/example.php';
+
+$collector = new Classy\Collector\DefaultConstructFromFileCollector(new Classy\Collector\TokenGetAllConstructFromSourceCollector());
+
+$constructs = $collector->collectFromFile($file);
+
+foreach ($constructs as $construct) {
+    /** @var Classy\Construct $construct */
+    echo sprintf(
+        "- %s (%s)\n",
+        $construct->name()->toString(),
+        $construct->type()->toString(),
+    );
+}
+
+// - Example\Foo (class)
+// - Example\Bar (enum)
+// - Example\Baz (interface)
+// - Example\Qux (trait)
+```
+
+### `Collector\DefaultConstructFromSplFileInfoCollector`
+
+Use `Collector\DefaultConstructFromSplFileInfoCollector` to collect classy constructs from an instance of [`SplFileInfo`](https://www.php.net/manual/en/class.splfileinfo.php):
+
+```php
+<?php
+
+declare(strict_types=1);
+
+use Ergebnis\Classy;
+
+$splFileInfo = new \SplFileInfo(__DIR__ . '/example.php');
+
+$collector = new Classy\Collector\DefaultConstructFromSplFileInfoCollector(new Classy\Collector\TokenGetAllConstructFromSourceCollector());
+
+$constructs = $collector->collectFromSplFileInfo($splFileInfo);
+
+foreach ($constructs as $construct) {
+    /** @var Classy\Construct $construct */
+    echo sprintf(
+        "- %s (%s)\n",
+        $construct->name()->toString(),
+        $construct->type()->toString(),
+    );
+}
+
+// - Example\Foo (class)
+// - Example\Bar (enum)
+// - Example\Baz (interface)
+// - Example\Qux (trait)
+```
+
+### `Collector\DefaultConstructFromFinderCollector`
+
+Use `Collector\DefaultConstructFromFinderCollector` to collect classy constructs from an iterable of `SplFileInfo`:
+
+```php
+<?php
+
+declare(strict_types=1);
+
+use Ergebnis\Classy;
+use Symfony\Component\Finder;
+
+$finder = Finder\Finder::create()
+  ->files()
+  ->in(__DIR__ . '/src');
+
+$collector = new Classy\Collector\DefaultConstructFromFinderCollector(new Classy\Collector\TokenGetAllConstructFromSourceCollector()));
+
+$constructs = $collector->collectFromFinder($finder);
+
+foreach ($constructs as $construct) {
+    /** @var Classy\Construct $construct */
+    echo sprintf(
+        "- %s (%s)\n",
+        $construct->name()->toString(),
+        $construct->type()->toString(),
+    );
+}
+
+// - Example\Foo (class)
+// - Example\Bar (enum)
+// - Example\Baz (interface)
+// - Example\Qux (trait)
 ```
 
 ## Changelog

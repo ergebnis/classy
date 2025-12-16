@@ -15,6 +15,7 @@ namespace Ergebnis\Classy\Test\Util;
 
 use Faker\Factory;
 use Faker\Generator;
+use Symfony\Component\Filesystem;
 
 trait Helper
 {
@@ -34,5 +35,20 @@ trait Helper
         }
 
         return $fakers[$locale];
+    }
+
+    final protected static function filesystem(): Filesystem\Filesystem
+    {
+        return new Filesystem\Filesystem();
+    }
+
+    final protected static function temporaryDirectory(): string
+    {
+        return __DIR__ . '/../../.build/test';
+    }
+
+    final protected static function fileWithParseError(): string
+    {
+        return __DIR__ . '/../Fixture/ParseError/source.php';
     }
 }
