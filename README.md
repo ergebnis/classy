@@ -29,7 +29,7 @@ This package provides the following collectors for finding classy constructs:
 - [`Ergebnis\Classy\Collector\PhpTokenTokenizeConstructFromSourceCollector`](https://github.com/ergebnis/phpstan-rules#collectorphptokenizeconstructfromsourcecollector)
 - [`Ergebnis\Classy\Collector\DefaultConstructFromFileCollector`](https://github.com/ergebnis/phpstan-rules#collectordefaultconstructfromfilecollector)
 - [`Ergebnis\Classy\Collector\DefaultConstructFromSplFileInfoCollector`](https://github.com/ergebnis/phpstan-rules#collectordefaultconstructfromsplfileinfocollector)
-- [`Ergebnis\Classy\Collector\DefaultConstructFromFindereCollector`](https://github.com/ergebnis/phpstan-rules#collectordefaultconstructfromfindercollector)
+- [`Ergebnis\Classy\Collector\DefaultConstructFromFinderCollector`](https://github.com/ergebnis/phpstan-rules#collectordefaultconstructfromfindercollector)
 
 ### `Collector\TokenGetAllConstructFromSourceCollector`
 
