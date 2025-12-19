@@ -25,11 +25,11 @@ composer require ergebnis/classy
 
 This package provides the following collectors for finding classy constructs:
 
-- [`Ergebnis\Classy\Collector\TokenGetAllConstructFromSourceCollector`](https://github.com/ergebnis/classy#collectortokengetallconstructfromsourcecollector)
-- [`Ergebnis\Classy\Collector\PhpTokenTokenizeConstructFromSourceCollector`](https://github.com/ergebnis/classy#collectorphptokenizeconstructfromsourcecollector)
-- [`Ergebnis\Classy\Collector\DefaultConstructFromFileCollector`](https://github.com/ergebnis/classy#collectordefaultconstructfromfilecollector)
-- [`Ergebnis\Classy\Collector\DefaultConstructFromSplFileInfoCollector`](https://github.com/ergebnis/classy#collectordefaultconstructfromsplfileinfocollector)
-- [`Ergebnis\Classy\Collector\DefaultConstructFromFinderCollector`](https://github.com/ergebnis/classy#collectordefaultconstructfromfindercollector)
+- [`Ergebnis\Classy\Collector\TokenGetAllConstructFromSourceCollector`](#collectortokengetallconstructfromsourcecollector)
+- [`Ergebnis\Classy\Collector\PhpTokenTokenizeConstructFromSourceCollector`](#collectorphptokentokenizeconstructfromsourcecollector)
+- [`Ergebnis\Classy\Collector\DefaultConstructFromFileCollector`](#collectordefaultconstructfromfilecollector)
+- [`Ergebnis\Classy\Collector\DefaultConstructFromSplFileInfoCollector`](#collectordefaultconstructfromsplfileinfocollector)
+- [`Ergebnis\Classy\Collector\DefaultConstructFromFinderCollector`](#collectordefaultconstructfromfindercollector)
 
 ### `Collector\TokenGetAllConstructFromSourceCollector`
 
