@@ -88,7 +88,7 @@ repository:
   archived: false
   default_branch: "main"
   delete_branch_on_merge: true
-  description: "🔍 Provides a composer package with a finder for classy constructs (classes, enums, interfaces, and traits)."
+  description: "🔍 Provides a composer package with a collectors for classy constructs (classes, enums, interfaces, and traits)."
   enable_automated_security_fixes: true
   enable_vulnerability_alerts: true
   has_discussions: false
