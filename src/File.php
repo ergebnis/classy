@@ -22,8 +22,15 @@ final class File
         $this->value = $value;
     }
 
+    /**
+     * @throws Exception\InvalidFile
+     */
     public static function fromString(string $value): self
     {
+        if ('' === \trim($value)) {
+            throw Exception\InvalidFile::blankOrEmpty();
+        }
+
         return new self($value);
     }
 
