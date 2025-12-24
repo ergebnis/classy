@@ -15,27 +15,27 @@ namespace Ergebnis\Classy;
 
 final class ConstructFromFile implements Construct
 {
-    private File $filename;
+    private File $file;
     private Name $name;
     private Type $type;
 
     private function __construct(
-        File $filename,
+        File $file,
         Name $name,
         Type $type
     ) {
-        $this->filename = $filename;
+        $this->file = $file;
         $this->name = $name;
         $this->type = $type;
     }
 
     public static function create(
-        File $filename,
+        File $file,
         Name $name,
         Type $type
     ): self {
         return new self(
-            $filename,
+            $file,
             $name,
             $type,
         );
@@ -43,7 +43,7 @@ final class ConstructFromFile implements Construct
 
     public function file(): File
     {
-        return $this->filename;
+        return $this->file;
     }
 
     public function name(): Name
