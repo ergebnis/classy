@@ -233,6 +233,7 @@ For a full diff see [`0.4.0...0.5.0`][0.4.0...0.5.0].
 [#1068]: https://github.com/ergebnis/classy/pull/1068
 [#1075]: https://github.com/ergebnis/classy/pull/1075
 [#1118]: https://github.com/ergebnis/classy/pull/1118
+[#1123]: https://github.com/ergebnis/classy/pull/1123
 
 [@ergebnis]: https://github.com/ergebnis
 [@localheinz]: https://github.com/localheinz
