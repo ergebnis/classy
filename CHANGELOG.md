@@ -14,6 +14,7 @@ For a full diff see [`2.0.0...main`][2.0.0...main].
 - Started throwing an `InvalidFile` exception when attempting to create a `File` from blank or empty `string`s ([#1124]), by [@localheinz]
 - Renamed `ExceptionInterface` to `Exception` ([#1125]), by [@localheinz]
 - Renamed `File` to `FilePath` ([#1126]), by [@localheinz]
+- Renamed `FileCouldNotBeParsed::fromFileAndParseError()` to `FileCouldNotBeParsed::atFilePathWithParseError()` ([#1127]), by [@localheinz]
 
 ## [`2.0.0`][2.0.0]
 
@@ -240,6 +241,7 @@ For a full diff see [`0.4.0...0.5.0`][0.4.0...0.5.0].
 [#1124]: https://github.com/ergebnis/classy/pull/1124
 [#1125]: https://github.com/ergebnis/classy/pull/1125
 [#1126]: https://github.com/ergebnis/classy/pull/1126
+[#1127]: https://github.com/ergebnis/classy/pull/1127
 
 [@ergebnis]: https://github.com/ergebnis
 [@localheinz]: https://github.com/localheinz

@@ -17,7 +17,7 @@ use Ergebnis\Classy\FilePath;
 
 final class FileCouldNotBeParsed extends \RuntimeException implements Exception
 {
-    public static function fromFileAndParseError(
+    public static function atFilePathWithParseError(
         FilePath $filePath,
         \ParseError $parseError
     ): self {

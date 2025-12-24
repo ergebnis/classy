@@ -27,7 +27,7 @@ final class FileCouldNotBeParsedTest extends Framework\TestCase
 {
     use Test\Util\Helper;
 
-    public function testFromFileAndParseErrorReturnsException(): void
+    public function testAtFilePathWithParseErrorReturnsException(): void
     {
         $faker = self::faker();
 
@@ -38,7 +38,7 @@ final class FileCouldNotBeParsedTest extends Framework\TestCase
         ));
         $parseError = new \ParseError($faker->sentence());
 
-        $exception = Exception\FileCouldNotBeParsed::fromFileAndParseError(
+        $exception = Exception\FileCouldNotBeParsed::atFilePathWithParseError(
             $filePath,
             $parseError,
         );

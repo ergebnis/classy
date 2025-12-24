@@ -45,7 +45,7 @@ final class DefaultConstructFromFileCollector implements ConstructFromFileCollec
             /** @var \ParseError $parseError */
             $parseError = $exception->getPrevious();
 
-            throw Exception\FileCouldNotBeParsed::fromFileAndParseError(
+            throw Exception\FileCouldNotBeParsed::atFilePathWithParseError(
                 $filePath,
                 $parseError,
             );
