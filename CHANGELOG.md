@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`2.0.0...main`][2.0.0...main].
 
+### Added
+
+- Added `Source` ([#1128]), by [@localheinz]
+
 ### Changed
 
 - Used `File` instead of `string` when referencing paths to files ([#1123]), by [@localheinz]
@@ -242,6 +246,7 @@ For a full diff see [`0.4.0...0.5.0`][0.4.0...0.5.0].
 [#1125]: https://github.com/ergebnis/classy/pull/1125
 [#1126]: https://github.com/ergebnis/classy/pull/1126
 [#1127]: https://github.com/ergebnis/classy/pull/1127
+[#1128]: https://github.com/ergebnis/classy/pull/1128
 
 [@ergebnis]: https://github.com/ergebnis
 [@localheinz]: https://github.com/localheinz

@@ -42,7 +42,7 @@ declare(strict_types=1);
 
 use Ergebnis\Classy;
 
-$source = <<<'PHP'
+$source = Classy\Source::fromString(<<<'PHP'
 <?php
 
 namespace Example;
@@ -54,7 +54,7 @@ enum Bar {}
 interface Baz {}
 
 trait Qux {}
-PHP;
+PHP);
 
 $collector = new Classy\Collector\TokenGetAllConstructFromSourceCollector();
 
@@ -86,7 +86,7 @@ declare(strict_types=1);
 
 use Ergebnis\Classy;
 
-$source = <<<'PHP'
+$source = Classy\Source::fromString(<<<'PHP'
 <?php
 
 namespace Example;
@@ -98,7 +98,7 @@ enum Bar {}
 interface Baz {}
 
 trait Qux {}
-PHP;
+PHP);
 
 $collector = new Classy\Collector\PhpTokenTokenizeConstructFromSourceCollector();
 
