@@ -24,7 +24,7 @@ final class FileCouldNotBeReadTest extends Framework\TestCase
 {
     use Test\Util\Helper;
 
-    public function testFileReturnsException(): void
+    public function testAtReturnsException(): void
     {
         $faker = self::faker();
 
