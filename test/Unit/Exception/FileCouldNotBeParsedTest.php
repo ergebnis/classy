@@ -50,6 +50,7 @@ final class FileCouldNotBeParsedTest extends Framework\TestCase
         );
 
         self::assertSame($message, $exception->getMessage());
+        self::assertSame(0, $exception->getCode());
         self::assertSame($parseError, $exception->getPrevious());
     }
 }
