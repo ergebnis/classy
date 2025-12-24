@@ -23,8 +23,9 @@ final class FileCouldNotBeParsed extends \RuntimeException implements Exception
     ): self {
         return new self(
             \sprintf(
-                'File "%s" could not be read.',
+                'File "%s" could not be parsed because of a parse error with message "%s".',
                 $filePath->toString(),
+                $parseError->getMessage(),
             ),
             0,
             $parseError,

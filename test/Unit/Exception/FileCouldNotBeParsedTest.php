@@ -44,8 +44,9 @@ final class FileCouldNotBeParsedTest extends Framework\TestCase
         );
 
         $message = \sprintf(
-            'File "%s" could not be read.',
+            'File "%s" could not be parsed because of a parse error with message "%s".',
             $filePath->toString(),
+            $parseError->getMessage(),
         );
 
         self::assertSame($message, $exception->getMessage());
