@@ -17,6 +17,6 @@ final class InvalidFilePath extends \InvalidArgumentException implements Excepti
 {
     public static function blankOrEmpty(): self
     {
-        return new self('Value can not be blank or empty.');
+        return new self('File path can not be blank or empty.');
     }
 }

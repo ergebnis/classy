@@ -25,6 +25,6 @@ final class InvalidFilePathTest extends Framework\TestCase
     {
         $exception = Exception\InvalidFilePath::blankOrEmpty();
 
-        self::assertSame('Value can not be blank or empty.', $exception->getMessage());
+        self::assertSame('File path can not be blank or empty.', $exception->getMessage());
     }
 }
