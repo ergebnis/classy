@@ -24,6 +24,14 @@ final class Any
     {
         $scenariosWithoutClassyConstructs = [
             Test\Util\Scenario::create(
+                'blank-file',
+                __DIR__ . '/../Fixture/NoClassy/NoPhpFile/blank.txt',
+            ),
+            Test\Util\Scenario::create(
+                'empty-file',
+                __DIR__ . '/../Fixture/NoClassy/NoPhpFile/empty.txt',
+            ),
+            Test\Util\Scenario::create(
                 'no-php-file',
                 __DIR__ . '/../Fixture/NoClassy/NoPhpFile/source.md',
             ),
