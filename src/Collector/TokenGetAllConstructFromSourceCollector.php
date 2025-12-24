@@ -68,7 +68,7 @@ final class TokenGetAllConstructFromSourceCollector implements ConstructFromSour
                 \TOKEN_PARSE,
             );
         } catch (\ParseError $parseError) {
-            throw Exception\SourceCouldNotBeParsed::fromParseError($parseError);
+            throw Exception\SourceCouldNotBeParsed::withParseError($parseError);
         }
 
         $namespacePrefix = '';

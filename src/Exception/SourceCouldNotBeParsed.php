@@ -15,7 +15,7 @@ namespace Ergebnis\Classy\Exception;
 
 final class SourceCouldNotBeParsed extends \RuntimeException implements Exception
 {
-    public static function fromParseError(\ParseError $parseError): self
+    public static function withParseError(\ParseError $parseError): self
     {
         return new self(
             'Source could not be parsed.',

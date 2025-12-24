@@ -26,11 +26,11 @@ final class SourceCouldNotBeParsedTest extends Framework\TestCase
 {
     use Test\Util\Helper;
 
-    public function testFromParseErrorReturnsException(): void
+    public function testWithParseErrorReturnsException(): void
     {
         $parseError = new \ParseError(self::faker()->sentence());
 
-        $exception = Exception\SourceCouldNotBeParsed::fromParseError($parseError);
+        $exception = Exception\SourceCouldNotBeParsed::withParseError($parseError);
 
         self::assertSame('Source could not be parsed.', $exception->getMessage());
         self::assertSame(0, $exception->getCode());

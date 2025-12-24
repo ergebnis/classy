@@ -72,7 +72,7 @@ final class PhpTokenTokenizeConstructFromSourceCollector implements ConstructFro
                 \TOKEN_PARSE,
             );
         } catch (\ParseError $parseError) {
-            throw Exception\SourceCouldNotBeParsed::fromParseError($parseError);
+            throw Exception\SourceCouldNotBeParsed::withParseError($parseError);
         }
 
         $namespacePrefix = '';
