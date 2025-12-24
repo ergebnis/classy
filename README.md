@@ -130,7 +130,7 @@ declare(strict_types=1);
 
 use Ergebnis\Classy;
 
-$file = __DIR__ . '/example.php';
+$file = Classy\File::fromString(__DIR__ . '/example.php');
 
 $collector = new Classy\Collector\DefaultConstructFromFileCollector(new Classy\Collector\TokenGetAllConstructFromSourceCollector());
 
