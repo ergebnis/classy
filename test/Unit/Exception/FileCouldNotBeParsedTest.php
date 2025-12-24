@@ -24,7 +24,7 @@ final class FileCouldNotBeParsedTest extends Framework\TestCase
 {
     use Test\Util\Helper;
 
-    public function testFileReturnsException(): void
+    public function testFromFileAndParseErrorReturnsException(): void
     {
         $faker = self::faker();
 
