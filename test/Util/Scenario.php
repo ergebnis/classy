@@ -18,7 +18,7 @@ use Ergebnis\Classy;
 final class Scenario
 {
     private string $description;
-    private string $fileName;
+    private string $filePath;
     private string $source;
 
     /**
@@ -28,12 +28,12 @@ final class Scenario
 
     private function __construct(
         string $description,
-        string $fileName,
+        string $filePath,
         string $source,
         Classy\ConstructFromSource ...$constructs
     ) {
         $this->description = $description;
-        $this->fileName = $fileName;
+        $this->filePath = $filePath;
         $this->source = $source;
         $this->constructs = $constructs;
     }
@@ -43,37 +43,37 @@ final class Scenario
      */
     public static function create(
         string $description,
-        string $fileName,
+        string $filePath,
         Classy\ConstructFromSource ...$constructs
     ): self {
-        if (!\is_file($fileName)) {
+        if (!\is_file($filePath)) {
             throw new \InvalidArgumentException(\sprintf(
                 'File "%s" does not exist.',
-                $fileName,
+                $filePath,
             ));
         }
 
-        $source = \file_get_contents($fileName);
+        $source = \file_get_contents($filePath);
 
         if (!\is_string($source)) {
             throw new \InvalidArgumentException(\sprintf(
                 'File "%s" could not be read.',
-                $fileName,
+                $filePath,
             ));
         }
 
-        $resolvedFileName = \realpath($fileName);
+        $resolvedFileName = \realpath($filePath);
 
         if (!\is_string($resolvedFileName)) {
             throw new \RuntimeException(\sprintf(
                 'Failed resolving the real path of "%s".',
-                $fileName,
+                $filePath,
             ));
         }
 
         return new self(
             $description,
-            $fileName,
+            $filePath,
             $source,
             ...$constructs,
         );
@@ -86,7 +86,7 @@ final class Scenario
 
     public function directory(): string
     {
-        return \dirname($this->fileName);
+        return \dirname($this->filePath);
     }
 
     public function source(): string
