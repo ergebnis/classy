@@ -13,15 +13,15 @@ declare(strict_types=1);
 
 namespace Ergebnis\Classy\Exception;
 
-use Ergebnis\Classy\File;
+use Ergebnis\Classy\FilePath;
 
 final class FileCouldNotBeRead extends \RuntimeException implements Exception
 {
-    public static function at(File $file): self
+    public static function at(FilePath $filePath): self
     {
         return new self(\sprintf(
             'File "%s" could not be read.',
-            $file->toString(),
+            $filePath->toString(),
         ));
     }
 }

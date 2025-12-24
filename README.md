@@ -130,11 +130,11 @@ declare(strict_types=1);
 
 use Ergebnis\Classy;
 
-$file = Classy\File::fromString(__DIR__ . '/example.php');
+$filePath = Classy\FilePath::fromString(__DIR__ . '/example.php');
 
 $collector = new Classy\Collector\DefaultConstructFromFileCollector(new Classy\Collector\TokenGetAllConstructFromSourceCollector());
 
-$constructs = $collector->collectFromFile($file);
+$constructs = $collector->collectFromFile($filePath);
 
 foreach ($constructs as $construct) {
     /** @var Classy\Construct $construct */

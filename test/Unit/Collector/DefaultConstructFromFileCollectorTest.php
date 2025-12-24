@@ -17,7 +17,7 @@ use Ergebnis\Classy\Collector;
 use Ergebnis\Classy\ConstructFromFile;
 use Ergebnis\Classy\ConstructFromSource;
 use Ergebnis\Classy\Exception;
-use Ergebnis\Classy\File;
+use Ergebnis\Classy\FilePath;
 use Ergebnis\Classy\Test;
 use PHPUnit\Framework;
 
@@ -30,7 +30,7 @@ use PHPUnit\Framework;
  * @uses \Ergebnis\Classy\Exception\FileCouldNotBeParsed
  * @uses \Ergebnis\Classy\Exception\FileDoesNotExist
  * @uses \Ergebnis\Classy\Exception\SourceCouldNotBeParsed
- * @uses \Ergebnis\Classy\File
+ * @uses \Ergebnis\Classy\FilePath
  * @uses \Ergebnis\Classy\Name
  * @uses \Ergebnis\Classy\Type
  */
@@ -50,7 +50,7 @@ final class DefaultConstructFromFileCollectorTest extends Framework\TestCase
 
     public function testCollectFromFileThrowsFileDoesNotExistWhenFileDoesNotExist(): void
     {
-        $file = File::fromString(\sprintf(
+        $filePath = FilePath::fromString(\sprintf(
             '%s/does-not-exist',
             self::temporaryDirectory(),
         ));
@@ -59,7 +59,7 @@ final class DefaultConstructFromFileCollectorTest extends Framework\TestCase
 
         $this->expectException(Exception\FileDoesNotExist::class);
 
-        $collector->collectFromFile($file);
+        $collector->collectFromFile($filePath);
     }
 
     public function testCollectFromFileThrowsFileCouldNotBeParsedWhenParseErrorIsThrownDuringParsing(): void
@@ -190,18 +190,18 @@ TXT;
         self::assertEquals($expectedConstructs, $constructs);
     }
 
-    private static function fileWithSource(string $source): File
+    private static function fileWithSource(string $source): FilePath
     {
-        $file = File::fromString(\sprintf(
+        $filePath = FilePath::fromString(\sprintf(
             '%s/source.php',
             self::temporaryDirectory(),
         ));
 
         self::filesystem()->dumpFile(
-            $file->toString(),
+            $filePath->toString(),
             $source,
         );
 
-        return $file;
+        return $filePath;
     }
 }

@@ -16,7 +16,7 @@ namespace Ergebnis\Classy\Collector;
 use Ergebnis\Classy\ConstructFromFile;
 use Ergebnis\Classy\ConstructFromSource;
 use Ergebnis\Classy\Exception;
-use Ergebnis\Classy\File;
+use Ergebnis\Classy\FilePath;
 
 final class DefaultConstructFromFileCollector implements ConstructFromFileCollector
 {
@@ -27,16 +27,16 @@ final class DefaultConstructFromFileCollector implements ConstructFromFileCollec
         $this->constructFromSourceCollector = $constructFromSourceCollector;
     }
 
-    public function collectFromFile(File $file): array
+    public function collectFromFile(FilePath $filePath): array
     {
-        if (!\is_file($file->toString())) {
-            throw Exception\FileDoesNotExist::at($file);
+        if (!\is_file($filePath->toString())) {
+            throw Exception\FileDoesNotExist::at($filePath);
         }
 
-        $source = \file_get_contents($file->toString());
+        $source = \file_get_contents($filePath->toString());
 
         if (!\is_string($source)) {
-            throw Exception\FileCouldNotBeRead::at($file);
+            throw Exception\FileCouldNotBeRead::at($filePath);
         }
 
         try {
@@ -46,14 +46,14 @@ final class DefaultConstructFromFileCollector implements ConstructFromFileCollec
             $parseError = $exception->getPrevious();
 
             throw Exception\FileCouldNotBeParsed::fromFileAndParseError(
-                $file,
+                $filePath,
                 $parseError,
             );
         }
 
-        return \array_map(static function (ConstructFromSource $constructFromSource) use ($file): ConstructFromFile {
+        return \array_map(static function (ConstructFromSource $constructFromSource) use ($filePath): ConstructFromFile {
             return ConstructFromFile::create(
-                $file,
+                $filePath,
                 $constructFromSource->name(),
                 $constructFromSource->type(),
             );
