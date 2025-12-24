@@ -16,7 +16,7 @@ namespace Ergebnis\Classy\Collector;
 use Ergebnis\Classy\ConstructFromSource;
 use Ergebnis\Classy\ConstructFromSplFileInfo;
 use Ergebnis\Classy\Exception;
-use Ergebnis\Classy\File;
+use Ergebnis\Classy\FilePath;
 
 final class DefaultConstructFromSplFileInfoCollector implements ConstructFromSplFileInfoCollector
 {
@@ -29,16 +29,16 @@ final class DefaultConstructFromSplFileInfoCollector implements ConstructFromSpl
 
     public function collectFromSplFileInfo(\SplFileInfo $splFileInfo): array
     {
-        $file = File::fromString($splFileInfo->getPathname());
+        $filePath = FilePath::fromString($splFileInfo->getPathname());
 
         if (!$splFileInfo->isFile()) {
-            throw Exception\FileDoesNotExist::at($file);
+            throw Exception\FileDoesNotExist::at($filePath);
         }
 
-        $source = \file_get_contents($file->toString());
+        $source = \file_get_contents($filePath->toString());
 
         if (!\is_string($source)) {
-            throw Exception\FileCouldNotBeRead::at($file);
+            throw Exception\FileCouldNotBeRead::at($filePath);
         }
 
         try {
@@ -48,7 +48,7 @@ final class DefaultConstructFromSplFileInfoCollector implements ConstructFromSpl
             $parseError = $exception->getPrevious();
 
             throw Exception\FileCouldNotBeParsed::fromFileAndParseError(
-                $file,
+                $filePath,
                 $parseError,
             );
         }

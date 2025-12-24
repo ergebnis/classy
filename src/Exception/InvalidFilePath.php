@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\Classy\Exception;
 
-final class InvalidFile extends \InvalidArgumentException implements Exception
+final class InvalidFilePath extends \InvalidArgumentException implements Exception
 {
     public static function blankOrEmpty(): self
     {

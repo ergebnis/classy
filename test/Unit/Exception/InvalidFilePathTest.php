@@ -17,13 +17,13 @@ use Ergebnis\Classy\Exception;
 use PHPUnit\Framework;
 
 /**
- * @covers \Ergebnis\Classy\Exception\InvalidFile
+ * @covers \Ergebnis\Classy\Exception\InvalidFilePath
  */
-final class InvalidFileTest extends Framework\TestCase
+final class InvalidFilePathTest extends Framework\TestCase
 {
     public function testBlankOrEmptyReturnsException(): void
     {
-        $exception = Exception\InvalidFile::blankOrEmpty();
+        $exception = Exception\InvalidFilePath::blankOrEmpty();
 
         self::assertSame('Value can not be blank or empty.', $exception->getMessage());
     }

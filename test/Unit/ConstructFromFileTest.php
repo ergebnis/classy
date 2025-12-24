@@ -12,7 +12,7 @@ declare(strict_types=1);
  */
 
 use Ergebnis\Classy\ConstructFromFile;
-use Ergebnis\Classy\File;
+use Ergebnis\Classy\FilePath;
 use Ergebnis\Classy\Name;
 use Ergebnis\Classy\Test;
 use Ergebnis\Classy\Type;
@@ -21,7 +21,7 @@ use PHPUnit\Framework;
 /**
  * @covers \Ergebnis\Classy\ConstructFromFile
  *
- * @uses \Ergebnis\Classy\File
+ * @uses \Ergebnis\Classy\FilePath
  * @uses \Ergebnis\Classy\Name
  * @uses \Ergebnis\Classy\Type
  */
@@ -33,7 +33,7 @@ final class ConstructFromFileTest extends Framework\TestCase
     {
         $faker = self::faker();
 
-        $file = File::fromString(__FILE__);
+        $filePath = FilePath::fromString(__FILE__);
         $name = Name::fromString($faker->word());
 
         /** @var Type $type */
@@ -45,12 +45,12 @@ final class ConstructFromFileTest extends Framework\TestCase
         ]);
 
         $construct = ConstructFromFile::create(
-            $file,
+            $filePath,
             $name,
             $type,
         );
 
-        self::assertSame($file, $construct->file());
+        self::assertSame($filePath, $construct->filePath());
         self::assertSame($name, $construct->name());
         self::assertSame($type, $construct->type());
     }

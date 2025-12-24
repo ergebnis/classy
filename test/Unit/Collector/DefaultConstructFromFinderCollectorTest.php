@@ -33,7 +33,7 @@ use Symfony\Component\Finder;
  * @uses \Ergebnis\Classy\Exception\FileCouldNotBeParsed
  * @uses \Ergebnis\Classy\Exception\FileDoesNotExist
  * @uses \Ergebnis\Classy\Exception\SourceCouldNotBeParsed
- * @uses \Ergebnis\Classy\File
+ * @uses \Ergebnis\Classy\FilePath
  * @uses \Ergebnis\Classy\Name
  * @uses \Ergebnis\Classy\Type
  */

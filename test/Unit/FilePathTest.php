@@ -12,16 +12,16 @@ declare(strict_types=1);
  */
 
 use Ergebnis\Classy\Exception;
-use Ergebnis\Classy\File;
+use Ergebnis\Classy\FilePath;
 use Ergebnis\Classy\Test;
 use PHPUnit\Framework;
 
 /**
- * @covers \Ergebnis\Classy\File
+ * @covers \Ergebnis\Classy\FilePath
  *
- * @uses \Ergebnis\Classy\Exception\InvalidFile
+ * @uses \Ergebnis\Classy\Exception\InvalidFilePath
  */
-final class FileTest extends Framework\TestCase
+final class FilePathTest extends Framework\TestCase
 {
     use Test\Util\Helper;
 
@@ -31,17 +31,17 @@ final class FileTest extends Framework\TestCase
      */
     public function testFromStringRejectsInvalidValue(string $value): void
     {
-        $this->expectException(Exception\InvalidFile::class);
+        $this->expectException(Exception\InvalidFilePath::class);
 
-        File::fromString($value);
+        FilePath::fromString($value);
     }
 
-    public function testFromStringReturnsFile(): void
+    public function testFromStringReturnsFilePath(): void
     {
         $value = self::faker()->word();
 
-        $file = File::fromString($value);
+        $filePath = FilePath::fromString($value);
 
-        self::assertSame($value, $file->toString());
+        self::assertSame($value, $filePath->toString());
     }
 }

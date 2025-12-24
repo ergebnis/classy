@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\Classy;
 
-final class File
+final class FilePath
 {
     private string $value;
 
@@ -23,12 +23,12 @@ final class File
     }
 
     /**
-     * @throws Exception\InvalidFile
+     * @throws Exception\InvalidFilePath
      */
     public static function fromString(string $value): self
     {
         if ('' === \trim($value)) {
-            throw Exception\InvalidFile::blankOrEmpty();
+            throw Exception\InvalidFilePath::blankOrEmpty();
         }
 
         return new self($value);
