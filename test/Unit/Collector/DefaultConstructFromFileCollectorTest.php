@@ -50,10 +50,10 @@ final class DefaultConstructFromFileCollectorTest extends Framework\TestCase
 
     public function testCollectFromFileThrowsFileDoesNotExistWhenFileDoesNotExist(): void
     {
-        $file = \sprintf(
+        $file = File::fromString(\sprintf(
             '%s/does-not-exist',
             self::temporaryDirectory(),
-        );
+        ));
 
         $collector = new Collector\DefaultConstructFromFileCollector(new Collector\TokenGetAllConstructFromSourceCollector());
 
@@ -109,7 +109,7 @@ TXT;
 
         $expectedConstructs = \array_map(static function (ConstructFromSource $constructFromSource) use ($file): ConstructFromFile {
             return ConstructFromFile::create(
-                File::fromString($file),
+                $file,
                 $constructFromSource->name(),
                 $constructFromSource->type(),
             );
@@ -133,7 +133,7 @@ TXT;
 
         $expectedConstructs = \array_map(static function (ConstructFromSource $constructFromSource) use ($file): ConstructFromFile {
             return ConstructFromFile::create(
-                File::fromString($file),
+                $file,
                 $constructFromSource->name(),
                 $constructFromSource->type(),
             );
@@ -157,7 +157,7 @@ TXT;
 
         $expectedConstructs = \array_map(static function (ConstructFromSource $constructFromSource) use ($file): ConstructFromFile {
             return ConstructFromFile::create(
-                File::fromString($file),
+                $file,
                 $constructFromSource->name(),
                 $constructFromSource->type(),
             );
@@ -181,7 +181,7 @@ TXT;
 
         $expectedConstructs = \array_map(static function (ConstructFromSource $constructFromSource) use ($file): ConstructFromFile {
             return ConstructFromFile::create(
-                File::fromString($file),
+                $file,
                 $constructFromSource->name(),
                 $constructFromSource->type(),
             );
@@ -190,15 +190,15 @@ TXT;
         self::assertEquals($expectedConstructs, $constructs);
     }
 
-    private static function fileWithSource(string $source): string
+    private static function fileWithSource(string $source): File
     {
-        $file = \sprintf(
+        $file = File::fromString(\sprintf(
             '%s/source.php',
             self::temporaryDirectory(),
-        );
+        ));
 
         self::filesystem()->dumpFile(
-            $file,
+            $file->toString(),
             $source,
         );
 

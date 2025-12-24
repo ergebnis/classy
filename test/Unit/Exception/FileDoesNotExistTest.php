@@ -14,11 +14,14 @@ declare(strict_types=1);
 namespace Ergebnis\Classy\Test\Unit\Exception;
 
 use Ergebnis\Classy\Exception;
+use Ergebnis\Classy\File;
 use Ergebnis\Classy\Test;
 use PHPUnit\Framework;
 
 /**
  * @covers \Ergebnis\Classy\Exception\FileDoesNotExist
+ *
+ * @uses \Ergebnis\Classy\File
  */
 final class FileDoesNotExistTest extends Framework\TestCase
 {
@@ -28,17 +31,17 @@ final class FileDoesNotExistTest extends Framework\TestCase
     {
         $faker = self::faker();
 
-        $file = \sprintf(
+        $file = File::fromString(\sprintf(
             '%s.%s',
             $faker->slug(),
             $faker->word(),
-        );
+        ));
 
         $exception = Exception\FileDoesNotExist::at($file);
 
         $message = \sprintf(
             'File "%s" does not exist.',
-            $file,
+            $file->toString(),
         );
 
         self::assertSame($message, $exception->getMessage());
