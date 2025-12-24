@@ -15,7 +15,7 @@ namespace Ergebnis\Classy\Exception;
 
 use Ergebnis\Classy\File;
 
-final class FileCouldNotBeRead extends \RuntimeException implements ExceptionInterface
+final class FileCouldNotBeRead extends \RuntimeException implements Exception
 {
     public static function at(File $file): self
     {

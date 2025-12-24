@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\Classy\Exception;
 
-final class ShouldNotHappen extends \LogicException implements ExceptionInterface
+final class ShouldNotHappen extends \LogicException implements Exception
 {
     public static function create(): self
     {
