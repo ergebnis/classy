@@ -15,7 +15,7 @@ namespace Ergebnis\Classy\Exception;
 
 use Ergebnis\Classy\File;
 
-final class FileCouldNotBeParsed extends \RuntimeException implements ExceptionInterface
+final class FileCouldNotBeParsed extends \RuntimeException implements Exception
 {
     public static function fromFileAndParseError(
         File $file,

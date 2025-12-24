@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\Classy\Exception;
 
-final class ParsingNotSupported extends \RuntimeException implements ExceptionInterface
+final class ParsingNotSupported extends \RuntimeException implements Exception
 {
     public static function php80Required(): self
     {

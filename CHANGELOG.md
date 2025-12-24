@@ -12,6 +12,7 @@ For a full diff see [`2.0.0...main`][2.0.0...main].
 
 - Used `File` instead of `string` when referencing paths to files ([#1123]), by [@localheinz]
 - Started throwing an `InvalidFile` exception when attempting to create a `File` from blank or empty `string`s ([#1124]), by [@localheinz]
+- Renamed `ExceptionInterface` to `Exception` ([#1125]), by [@localheinz]
 
 ## [`2.0.0`][2.0.0]
 
@@ -236,6 +237,7 @@ For a full diff see [`0.4.0...0.5.0`][0.4.0...0.5.0].
 [#1118]: https://github.com/ergebnis/classy/pull/1118
 [#1123]: https://github.com/ergebnis/classy/pull/1123
 [#1124]: https://github.com/ergebnis/classy/pull/1124
+[#1125]: https://github.com/ergebnis/classy/pull/1125
 
 [@ergebnis]: https://github.com/ergebnis
 [@localheinz]: https://github.com/localheinz

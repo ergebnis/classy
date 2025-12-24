@@ -13,6 +13,6 @@ declare(strict_types=1);
 
 namespace Ergebnis\Classy\Exception;
 
-interface ExceptionInterface extends \Throwable
+interface Exception extends \Throwable
 {
 }

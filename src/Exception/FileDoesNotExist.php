@@ -15,7 +15,7 @@ namespace Ergebnis\Classy\Exception;
 
 use Ergebnis\Classy\File;
 
-final class FileDoesNotExist extends \InvalidArgumentException implements ExceptionInterface
+final class FileDoesNotExist extends \InvalidArgumentException implements Exception
 {
     public static function at(File $file): self
     {

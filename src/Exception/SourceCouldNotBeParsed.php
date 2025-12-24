@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\Classy\Exception;
 
-final class SourceCouldNotBeParsed extends \RuntimeException implements ExceptionInterface
+final class SourceCouldNotBeParsed extends \RuntimeException implements Exception
 {
     public static function fromParseError(\ParseError $parseError): self
     {
