@@ -32,7 +32,12 @@ final class SourceCouldNotBeParsedTest extends Framework\TestCase
 
         $exception = Exception\SourceCouldNotBeParsed::withParseError($parseError);
 
-        self::assertSame('Source could not be parsed.', $exception->getMessage());
+        $message = \sprintf(
+            'Source not be parsed because of a parse error with message "%s".',
+            $parseError->getMessage(),
+        );
+
+        self::assertSame($message, $exception->getMessage());
         self::assertSame(0, $exception->getCode());
         self::assertSame($parseError, $exception->getPrevious());
     }

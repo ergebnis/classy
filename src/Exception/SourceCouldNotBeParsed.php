@@ -18,7 +18,10 @@ final class SourceCouldNotBeParsed extends \RuntimeException implements Exceptio
     public static function withParseError(\ParseError $parseError): self
     {
         return new self(
-            'Source could not be parsed.',
+            \sprintf(
+                'Source not be parsed because of a parse error with message "%s".',
+                $parseError->getMessage(),
+            ),
             0,
             $parseError,
         );
