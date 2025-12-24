@@ -27,19 +27,17 @@ final class DefaultConstructFromFileCollector implements ConstructFromFileCollec
         $this->constructFromSourceCollector = $constructFromSourceCollector;
     }
 
-    public function collectFromFile(string $file): array
+    public function collectFromFile(File $file): array
     {
-        if (!\is_file($file)) {
+        if (!\is_file($file->toString())) {
             throw Exception\FileDoesNotExist::at($file);
         }
 
-        $source = \file_get_contents($file);
+        $source = \file_get_contents($file->toString());
 
         if (!\is_string($source)) {
             throw Exception\FileCouldNotBeRead::at($file);
         }
-
-        $filename = File::fromString($file);
 
         try {
             $constructsFromSource = $this->constructFromSourceCollector->collectFromSource($source);
@@ -53,9 +51,9 @@ final class DefaultConstructFromFileCollector implements ConstructFromFileCollec
             );
         }
 
-        return \array_map(static function (ConstructFromSource $constructFromSource) use ($filename): ConstructFromFile {
+        return \array_map(static function (ConstructFromSource $constructFromSource) use ($file): ConstructFromFile {
             return ConstructFromFile::create(
-                $filename,
+                $file,
                 $constructFromSource->name(),
                 $constructFromSource->type(),
             );

@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`2.0.0...main`][2.0.0...main].
 
+### Changed
+
+- Used `File` instead of `string` when referencing paths to files ([#1123]), by [@localheinz]
+
 ## [`2.0.0`][2.0.0]
 
 For a full diff see [`1.9.0...2.0.0`][1.9.0...2.0.0].

@@ -14,11 +14,14 @@ declare(strict_types=1);
 namespace Ergebnis\Classy\Test\Unit\Exception;
 
 use Ergebnis\Classy\Exception;
+use Ergebnis\Classy\File;
 use Ergebnis\Classy\Test;
 use PHPUnit\Framework;
 
 /**
  * @covers \Ergebnis\Classy\Exception\FileCouldNotBeParsed
+ *
+ * @uses \Ergebnis\Classy\File
  */
 final class FileCouldNotBeParsedTest extends Framework\TestCase
 {
@@ -28,11 +31,11 @@ final class FileCouldNotBeParsedTest extends Framework\TestCase
     {
         $faker = self::faker();
 
-        $file = \sprintf(
+        $file = File::fromString(\sprintf(
             '%s.%s',
             $faker->slug(),
             $faker->word(),
-        );
+        ));
         $parseError = new \ParseError($faker->sentence());
 
         $exception = Exception\FileCouldNotBeParsed::fromFileAndParseError(
@@ -42,7 +45,7 @@ final class FileCouldNotBeParsedTest extends Framework\TestCase
 
         $message = \sprintf(
             'File "%s" could not be read.',
-            $file,
+            $file->toString(),
         );
 
         self::assertSame($message, $exception->getMessage());

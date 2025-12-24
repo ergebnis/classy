@@ -15,6 +15,7 @@ namespace Ergebnis\Classy\Collector;
 
 use Ergebnis\Classy\ConstructFromFile;
 use Ergebnis\Classy\Exception;
+use Ergebnis\Classy\File;
 
 interface ConstructFromFileCollector
 {
@@ -27,5 +28,5 @@ interface ConstructFromFileCollector
      *
      * @return list<ConstructFromFile>
      */
-    public function collectFromFile(string $file): array;
+    public function collectFromFile(File $file): array;
 }

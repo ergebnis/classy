@@ -13,16 +13,18 @@ declare(strict_types=1);
 
 namespace Ergebnis\Classy\Exception;
 
+use Ergebnis\Classy\File;
+
 final class FileCouldNotBeParsed extends \RuntimeException implements ExceptionInterface
 {
     public static function fromFileAndParseError(
-        string $file,
+        File $file,
         \ParseError $parseError
     ): self {
         return new self(
             \sprintf(
                 'File "%s" could not be read.',
-                $file,
+                $file->toString(),
             ),
             0,
             $parseError,
