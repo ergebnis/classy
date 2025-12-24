@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace Ergebnis\Classy\Test\Unit\Exception;
 
 use Ergebnis\Classy\Exception;
-use Ergebnis\Classy\FilePath;
 use Ergebnis\Classy\Test;
 use PHPUnit\Framework;
 
