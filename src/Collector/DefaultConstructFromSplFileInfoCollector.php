@@ -47,7 +47,7 @@ final class DefaultConstructFromSplFileInfoCollector implements ConstructFromSpl
             /** @var \ParseError $parseError */
             $parseError = $exception->getPrevious();
 
-            throw Exception\FileCouldNotBeParsed::fromFileAndParseError(
+            throw Exception\FileCouldNotBeParsed::atFilePathWithParseError(
                 $filePath,
                 $parseError,
             );
