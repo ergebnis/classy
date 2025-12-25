@@ -148,7 +148,7 @@ TXT;
     /**
      * @requires PHP >= 7.4
      */
-    public function testCollectFromFileReturnsArrayWithConstructsFromSplFileInfoOnPhp74(): void
+    public function testCollectFromFilePathReturnsArrayWithConstructsFromSplFileInfoOnPhp74(): void
     {
         $finder = Finder\Finder::create()
             ->files()

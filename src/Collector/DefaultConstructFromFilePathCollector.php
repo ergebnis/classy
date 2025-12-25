@@ -19,7 +19,7 @@ use Ergebnis\Classy\Exception;
 use Ergebnis\Classy\FilePath;
 use Ergebnis\Classy\Source;
 
-final class DefaultConstructFromFileCollector implements ConstructFromFileCollector
+final class DefaultConstructFromFilePathCollector implements ConstructFromFilePathCollector
 {
     private ConstructFromSourceCollector $constructFromSourceCollector;
 
@@ -28,7 +28,7 @@ final class DefaultConstructFromFileCollector implements ConstructFromFileCollec
         $this->constructFromSourceCollector = $constructFromSourceCollector;
     }
 
-    public function collectFromFile(FilePath $filePath): array
+    public function collectFromFilePath(FilePath $filePath): array
     {
         if (!\is_file($filePath->toString())) {
             throw Exception\FileDoesNotExist::atFilePath($filePath);

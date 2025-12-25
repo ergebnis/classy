@@ -23,7 +23,7 @@ use PHPUnit\Framework;
 /**
  * @covers \Ergebnis\Classy\Collector\DefaultConstructFromSplFileInfoCollector
  *
- * @uses \Ergebnis\Classy\Collector\DefaultConstructFromFileCollector
+ * @uses \Ergebnis\Classy\Collector\DefaultConstructFromFilePathCollector
  * @uses \Ergebnis\Classy\Collector\TokenGetAllConstructFromSourceCollector
  * @uses \Ergebnis\Classy\ConstructFromFilePath
  * @uses \Ergebnis\Classy\ConstructFromSource

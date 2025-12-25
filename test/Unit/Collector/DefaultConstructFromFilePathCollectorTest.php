@@ -22,7 +22,7 @@ use Ergebnis\Classy\Test;
 use PHPUnit\Framework;
 
 /**
- * @covers \Ergebnis\Classy\Collector\DefaultConstructFromFileCollector
+ * @covers \Ergebnis\Classy\Collector\DefaultConstructFromFilePathCollector
  *
  * @uses \Ergebnis\Classy\Collector\TokenGetAllConstructFromSourceCollector
  * @uses \Ergebnis\Classy\ConstructFromFilePath
@@ -35,7 +35,7 @@ use PHPUnit\Framework;
  * @uses \Ergebnis\Classy\Source
  * @uses \Ergebnis\Classy\Type
  */
-final class DefaultConstructFromFileCollectorTest extends Framework\TestCase
+final class DefaultConstructFromFilePathCollectorTest extends Framework\TestCase
 {
     use Test\Util\Helper;
 
@@ -49,21 +49,21 @@ final class DefaultConstructFromFileCollectorTest extends Framework\TestCase
         self::filesystem()->remove(self::temporaryDirectory());
     }
 
-    public function testCollectFromFileThrowsFileDoesNotExistWhenFileDoesNotExist(): void
+    public function testCollectFromFilePathThrowsFileDoesNotExistWhenFileDoesNotExist(): void
     {
         $filePath = FilePath::fromString(\sprintf(
             '%s/does-not-exist',
             self::temporaryDirectory(),
         ));
 
-        $collector = new Collector\DefaultConstructFromFileCollector(new Collector\TokenGetAllConstructFromSourceCollector());
+        $collector = new Collector\DefaultConstructFromFilePathCollector(new Collector\TokenGetAllConstructFromSourceCollector());
 
         $this->expectException(Exception\FileDoesNotExist::class);
 
-        $collector->collectFromFile($filePath);
+        $collector->collectFromFilePath($filePath);
     }
 
-    public function testCollectFromFileThrowsFileCouldNotBeParsedWhenParseErrorIsThrownDuringParsing(): void
+    public function testCollectFromFilePathThrowsFileCouldNotBeParsedWhenParseErrorIsThrownDuringParsing(): void
     {
         $source = <<<'TXT'
 <?php
@@ -74,23 +74,23 @@ TXT;
 
         $filePath = self::filePathWithSource($source);
 
-        $collector = new Collector\DefaultConstructFromFileCollector(new Collector\TokenGetAllConstructFromSourceCollector());
+        $collector = new Collector\DefaultConstructFromFilePathCollector(new Collector\TokenGetAllConstructFromSourceCollector());
 
         $this->expectException(Exception\FileCouldNotBeParsed::class);
 
-        $collector->collectFromFile($filePath);
+        $collector->collectFromFilePath($filePath);
     }
 
     /**
      * @dataProvider \Ergebnis\Classy\Test\DataProvider\Any::noClassyConstructs
      */
-    public function testCollectFromFileReturnsEmptyArrayWhenNoClassyConstructsHaveBeenFound(Test\Util\Scenario $scenario): void
+    public function testCollectFromFilePathReturnsEmptyArrayWhenNoClassyConstructsHaveBeenFound(Test\Util\Scenario $scenario): void
     {
         $filePath = self::filePathWithSource($scenario->source());
 
-        $collector = new Collector\DefaultConstructFromFileCollector(new Collector\TokenGetAllConstructFromSourceCollector());
+        $collector = new Collector\DefaultConstructFromFilePathCollector(new Collector\TokenGetAllConstructFromSourceCollector());
 
-        $constructs = $collector->collectFromFile($filePath);
+        $constructs = $collector->collectFromFilePath($filePath);
 
         self::assertEquals([], $constructs);
     }
@@ -100,13 +100,13 @@ TXT;
      *
      * @requires PHP >= 7.3
      */
-    public function testCollectFromFileReturnsArrayWithConstructsFromFilePathOnPhp73(Test\Util\Scenario $scenario): void
+    public function testCollectFromFilePathReturnsArrayWithConstructsFromFilePathOnPhp73(Test\Util\Scenario $scenario): void
     {
         $filePath = self::filePathWithSource($scenario->source());
 
-        $collector = new Collector\DefaultConstructFromFileCollector(new Collector\TokenGetAllConstructFromSourceCollector());
+        $collector = new Collector\DefaultConstructFromFilePathCollector(new Collector\TokenGetAllConstructFromSourceCollector());
 
-        $constructs = $collector->collectFromFile($filePath);
+        $constructs = $collector->collectFromFilePath($filePath);
 
         $expectedConstructs = \array_map(static function (ConstructFromSource $constructFromSource) use ($filePath): ConstructFromFilePath {
             return ConstructFromFilePath::create(
@@ -124,13 +124,13 @@ TXT;
      *
      * @requires PHP >= 7.4
      */
-    public function testCollectFromFileReturnsArrayWithConstructsFromFilePathOnPhp74(Test\Util\Scenario $scenario): void
+    public function testCollectFromFilePathReturnsArrayWithConstructsFromFilePathOnPhp74(Test\Util\Scenario $scenario): void
     {
         $filePath = self::filePathWithSource($scenario->source());
 
-        $collector = new Collector\DefaultConstructFromFileCollector(new Collector\TokenGetAllConstructFromSourceCollector());
+        $collector = new Collector\DefaultConstructFromFilePathCollector(new Collector\TokenGetAllConstructFromSourceCollector());
 
-        $constructs = $collector->collectFromFile($filePath);
+        $constructs = $collector->collectFromFilePath($filePath);
 
         $expectedConstructs = \array_map(static function (ConstructFromSource $constructFromSource) use ($filePath): ConstructFromFilePath {
             return ConstructFromFilePath::create(
@@ -148,13 +148,13 @@ TXT;
      *
      * @requires PHP >= 8.0
      */
-    public function testCollectFromFileReturnsArrayWithConstructsFromFilePathOnPhp80(Test\Util\Scenario $scenario): void
+    public function testCollectFromFilePathReturnsArrayWithConstructsFromFilePathOnPhp80(Test\Util\Scenario $scenario): void
     {
         $filePath = self::filePathWithSource($scenario->source());
 
-        $collector = new Collector\DefaultConstructFromFileCollector(new Collector\TokenGetAllConstructFromSourceCollector());
+        $collector = new Collector\DefaultConstructFromFilePathCollector(new Collector\TokenGetAllConstructFromSourceCollector());
 
-        $constructs = $collector->collectFromFile($filePath);
+        $constructs = $collector->collectFromFilePath($filePath);
 
         $expectedConstructs = \array_map(static function (ConstructFromSource $constructFromSource) use ($filePath): ConstructFromFilePath {
             return ConstructFromFilePath::create(
@@ -172,13 +172,13 @@ TXT;
      *
      * @requires PHP >= 8.1
      */
-    public function testCollectFromFileReturnsArrayWithConstructsFromFilePathOnPhp81(Test\Util\Scenario $scenario): void
+    public function testCollectFromFilePathReturnsArrayWithConstructsFromFilePathOnPhp81(Test\Util\Scenario $scenario): void
     {
         $filePath = self::filePathWithSource($scenario->source());
 
-        $collector = new Collector\DefaultConstructFromFileCollector(new Collector\TokenGetAllConstructFromSourceCollector());
+        $collector = new Collector\DefaultConstructFromFilePathCollector(new Collector\TokenGetAllConstructFromSourceCollector());
 
-        $constructs = $collector->collectFromFile($filePath);
+        $constructs = $collector->collectFromFilePath($filePath);
 
         $expectedConstructs = \array_map(static function (ConstructFromSource $constructFromSource) use ($filePath): ConstructFromFilePath {
             return ConstructFromFilePath::create(

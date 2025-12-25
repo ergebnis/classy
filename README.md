@@ -132,9 +132,9 @@ use Ergebnis\Classy;
 
 $filePath = Classy\FilePath::fromString(__DIR__ . '/example.php');
 
-$collector = new Classy\Collector\DefaultConstructFromFileCollector(new Classy\Collector\TokenGetAllConstructFromSourceCollector());
+$collector = new Classy\Collector\DefaultConstructFromFilePathCollector(new Classy\Collector\TokenGetAllConstructFromSourceCollector());
 
-$constructs = $collector->collectFromFile($filePath);
+$constructs = $collector->collectFromFilePath($filePath);
 
 foreach ($constructs as $construct) {
     /** @var Classy\Construct $construct */
