@@ -17,7 +17,7 @@ use Ergebnis\Classy\FilePath;
 
 final class FileCouldNotBeRead extends \RuntimeException implements Exception
 {
-    public static function at(FilePath $filePath): self
+    public static function atFilePath(FilePath $filePath): self
     {
         return new self(\sprintf(
             'File "%s" could not be read.',

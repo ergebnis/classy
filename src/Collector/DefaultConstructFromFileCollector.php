@@ -31,13 +31,13 @@ final class DefaultConstructFromFileCollector implements ConstructFromFileCollec
     public function collectFromFile(FilePath $filePath): array
     {
         if (!\is_file($filePath->toString())) {
-            throw Exception\FileDoesNotExist::at($filePath);
+            throw Exception\FileDoesNotExist::atFilePath($filePath);
         }
 
         $contents = \file_get_contents($filePath->toString());
 
         if (!\is_string($contents)) {
-            throw Exception\FileCouldNotBeRead::at($filePath);
+            throw Exception\FileCouldNotBeRead::atFilePath($filePath);
         }
 
         $source = Source::fromString($contents);
