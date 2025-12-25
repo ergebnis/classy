@@ -16,8 +16,6 @@ use PHPUnit\Framework;
 
 /**
  * @covers \Ergebnis\Classy\Source
- *
- * @uses \Ergebnis\Classy\Exception\InvalidSource
  */
 final class SourceTest extends Framework\TestCase
 {
