@@ -33,6 +33,7 @@ use PHPUnit\Framework;
  * @uses \Ergebnis\Classy\Exception\SourceCouldNotBeParsed
  * @uses \Ergebnis\Classy\FilePath
  * @uses \Ergebnis\Classy\Name
+ * @uses \Ergebnis\Classy\Source
  * @uses \Ergebnis\Classy\Type
  */
 final class DefaultConstructFromSplFileInfoCollectorTest extends Framework\TestCase
@@ -77,6 +78,20 @@ final class DefaultConstructFromSplFileInfoCollectorTest extends Framework\TestC
         $collector = new Collector\DefaultConstructFromSplFileInfoCollector(new Collector\TokenGetAllConstructFromSourceCollector());
 
         $this->expectException(Exception\FileDoesNotExist::class);
+
+        $collector->collectFromSplFileInfo($splFileInfo);
+    }
+
+    /**
+     * @dataProvider \Ergebnis\Classy\Test\DataProvider\Any::blankOrEmpty
+     */
+    public function testCollectFromSplFileInfoThrowsFileCouldNotBeParsedWhenFileIsBlankOrEmpty(Test\Util\Scenario $scenario): void
+    {
+        $splFileInfo = self::splFileInfoWithSource($scenario->source());
+
+        $collector = new Collector\DefaultConstructFromSplFileInfoCollector(new Collector\TokenGetAllConstructFromSourceCollector());
+
+        $this->expectException(Exception\FileCouldNotBeParsed::class);
 
         $collector->collectFromSplFileInfo($splFileInfo);
     }

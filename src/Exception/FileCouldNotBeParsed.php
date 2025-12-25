@@ -17,6 +17,14 @@ use Ergebnis\Classy\FilePath;
 
 final class FileCouldNotBeParsed extends \RuntimeException implements Exception
 {
+    public static function atFilePathWithBlankOrEmptyContent(FilePath $filePath): self
+    {
+        return new self(\sprintf(
+            'File "%s" could not be parsed because it is blank or empty.',
+            $filePath->toString(),
+        ));
+    }
+
     public static function atFilePathWithParseError(
         FilePath $filePath,
         \ParseError $parseError

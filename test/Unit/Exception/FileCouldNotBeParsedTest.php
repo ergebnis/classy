@@ -27,6 +27,26 @@ final class FileCouldNotBeParsedTest extends Framework\TestCase
 {
     use Test\Util\Helper;
 
+    public function testAtFilePathWithBlankOrEmptyContentReturnsException(): void
+    {
+        $faker = self::faker();
+
+        $filePath = FilePath::fromString(\sprintf(
+            '%s.%s',
+            $faker->slug(),
+            $faker->word(),
+        ));
+
+        $exception = Exception\FileCouldNotBeParsed::atFilePathWithBlankOrEmptyContent($filePath);
+
+        $message = \sprintf(
+            'File "%s" could not be parsed because it is blank or empty.',
+            $filePath->toString(),
+        );
+
+        self::assertSame($message, $exception->getMessage());
+    }
+
     public function testAtFilePathWithParseErrorReturnsException(): void
     {
         $faker = self::faker();

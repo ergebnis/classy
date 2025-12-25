@@ -15,6 +15,7 @@ namespace Ergebnis\Classy\Collector;
 
 use Ergebnis\Classy\ConstructFromSource;
 use Ergebnis\Classy\Exception;
+use Ergebnis\Classy\Source;
 
 interface ConstructFromSourceCollector
 {
@@ -25,5 +26,5 @@ interface ConstructFromSourceCollector
      *
      * @return list<ConstructFromSource>
      */
-    public function collectFromSource(string $source): array;
+    public function collectFromSource(Source $source): array;
 }

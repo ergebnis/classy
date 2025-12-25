@@ -16,6 +16,7 @@ namespace Ergebnis\Classy\Collector;
 use Ergebnis\Classy\ConstructFromSource;
 use Ergebnis\Classy\Exception;
 use Ergebnis\Classy\Name;
+use Ergebnis\Classy\Source;
 use Ergebnis\Classy\Type;
 
 final class TokenGetAllConstructFromSourceCollector implements ConstructFromSourceCollector
@@ -60,11 +61,11 @@ final class TokenGetAllConstructFromSourceCollector implements ConstructFromSour
         $this->classyTokenKindToType = $classyTokenKindToType;
     }
 
-    public function collectFromSource(string $source): array
+    public function collectFromSource(Source $source): array
     {
         try {
             $sequence = \token_get_all(
-                $source,
+                $source->toString(),
                 \TOKEN_PARSE,
             );
         } catch (\ParseError $parseError) {
