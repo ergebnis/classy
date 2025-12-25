@@ -68,7 +68,7 @@ final class DefaultConstructFromFileCollectorTest extends Framework\TestCase
      */
     public function testCollectFromFileThrowsFileCouldNotBeParsedWhenFileIsBlankOrEmpty(Test\Util\Scenario $scenario): void
     {
-        $filePath = self::fileWithSource($scenario->source());
+        $filePath = self::filePathWithSource($scenario->source());
 
         $collector = new Collector\DefaultConstructFromFileCollector(new Collector\TokenGetAllConstructFromSourceCollector());
 
@@ -86,7 +86,7 @@ final class MessedUp
 {
 TXT;
 
-        $filePath = self::fileWithSource($source);
+        $filePath = self::filePathWithSource($source);
 
         $collector = new Collector\DefaultConstructFromFileCollector(new Collector\TokenGetAllConstructFromSourceCollector());
 
@@ -100,7 +100,7 @@ TXT;
      */
     public function testCollectFromFileReturnsEmptyArrayWhenNoClassyConstructsHaveBeenFound(Test\Util\Scenario $scenario): void
     {
-        $filePath = self::fileWithSource($scenario->source());
+        $filePath = self::filePathWithSource($scenario->source());
 
         $collector = new Collector\DefaultConstructFromFileCollector(new Collector\TokenGetAllConstructFromSourceCollector());
 
@@ -116,7 +116,7 @@ TXT;
      */
     public function testCollectFromFileReturnsArrayWithConstructsFromFileOnPhp73(Test\Util\Scenario $scenario): void
     {
-        $filePath = self::fileWithSource($scenario->source());
+        $filePath = self::filePathWithSource($scenario->source());
 
         $collector = new Collector\DefaultConstructFromFileCollector(new Collector\TokenGetAllConstructFromSourceCollector());
 
@@ -140,7 +140,7 @@ TXT;
      */
     public function testCollectFromFileReturnsArrayWithConstructsFromFileOnPhp74(Test\Util\Scenario $scenario): void
     {
-        $filePath = self::fileWithSource($scenario->source());
+        $filePath = self::filePathWithSource($scenario->source());
 
         $collector = new Collector\DefaultConstructFromFileCollector(new Collector\TokenGetAllConstructFromSourceCollector());
 
@@ -164,7 +164,7 @@ TXT;
      */
     public function testCollectFromFileReturnsArrayWithConstructsFromFileOnPhp80(Test\Util\Scenario $scenario): void
     {
-        $filePath = self::fileWithSource($scenario->source());
+        $filePath = self::filePathWithSource($scenario->source());
 
         $collector = new Collector\DefaultConstructFromFileCollector(new Collector\TokenGetAllConstructFromSourceCollector());
 
@@ -188,7 +188,7 @@ TXT;
      */
     public function testCollectFromFileReturnsArrayWithConstructsFromFileOnPhp81(Test\Util\Scenario $scenario): void
     {
-        $filePath = self::fileWithSource($scenario->source());
+        $filePath = self::filePathWithSource($scenario->source());
 
         $collector = new Collector\DefaultConstructFromFileCollector(new Collector\TokenGetAllConstructFromSourceCollector());
 
@@ -205,7 +205,7 @@ TXT;
         self::assertEquals($expectedConstructs, $constructs);
     }
 
-    private static function fileWithSource(string $source): FilePath
+    private static function filePathWithSource(string $source): FilePath
     {
         $filePath = FilePath::fromString(\sprintf(
             '%s/source.php',
