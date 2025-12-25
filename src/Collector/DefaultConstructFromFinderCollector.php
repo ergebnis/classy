@@ -42,10 +42,6 @@ final class DefaultConstructFromFinderCollector implements ConstructFromFinderCo
                 continue;
             }
 
-            if ('' === \trim($contents)) {
-                continue;
-            }
-
             $source = Source::fromString($contents);
 
             try {
