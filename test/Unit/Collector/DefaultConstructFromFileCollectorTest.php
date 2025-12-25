@@ -68,13 +68,13 @@ final class DefaultConstructFromFileCollectorTest extends Framework\TestCase
      */
     public function testCollectFromFileThrowsFileCouldNotBeParsedWhenFileIsBlankOrEmpty(Test\Util\Scenario $scenario): void
     {
-        $file = self::fileWithSource($scenario->source());
+        $filePath = self::fileWithSource($scenario->source());
 
         $collector = new Collector\DefaultConstructFromFileCollector(new Collector\TokenGetAllConstructFromSourceCollector());
 
         $this->expectException(Exception\FileCouldNotBeParsed::class);
 
-        $collector->collectFromFile($file);
+        $collector->collectFromFile($filePath);
     }
 
     public function testCollectFromFileThrowsFileCouldNotBeParsedWhenParseErrorIsThrownDuringParsing(): void
@@ -86,13 +86,13 @@ final class MessedUp
 {
 TXT;
 
-        $file = self::fileWithSource($source);
+        $filePath = self::fileWithSource($source);
 
         $collector = new Collector\DefaultConstructFromFileCollector(new Collector\TokenGetAllConstructFromSourceCollector());
 
         $this->expectException(Exception\FileCouldNotBeParsed::class);
 
-        $collector->collectFromFile($file);
+        $collector->collectFromFile($filePath);
     }
 
     /**
@@ -100,11 +100,11 @@ TXT;
      */
     public function testCollectFromFileReturnsEmptyArrayWhenNoClassyConstructsHaveBeenFound(Test\Util\Scenario $scenario): void
     {
-        $file = self::fileWithSource($scenario->source());
+        $filePath = self::fileWithSource($scenario->source());
 
         $collector = new Collector\DefaultConstructFromFileCollector(new Collector\TokenGetAllConstructFromSourceCollector());
 
-        $constructs = $collector->collectFromFile($file);
+        $constructs = $collector->collectFromFile($filePath);
 
         self::assertEquals([], $constructs);
     }
@@ -116,15 +116,15 @@ TXT;
      */
     public function testCollectFromFileReturnsArrayWithConstructsFromFileOnPhp73(Test\Util\Scenario $scenario): void
     {
-        $file = self::fileWithSource($scenario->source());
+        $filePath = self::fileWithSource($scenario->source());
 
         $collector = new Collector\DefaultConstructFromFileCollector(new Collector\TokenGetAllConstructFromSourceCollector());
 
-        $constructs = $collector->collectFromFile($file);
+        $constructs = $collector->collectFromFile($filePath);
 
-        $expectedConstructs = \array_map(static function (ConstructFromSource $constructFromSource) use ($file): ConstructFromFile {
+        $expectedConstructs = \array_map(static function (ConstructFromSource $constructFromSource) use ($filePath): ConstructFromFile {
             return ConstructFromFile::create(
-                $file,
+                $filePath,
                 $constructFromSource->name(),
                 $constructFromSource->type(),
             );
@@ -140,15 +140,15 @@ TXT;
      */
     public function testCollectFromFileReturnsArrayWithConstructsFromFileOnPhp74(Test\Util\Scenario $scenario): void
     {
-        $file = self::fileWithSource($scenario->source());
+        $filePath = self::fileWithSource($scenario->source());
 
         $collector = new Collector\DefaultConstructFromFileCollector(new Collector\TokenGetAllConstructFromSourceCollector());
 
-        $constructs = $collector->collectFromFile($file);
+        $constructs = $collector->collectFromFile($filePath);
 
-        $expectedConstructs = \array_map(static function (ConstructFromSource $constructFromSource) use ($file): ConstructFromFile {
+        $expectedConstructs = \array_map(static function (ConstructFromSource $constructFromSource) use ($filePath): ConstructFromFile {
             return ConstructFromFile::create(
-                $file,
+                $filePath,
                 $constructFromSource->name(),
                 $constructFromSource->type(),
             );
@@ -164,15 +164,15 @@ TXT;
      */
     public function testCollectFromFileReturnsArrayWithConstructsFromFileOnPhp80(Test\Util\Scenario $scenario): void
     {
-        $file = self::fileWithSource($scenario->source());
+        $filePath = self::fileWithSource($scenario->source());
 
         $collector = new Collector\DefaultConstructFromFileCollector(new Collector\TokenGetAllConstructFromSourceCollector());
 
-        $constructs = $collector->collectFromFile($file);
+        $constructs = $collector->collectFromFile($filePath);
 
-        $expectedConstructs = \array_map(static function (ConstructFromSource $constructFromSource) use ($file): ConstructFromFile {
+        $expectedConstructs = \array_map(static function (ConstructFromSource $constructFromSource) use ($filePath): ConstructFromFile {
             return ConstructFromFile::create(
-                $file,
+                $filePath,
                 $constructFromSource->name(),
                 $constructFromSource->type(),
             );
@@ -188,15 +188,15 @@ TXT;
      */
     public function testCollectFromFileReturnsArrayWithConstructsFromFileOnPhp81(Test\Util\Scenario $scenario): void
     {
-        $file = self::fileWithSource($scenario->source());
+        $filePath = self::fileWithSource($scenario->source());
 
         $collector = new Collector\DefaultConstructFromFileCollector(new Collector\TokenGetAllConstructFromSourceCollector());
 
-        $constructs = $collector->collectFromFile($file);
+        $constructs = $collector->collectFromFile($filePath);
 
-        $expectedConstructs = \array_map(static function (ConstructFromSource $constructFromSource) use ($file): ConstructFromFile {
+        $expectedConstructs = \array_map(static function (ConstructFromSource $constructFromSource) use ($filePath): ConstructFromFile {
             return ConstructFromFile::create(
-                $file,
+                $filePath,
                 $constructFromSource->name(),
                 $constructFromSource->type(),
             );
