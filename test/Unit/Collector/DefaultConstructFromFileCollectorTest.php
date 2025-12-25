@@ -63,20 +63,6 @@ final class DefaultConstructFromFileCollectorTest extends Framework\TestCase
         $collector->collectFromFile($filePath);
     }
 
-    /**
-     * @dataProvider \Ergebnis\Classy\Test\DataProvider\Any::blankOrEmpty
-     */
-    public function testCollectFromFileThrowsFileCouldNotBeParsedWhenFileIsBlankOrEmpty(Test\Util\Scenario $scenario): void
-    {
-        $filePath = self::filePathWithSource($scenario->source());
-
-        $collector = new Collector\DefaultConstructFromFileCollector(new Collector\TokenGetAllConstructFromSourceCollector());
-
-        $this->expectException(Exception\FileCouldNotBeParsed::class);
-
-        $collector->collectFromFile($filePath);
-    }
-
     public function testCollectFromFileThrowsFileCouldNotBeParsedWhenParseErrorIsThrownDuringParsing(): void
     {
         $source = <<<'TXT'

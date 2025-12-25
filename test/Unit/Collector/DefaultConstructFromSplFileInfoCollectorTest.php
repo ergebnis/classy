@@ -82,20 +82,6 @@ final class DefaultConstructFromSplFileInfoCollectorTest extends Framework\TestC
         $collector->collectFromSplFileInfo($splFileInfo);
     }
 
-    /**
-     * @dataProvider \Ergebnis\Classy\Test\DataProvider\Any::blankOrEmpty
-     */
-    public function testCollectFromSplFileInfoThrowsFileCouldNotBeParsedWhenFileIsBlankOrEmpty(Test\Util\Scenario $scenario): void
-    {
-        $splFileInfo = self::splFileInfoWithSource($scenario->source());
-
-        $collector = new Collector\DefaultConstructFromSplFileInfoCollector(new Collector\TokenGetAllConstructFromSourceCollector());
-
-        $this->expectException(Exception\FileCouldNotBeParsed::class);
-
-        $collector->collectFromSplFileInfo($splFileInfo);
-    }
-
     public function testCollectFromSplFileInfoThrowsFileCouldNotBeParsedWhenParseErrorIsThrownDuringParsing(): void
     {
         $source = <<<'TXT'

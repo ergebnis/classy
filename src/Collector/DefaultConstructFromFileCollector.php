@@ -40,10 +40,6 @@ final class DefaultConstructFromFileCollector implements ConstructFromFileCollec
             throw Exception\FileCouldNotBeRead::at($filePath);
         }
 
-        if ('' === \trim($contents)) {
-            throw Exception\FileCouldNotBeParsed::atFilePathWithBlankOrEmptyContent($filePath);
-        }
-
         $source = Source::fromString($contents);
 
         try {
