@@ -33,13 +33,13 @@ final class DefaultConstructFromSplFileInfoCollector implements ConstructFromSpl
         $filePath = FilePath::fromString($splFileInfo->getPathname());
 
         if (!$splFileInfo->isFile()) {
-            throw Exception\FileDoesNotExist::at($filePath);
+            throw Exception\FileDoesNotExist::atFilePath($filePath);
         }
 
         $contents = \file_get_contents($filePath->toString());
 
         if (!\is_string($contents)) {
-            throw Exception\FileCouldNotBeRead::at($filePath);
+            throw Exception\FileCouldNotBeRead::atFilePath($filePath);
         }
 
         $source = Source::fromString($contents);

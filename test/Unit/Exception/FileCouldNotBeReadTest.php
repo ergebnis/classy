@@ -27,7 +27,7 @@ final class FileCouldNotBeReadTest extends Framework\TestCase
 {
     use Test\Util\Helper;
 
-    public function testAtReturnsException(): void
+    public function testAtFilePathReturnsException(): void
     {
         $faker = self::faker();
 
@@ -37,7 +37,7 @@ final class FileCouldNotBeReadTest extends Framework\TestCase
             $faker->word(),
         ));
 
-        $exception = Exception\FileCouldNotBeRead::at($filePath);
+        $exception = Exception\FileCouldNotBeRead::atFilePath($filePath);
 
         $message = \sprintf(
             'File "%s" could not be read.',

@@ -27,7 +27,7 @@ final class FileDoesNotExistTest extends Framework\TestCase
 {
     use Test\Util\Helper;
 
-    public function testAtReturnsException(): void
+    public function testAtFilePathReturnsException(): void
     {
         $faker = self::faker();
 
@@ -37,7 +37,7 @@ final class FileDoesNotExistTest extends Framework\TestCase
             $faker->word(),
         ));
 
-        $exception = Exception\FileDoesNotExist::at($filePath);
+        $exception = Exception\FileDoesNotExist::atFilePath($filePath);
 
         $message = \sprintf(
             'File "%s" does not exist.',
