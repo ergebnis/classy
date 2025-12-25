@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/classy
  */
 
-use Ergebnis\Classy\ConstructFromFile;
+use Ergebnis\Classy\ConstructFromFilePath;
 use Ergebnis\Classy\FilePath;
 use Ergebnis\Classy\Name;
 use Ergebnis\Classy\Test;
@@ -19,17 +19,17 @@ use Ergebnis\Classy\Type;
 use PHPUnit\Framework;
 
 /**
- * @covers \Ergebnis\Classy\ConstructFromFile
+ * @covers \Ergebnis\Classy\ConstructFromFilePath
  *
  * @uses \Ergebnis\Classy\FilePath
  * @uses \Ergebnis\Classy\Name
  * @uses \Ergebnis\Classy\Type
  */
-final class ConstructFromFileTest extends Framework\TestCase
+final class ConstructFromFilePathTest extends Framework\TestCase
 {
     use Test\Util\Helper;
 
-    public function testCreateReturnsConstructFromFile(): void
+    public function testCreateReturnsConstructFromFilePath(): void
     {
         $faker = self::faker();
 
@@ -44,7 +44,7 @@ final class ConstructFromFileTest extends Framework\TestCase
             Type::trait(),
         ]);
 
-        $construct = ConstructFromFile::create(
+        $construct = ConstructFromFilePath::create(
             $filePath,
             $name,
             $type,

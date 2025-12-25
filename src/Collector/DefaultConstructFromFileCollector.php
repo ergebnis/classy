@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\Classy\Collector;
 
-use Ergebnis\Classy\ConstructFromFile;
+use Ergebnis\Classy\ConstructFromFilePath;
 use Ergebnis\Classy\ConstructFromSource;
 use Ergebnis\Classy\Exception;
 use Ergebnis\Classy\FilePath;
@@ -54,8 +54,8 @@ final class DefaultConstructFromFileCollector implements ConstructFromFileCollec
             );
         }
 
-        return \array_map(static function (ConstructFromSource $constructFromSource) use ($filePath): ConstructFromFile {
-            return ConstructFromFile::create(
+        return \array_map(static function (ConstructFromSource $constructFromSource) use ($filePath): ConstructFromFilePath {
+            return ConstructFromFilePath::create(
                 $filePath,
                 $constructFromSource->name(),
                 $constructFromSource->type(),

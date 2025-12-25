@@ -28,7 +28,7 @@ use Symfony\Component\Finder;
  *
  * @uses \Ergebnis\Classy\Collector\DefaultConstructFromSplFileInfoCollector
  * @uses \Ergebnis\Classy\Collector\TokenGetAllConstructFromSourceCollector
- * @uses \Ergebnis\Classy\ConstructFromFile
+ * @uses \Ergebnis\Classy\ConstructFromFilePath
  * @uses \Ergebnis\Classy\ConstructFromSource
  * @uses \Ergebnis\Classy\ConstructFromSplFileInfo
  * @uses \Ergebnis\Classy\Exception\FileCouldNotBeParsed

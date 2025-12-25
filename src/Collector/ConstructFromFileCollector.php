@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\Classy\Collector;
 
-use Ergebnis\Classy\ConstructFromFile;
+use Ergebnis\Classy\ConstructFromFilePath;
 use Ergebnis\Classy\Exception;
 use Ergebnis\Classy\FilePath;
 
@@ -22,11 +22,11 @@ interface ConstructFromFileCollector
     /**
      * Returns a list of constructs defined in a file.
      *
-     * @throws Exception\FileCouldNotBeRead
      * @throws Exception\FileDoesNotExist
      * @throws Exception\FileCouldNotBeParsed
+     * @throws Exception\FileCouldNotBeRead
      *
-     * @return list<ConstructFromFile>
+     * @return list<ConstructFromFilePath>
      */
     public function collectFromFile(FilePath $filePath): array;
 }

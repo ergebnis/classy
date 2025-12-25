@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\Classy;
 
-final class ConstructFromFile implements Construct
+final class ConstructFromFilePath implements Construct
 {
     private FilePath $filePath;
     private Name $name;
