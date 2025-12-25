@@ -16,6 +16,7 @@ namespace Ergebnis\Classy\Test\Unit\Collector;
 use Ergebnis\Classy\Collector;
 use Ergebnis\Classy\ConstructFromSource;
 use Ergebnis\Classy\ConstructFromSplFileInfo;
+use Ergebnis\Classy\Exception;
 use Ergebnis\Classy\Name;
 use Ergebnis\Classy\Test;
 use Ergebnis\Classy\Type;
@@ -93,6 +94,21 @@ TXT;
         self::assertEquals([], $constructs);
     }
 
+    public function testCollectFromFinderThrowsFileCouldNotBeParsedWhenFinderYieldsSplFileInfoWithFileThatCanNotBeParsed(): void
+    {
+        $finder = Finder\Finder::create()
+            ->files()
+            ->in([
+                __DIR__ . '/../../Fixture/ParseError',
+            ]);
+
+        $collector = new Collector\DefaultConstructFromFinderCollector(new Collector\TokenGetAllConstructFromSourceCollector());
+
+        $this->expectException(Exception\FileCouldNotBeParsed::class);
+
+        $collector->collectFromFinder($finder);
+    }
+
     /**
      * @requires PHP >= 7.3
      */
@@ -103,7 +119,6 @@ TXT;
             ->in([
                 __DIR__ . '/../../Fixture/Classy/Php73/WithinNamespace',
                 __DIR__ . '/../../Fixture/NoClassy',
-                __DIR__ . '/../../Fixture/ParseError',
             ]);
 
         $collector = new Collector\DefaultConstructFromFinderCollector(new Collector\TokenGetAllConstructFromSourceCollector());
@@ -140,7 +155,6 @@ TXT;
             ->in([
                 __DIR__ . '/../../Fixture/Classy/Php74/WithinNamespace',
                 __DIR__ . '/../../Fixture/NoClassy',
-                __DIR__ . '/../../Fixture/ParseError',
             ]);
 
         $collector = new Collector\DefaultConstructFromFinderCollector(new Collector\TokenGetAllConstructFromSourceCollector());
@@ -177,7 +191,6 @@ TXT;
             ->in([
                 __DIR__ . '/../../Fixture/Classy/Php80/WithinNamespace',
                 __DIR__ . '/../../Fixture/NoClassy',
-                __DIR__ . '/../../Fixture/ParseError',
             ]);
 
         $collector = new Collector\DefaultConstructFromFinderCollector(new Collector\TokenGetAllConstructFromSourceCollector());
@@ -214,7 +227,6 @@ TXT;
             ->in([
                 __DIR__ . '/../../Fixture/Classy/Php81/WithinNamespace',
                 __DIR__ . '/../../Fixture/NoClassy',
-                __DIR__ . '/../../Fixture/ParseError',
             ]);
 
         $collector = new Collector\DefaultConstructFromFinderCollector(new Collector\TokenGetAllConstructFromSourceCollector());

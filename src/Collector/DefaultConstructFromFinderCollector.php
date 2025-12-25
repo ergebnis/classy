@@ -16,6 +16,7 @@ namespace Ergebnis\Classy\Collector;
 use Ergebnis\Classy\ConstructFromSource;
 use Ergebnis\Classy\ConstructFromSplFileInfo;
 use Ergebnis\Classy\Exception;
+use Ergebnis\Classy\FilePath;
 use Ergebnis\Classy\Source;
 
 final class DefaultConstructFromFinderCollector implements ConstructFromFinderCollector
@@ -36,7 +37,9 @@ final class DefaultConstructFromFinderCollector implements ConstructFromFinderCo
                 continue;
             }
 
-            $contents = \file_get_contents($splFileInfo->getPathname());
+            $filePath = FilePath::fromString($splFileInfo->getPathname());
+
+            $contents = \file_get_contents($filePath->toString());
 
             if (!\is_string($contents)) {
                 continue;
@@ -47,7 +50,13 @@ final class DefaultConstructFromFinderCollector implements ConstructFromFinderCo
             try {
                 $constructsFromSource = $this->constructFromSourceCollector->collectFromSource($source);
             } catch (Exception\SourceCouldNotBeParsed $exception) {
-                continue;
+                /** @var \ParseError $parseError */
+                $parseError = $exception->getPrevious();
+
+                throw Exception\FileCouldNotBeParsed::atFilePathWithParseError(
+                    $filePath,
+                    $parseError,
+                );
             }
 
             \array_push(

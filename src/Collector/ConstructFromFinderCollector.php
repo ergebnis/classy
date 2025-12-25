@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Ergebnis\Classy\Collector;
 
 use Ergebnis\Classy\ConstructFromSplFileInfo;
+use Ergebnis\Classy\Exception;
 
 interface ConstructFromFinderCollector
 {
@@ -21,6 +22,8 @@ interface ConstructFromFinderCollector
      * Returns a list of constructs defined in files found by the finder.
      *
      * @param iterable<\SplFileInfo> $finder
+     *
+     * @throws Exception\FileCouldNotBeParsed
      *
      * @return list<ConstructFromSplFileInfo>
      */
