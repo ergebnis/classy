@@ -16,6 +16,7 @@ namespace Ergebnis\Classy\Collector;
 use Ergebnis\Classy\ConstructFromSource;
 use Ergebnis\Classy\ConstructFromSplFileInfo;
 use Ergebnis\Classy\Exception;
+use Ergebnis\Classy\Source;
 
 final class DefaultConstructFromFinderCollector implements ConstructFromFinderCollector
 {
@@ -35,11 +36,17 @@ final class DefaultConstructFromFinderCollector implements ConstructFromFinderCo
                 continue;
             }
 
-            $source = \file_get_contents($splFileInfo->getPathname());
+            $contents = \file_get_contents($splFileInfo->getPathname());
 
-            if (!\is_string($source)) {
+            if (!\is_string($contents)) {
                 continue;
             }
+
+            if ('' === \trim($contents)) {
+                continue;
+            }
+
+            $source = Source::fromString($contents);
 
             try {
                 $constructsFromSource = $this->constructFromSourceCollector->collectFromSource($source);

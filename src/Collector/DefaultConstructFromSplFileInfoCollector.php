@@ -17,6 +17,7 @@ use Ergebnis\Classy\ConstructFromSource;
 use Ergebnis\Classy\ConstructFromSplFileInfo;
 use Ergebnis\Classy\Exception;
 use Ergebnis\Classy\FilePath;
+use Ergebnis\Classy\Source;
 
 final class DefaultConstructFromSplFileInfoCollector implements ConstructFromSplFileInfoCollector
 {
@@ -35,11 +36,17 @@ final class DefaultConstructFromSplFileInfoCollector implements ConstructFromSpl
             throw Exception\FileDoesNotExist::at($filePath);
         }
 
-        $source = \file_get_contents($filePath->toString());
+        $contents = \file_get_contents($filePath->toString());
 
-        if (!\is_string($source)) {
+        if (!\is_string($contents)) {
             throw Exception\FileCouldNotBeRead::at($filePath);
         }
+
+        if ('' === \trim($contents)) {
+            throw Exception\FileCouldNotBeParsed::atFilePathWithBlankOrEmptyContent($filePath);
+        }
+
+        $source = Source::fromString($contents);
 
         try {
             $constructsFromSource = $this->constructFromSourceCollector->collectFromSource($source);

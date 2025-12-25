@@ -20,7 +20,7 @@ final class Any
     /**
      * @return \Generator<string, array{0: Test\Util\Scenario}>
      */
-    public static function noClassyConstructs(): iterable
+    public static function blankOrEmpty(): iterable
     {
         $scenariosWithoutClassyConstructs = [
             Test\Util\Scenario::create(
@@ -31,6 +31,21 @@ final class Any
                 'empty-file',
                 __DIR__ . '/../Fixture/NoClassy/NoPhpFile/empty.txt',
             ),
+        ];
+
+        foreach ($scenariosWithoutClassyConstructs as $scenario) {
+            yield $scenario->description() => [
+                $scenario,
+            ];
+        }
+    }
+
+    /**
+     * @return \Generator<string, array{0: Test\Util\Scenario}>
+     */
+    public static function noClassyConstructs(): iterable
+    {
+        $scenariosWithoutClassyConstructs = [
             Test\Util\Scenario::create(
                 'no-php-file',
                 __DIR__ . '/../Fixture/NoClassy/NoPhpFile/source.md',

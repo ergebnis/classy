@@ -32,6 +32,7 @@ use PHPUnit\Framework;
  * @uses \Ergebnis\Classy\Exception\SourceCouldNotBeParsed
  * @uses \Ergebnis\Classy\FilePath
  * @uses \Ergebnis\Classy\Name
+ * @uses \Ergebnis\Classy\Source
  * @uses \Ergebnis\Classy\Type
  */
 final class DefaultConstructFromFileCollectorTest extends Framework\TestCase
@@ -60,6 +61,20 @@ final class DefaultConstructFromFileCollectorTest extends Framework\TestCase
         $this->expectException(Exception\FileDoesNotExist::class);
 
         $collector->collectFromFile($filePath);
+    }
+
+    /**
+     * @dataProvider \Ergebnis\Classy\Test\DataProvider\Any::blankOrEmpty
+     */
+    public function testCollectFromFileThrowsFileCouldNotBeParsedWhenFileIsBlankOrEmpty(Test\Util\Scenario $scenario): void
+    {
+        $file = self::fileWithSource($scenario->source());
+
+        $collector = new Collector\DefaultConstructFromFileCollector(new Collector\TokenGetAllConstructFromSourceCollector());
+
+        $this->expectException(Exception\FileCouldNotBeParsed::class);
+
+        $collector->collectFromFile($file);
     }
 
     public function testCollectFromFileThrowsFileCouldNotBeParsedWhenParseErrorIsThrownDuringParsing(): void

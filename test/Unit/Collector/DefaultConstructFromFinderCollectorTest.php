@@ -35,6 +35,7 @@ use Symfony\Component\Finder;
  * @uses \Ergebnis\Classy\Exception\SourceCouldNotBeParsed
  * @uses \Ergebnis\Classy\FilePath
  * @uses \Ergebnis\Classy\Name
+ * @uses \Ergebnis\Classy\Source
  * @uses \Ergebnis\Classy\Type
  */
 final class DefaultConstructFromFinderCollectorTest extends Framework\TestCase

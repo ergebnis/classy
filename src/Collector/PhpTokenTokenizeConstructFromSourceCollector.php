@@ -16,6 +16,7 @@ namespace Ergebnis\Classy\Collector;
 use Ergebnis\Classy\ConstructFromSource;
 use Ergebnis\Classy\Exception;
 use Ergebnis\Classy\Name;
+use Ergebnis\Classy\Source;
 use Ergebnis\Classy\Type;
 
 final class PhpTokenTokenizeConstructFromSourceCollector implements ConstructFromSourceCollector
@@ -64,11 +65,11 @@ final class PhpTokenTokenizeConstructFromSourceCollector implements ConstructFro
         $this->classyTokenKindToType = $classyTokenKindToType;
     }
 
-    public function collectFromSource(string $source): array
+    public function collectFromSource(Source $source): array
     {
         try {
             $sequence = \PhpToken::tokenize(
-                $source,
+                $source->toString(),
                 \TOKEN_PARSE,
             );
         } catch (\ParseError $parseError) {

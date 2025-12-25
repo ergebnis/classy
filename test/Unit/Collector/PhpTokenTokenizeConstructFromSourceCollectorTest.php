@@ -15,6 +15,7 @@ namespace Ergebnis\Classy\Test\Unit\Collector;
 
 use Ergebnis\Classy\Collector;
 use Ergebnis\Classy\Exception;
+use Ergebnis\Classy\Source;
 use Ergebnis\Classy\Test;
 use PHPUnit\Framework;
 
@@ -44,12 +45,12 @@ final class PhpTokenTokenizeConstructFromSourceCollectorTest extends Framework\T
      */
     public function testCollectFromSourceThrowsSourceCouldNotBeParsedWhenParseErrorIsThrownDuringParsing(): void
     {
-        $source = <<<'TXT'
+        $source = Source::fromString(<<<'TXT'
 <?php
 
 final class MessedUp
 {
-TXT;
+TXT);
 
         $collector = new Collector\PhpTokenTokenizeConstructFromSourceCollector();
 
@@ -65,9 +66,11 @@ TXT;
      */
     public function testCollectFromSourceReturnsEmptyArrayWhenNoClassyConstructsHaveBeenFound(Test\Util\Scenario $scenario): void
     {
+        $source = Source::fromString($scenario->source());
+
         $collector = new Collector\PhpTokenTokenizeConstructFromSourceCollector();
 
-        $constructs = $collector->collectFromSource($scenario->source());
+        $constructs = $collector->collectFromSource($source);
 
         self::assertEquals([], $constructs);
     }
@@ -79,9 +82,11 @@ TXT;
      */
     public function testCollectFromSourceReturnsArrayWithConstructsFromSourceOnPhp80(Test\Util\Scenario $scenario): void
     {
+        $source = Source::fromString($scenario->source());
+
         $collector = new Collector\PhpTokenTokenizeConstructFromSourceCollector();
 
-        $constructs = $collector->collectFromSource($scenario->source());
+        $constructs = $collector->collectFromSource($source);
 
         self::assertEquals($scenario->constructs(), $constructs);
     }
@@ -93,9 +98,11 @@ TXT;
      */
     public function testCollectFromSourceReturnsArrayWithConstructsFromSourceOnPhp81(Test\Util\Scenario $scenario): void
     {
+        $source = Source::fromString($scenario->source());
+
         $collector = new Collector\PhpTokenTokenizeConstructFromSourceCollector();
 
-        $constructs = $collector->collectFromSource($scenario->source());
+        $constructs = $collector->collectFromSource($source);
 
         self::assertEquals($scenario->constructs(), $constructs);
     }

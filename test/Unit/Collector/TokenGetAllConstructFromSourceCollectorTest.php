@@ -15,6 +15,7 @@ namespace Ergebnis\Classy\Test\Unit\Collector;
 
 use Ergebnis\Classy\Collector;
 use Ergebnis\Classy\Exception;
+use Ergebnis\Classy\Source;
 use Ergebnis\Classy\Test;
 use PHPUnit\Framework;
 
@@ -24,18 +25,19 @@ use PHPUnit\Framework;
  * @uses \Ergebnis\Classy\ConstructFromSource
  * @uses \Ergebnis\Classy\Exception\SourceCouldNotBeParsed
  * @uses \Ergebnis\Classy\Name
+ * @uses \Ergebnis\Classy\Source
  * @uses \Ergebnis\Classy\Type
  */
 final class TokenGetAllConstructFromSourceCollectorTest extends Framework\TestCase
 {
     public function testCollectFromSourceThrowsSourceCouldNotBeParsedWhenParseErrorIsThrownDuringParsing(): void
     {
-        $source = <<<'TXT'
+        $source = Source::fromString(<<<'TXT'
 <?php
 
 final class MessedUp
 {
-TXT;
+TXT);
 
         $collector = new Collector\TokenGetAllConstructFromSourceCollector();
 
@@ -49,9 +51,11 @@ TXT;
      */
     public function testCollectFromSourceReturnsEmptyArrayWhenNoClassyConstructsHaveBeenFound(Test\Util\Scenario $scenario): void
     {
+        $source = Source::fromString($scenario->source());
+
         $collector = new Collector\TokenGetAllConstructFromSourceCollector();
 
-        $constructs = $collector->collectFromSource($scenario->source());
+        $constructs = $collector->collectFromSource($source);
 
         self::assertEquals([], $constructs);
     }
@@ -63,9 +67,11 @@ TXT;
      */
     public function testCollectFromSourceReturnsArrayWithConstructsFromSourceOnPhp73(Test\Util\Scenario $scenario): void
     {
+        $source = Source::fromString($scenario->source());
+
         $collector = new Collector\TokenGetAllConstructFromSourceCollector();
 
-        $constructs = $collector->collectFromSource($scenario->source());
+        $constructs = $collector->collectFromSource($source);
 
         self::assertEquals($scenario->constructs(), $constructs);
     }
@@ -77,9 +83,11 @@ TXT;
      */
     public function testCollectFromSourceReturnsArrayWithConstructsFromSourceOnPhp74(Test\Util\Scenario $scenario): void
     {
+        $source = Source::fromString($scenario->source());
+
         $collector = new Collector\TokenGetAllConstructFromSourceCollector();
 
-        $constructs = $collector->collectFromSource($scenario->source());
+        $constructs = $collector->collectFromSource($source);
 
         self::assertEquals($scenario->constructs(), $constructs);
     }
@@ -91,9 +99,11 @@ TXT;
      */
     public function testCollectFromSourceReturnsArrayWithConstructsFromSourceOnPhp80(Test\Util\Scenario $scenario): void
     {
+        $source = Source::fromString($scenario->source());
+
         $collector = new Collector\TokenGetAllConstructFromSourceCollector();
 
-        $constructs = $collector->collectFromSource($scenario->source());
+        $constructs = $collector->collectFromSource($source);
 
         self::assertEquals($scenario->constructs(), $constructs);
     }
@@ -105,9 +115,11 @@ TXT;
      */
     public function testCollectFromSourceReturnsArrayWithConstructsFromSourceOnPhp81(Test\Util\Scenario $scenario): void
     {
+        $source = Source::fromString($scenario->source());
+
         $collector = new Collector\TokenGetAllConstructFromSourceCollector();
 
-        $constructs = $collector->collectFromSource($scenario->source());
+        $constructs = $collector->collectFromSource($source);
 
         self::assertEquals($scenario->constructs(), $constructs);
     }
