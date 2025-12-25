@@ -25,7 +25,7 @@ use PHPUnit\Framework;
  *
  * @uses \Ergebnis\Classy\Collector\DefaultConstructFromFileCollector
  * @uses \Ergebnis\Classy\Collector\TokenGetAllConstructFromSourceCollector
- * @uses \Ergebnis\Classy\ConstructFromFile
+ * @uses \Ergebnis\Classy\ConstructFromFilePath
  * @uses \Ergebnis\Classy\ConstructFromSource
  * @uses \Ergebnis\Classy\ConstructFromSplFileInfo
  * @uses \Ergebnis\Classy\Exception\FileCouldNotBeParsed

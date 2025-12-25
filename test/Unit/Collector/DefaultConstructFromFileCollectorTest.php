@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Ergebnis\Classy\Test\Unit\Collector;
 
 use Ergebnis\Classy\Collector;
-use Ergebnis\Classy\ConstructFromFile;
+use Ergebnis\Classy\ConstructFromFilePath;
 use Ergebnis\Classy\ConstructFromSource;
 use Ergebnis\Classy\Exception;
 use Ergebnis\Classy\FilePath;
@@ -25,7 +25,7 @@ use PHPUnit\Framework;
  * @covers \Ergebnis\Classy\Collector\DefaultConstructFromFileCollector
  *
  * @uses \Ergebnis\Classy\Collector\TokenGetAllConstructFromSourceCollector
- * @uses \Ergebnis\Classy\ConstructFromFile
+ * @uses \Ergebnis\Classy\ConstructFromFilePath
  * @uses \Ergebnis\Classy\ConstructFromSource
  * @uses \Ergebnis\Classy\Exception\FileCouldNotBeParsed
  * @uses \Ergebnis\Classy\Exception\FileDoesNotExist
@@ -100,7 +100,7 @@ TXT;
      *
      * @requires PHP >= 7.3
      */
-    public function testCollectFromFileReturnsArrayWithConstructsFromFileOnPhp73(Test\Util\Scenario $scenario): void
+    public function testCollectFromFileReturnsArrayWithConstructsFromFilePathOnPhp73(Test\Util\Scenario $scenario): void
     {
         $filePath = self::filePathWithSource($scenario->source());
 
@@ -108,8 +108,8 @@ TXT;
 
         $constructs = $collector->collectFromFile($filePath);
 
-        $expectedConstructs = \array_map(static function (ConstructFromSource $constructFromSource) use ($filePath): ConstructFromFile {
-            return ConstructFromFile::create(
+        $expectedConstructs = \array_map(static function (ConstructFromSource $constructFromSource) use ($filePath): ConstructFromFilePath {
+            return ConstructFromFilePath::create(
                 $filePath,
                 $constructFromSource->name(),
                 $constructFromSource->type(),
@@ -124,7 +124,7 @@ TXT;
      *
      * @requires PHP >= 7.4
      */
-    public function testCollectFromFileReturnsArrayWithConstructsFromFileOnPhp74(Test\Util\Scenario $scenario): void
+    public function testCollectFromFileReturnsArrayWithConstructsFromFilePathOnPhp74(Test\Util\Scenario $scenario): void
     {
         $filePath = self::filePathWithSource($scenario->source());
 
@@ -132,8 +132,8 @@ TXT;
 
         $constructs = $collector->collectFromFile($filePath);
 
-        $expectedConstructs = \array_map(static function (ConstructFromSource $constructFromSource) use ($filePath): ConstructFromFile {
-            return ConstructFromFile::create(
+        $expectedConstructs = \array_map(static function (ConstructFromSource $constructFromSource) use ($filePath): ConstructFromFilePath {
+            return ConstructFromFilePath::create(
                 $filePath,
                 $constructFromSource->name(),
                 $constructFromSource->type(),
@@ -148,7 +148,7 @@ TXT;
      *
      * @requires PHP >= 8.0
      */
-    public function testCollectFromFileReturnsArrayWithConstructsFromFileOnPhp80(Test\Util\Scenario $scenario): void
+    public function testCollectFromFileReturnsArrayWithConstructsFromFilePathOnPhp80(Test\Util\Scenario $scenario): void
     {
         $filePath = self::filePathWithSource($scenario->source());
 
@@ -156,8 +156,8 @@ TXT;
 
         $constructs = $collector->collectFromFile($filePath);
 
-        $expectedConstructs = \array_map(static function (ConstructFromSource $constructFromSource) use ($filePath): ConstructFromFile {
-            return ConstructFromFile::create(
+        $expectedConstructs = \array_map(static function (ConstructFromSource $constructFromSource) use ($filePath): ConstructFromFilePath {
+            return ConstructFromFilePath::create(
                 $filePath,
                 $constructFromSource->name(),
                 $constructFromSource->type(),
@@ -172,7 +172,7 @@ TXT;
      *
      * @requires PHP >= 8.1
      */
-    public function testCollectFromFileReturnsArrayWithConstructsFromFileOnPhp81(Test\Util\Scenario $scenario): void
+    public function testCollectFromFileReturnsArrayWithConstructsFromFilePathOnPhp81(Test\Util\Scenario $scenario): void
     {
         $filePath = self::filePathWithSource($scenario->source());
 
@@ -180,8 +180,8 @@ TXT;
 
         $constructs = $collector->collectFromFile($filePath);
 
-        $expectedConstructs = \array_map(static function (ConstructFromSource $constructFromSource) use ($filePath): ConstructFromFile {
-            return ConstructFromFile::create(
+        $expectedConstructs = \array_map(static function (ConstructFromSource $constructFromSource) use ($filePath): ConstructFromFilePath {
+            return ConstructFromFilePath::create(
                 $filePath,
                 $constructFromSource->name(),
                 $constructFromSource->type(),
