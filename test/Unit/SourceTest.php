@@ -11,7 +11,6 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/classy
  */
 
-use Ergebnis\Classy\Exception;
 use Ergebnis\Classy\Source;
 use PHPUnit\Framework;
 
@@ -22,17 +21,6 @@ use PHPUnit\Framework;
  */
 final class SourceTest extends Framework\TestCase
 {
-    /**
-     * @dataProvider \Ergebnis\DataProvider\StringProvider::blank
-     * @dataProvider \Ergebnis\DataProvider\StringProvider::empty
-     */
-    public function testFromStringRejectsInvalidValue(string $value): void
-    {
-        $this->expectException(Exception\InvalidSource::class);
-
-        Source::fromString($value);
-    }
-
     public function testFromStringReturnsSource(): void
     {
         $value = <<<'PHP'

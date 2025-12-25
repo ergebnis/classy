@@ -22,15 +22,8 @@ final class Source
         $this->value = $value;
     }
 
-    /**
-     * @throws Exception\InvalidSource
-     */
     public static function fromString(string $value): self
     {
-        if ('' === \trim($value)) {
-            throw Exception\InvalidSource::blankOrEmpty();
-        }
-
         return new self($value);
     }
 
