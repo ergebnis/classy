@@ -23,6 +23,7 @@ For a full diff see [`2.0.0...main`][2.0.0...main].
 - Started throwing `FileCouldNotBeParsed` when attempting to collect `Construct`s from a `Finder` yielding `SplFileInfo`s with unparseable source code ([#1131]), by [@localheinz]
 - Renamed `FileCouldNotBeRead::at()` and `FileDoesNotExist::at()` to `FileCouldNotBeRead::atFilePath()` and `FileDoesNotExist::atFilePath()` ([#1132]), by [@localheinz]
 - Renamed `ConstructFromFile` to `ConstructFromFilePath` ([#1133]), by [@localheinz]
+- Renamed `ConstructFromFileCollector` and `DefaultConstructFromFileCollector` to `ConstructFromFilePathCollector` and `DefaultConstructFromFilePathCollector` ([#1134]), by [@localheinz]
 
 ## [`2.0.0`][2.0.0]
 
@@ -255,6 +256,7 @@ For a full diff see [`0.4.0...0.5.0`][0.4.0...0.5.0].
 [#1131]: https://github.com/ergebnis/classy/pull/1131
 [#1132]: https://github.com/ergebnis/classy/pull/1132
 [#1133]: https://github.com/ergebnis/classy/pull/1133
+[#1134]: https://github.com/ergebnis/classy/pull/1134
 
 [@ergebnis]: https://github.com/ergebnis
 [@localheinz]: https://github.com/localheinz

@@ -17,7 +17,7 @@ use Ergebnis\Classy\ConstructFromFilePath;
 use Ergebnis\Classy\Exception;
 use Ergebnis\Classy\FilePath;
 
-interface ConstructFromFileCollector
+interface ConstructFromFilePathCollector
 {
     /**
      * Returns a list of constructs defined in a file.
@@ -28,5 +28,5 @@ interface ConstructFromFileCollector
      *
      * @return list<ConstructFromFilePath>
      */
-    public function collectFromFile(FilePath $filePath): array;
+    public function collectFromFilePath(FilePath $filePath): array;
 }
