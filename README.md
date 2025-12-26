@@ -33,7 +33,7 @@ This package provides the following collectors for finding classy constructs:
 
 ### `Collector\TokenGetAllConstructFromSourceCollector`
 
-Use `Classy\Collector\TokenGetAllConstructFromSourceCollector` to collect classy constructs from source code on PHP 7:
+Use `Collector\TokenGetAllConstructFromSourceCollector` to collect classy constructs from source code on PHP 7:
 
 ```php
 <?php
