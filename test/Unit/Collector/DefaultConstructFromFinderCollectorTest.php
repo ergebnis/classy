@@ -110,7 +110,7 @@ TXT;
     }
 
     /**
-     * @requires PHP >= 7.3
+     * @requires PHP >= 7.3.0
      */
     public function testCollectFromFinderReturnsArrayWithConstructsFromSplFileInfoOnPhp73(): void
     {
@@ -146,7 +146,7 @@ TXT;
     }
 
     /**
-     * @requires PHP >= 7.4
+     * @requires PHP >= 7.4.0
      */
     public function testCollectFromFilePathReturnsArrayWithConstructsFromSplFileInfoOnPhp74(): void
     {
@@ -182,7 +182,7 @@ TXT;
     }
 
     /**
-     * @requires PHP >= 8.0
+     * @requires PHP >= 8.0.0
      */
     public function testCollectFromFinderReturnsArrayWithConstructsFromSplFileInfoOnPhp80(): void
     {
@@ -218,7 +218,7 @@ TXT;
     }
 
     /**
-     * @requires PHP >= 8.1
+     * @requires PHP >= 8.1.0
      */
     public function testCollectFromFinderReturnsArrayWithConstructsFromSplFileInfoOnPhp81(): void
     {

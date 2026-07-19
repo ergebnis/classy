@@ -31,7 +31,7 @@ use PHPUnit\Framework;
 final class PhpTokenTokenizeConstructFromSourceCollectorTest extends Framework\TestCase
 {
     /**
-     * @requires PHP <= 8.0
+     * @requires PHP <= 8.0.0
      */
     public function testConstructorThrowsParsingNotSupportedWhenPhpVersionIsLessThan8(): void
     {
@@ -41,7 +41,7 @@ final class PhpTokenTokenizeConstructFromSourceCollectorTest extends Framework\T
     }
 
     /**
-     * @requires PHP >= 8.0
+     * @requires PHP >= 8.0.0
      */
     public function testCollectFromSourceThrowsSourceCouldNotBeParsedWhenParseErrorIsThrownDuringParsing(): void
     {
@@ -62,7 +62,7 @@ TXT);
     /**
      * @dataProvider \Ergebnis\Classy\Test\DataProvider\Any::noClassyConstructs
      *
-     * @requires PHP >= 8.0
+     * @requires PHP >= 8.0.0
      */
     public function testCollectFromSourceReturnsEmptyArrayWhenNoClassyConstructsHaveBeenFound(Test\Util\Scenario $scenario): void
     {
@@ -78,7 +78,7 @@ TXT);
     /**
      * @dataProvider \Ergebnis\Classy\Test\DataProvider\Php80::classyConstructs
      *
-     * @requires PHP >= 8.0
+     * @requires PHP >= 8.0.0
      */
     public function testCollectFromSourceReturnsArrayWithConstructsFromSourceOnPhp80(Test\Util\Scenario $scenario): void
     {
@@ -94,7 +94,7 @@ TXT);
     /**
      * @dataProvider \Ergebnis\Classy\Test\DataProvider\Php81::classyConstructs
      *
-     * @requires PHP >= 8.1
+     * @requires PHP >= 8.1.0
      */
     public function testCollectFromSourceReturnsArrayWithConstructsFromSourceOnPhp81(Test\Util\Scenario $scenario): void
     {
