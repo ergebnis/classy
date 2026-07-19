@@ -98,7 +98,7 @@ TXT;
     /**
      * @dataProvider \Ergebnis\Classy\Test\DataProvider\Php73::classyConstructs
      *
-     * @requires PHP >= 7.3
+     * @requires PHP >= 7.3.0
      */
     public function testCollectFromFilePathReturnsArrayWithConstructsFromFilePathOnPhp73(Test\Util\Scenario $scenario): void
     {
@@ -122,7 +122,7 @@ TXT;
     /**
      * @dataProvider \Ergebnis\Classy\Test\DataProvider\Php74::classyConstructs
      *
-     * @requires PHP >= 7.4
+     * @requires PHP >= 7.4.0
      */
     public function testCollectFromFilePathReturnsArrayWithConstructsFromFilePathOnPhp74(Test\Util\Scenario $scenario): void
     {
@@ -146,7 +146,7 @@ TXT;
     /**
      * @dataProvider \Ergebnis\Classy\Test\DataProvider\Php80::classyConstructs
      *
-     * @requires PHP >= 8.0
+     * @requires PHP >= 8.0.0
      */
     public function testCollectFromFilePathReturnsArrayWithConstructsFromFilePathOnPhp80(Test\Util\Scenario $scenario): void
     {
@@ -170,7 +170,7 @@ TXT;
     /**
      * @dataProvider \Ergebnis\Classy\Test\DataProvider\Php81::classyConstructs
      *
-     * @requires PHP >= 8.1
+     * @requires PHP >= 8.1.0
      */
     public function testCollectFromFilePathReturnsArrayWithConstructsFromFilePathOnPhp81(Test\Util\Scenario $scenario): void
     {
