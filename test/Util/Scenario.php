@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\Classy\Test\Util;
 
-use Ergebnis\Classy;
+use Ergebnis\Classy\ConstructFromSource;
 
 final class Scenario
 {
@@ -22,7 +22,7 @@ final class Scenario
     private string $source;
 
     /**
-     * @var list<Classy\ConstructFromSource>
+     * @var list<ConstructFromSource>
      */
     private array $constructs;
 
@@ -30,7 +30,7 @@ final class Scenario
         string $description,
         string $filePath,
         string $source,
-        Classy\ConstructFromSource ...$constructs
+        ConstructFromSource ...$constructs
     ) {
         $this->description = $description;
         $this->filePath = $filePath;
@@ -44,7 +44,7 @@ final class Scenario
     public static function create(
         string $description,
         string $filePath,
-        Classy\ConstructFromSource ...$constructs
+        ConstructFromSource ...$constructs
     ): self {
         if (!\is_file($filePath)) {
             throw new \InvalidArgumentException(\sprintf(
@@ -95,7 +95,7 @@ final class Scenario
     }
 
     /**
-     * @return list<Classy\ConstructFromSource>
+     * @return list<ConstructFromSource>
      */
     public function constructs(): array
     {
