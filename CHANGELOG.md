@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`3.0.0...main`][3.0.0...main].
 
+### Changed
+
+- Allowed installation on PHP 8.6 ([#1271]), by [@localheinz]
+
 ## [`3.0.0`][3.0.0]
 
 For a full diff see [`2.0.0...3.0.0`][2.0.0...3.0.0].
@@ -264,6 +268,7 @@ For a full diff see [`0.4.0...0.5.0`][0.4.0...0.5.0].
 [#1132]: https://github.com/ergebnis/classy/pull/1132
 [#1133]: https://github.com/ergebnis/classy/pull/1133
 [#1134]: https://github.com/ergebnis/classy/pull/1134
+[#1271]: https://github.com/ergebnis/classy/pull/1271
 
 [@ergebnis]: https://github.com/ergebnis
 [@localheinz]: https://github.com/localheinz
