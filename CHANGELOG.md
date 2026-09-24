@@ -252,6 +252,7 @@ For a full diff see [`0.4.0...0.5.0`][0.4.0...0.5.0].
 [#1068]: https://github.com/ergebnis/classy/pull/1068
 [#1075]: https://github.com/ergebnis/classy/pull/1075
 [#1118]: https://github.com/ergebnis/classy/pull/1118
+[#1119]: https://github.com/ergebnis/classy/pull/1119
 [#1123]: https://github.com/ergebnis/classy/pull/1123
 [#1124]: https://github.com/ergebnis/classy/pull/1124
 [#1125]: https://github.com/ergebnis/classy/pull/1125
