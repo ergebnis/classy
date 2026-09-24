@@ -1,9 +1,9 @@
 # classy
 
-[![Integrate](https://github.com/ergebnis/classy/workflows/Integrate/badge.svg)](https://github.com/ergebnis/classy/actions)
-[![Merge](https://github.com/ergebnis/classy/workflows/Merge/badge.svg)](https://github.com/ergebnis/classy/actions)
-[![Release](https://github.com/ergebnis/classy/workflows/Release/badge.svg)](https://github.com/ergebnis/classy/actions)
-[![Renew](https://github.com/ergebnis/classy/workflows/Renew/badge.svg)](https://github.com/ergebnis/classy/actions)
+[![Integrate](https://github.com/ergebnis/classy/actions/workflows/integrate.yaml/badge.svg?branch=main)](https://github.com/ergebnis/classy/actions/workflows/integrate.yaml)
+[![Merge](https://github.com/ergebnis/classy/actions/workflows/merge.yaml/badge.svg)](https://github.com/ergebnis/classy/actions/workflows/merge.yaml)
+[![Release](https://github.com/ergebnis/classy/actions/workflows/release.yaml/badge.svg)](https://github.com/ergebnis/classy/actions/workflows/release.yaml)
+[![Renew](https://github.com/ergebnis/classy/actions/workflows/renew.yaml/badge.svg)](https://github.com/ergebnis/classy/actions/workflows/renew.yaml)
 
 [![Code Coverage](https://codecov.io/gh/ergebnis/classy/branch/main/graph/badge.svg)](https://codecov.io/gh/ergebnis/classy)
 
