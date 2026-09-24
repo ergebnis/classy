@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1c494cf3a09387488ea6380ba7d5ed4b",
+    "content-hash": "22f2c080f479b0205094a49fc6443aeb",
     "packages": [],
     "packages-dev": [
         {
@@ -2503,11 +2503,11 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "2.2.13",
+            "version": "2.2.15",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/9ba9ac76ee9c5cf5b56d58eb5deec6315b7a0260",
-                "reference": "9ba9ac76ee9c5cf5b56d58eb5deec6315b7a0260",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/b158556ffd26825cf615a1c1f72fb5157a2301b7",
+                "reference": "b158556ffd26825cf615a1c1f72fb5157a2301b7",
                 "shasum": ""
             },
             "require": {
@@ -2563,7 +2563,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-09-03T20:38:19+00:00"
+            "time": "2026-09-23T12:23:07+00:00"
         },
         {
             "name": "phpstan/phpstan-deprecation-rules",
@@ -3821,30 +3821,27 @@
         },
         {
             "name": "rector/rector",
-            "version": "2.6.1",
+            "version": "2.6.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "b8e68f058bca43e01a2e1caa51ef022d6551ed95"
+                "reference": "f4aa224edb9b0630fb43826d4cb6a49b62e48d4c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/b8e68f058bca43e01a2e1caa51ef022d6551ed95",
-                "reference": "b8e68f058bca43e01a2e1caa51ef022d6551ed95",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/f4aa224edb9b0630fb43826d4cb6a49b62e48d4c",
+                "reference": "f4aa224edb9b0630fb43826d4cb6a49b62e48d4c",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.4|^8.0",
-                "phpstan/phpstan": "^2.2.6"
+                "phpstan/phpstan": "^2.2.14"
             },
             "conflict": {
                 "rector/rector-doctrine": "*",
                 "rector/rector-downgrade-php": "*",
                 "rector/rector-phpunit": "*",
                 "rector/rector-symfony": "*"
-            },
-            "suggest": {
-                "ext-dom": "To manipulate phpunit.xml via the custom-rule command"
             },
             "bin": [
                 "bin/rector"
@@ -3869,7 +3866,7 @@
             ],
             "support": {
                 "issues": "https://github.com/rectorphp/rector/issues",
-                "source": "https://github.com/rectorphp/rector/tree/2.6.1"
+                "source": "https://github.com/rectorphp/rector/tree/2.6.7"
             },
             "funding": [
                 {
@@ -3877,7 +3874,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-08-03T17:30:34+00:00"
+            "time": "2026-09-13T20:17:44+00:00"
         },
         {
             "name": "sanmai/later",
