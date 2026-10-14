@@ -131,3 +131,15 @@ parameters:
 			identifier: class.notFound
 			count: 1
 			path: test/Unit/Collector/DefaultConstructFromFinderCollectorTest.php
+
+		-
+			message: '#^Method Ergebnis\\Classy\\Test\\Unit\\Collector\\DefaultConstructFromFinderCollectorTest\:\:normalize\(\) should return list\<Ergebnis\\Classy\\ConstructFromSource\> but returns array\<int\<0, max\>\|string, Ergebnis\\Classy\\ConstructFromSource\>\.$#'
+			identifier: return.type
+			count: 1
+			path: test/Unit/Collector/DefaultConstructFromFinderCollectorTest.php
+
+		-
+			message: '#^Property Ergebnis\\Classy\\Test\\Util\\Scenario\:\:\$constructs \(list\<Ergebnis\\Classy\\ConstructFromSource\>\) does not accept array\<int\<0, max\>\|string, Ergebnis\\Classy\\ConstructFromSource\>\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: test/Util/Scenario.php
