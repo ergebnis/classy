@@ -11,7 +11,7 @@
 [![Total Downloads](https://poser.pugx.org/ergebnis/classy/downloads)](https://packagist.org/packages/ergebnis/classy)
 [![Monthly Downloads](https://poser.pugx.org/ergebnis/classy/d/monthly)](https://packagist.org/packages/ergebnis/classy)
 
-This project provides a [`composer`](https://getcomposer.org) package with a finder for classy constructs ([classes](https://www.php.net/manual/en/language.oop5.php), [enums](https://www.php.net/manual/en/language.types.enumerations.php), [interfaces](https://www.php.net/manual/en/language.oop5.interfaces.php), and [traits](https://www.php.net/manual/en/language.oop5.traits.php)).
+This project provides a [`composer`](https://getcomposer.org) package with collectors for classy constructs ([classes](https://www.php.net/manual/en/language.oop5.php), [enums](https://www.php.net/manual/en/language.types.enumerations.php), [interfaces](https://www.php.net/manual/en/language.oop5.interfaces.php), and [traits](https://www.php.net/manual/en/language.oop5.traits.php)).
 
 ## Installation
 
