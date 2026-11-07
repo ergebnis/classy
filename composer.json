@@ -44,7 +44,7 @@
     "phpstan/phpstan-strict-rules": "^2.1.0",
     "phpunit/phpunit": "^9.6.33",
     "rector/rector": "^2.7.0",
-    "symfony/filesystem": "^5.4.45",
+    "symfony/filesystem": "^5.4.56 || ^6.4.50 || ^7.4.23 || ^8.1.11",
     "symfony/finder": "^5.4.45"
   },
   "suggest": {
