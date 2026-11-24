@@ -4,13 +4,13 @@
 
 The following versions of `ergebnis/classy` have active support:
 
-- `^3.2.0`
+- `^3.3.0`
 
 ## Unsupported Versions
 
 The following versions of `ergebnis/classy` have reached their end of life:
 
-- `<3.2.0`
+- `<3.3.0`
 
 ## Reporting a Vulnerability
 

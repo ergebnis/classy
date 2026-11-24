@@ -6,7 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`3.2.0...main`][3.2.0...main].
+For a full diff see [`3.3.0...main`][3.3.0...main].
+
+## [`3.3.0`][3.3.0]
+
+For a full diff see [`3.2.0...3.3.0`][3.2.0...3.3.0].
 
 ### Changed
 
@@ -253,7 +257,9 @@ For a full diff see [`0.4.0...0.5.0`][0.4.0...0.5.0].
 [3.1.0]: https://github.com/ergebnis/classy/releases/tag/3.1.0
 [3.1.0...3.2.0]: https://github.com/ergebnis/classy/compare/3.1.0...3.2.0
 [3.2.0]: https://github.com/ergebnis/classy/releases/tag/3.2.0
-[3.2.0...main]: https://github.com/ergebnis/classy/compare/3.2.0...main
+[3.2.0...3.3.0]: https://github.com/ergebnis/classy/compare/3.2.0...3.3.0
+[3.3.0]: https://github.com/ergebnis/classy/releases/tag/3.3.0
+[3.3.0...main]: https://github.com/ergebnis/classy/compare/3.3.0...main
 
 [#77]: https://github.com/ergebnis/classy/pull/77
 [#88]: https://github.com/ergebnis/classy/pull/88
