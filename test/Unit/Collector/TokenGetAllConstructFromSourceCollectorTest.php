@@ -33,11 +33,11 @@ final class TokenGetAllConstructFromSourceCollectorTest extends Framework\TestCa
     public function testCollectFromSourceThrowsSourceCouldNotBeParsedWhenParseErrorIsThrownDuringParsing(): void
     {
         $source = Source::fromString(<<<'TXT'
-<?php
+            <?php
 
-final class MessedUp
-{
-TXT);
+            final class MessedUp
+            {
+            TXT);
 
         $collector = new Collector\TokenGetAllConstructFromSourceCollector();
 

@@ -48,11 +48,11 @@ final class DefaultConstructFromFinderCollectorTest extends Framework\TestCase
         self::filesystem()->mkdir(self::temporaryDirectory());
 
         $source = <<<'TXT'
-<?php
+            <?php
 
-final class MessedUp
-{
-TXT;
+            final class MessedUp
+            {
+            TXT;
 
         self::filesystem()->dumpFile(
             self::fileWithParseError(),

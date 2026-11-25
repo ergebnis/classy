@@ -85,11 +85,11 @@ final class DefaultConstructFromSplFileInfoCollectorTest extends Framework\TestC
     public function testCollectFromSplFileInfoThrowsFileCouldNotBeParsedWhenParseErrorIsThrownDuringParsing(): void
     {
         $source = <<<'TXT'
-<?php
+            <?php
 
-final class MessedUp
-{
-TXT;
+            final class MessedUp
+            {
+            TXT;
 
         $splFileInfo = self::splFileInfoWithSource($source);
 

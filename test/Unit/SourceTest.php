@@ -22,18 +22,18 @@ final class SourceTest extends Framework\TestCase
     public function testFromStringReturnsSource(): void
     {
         $value = <<<'PHP'
-<?php
+            <?php
 
-namespace Example;
+            namespace Example;
 
-class Foo {}
+            class Foo {}
 
-enum Bar {}
+            enum Bar {}
 
-interface Baz {}
+            interface Baz {}
 
-trait Qux {}
-PHP;
+            trait Qux {}
+            PHP;
 
         $source = Source::fromString($value);
 

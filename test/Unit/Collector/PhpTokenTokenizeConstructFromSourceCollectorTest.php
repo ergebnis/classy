@@ -46,11 +46,11 @@ final class PhpTokenTokenizeConstructFromSourceCollectorTest extends Framework\T
     public function testCollectFromSourceThrowsSourceCouldNotBeParsedWhenParseErrorIsThrownDuringParsing(): void
     {
         $source = Source::fromString(<<<'TXT'
-<?php
+            <?php
 
-final class MessedUp
-{
-TXT);
+            final class MessedUp
+            {
+            TXT);
 
         $collector = new Collector\PhpTokenTokenizeConstructFromSourceCollector();
 

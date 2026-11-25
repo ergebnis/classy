@@ -66,11 +66,11 @@ final class DefaultConstructFromFilePathCollectorTest extends Framework\TestCase
     public function testCollectFromFilePathThrowsFileCouldNotBeParsedWhenParseErrorIsThrownDuringParsing(): void
     {
         $source = <<<'TXT'
-<?php
+            <?php
 
-final class MessedUp
-{
-TXT;
+            final class MessedUp
+            {
+            TXT;
 
         $filePath = self::filePathWithSource($source);
 
