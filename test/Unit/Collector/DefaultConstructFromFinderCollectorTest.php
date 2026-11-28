@@ -13,13 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\Classy\Test\Unit\Collector;
 
-use Ergebnis\Classy\Collector;
-use Ergebnis\Classy\ConstructFromSource;
-use Ergebnis\Classy\ConstructFromSplFileInfo;
-use Ergebnis\Classy\Exception;
-use Ergebnis\Classy\Name;
-use Ergebnis\Classy\Test;
-use Ergebnis\Classy\Type;
+use Ergebnis\Classy;
 use PHPUnit\Framework;
 use Symfony\Component\Finder;
 
@@ -41,7 +35,7 @@ use Symfony\Component\Finder;
  */
 final class DefaultConstructFromFinderCollectorTest extends Framework\TestCase
 {
-    use Test\Util\Helper;
+    use Classy\Test\Util\Helper;
 
     protected function setUp(): void
     {
@@ -74,7 +68,7 @@ final class DefaultConstructFromFinderCollectorTest extends Framework\TestCase
             ->files()
             ->in(self::temporaryDirectory());
 
-        $collector = new Collector\DefaultConstructFromFinderCollector(new Collector\TokenGetAllConstructFromSourceCollector());
+        $collector = new Classy\Collector\DefaultConstructFromFinderCollector(new Classy\Collector\TokenGetAllConstructFromSourceCollector());
 
         $constructs = $collector->collectFromFinder($finder);
 
@@ -87,7 +81,7 @@ final class DefaultConstructFromFinderCollectorTest extends Framework\TestCase
             ->files()
             ->in(__DIR__ . '/../../Fixture/NoClassy');
 
-        $collector = new Collector\DefaultConstructFromFinderCollector(new Collector\TokenGetAllConstructFromSourceCollector());
+        $collector = new Classy\Collector\DefaultConstructFromFinderCollector(new Classy\Collector\TokenGetAllConstructFromSourceCollector());
 
         $constructs = $collector->collectFromFinder($finder);
 
@@ -102,9 +96,9 @@ final class DefaultConstructFromFinderCollectorTest extends Framework\TestCase
                 __DIR__ . '/../../Fixture/ParseError',
             ]);
 
-        $collector = new Collector\DefaultConstructFromFinderCollector(new Collector\TokenGetAllConstructFromSourceCollector());
+        $collector = new Classy\Collector\DefaultConstructFromFinderCollector(new Classy\Collector\TokenGetAllConstructFromSourceCollector());
 
-        $this->expectException(Exception\FileCouldNotBeParsed::class);
+        $this->expectException(Classy\Exception\FileCouldNotBeParsed::class);
 
         $collector->collectFromFinder($finder);
     }
@@ -121,24 +115,24 @@ final class DefaultConstructFromFinderCollectorTest extends Framework\TestCase
                 __DIR__ . '/../../Fixture/NoClassy',
             ]);
 
-        $collector = new Collector\DefaultConstructFromFinderCollector(new Collector\TokenGetAllConstructFromSourceCollector());
+        $collector = new Classy\Collector\DefaultConstructFromFinderCollector(new Classy\Collector\TokenGetAllConstructFromSourceCollector());
 
         $constructs = $collector->collectFromFinder($finder);
 
-        self::assertContainsOnlyInstancesOf(ConstructFromSplFileInfo::class, $constructs);
+        self::assertContainsOnlyInstancesOf(Classy\ConstructFromSplFileInfo::class, $constructs);
 
         $expected = [
-            ConstructFromSource::create(
-                Name::fromString(Test\Fixture\Classy\Php73\WithinNamespace\Foo::class),
-                Type::class(),
+            Classy\ConstructFromSource::create(
+                Classy\Name::fromString(Classy\Test\Fixture\Classy\Php73\WithinNamespace\Foo::class),
+                Classy\Type::class(),
             ),
-            ConstructFromSource::create(
-                Name::fromString(Test\Fixture\Classy\Php73\WithinNamespace\Bar::class),
-                Type::interface(),
+            Classy\ConstructFromSource::create(
+                Classy\Name::fromString(Classy\Test\Fixture\Classy\Php73\WithinNamespace\Bar::class),
+                Classy\Type::interface(),
             ),
-            ConstructFromSource::create(
-                Name::fromString(Test\Fixture\Classy\Php73\WithinNamespace\Baz::class),
-                Type::trait(),
+            Classy\ConstructFromSource::create(
+                Classy\Name::fromString(Classy\Test\Fixture\Classy\Php73\WithinNamespace\Baz::class),
+                Classy\Type::trait(),
             ),
         ];
 
@@ -157,24 +151,24 @@ final class DefaultConstructFromFinderCollectorTest extends Framework\TestCase
                 __DIR__ . '/../../Fixture/NoClassy',
             ]);
 
-        $collector = new Collector\DefaultConstructFromFinderCollector(new Collector\TokenGetAllConstructFromSourceCollector());
+        $collector = new Classy\Collector\DefaultConstructFromFinderCollector(new Classy\Collector\TokenGetAllConstructFromSourceCollector());
 
         $constructs = $collector->collectFromFinder($finder);
 
-        self::assertContainsOnlyInstancesOf(ConstructFromSplFileInfo::class, $constructs);
+        self::assertContainsOnlyInstancesOf(Classy\ConstructFromSplFileInfo::class, $constructs);
 
         $expected = [
-            ConstructFromSource::create(
-                Name::fromString(Test\Fixture\Classy\Php74\WithinNamespace\Foo::class),
-                Type::class(),
+            Classy\ConstructFromSource::create(
+                Classy\Name::fromString(Classy\Test\Fixture\Classy\Php74\WithinNamespace\Foo::class),
+                Classy\Type::class(),
             ),
-            ConstructFromSource::create(
-                Name::fromString(Test\Fixture\Classy\Php74\WithinNamespace\Bar::class),
-                Type::interface(),
+            Classy\ConstructFromSource::create(
+                Classy\Name::fromString(Classy\Test\Fixture\Classy\Php74\WithinNamespace\Bar::class),
+                Classy\Type::interface(),
             ),
-            ConstructFromSource::create(
-                Name::fromString(Test\Fixture\Classy\Php74\WithinNamespace\Baz::class),
-                Type::trait(),
+            Classy\ConstructFromSource::create(
+                Classy\Name::fromString(Classy\Test\Fixture\Classy\Php74\WithinNamespace\Baz::class),
+                Classy\Type::trait(),
             ),
         ];
 
@@ -193,24 +187,24 @@ final class DefaultConstructFromFinderCollectorTest extends Framework\TestCase
                 __DIR__ . '/../../Fixture/NoClassy',
             ]);
 
-        $collector = new Collector\DefaultConstructFromFinderCollector(new Collector\TokenGetAllConstructFromSourceCollector());
+        $collector = new Classy\Collector\DefaultConstructFromFinderCollector(new Classy\Collector\TokenGetAllConstructFromSourceCollector());
 
         $constructs = $collector->collectFromFinder($finder);
 
-        self::assertContainsOnlyInstancesOf(ConstructFromSplFileInfo::class, $constructs);
+        self::assertContainsOnlyInstancesOf(Classy\ConstructFromSplFileInfo::class, $constructs);
 
         $expected = [
-            ConstructFromSource::create(
-                Name::fromString(Test\Fixture\Classy\Php80\WithinNamespace\Foo::class),
-                Type::class(),
+            Classy\ConstructFromSource::create(
+                Classy\Name::fromString(Classy\Test\Fixture\Classy\Php80\WithinNamespace\Foo::class),
+                Classy\Type::class(),
             ),
-            ConstructFromSource::create(
-                Name::fromString(Test\Fixture\Classy\Php80\WithinNamespace\Bar::class),
-                Type::interface(),
+            Classy\ConstructFromSource::create(
+                Classy\Name::fromString(Classy\Test\Fixture\Classy\Php80\WithinNamespace\Bar::class),
+                Classy\Type::interface(),
             ),
-            ConstructFromSource::create(
-                Name::fromString(Test\Fixture\Classy\Php80\WithinNamespace\Baz::class),
-                Type::trait(),
+            Classy\ConstructFromSource::create(
+                Classy\Name::fromString(Classy\Test\Fixture\Classy\Php80\WithinNamespace\Baz::class),
+                Classy\Type::trait(),
             ),
         ];
 
@@ -229,28 +223,28 @@ final class DefaultConstructFromFinderCollectorTest extends Framework\TestCase
                 __DIR__ . '/../../Fixture/NoClassy',
             ]);
 
-        $collector = new Collector\DefaultConstructFromFinderCollector(new Collector\TokenGetAllConstructFromSourceCollector());
+        $collector = new Classy\Collector\DefaultConstructFromFinderCollector(new Classy\Collector\TokenGetAllConstructFromSourceCollector());
 
         $constructs = $collector->collectFromFinder($finder);
 
-        self::assertContainsOnlyInstancesOf(ConstructFromSplFileInfo::class, $constructs);
+        self::assertContainsOnlyInstancesOf(Classy\ConstructFromSplFileInfo::class, $constructs);
 
         $expected = [
-            ConstructFromSource::create(
-                Name::fromString(Test\Fixture\Classy\Php81\WithinNamespace\Foo::class),
-                Type::class(),
+            Classy\ConstructFromSource::create(
+                Classy\Name::fromString(Classy\Test\Fixture\Classy\Php81\WithinNamespace\Foo::class),
+                Classy\Type::class(),
             ),
-            ConstructFromSource::create(
-                Name::fromString(Test\Fixture\Classy\Php81\WithinNamespace\Bar::class),
-                Type::interface(),
+            Classy\ConstructFromSource::create(
+                Classy\Name::fromString(Classy\Test\Fixture\Classy\Php81\WithinNamespace\Bar::class),
+                Classy\Type::interface(),
             ),
-            ConstructFromSource::create(
-                Name::fromString(Test\Fixture\Classy\Php81\WithinNamespace\Baz::class),
-                Type::trait(),
+            Classy\ConstructFromSource::create(
+                Classy\Name::fromString(Classy\Test\Fixture\Classy\Php81\WithinNamespace\Baz::class),
+                Classy\Type::trait(),
             ),
-            ConstructFromSource::create(
-                Name::fromString(Test\Fixture\Classy\Php81\WithinNamespace\Qux::class),
-                Type::enum(),
+            Classy\ConstructFromSource::create(
+                Classy\Name::fromString(Classy\Test\Fixture\Classy\Php81\WithinNamespace\Qux::class),
+                Classy\Type::enum(),
             ),
         ];
 
@@ -258,12 +252,12 @@ final class DefaultConstructFromFinderCollectorTest extends Framework\TestCase
     }
 
     /**
-     * @return list<ConstructFromSource>
+     * @return list<Classy\ConstructFromSource>
      */
-    private static function normalize(ConstructFromSplFileInfo ...$constructFromSplFileInfo): array
+    private static function normalize(Classy\ConstructFromSplFileInfo ...$constructFromSplFileInfo): array
     {
-        return \array_map(static function (ConstructFromSplFileInfo $constructFromSplFileInfo): ConstructFromSource {
-            return ConstructFromSource::create(
+        return \array_map(static function (Classy\ConstructFromSplFileInfo $constructFromSplFileInfo): Classy\ConstructFromSource {
+            return Classy\ConstructFromSource::create(
                 $constructFromSplFileInfo->name(),
                 $constructFromSplFileInfo->type(),
             );

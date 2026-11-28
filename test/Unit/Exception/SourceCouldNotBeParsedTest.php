@@ -13,8 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\Classy\Test\Unit\Exception;
 
-use Ergebnis\Classy\Exception;
-use Ergebnis\Classy\Test;
+use Ergebnis\Classy;
 use PHPUnit\Framework;
 
 /**
@@ -24,13 +23,13 @@ use PHPUnit\Framework;
  */
 final class SourceCouldNotBeParsedTest extends Framework\TestCase
 {
-    use Test\Util\Helper;
+    use Classy\Test\Util\Helper;
 
     public function testWithParseErrorReturnsException(): void
     {
         $parseError = new \ParseError(self::faker()->sentence());
 
-        $exception = Exception\SourceCouldNotBeParsed::withParseError($parseError);
+        $exception = Classy\Exception\SourceCouldNotBeParsed::withParseError($parseError);
 
         $message = \sprintf(
             'Source not be parsed because of a parse error with message "%s".',

@@ -13,11 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\Classy\Collector;
 
-use Ergebnis\Classy\ConstructFromSource;
-use Ergebnis\Classy\Exception;
-use Ergebnis\Classy\Name;
-use Ergebnis\Classy\Source;
-use Ergebnis\Classy\Type;
+use Ergebnis\Classy;
 
 final class TokenGetAllConstructFromSourceCollector implements ConstructFromSourceCollector
 {
@@ -31,16 +27,16 @@ final class TokenGetAllConstructFromSourceCollector implements ConstructFromSour
     ];
 
     /**
-     * @var array<int, Type>
+     * @var array<int, Classy\Type>
      */
     private array $classyTokenKindToType;
 
     public function __construct()
     {
         $classyTokenKindToType = [
-            \T_CLASS => Type::class(),
-            \T_INTERFACE => Type::interface(),
-            \T_TRAIT => Type::trait(),
+            \T_CLASS => Classy\Type::class(),
+            \T_INTERFACE => Classy\Type::interface(),
+            \T_TRAIT => Classy\Type::trait(),
         ];
 
         /**
@@ -51,17 +47,20 @@ final class TokenGetAllConstructFromSourceCollector implements ConstructFromSour
             && \defined('T_ENUM')
         ) {
             $classyTokenKindToType = [
-                \T_CLASS => Type::class(),
-                \T_ENUM => Type::enum(),
-                \T_INTERFACE => Type::interface(),
-                \T_TRAIT => Type::trait(),
+                \T_CLASS => Classy\Type::class(),
+                \T_ENUM => Classy\Type::enum(),
+                \T_INTERFACE => Classy\Type::interface(),
+                \T_TRAIT => Classy\Type::trait(),
             ];
         }
 
         $this->classyTokenKindToType = $classyTokenKindToType;
     }
 
-    public function collectFromSource(Source $source): array
+    /**
+     * @return list<Classy\ConstructFromSource>
+     */
+    public function collectFromSource(Classy\Source $source): array
     {
         try {
             $sequence = \token_get_all(
@@ -69,7 +68,7 @@ final class TokenGetAllConstructFromSourceCollector implements ConstructFromSour
                 \TOKEN_PARSE,
             );
         } catch (\ParseError $parseError) {
-            throw Exception\SourceCouldNotBeParsed::withParseError($parseError);
+            throw Classy\Exception\SourceCouldNotBeParsed::withParseError($parseError);
         }
 
         $namespacePrefix = '';
@@ -158,8 +157,8 @@ final class TokenGetAllConstructFromSourceCollector implements ConstructFromSour
 
             $token = $sequence[$index];
 
-            $constructs[] = ConstructFromSource::create(
-                Name::fromString($namespacePrefix . self::content($token)),
+            $constructs[] = Classy\ConstructFromSource::create(
+                Classy\Name::fromString($namespacePrefix . self::content($token)),
                 $type,
             );
         }
@@ -187,7 +186,7 @@ final class TokenGetAllConstructFromSourceCollector implements ConstructFromSour
             return $current;
         }
 
-        throw Exception\ShouldNotHappen::create();
+        throw Classy\Exception\ShouldNotHappen::create();
     }
 
     /**
@@ -209,7 +208,7 @@ final class TokenGetAllConstructFromSourceCollector implements ConstructFromSour
             return $current;
         }
 
-        throw Exception\ShouldNotHappen::create();
+        throw Classy\Exception\ShouldNotHappen::create();
     }
 
     /**

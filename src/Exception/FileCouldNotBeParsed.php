@@ -13,12 +13,12 @@ declare(strict_types=1);
 
 namespace Ergebnis\Classy\Exception;
 
-use Ergebnis\Classy\FilePath;
+use Ergebnis\Classy;
 
 final class FileCouldNotBeParsed extends \RuntimeException implements Exception
 {
     public static function atFilePathWithParseError(
-        FilePath $filePath,
+        Classy\FilePath $filePath,
         \ParseError $parseError
     ): self {
         return new self(

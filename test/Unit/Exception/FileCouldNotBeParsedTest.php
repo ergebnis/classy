@@ -13,9 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\Classy\Test\Unit\Exception;
 
-use Ergebnis\Classy\Exception;
-use Ergebnis\Classy\FilePath;
-use Ergebnis\Classy\Test;
+use Ergebnis\Classy;
 use PHPUnit\Framework;
 
 /**
@@ -25,20 +23,20 @@ use PHPUnit\Framework;
  */
 final class FileCouldNotBeParsedTest extends Framework\TestCase
 {
-    use Test\Util\Helper;
+    use Classy\Test\Util\Helper;
 
     public function testAtFilePathWithParseErrorReturnsException(): void
     {
         $faker = self::faker();
 
-        $filePath = FilePath::fromString(\sprintf(
+        $filePath = Classy\FilePath::fromString(\sprintf(
             '%s.%s',
             $faker->slug(),
             $faker->word(),
         ));
         $parseError = new \ParseError($faker->sentence());
 
-        $exception = Exception\FileCouldNotBeParsed::atFilePathWithParseError(
+        $exception = Classy\Exception\FileCouldNotBeParsed::atFilePathWithParseError(
             $filePath,
             $parseError,
         );

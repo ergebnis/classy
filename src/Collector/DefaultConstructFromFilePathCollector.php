@@ -13,11 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\Classy\Collector;
 
-use Ergebnis\Classy\ConstructFromFilePath;
-use Ergebnis\Classy\ConstructFromSource;
-use Ergebnis\Classy\Exception;
-use Ergebnis\Classy\FilePath;
-use Ergebnis\Classy\Source;
+use Ergebnis\Classy;
 
 final class DefaultConstructFromFilePathCollector implements ConstructFromFilePathCollector
 {
@@ -28,34 +24,34 @@ final class DefaultConstructFromFilePathCollector implements ConstructFromFilePa
         $this->constructFromSourceCollector = $constructFromSourceCollector;
     }
 
-    public function collectFromFilePath(FilePath $filePath): array
+    public function collectFromFilePath(Classy\FilePath $filePath): array
     {
         if (!\is_file($filePath->toString())) {
-            throw Exception\FileDoesNotExist::atFilePath($filePath);
+            throw Classy\Exception\FileDoesNotExist::atFilePath($filePath);
         }
 
         $contents = \file_get_contents($filePath->toString());
 
         if (!\is_string($contents)) {
-            throw Exception\FileCouldNotBeRead::atFilePath($filePath);
+            throw Classy\Exception\FileCouldNotBeRead::atFilePath($filePath);
         }
 
-        $source = Source::fromString($contents);
+        $source = Classy\Source::fromString($contents);
 
         try {
             $constructsFromSource = $this->constructFromSourceCollector->collectFromSource($source);
-        } catch (Exception\SourceCouldNotBeParsed $exception) {
+        } catch (Classy\Exception\SourceCouldNotBeParsed $sourceCouldNotBeParsed) {
             /** @var \ParseError $parseError */
-            $parseError = $exception->getPrevious();
+            $parseError = $sourceCouldNotBeParsed->getPrevious();
 
-            throw Exception\FileCouldNotBeParsed::atFilePathWithParseError(
+            throw Classy\Exception\FileCouldNotBeParsed::atFilePathWithParseError(
                 $filePath,
                 $parseError,
             );
         }
 
-        return \array_map(static function (ConstructFromSource $constructFromSource) use ($filePath): ConstructFromFilePath {
-            return ConstructFromFilePath::create(
+        return \array_map(static function (Classy\ConstructFromSource $constructFromSource) use ($filePath): Classy\ConstructFromFilePath {
+            return Classy\ConstructFromFilePath::create(
                 $filePath,
                 $constructFromSource->name(),
                 $constructFromSource->type(),

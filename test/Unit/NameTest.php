@@ -11,8 +11,7 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/classy
  */
 
-use Ergebnis\Classy\Name;
-use Ergebnis\Classy\Test;
+use Ergebnis\Classy;
 use PHPUnit\Framework;
 
 /**
@@ -20,13 +19,13 @@ use PHPUnit\Framework;
  */
 final class NameTest extends Framework\TestCase
 {
-    use Test\Util\Helper;
+    use Classy\Test\Util\Helper;
 
     public function testFromStringReturnsName(): void
     {
         $value = self::faker()->word();
 
-        $name = Name::fromString($value);
+        $name = Classy\Name::fromString($value);
 
         self::assertSame($value, $name->toString());
     }

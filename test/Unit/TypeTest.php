@@ -13,8 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\Classy\Test\Unit;
 
-use Ergebnis\Classy\Test;
-use Ergebnis\Classy\Type;
+use Ergebnis\Classy;
 use PHPUnit\Framework;
 
 /**
@@ -22,48 +21,48 @@ use PHPUnit\Framework;
  */
 final class TypeTest extends Framework\TestCase
 {
-    use Test\Util\Helper;
+    use Classy\Test\Util\Helper;
 
     public function testClassReturnsType(): void
     {
-        $type = Type::class();
+        $type = Classy\Type::class();
 
         self::assertSame('class', $type->toString());
     }
 
     public function testEnumReturnsType(): void
     {
-        $type = Type::enum();
+        $type = Classy\Type::enum();
 
         self::assertSame('enum', $type->toString());
     }
 
     public function testInterfaceReturnsType(): void
     {
-        $type = Type::interface();
+        $type = Classy\Type::interface();
 
         self::assertSame('interface', $type->toString());
     }
 
     public function testTraitReturnsType(): void
     {
-        $type = Type::trait();
+        $type = Classy\Type::trait();
 
         self::assertSame('trait', $type->toString());
     }
 
     public function testEqualsReturnsFalseWhenValuesAreDifferent(): void
     {
-        $one = Type::class();
-        $two = Type::interface();
+        $one = Classy\Type::class();
+        $two = Classy\Type::interface();
 
         self::assertFalse($one->equals($two));
     }
 
     public function testEqualsReturnsTrueWhenValuesAreEqual(): void
     {
-        $one = Type::class();
-        $two = Type::class();
+        $one = Classy\Type::class();
+        $two = Classy\Type::class();
 
         self::assertTrue($one->equals($two));
     }

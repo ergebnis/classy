@@ -13,18 +13,16 @@ declare(strict_types=1);
 
 namespace Ergebnis\Classy\Collector;
 
-use Ergebnis\Classy\ConstructFromSource;
-use Ergebnis\Classy\Exception;
-use Ergebnis\Classy\Source;
+use Ergebnis\Classy;
 
 interface ConstructFromSourceCollector
 {
     /**
      * Returns a list of constructs defined in source code.
      *
-     * @throws Exception\SourceCouldNotBeParsed
+     * @throws Classy\Exception\SourceCouldNotBeParsed
      *
-     * @return list<ConstructFromSource>
+     * @return list<Classy\ConstructFromSource>
      */
-    public function collectFromSource(Source $source): array;
+    public function collectFromSource(Classy\Source $source): array;
 }

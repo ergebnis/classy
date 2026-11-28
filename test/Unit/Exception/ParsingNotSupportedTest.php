@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\Classy\Test\Unit\Exception;
 
-use Ergebnis\Classy\Exception;
+use Ergebnis\Classy;
 use PHPUnit\Framework;
 
 /**
@@ -23,7 +23,7 @@ final class ParsingNotSupportedTest extends Framework\TestCase
 {
     public function testPhp80RequiredReturnsException(): void
     {
-        $exception = Exception\ParsingNotSupported::php80Required();
+        $exception = Classy\Exception\ParsingNotSupported::php80Required();
 
         self::assertSame('Parsing requires PHP 8.0.', $exception->getMessage());
     }

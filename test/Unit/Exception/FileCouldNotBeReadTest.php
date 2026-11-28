@@ -13,9 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\Classy\Test\Unit\Exception;
 
-use Ergebnis\Classy\Exception;
-use Ergebnis\Classy\FilePath;
-use Ergebnis\Classy\Test;
+use Ergebnis\Classy;
 use PHPUnit\Framework;
 
 /**
@@ -25,19 +23,19 @@ use PHPUnit\Framework;
  */
 final class FileCouldNotBeReadTest extends Framework\TestCase
 {
-    use Test\Util\Helper;
+    use Classy\Test\Util\Helper;
 
     public function testAtFilePathReturnsException(): void
     {
         $faker = self::faker();
 
-        $filePath = FilePath::fromString(\sprintf(
+        $filePath = Classy\FilePath::fromString(\sprintf(
             '%s.%s',
             $faker->slug(),
             $faker->word(),
         ));
 
-        $exception = Exception\FileCouldNotBeRead::atFilePath($filePath);
+        $exception = Classy\Exception\FileCouldNotBeRead::atFilePath($filePath);
 
         $message = \sprintf(
             'File "%s" could not be read.',

@@ -13,10 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\Classy\Test\Unit\Collector;
 
-use Ergebnis\Classy\Collector;
-use Ergebnis\Classy\Exception;
-use Ergebnis\Classy\Source;
-use Ergebnis\Classy\Test;
+use Ergebnis\Classy;
 use PHPUnit\Framework;
 
 /**
@@ -35,9 +32,9 @@ final class PhpTokenTokenizeConstructFromSourceCollectorTest extends Framework\T
      */
     public function testConstructorThrowsParsingNotSupportedWhenPhpVersionIsLessThan8(): void
     {
-        $this->expectException(Exception\ParsingNotSupported::class);
+        $this->expectException(Classy\Exception\ParsingNotSupported::class);
 
-        new Collector\PhpTokenTokenizeConstructFromSourceCollector();
+        new Classy\Collector\PhpTokenTokenizeConstructFromSourceCollector();
     }
 
     /**
@@ -45,16 +42,16 @@ final class PhpTokenTokenizeConstructFromSourceCollectorTest extends Framework\T
      */
     public function testCollectFromSourceThrowsSourceCouldNotBeParsedWhenParseErrorIsThrownDuringParsing(): void
     {
-        $source = Source::fromString(<<<'TXT'
+        $source = Classy\Source::fromString(<<<'TXT'
             <?php
 
             final class MessedUp
             {
             TXT);
 
-        $collector = new Collector\PhpTokenTokenizeConstructFromSourceCollector();
+        $collector = new Classy\Collector\PhpTokenTokenizeConstructFromSourceCollector();
 
-        $this->expectException(Exception\SourceCouldNotBeParsed::class);
+        $this->expectException(Classy\Exception\SourceCouldNotBeParsed::class);
 
         $collector->collectFromSource($source);
     }
@@ -64,11 +61,11 @@ final class PhpTokenTokenizeConstructFromSourceCollectorTest extends Framework\T
      *
      * @requires PHP >= 8.0.0
      */
-    public function testCollectFromSourceReturnsEmptyArrayWhenNoClassyConstructsHaveBeenFound(Test\Util\Scenario $scenario): void
+    public function testCollectFromSourceReturnsEmptyArrayWhenNoClassyConstructsHaveBeenFound(Classy\Test\Util\Scenario $scenario): void
     {
-        $source = Source::fromString($scenario->source());
+        $source = Classy\Source::fromString($scenario->source());
 
-        $collector = new Collector\PhpTokenTokenizeConstructFromSourceCollector();
+        $collector = new Classy\Collector\PhpTokenTokenizeConstructFromSourceCollector();
 
         $constructs = $collector->collectFromSource($source);
 
@@ -80,11 +77,11 @@ final class PhpTokenTokenizeConstructFromSourceCollectorTest extends Framework\T
      *
      * @requires PHP >= 8.0.0
      */
-    public function testCollectFromSourceReturnsArrayWithConstructsFromSourceOnPhp80(Test\Util\Scenario $scenario): void
+    public function testCollectFromSourceReturnsArrayWithConstructsFromSourceOnPhp80(Classy\Test\Util\Scenario $scenario): void
     {
-        $source = Source::fromString($scenario->source());
+        $source = Classy\Source::fromString($scenario->source());
 
-        $collector = new Collector\PhpTokenTokenizeConstructFromSourceCollector();
+        $collector = new Classy\Collector\PhpTokenTokenizeConstructFromSourceCollector();
 
         $constructs = $collector->collectFromSource($source);
 
@@ -96,11 +93,11 @@ final class PhpTokenTokenizeConstructFromSourceCollectorTest extends Framework\T
      *
      * @requires PHP >= 8.1.0
      */
-    public function testCollectFromSourceReturnsArrayWithConstructsFromSourceOnPhp81(Test\Util\Scenario $scenario): void
+    public function testCollectFromSourceReturnsArrayWithConstructsFromSourceOnPhp81(Classy\Test\Util\Scenario $scenario): void
     {
-        $source = Source::fromString($scenario->source());
+        $source = Classy\Source::fromString($scenario->source());
 
-        $collector = new Collector\PhpTokenTokenizeConstructFromSourceCollector();
+        $collector = new Classy\Collector\PhpTokenTokenizeConstructFromSourceCollector();
 
         $constructs = $collector->collectFromSource($source);
 

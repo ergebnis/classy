@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\Classy\Test\Unit\Exception;
 
-use Ergebnis\Classy\Exception;
+use Ergebnis\Classy;
 use PHPUnit\Framework;
 
 /**
@@ -23,7 +23,7 @@ final class InvalidFilePathTest extends Framework\TestCase
 {
     public function testBlankOrEmptyReturnsException(): void
     {
-        $exception = Exception\InvalidFilePath::blankOrEmpty();
+        $exception = Classy\Exception\InvalidFilePath::blankOrEmpty();
 
         self::assertSame('File path can not be blank or empty.', $exception->getMessage());
     }
