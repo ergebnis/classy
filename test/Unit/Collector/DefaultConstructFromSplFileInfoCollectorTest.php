@@ -13,11 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\Classy\Test\Unit\Collector;
 
-use Ergebnis\Classy\Collector;
-use Ergebnis\Classy\ConstructFromSource;
-use Ergebnis\Classy\ConstructFromSplFileInfo;
-use Ergebnis\Classy\Exception;
-use Ergebnis\Classy\Test;
+use Ergebnis\Classy;
 use PHPUnit\Framework;
 
 /**
@@ -38,7 +34,7 @@ use PHPUnit\Framework;
  */
 final class DefaultConstructFromSplFileInfoCollectorTest extends Framework\TestCase
 {
-    use Test\Util\Helper;
+    use Classy\Test\Util\Helper;
 
     protected function setUp(): void
     {
@@ -57,9 +53,9 @@ final class DefaultConstructFromSplFileInfoCollectorTest extends Framework\TestC
             self::temporaryDirectory(),
         ));
 
-        $collector = new Collector\DefaultConstructFromSplFileInfoCollector(new Collector\TokenGetAllConstructFromSourceCollector());
+        $collector = new Classy\Collector\DefaultConstructFromSplFileInfoCollector(new Classy\Collector\TokenGetAllConstructFromSourceCollector());
 
-        $this->expectException(Exception\FileDoesNotExist::class);
+        $this->expectException(Classy\Exception\FileDoesNotExist::class);
 
         $collector->collectFromSplFileInfo($splFileInfo);
     }
@@ -75,9 +71,9 @@ final class DefaultConstructFromSplFileInfoCollectorTest extends Framework\TestC
 
         $splFileInfo = new \SplFileInfo($file);
 
-        $collector = new Collector\DefaultConstructFromSplFileInfoCollector(new Collector\TokenGetAllConstructFromSourceCollector());
+        $collector = new Classy\Collector\DefaultConstructFromSplFileInfoCollector(new Classy\Collector\TokenGetAllConstructFromSourceCollector());
 
-        $this->expectException(Exception\FileDoesNotExist::class);
+        $this->expectException(Classy\Exception\FileDoesNotExist::class);
 
         $collector->collectFromSplFileInfo($splFileInfo);
     }
@@ -93,9 +89,9 @@ final class DefaultConstructFromSplFileInfoCollectorTest extends Framework\TestC
 
         $splFileInfo = self::splFileInfoWithSource($source);
 
-        $collector = new Collector\DefaultConstructFromSplFileInfoCollector(new Collector\TokenGetAllConstructFromSourceCollector());
+        $collector = new Classy\Collector\DefaultConstructFromSplFileInfoCollector(new Classy\Collector\TokenGetAllConstructFromSourceCollector());
 
-        $this->expectException(Exception\FileCouldNotBeParsed::class);
+        $this->expectException(Classy\Exception\FileCouldNotBeParsed::class);
 
         $collector->collectFromSplFileInfo($splFileInfo);
     }
@@ -103,11 +99,11 @@ final class DefaultConstructFromSplFileInfoCollectorTest extends Framework\TestC
     /**
      * @dataProvider \Ergebnis\Classy\Test\DataProvider\Any::noClassyConstructs
      */
-    public function testCollectFromSplFileInfoReturnsEmptyArrayWhenNoClassyConstructsHaveBeenFound(Test\Util\Scenario $scenario): void
+    public function testCollectFromSplFileInfoReturnsEmptyArrayWhenNoClassyConstructsHaveBeenFound(Classy\Test\Util\Scenario $scenario): void
     {
         $splFileInfo = self::splFileInfoWithSource($scenario->source());
 
-        $collector = new Collector\DefaultConstructFromSplFileInfoCollector(new Collector\TokenGetAllConstructFromSourceCollector());
+        $collector = new Classy\Collector\DefaultConstructFromSplFileInfoCollector(new Classy\Collector\TokenGetAllConstructFromSourceCollector());
 
         $constructs = $collector->collectFromSplFileInfo($splFileInfo);
 
@@ -119,16 +115,16 @@ final class DefaultConstructFromSplFileInfoCollectorTest extends Framework\TestC
      *
      * @requires PHP >= 7.3.0
      */
-    public function testCollectFromSplFileInfoReturnsArrayWithConstructsFromSplFileInfoOnPhp73(Test\Util\Scenario $scenario): void
+    public function testCollectFromSplFileInfoReturnsArrayWithConstructsFromSplFileInfoOnPhp73(Classy\Test\Util\Scenario $scenario): void
     {
         $splFileInfo = self::splFileInfoWithSource($scenario->source());
 
-        $collector = new Collector\DefaultConstructFromSplFileInfoCollector(new Collector\TokenGetAllConstructFromSourceCollector());
+        $collector = new Classy\Collector\DefaultConstructFromSplFileInfoCollector(new Classy\Collector\TokenGetAllConstructFromSourceCollector());
 
         $constructs = $collector->collectFromSplFileInfo($splFileInfo);
 
-        $expectedConstructs = \array_map(static function (ConstructFromSource $constructFromSource) use ($splFileInfo): ConstructFromSplFileInfo {
-            return ConstructFromSplFileInfo::create(
+        $expectedConstructs = \array_map(static function (Classy\ConstructFromSource $constructFromSource) use ($splFileInfo): Classy\ConstructFromSplFileInfo {
+            return Classy\ConstructFromSplFileInfo::create(
                 $splFileInfo,
                 $constructFromSource->name(),
                 $constructFromSource->type(),
@@ -143,16 +139,16 @@ final class DefaultConstructFromSplFileInfoCollectorTest extends Framework\TestC
      *
      * @requires PHP >= 7.4.0
      */
-    public function testCollectFromSplFileInfoReturnsArrayWithConstructsFromSplFileInfoOnPhp74(Test\Util\Scenario $scenario): void
+    public function testCollectFromSplFileInfoReturnsArrayWithConstructsFromSplFileInfoOnPhp74(Classy\Test\Util\Scenario $scenario): void
     {
         $splFileInfo = self::splFileInfoWithSource($scenario->source());
 
-        $collector = new Collector\DefaultConstructFromSplFileInfoCollector(new Collector\TokenGetAllConstructFromSourceCollector());
+        $collector = new Classy\Collector\DefaultConstructFromSplFileInfoCollector(new Classy\Collector\TokenGetAllConstructFromSourceCollector());
 
         $constructs = $collector->collectFromSplFileInfo($splFileInfo);
 
-        $expectedConstructs = \array_map(static function (ConstructFromSource $constructFromSource) use ($splFileInfo): ConstructFromSplFileInfo {
-            return ConstructFromSplFileInfo::create(
+        $expectedConstructs = \array_map(static function (Classy\ConstructFromSource $constructFromSource) use ($splFileInfo): Classy\ConstructFromSplFileInfo {
+            return Classy\ConstructFromSplFileInfo::create(
                 $splFileInfo,
                 $constructFromSource->name(),
                 $constructFromSource->type(),
@@ -167,16 +163,16 @@ final class DefaultConstructFromSplFileInfoCollectorTest extends Framework\TestC
      *
      * @requires PHP >= 8.0.0
      */
-    public function testCollectFromSplFileInfoReturnsArrayWithConstructsFromSplFileInfoOnPhp80(Test\Util\Scenario $scenario): void
+    public function testCollectFromSplFileInfoReturnsArrayWithConstructsFromSplFileInfoOnPhp80(Classy\Test\Util\Scenario $scenario): void
     {
         $splFileInfo = self::splFileInfoWithSource($scenario->source());
 
-        $collector = new Collector\DefaultConstructFromSplFileInfoCollector(new Collector\TokenGetAllConstructFromSourceCollector());
+        $collector = new Classy\Collector\DefaultConstructFromSplFileInfoCollector(new Classy\Collector\TokenGetAllConstructFromSourceCollector());
 
         $constructs = $collector->collectFromSplFileInfo($splFileInfo);
 
-        $expectedConstructs = \array_map(static function (ConstructFromSource $constructFromSource) use ($splFileInfo): ConstructFromSplFileInfo {
-            return ConstructFromSplFileInfo::create(
+        $expectedConstructs = \array_map(static function (Classy\ConstructFromSource $constructFromSource) use ($splFileInfo): Classy\ConstructFromSplFileInfo {
+            return Classy\ConstructFromSplFileInfo::create(
                 $splFileInfo,
                 $constructFromSource->name(),
                 $constructFromSource->type(),
@@ -191,16 +187,16 @@ final class DefaultConstructFromSplFileInfoCollectorTest extends Framework\TestC
      *
      * @requires PHP >= 8.1.0
      */
-    public function testCollectFromSplFileInfoReturnsArrayWithConstructsFromSplFileInfoOnPhp81(Test\Util\Scenario $scenario): void
+    public function testCollectFromSplFileInfoReturnsArrayWithConstructsFromSplFileInfoOnPhp81(Classy\Test\Util\Scenario $scenario): void
     {
         $splFileInfo = self::splFileInfoWithSource($scenario->source());
 
-        $collector = new Collector\DefaultConstructFromSplFileInfoCollector(new Collector\TokenGetAllConstructFromSourceCollector());
+        $collector = new Classy\Collector\DefaultConstructFromSplFileInfoCollector(new Classy\Collector\TokenGetAllConstructFromSourceCollector());
 
         $constructs = $collector->collectFromSplFileInfo($splFileInfo);
 
-        $expectedConstructs = \array_map(static function (ConstructFromSource $constructFromSource) use ($splFileInfo): ConstructFromSplFileInfo {
-            return ConstructFromSplFileInfo::create(
+        $expectedConstructs = \array_map(static function (Classy\ConstructFromSource $constructFromSource) use ($splFileInfo): Classy\ConstructFromSplFileInfo {
+            return Classy\ConstructFromSplFileInfo::create(
                 $splFileInfo,
                 $constructFromSource->name(),
                 $constructFromSource->type(),

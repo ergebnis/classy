@@ -11,10 +11,7 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/classy
  */
 
-use Ergebnis\Classy\ConstructFromSplFileInfo;
-use Ergebnis\Classy\Name;
-use Ergebnis\Classy\Test;
-use Ergebnis\Classy\Type;
+use Ergebnis\Classy;
 use PHPUnit\Framework;
 
 /**
@@ -25,24 +22,24 @@ use PHPUnit\Framework;
  */
 final class ConstructFromSplFileInfoTest extends Framework\TestCase
 {
-    use Test\Util\Helper;
+    use Classy\Test\Util\Helper;
 
     public function testCreateReturnsConstructFromSplFileInfo(): void
     {
         $faker = self::faker();
 
         $splFileInfo = new \SplFileInfo(__FILE__);
-        $name = Name::fromString($faker->word());
+        $name = Classy\Name::fromString($faker->word());
 
-        /** @var Type $type */
+        /** @var Classy\Type $type */
         $type = $faker->randomElement([
-            Type::class(),
-            Type::enum(),
-            Type::interface(),
-            Type::trait(),
+            Classy\Type::class(),
+            Classy\Type::enum(),
+            Classy\Type::interface(),
+            Classy\Type::trait(),
         ]);
 
-        $construct = ConstructFromSplFileInfo::create(
+        $construct = Classy\ConstructFromSplFileInfo::create(
             $splFileInfo,
             $name,
             $type,

@@ -13,19 +13,18 @@ declare(strict_types=1);
 
 namespace Ergebnis\Classy\Collector;
 
-use Ergebnis\Classy\ConstructFromSplFileInfo;
-use Ergebnis\Classy\Exception;
+use Ergebnis\Classy;
 
 interface ConstructFromSplFileInfoCollector
 {
     /**
      * Returns a list of constructs defined in the file located at the path a file.
      *
-     * @throws Exception\FileDoesNotExist
-     * @throws Exception\FileCouldNotBeRead
-     * @throws Exception\FileCouldNotBeParsed
+     * @throws Classy\Exception\FileDoesNotExist
+     * @throws Classy\Exception\FileCouldNotBeRead
+     * @throws Classy\Exception\FileCouldNotBeParsed
      *
-     * @return list<ConstructFromSplFileInfo>
+     * @return list<Classy\ConstructFromSplFileInfo>
      */
     public function collectFromSplFileInfo(\SplFileInfo $splFileInfo): array;
 }

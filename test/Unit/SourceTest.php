@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/classy
  */
 
-use Ergebnis\Classy\Source;
+use Ergebnis\Classy;
 use PHPUnit\Framework;
 
 /**
@@ -35,7 +35,7 @@ final class SourceTest extends Framework\TestCase
             trait Qux {}
             PHP;
 
-        $source = Source::fromString($value);
+        $source = Classy\Source::fromString($value);
 
         self::assertSame($value, $source->toString());
     }

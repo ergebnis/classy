@@ -13,10 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\Classy\Test\Unit\Collector;
 
-use Ergebnis\Classy\Collector;
-use Ergebnis\Classy\Exception;
-use Ergebnis\Classy\Source;
-use Ergebnis\Classy\Test;
+use Ergebnis\Classy;
 use PHPUnit\Framework;
 
 /**
@@ -32,16 +29,16 @@ final class TokenGetAllConstructFromSourceCollectorTest extends Framework\TestCa
 {
     public function testCollectFromSourceThrowsSourceCouldNotBeParsedWhenParseErrorIsThrownDuringParsing(): void
     {
-        $source = Source::fromString(<<<'TXT'
+        $source = Classy\Source::fromString(<<<'TXT'
             <?php
 
             final class MessedUp
             {
             TXT);
 
-        $collector = new Collector\TokenGetAllConstructFromSourceCollector();
+        $collector = new Classy\Collector\TokenGetAllConstructFromSourceCollector();
 
-        $this->expectException(Exception\SourceCouldNotBeParsed::class);
+        $this->expectException(Classy\Exception\SourceCouldNotBeParsed::class);
 
         $collector->collectFromSource($source);
     }
@@ -49,11 +46,11 @@ final class TokenGetAllConstructFromSourceCollectorTest extends Framework\TestCa
     /**
      * @dataProvider \Ergebnis\Classy\Test\DataProvider\Any::noClassyConstructs
      */
-    public function testCollectFromSourceReturnsEmptyArrayWhenNoClassyConstructsHaveBeenFound(Test\Util\Scenario $scenario): void
+    public function testCollectFromSourceReturnsEmptyArrayWhenNoClassyConstructsHaveBeenFound(Classy\Test\Util\Scenario $scenario): void
     {
-        $source = Source::fromString($scenario->source());
+        $source = Classy\Source::fromString($scenario->source());
 
-        $collector = new Collector\TokenGetAllConstructFromSourceCollector();
+        $collector = new Classy\Collector\TokenGetAllConstructFromSourceCollector();
 
         $constructs = $collector->collectFromSource($source);
 
@@ -65,11 +62,11 @@ final class TokenGetAllConstructFromSourceCollectorTest extends Framework\TestCa
      *
      * @requires PHP >= 7.3.0
      */
-    public function testCollectFromSourceReturnsArrayWithConstructsFromSourceOnPhp73(Test\Util\Scenario $scenario): void
+    public function testCollectFromSourceReturnsArrayWithConstructsFromSourceOnPhp73(Classy\Test\Util\Scenario $scenario): void
     {
-        $source = Source::fromString($scenario->source());
+        $source = Classy\Source::fromString($scenario->source());
 
-        $collector = new Collector\TokenGetAllConstructFromSourceCollector();
+        $collector = new Classy\Collector\TokenGetAllConstructFromSourceCollector();
 
         $constructs = $collector->collectFromSource($source);
 
@@ -81,11 +78,11 @@ final class TokenGetAllConstructFromSourceCollectorTest extends Framework\TestCa
      *
      * @requires PHP >= 7.4.0
      */
-    public function testCollectFromSourceReturnsArrayWithConstructsFromSourceOnPhp74(Test\Util\Scenario $scenario): void
+    public function testCollectFromSourceReturnsArrayWithConstructsFromSourceOnPhp74(Classy\Test\Util\Scenario $scenario): void
     {
-        $source = Source::fromString($scenario->source());
+        $source = Classy\Source::fromString($scenario->source());
 
-        $collector = new Collector\TokenGetAllConstructFromSourceCollector();
+        $collector = new Classy\Collector\TokenGetAllConstructFromSourceCollector();
 
         $constructs = $collector->collectFromSource($source);
 
@@ -97,11 +94,11 @@ final class TokenGetAllConstructFromSourceCollectorTest extends Framework\TestCa
      *
      * @requires PHP >= 8.0.0
      */
-    public function testCollectFromSourceReturnsArrayWithConstructsFromSourceOnPhp80(Test\Util\Scenario $scenario): void
+    public function testCollectFromSourceReturnsArrayWithConstructsFromSourceOnPhp80(Classy\Test\Util\Scenario $scenario): void
     {
-        $source = Source::fromString($scenario->source());
+        $source = Classy\Source::fromString($scenario->source());
 
-        $collector = new Collector\TokenGetAllConstructFromSourceCollector();
+        $collector = new Classy\Collector\TokenGetAllConstructFromSourceCollector();
 
         $constructs = $collector->collectFromSource($source);
 
@@ -113,11 +110,11 @@ final class TokenGetAllConstructFromSourceCollectorTest extends Framework\TestCa
      *
      * @requires PHP >= 8.1.0
      */
-    public function testCollectFromSourceReturnsArrayWithConstructsFromSourceOnPhp81(Test\Util\Scenario $scenario): void
+    public function testCollectFromSourceReturnsArrayWithConstructsFromSourceOnPhp81(Classy\Test\Util\Scenario $scenario): void
     {
-        $source = Source::fromString($scenario->source());
+        $source = Classy\Source::fromString($scenario->source());
 
-        $collector = new Collector\TokenGetAllConstructFromSourceCollector();
+        $collector = new Classy\Collector\TokenGetAllConstructFromSourceCollector();
 
         $constructs = $collector->collectFromSource($source);
 

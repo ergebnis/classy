@@ -13,11 +13,11 @@ declare(strict_types=1);
 
 namespace Ergebnis\Classy\Exception;
 
-use Ergebnis\Classy\FilePath;
+use Ergebnis\Classy;
 
 final class FileDoesNotExist extends \InvalidArgumentException implements Exception
 {
-    public static function atFilePath(FilePath $filePath): self
+    public static function atFilePath(Classy\FilePath $filePath): self
     {
         return new self(\sprintf(
             'File "%s" does not exist.',

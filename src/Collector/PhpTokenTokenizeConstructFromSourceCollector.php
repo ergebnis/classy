@@ -13,11 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\Classy\Collector;
 
-use Ergebnis\Classy\ConstructFromSource;
-use Ergebnis\Classy\Exception;
-use Ergebnis\Classy\Name;
-use Ergebnis\Classy\Source;
-use Ergebnis\Classy\Type;
+use Ergebnis\Classy;
 
 final class PhpTokenTokenizeConstructFromSourceCollector implements ConstructFromSourceCollector
 {
@@ -31,20 +27,20 @@ final class PhpTokenTokenizeConstructFromSourceCollector implements ConstructFro
     ];
 
     /**
-     * @var array<int, Type>
+     * @var array<int, Classy\Type>
      */
     private array $classyTokenKindToType;
 
     public function __construct()
     {
         if (\PHP_VERSION_ID <= 80000) {
-            throw Exception\ParsingNotSupported::php80Required();
+            throw Classy\Exception\ParsingNotSupported::php80Required();
         }
 
         $classyTokenKindToType = [
-            \T_CLASS => Type::class(),
-            \T_INTERFACE => Type::interface(),
-            \T_TRAIT => Type::trait(),
+            \T_CLASS => Classy\Type::class(),
+            \T_INTERFACE => Classy\Type::interface(),
+            \T_TRAIT => Classy\Type::trait(),
         ];
 
         /**
@@ -55,17 +51,20 @@ final class PhpTokenTokenizeConstructFromSourceCollector implements ConstructFro
             && \defined('T_ENUM')
         ) {
             $classyTokenKindToType = [
-                \T_CLASS => Type::class(),
-                \T_ENUM => Type::enum(),
-                \T_INTERFACE => Type::interface(),
-                \T_TRAIT => Type::trait(),
+                \T_CLASS => Classy\Type::class(),
+                \T_ENUM => Classy\Type::enum(),
+                \T_INTERFACE => Classy\Type::interface(),
+                \T_TRAIT => Classy\Type::trait(),
             ];
         }
 
         $this->classyTokenKindToType = $classyTokenKindToType;
     }
 
-    public function collectFromSource(Source $source): array
+    /**
+     * @return Classy\ConstructFromSource[]
+     */
+    public function collectFromSource(Classy\Source $source): array
     {
         try {
             $sequence = \PhpToken::tokenize(
@@ -73,7 +72,7 @@ final class PhpTokenTokenizeConstructFromSourceCollector implements ConstructFro
                 \TOKEN_PARSE,
             );
         } catch (\ParseError $parseError) {
-            throw Exception\SourceCouldNotBeParsed::withParseError($parseError);
+            throw Classy\Exception\SourceCouldNotBeParsed::withParseError($parseError);
         }
 
         $namespacePrefix = '';
@@ -137,8 +136,8 @@ final class PhpTokenTokenizeConstructFromSourceCollector implements ConstructFro
 
             $token = $sequence[$index];
 
-            $constructs[] = ConstructFromSource::create(
-                Name::fromString($namespacePrefix . $token->text),
+            $constructs[] = Classy\ConstructFromSource::create(
+                Classy\Name::fromString($namespacePrefix . $token->text),
                 $type,
             );
         }
@@ -166,7 +165,7 @@ final class PhpTokenTokenizeConstructFromSourceCollector implements ConstructFro
             return $current;
         }
 
-        throw Exception\ShouldNotHappen::create();
+        throw Classy\Exception\ShouldNotHappen::create();
     }
 
     /**
@@ -188,6 +187,6 @@ final class PhpTokenTokenizeConstructFromSourceCollector implements ConstructFro
             return $current;
         }
 
-        throw Exception\ShouldNotHappen::create();
+        throw Classy\Exception\ShouldNotHappen::create();
     }
 }

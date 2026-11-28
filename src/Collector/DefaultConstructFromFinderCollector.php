@@ -13,11 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\Classy\Collector;
 
-use Ergebnis\Classy\ConstructFromSource;
-use Ergebnis\Classy\ConstructFromSplFileInfo;
-use Ergebnis\Classy\Exception;
-use Ergebnis\Classy\FilePath;
-use Ergebnis\Classy\Source;
+use Ergebnis\Classy;
 
 final class DefaultConstructFromFinderCollector implements ConstructFromFinderCollector
 {
@@ -37,7 +33,7 @@ final class DefaultConstructFromFinderCollector implements ConstructFromFinderCo
                 continue;
             }
 
-            $filePath = FilePath::fromString($splFileInfo->getPathname());
+            $filePath = Classy\FilePath::fromString($splFileInfo->getPathname());
 
             $contents = \file_get_contents($filePath->toString());
 
@@ -45,15 +41,15 @@ final class DefaultConstructFromFinderCollector implements ConstructFromFinderCo
                 continue;
             }
 
-            $source = Source::fromString($contents);
+            $source = Classy\Source::fromString($contents);
 
             try {
                 $constructsFromSource = $this->constructFromSourceCollector->collectFromSource($source);
-            } catch (Exception\SourceCouldNotBeParsed $exception) {
+            } catch (Classy\Exception\SourceCouldNotBeParsed $exception) {
                 /** @var \ParseError $parseError */
                 $parseError = $exception->getPrevious();
 
-                throw Exception\FileCouldNotBeParsed::atFilePathWithParseError(
+                throw Classy\Exception\FileCouldNotBeParsed::atFilePathWithParseError(
                     $filePath,
                     $parseError,
                 );
@@ -61,8 +57,8 @@ final class DefaultConstructFromFinderCollector implements ConstructFromFinderCo
 
             \array_push(
                 $constructs,
-                ...\array_map(static function (ConstructFromSource $constructFromSource) use ($splFileInfo): ConstructFromSplFileInfo {
-                    return ConstructFromSplFileInfo::create(
+                ...\array_map(static function (Classy\ConstructFromSource $constructFromSource) use ($splFileInfo): Classy\ConstructFromSplFileInfo {
+                    return Classy\ConstructFromSplFileInfo::create(
                         $splFileInfo,
                         $constructFromSource->name(),
                         $constructFromSource->type(),

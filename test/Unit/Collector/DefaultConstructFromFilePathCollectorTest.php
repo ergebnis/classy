@@ -13,12 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\Classy\Test\Unit\Collector;
 
-use Ergebnis\Classy\Collector;
-use Ergebnis\Classy\ConstructFromFilePath;
-use Ergebnis\Classy\ConstructFromSource;
-use Ergebnis\Classy\Exception;
-use Ergebnis\Classy\FilePath;
-use Ergebnis\Classy\Test;
+use Ergebnis\Classy;
 use PHPUnit\Framework;
 
 /**
@@ -37,7 +32,7 @@ use PHPUnit\Framework;
  */
 final class DefaultConstructFromFilePathCollectorTest extends Framework\TestCase
 {
-    use Test\Util\Helper;
+    use Classy\Test\Util\Helper;
 
     protected function setUp(): void
     {
@@ -51,14 +46,14 @@ final class DefaultConstructFromFilePathCollectorTest extends Framework\TestCase
 
     public function testCollectFromFilePathThrowsFileDoesNotExistWhenFileDoesNotExist(): void
     {
-        $filePath = FilePath::fromString(\sprintf(
+        $filePath = Classy\FilePath::fromString(\sprintf(
             '%s/does-not-exist',
             self::temporaryDirectory(),
         ));
 
-        $collector = new Collector\DefaultConstructFromFilePathCollector(new Collector\TokenGetAllConstructFromSourceCollector());
+        $collector = new Classy\Collector\DefaultConstructFromFilePathCollector(new Classy\Collector\TokenGetAllConstructFromSourceCollector());
 
-        $this->expectException(Exception\FileDoesNotExist::class);
+        $this->expectException(Classy\Exception\FileDoesNotExist::class);
 
         $collector->collectFromFilePath($filePath);
     }
@@ -74,9 +69,9 @@ final class DefaultConstructFromFilePathCollectorTest extends Framework\TestCase
 
         $filePath = self::filePathWithSource($source);
 
-        $collector = new Collector\DefaultConstructFromFilePathCollector(new Collector\TokenGetAllConstructFromSourceCollector());
+        $collector = new Classy\Collector\DefaultConstructFromFilePathCollector(new Classy\Collector\TokenGetAllConstructFromSourceCollector());
 
-        $this->expectException(Exception\FileCouldNotBeParsed::class);
+        $this->expectException(Classy\Exception\FileCouldNotBeParsed::class);
 
         $collector->collectFromFilePath($filePath);
     }
@@ -84,11 +79,11 @@ final class DefaultConstructFromFilePathCollectorTest extends Framework\TestCase
     /**
      * @dataProvider \Ergebnis\Classy\Test\DataProvider\Any::noClassyConstructs
      */
-    public function testCollectFromFilePathReturnsEmptyArrayWhenNoClassyConstructsHaveBeenFound(Test\Util\Scenario $scenario): void
+    public function testCollectFromFilePathReturnsEmptyArrayWhenNoClassyConstructsHaveBeenFound(Classy\Test\Util\Scenario $scenario): void
     {
         $filePath = self::filePathWithSource($scenario->source());
 
-        $collector = new Collector\DefaultConstructFromFilePathCollector(new Collector\TokenGetAllConstructFromSourceCollector());
+        $collector = new Classy\Collector\DefaultConstructFromFilePathCollector(new Classy\Collector\TokenGetAllConstructFromSourceCollector());
 
         $constructs = $collector->collectFromFilePath($filePath);
 
@@ -100,16 +95,16 @@ final class DefaultConstructFromFilePathCollectorTest extends Framework\TestCase
      *
      * @requires PHP >= 7.3.0
      */
-    public function testCollectFromFilePathReturnsArrayWithConstructsFromFilePathOnPhp73(Test\Util\Scenario $scenario): void
+    public function testCollectFromFilePathReturnsArrayWithConstructsFromFilePathOnPhp73(Classy\Test\Util\Scenario $scenario): void
     {
         $filePath = self::filePathWithSource($scenario->source());
 
-        $collector = new Collector\DefaultConstructFromFilePathCollector(new Collector\TokenGetAllConstructFromSourceCollector());
+        $collector = new Classy\Collector\DefaultConstructFromFilePathCollector(new Classy\Collector\TokenGetAllConstructFromSourceCollector());
 
         $constructs = $collector->collectFromFilePath($filePath);
 
-        $expectedConstructs = \array_map(static function (ConstructFromSource $constructFromSource) use ($filePath): ConstructFromFilePath {
-            return ConstructFromFilePath::create(
+        $expectedConstructs = \array_map(static function (Classy\ConstructFromSource $constructFromSource) use ($filePath): Classy\ConstructFromFilePath {
+            return Classy\ConstructFromFilePath::create(
                 $filePath,
                 $constructFromSource->name(),
                 $constructFromSource->type(),
@@ -124,16 +119,16 @@ final class DefaultConstructFromFilePathCollectorTest extends Framework\TestCase
      *
      * @requires PHP >= 7.4.0
      */
-    public function testCollectFromFilePathReturnsArrayWithConstructsFromFilePathOnPhp74(Test\Util\Scenario $scenario): void
+    public function testCollectFromFilePathReturnsArrayWithConstructsFromFilePathOnPhp74(Classy\Test\Util\Scenario $scenario): void
     {
         $filePath = self::filePathWithSource($scenario->source());
 
-        $collector = new Collector\DefaultConstructFromFilePathCollector(new Collector\TokenGetAllConstructFromSourceCollector());
+        $collector = new Classy\Collector\DefaultConstructFromFilePathCollector(new Classy\Collector\TokenGetAllConstructFromSourceCollector());
 
         $constructs = $collector->collectFromFilePath($filePath);
 
-        $expectedConstructs = \array_map(static function (ConstructFromSource $constructFromSource) use ($filePath): ConstructFromFilePath {
-            return ConstructFromFilePath::create(
+        $expectedConstructs = \array_map(static function (Classy\ConstructFromSource $constructFromSource) use ($filePath): Classy\ConstructFromFilePath {
+            return Classy\ConstructFromFilePath::create(
                 $filePath,
                 $constructFromSource->name(),
                 $constructFromSource->type(),
@@ -148,16 +143,16 @@ final class DefaultConstructFromFilePathCollectorTest extends Framework\TestCase
      *
      * @requires PHP >= 8.0.0
      */
-    public function testCollectFromFilePathReturnsArrayWithConstructsFromFilePathOnPhp80(Test\Util\Scenario $scenario): void
+    public function testCollectFromFilePathReturnsArrayWithConstructsFromFilePathOnPhp80(Classy\Test\Util\Scenario $scenario): void
     {
         $filePath = self::filePathWithSource($scenario->source());
 
-        $collector = new Collector\DefaultConstructFromFilePathCollector(new Collector\TokenGetAllConstructFromSourceCollector());
+        $collector = new Classy\Collector\DefaultConstructFromFilePathCollector(new Classy\Collector\TokenGetAllConstructFromSourceCollector());
 
         $constructs = $collector->collectFromFilePath($filePath);
 
-        $expectedConstructs = \array_map(static function (ConstructFromSource $constructFromSource) use ($filePath): ConstructFromFilePath {
-            return ConstructFromFilePath::create(
+        $expectedConstructs = \array_map(static function (Classy\ConstructFromSource $constructFromSource) use ($filePath): Classy\ConstructFromFilePath {
+            return Classy\ConstructFromFilePath::create(
                 $filePath,
                 $constructFromSource->name(),
                 $constructFromSource->type(),
@@ -172,16 +167,16 @@ final class DefaultConstructFromFilePathCollectorTest extends Framework\TestCase
      *
      * @requires PHP >= 8.1.0
      */
-    public function testCollectFromFilePathReturnsArrayWithConstructsFromFilePathOnPhp81(Test\Util\Scenario $scenario): void
+    public function testCollectFromFilePathReturnsArrayWithConstructsFromFilePathOnPhp81(Classy\Test\Util\Scenario $scenario): void
     {
         $filePath = self::filePathWithSource($scenario->source());
 
-        $collector = new Collector\DefaultConstructFromFilePathCollector(new Collector\TokenGetAllConstructFromSourceCollector());
+        $collector = new Classy\Collector\DefaultConstructFromFilePathCollector(new Classy\Collector\TokenGetAllConstructFromSourceCollector());
 
         $constructs = $collector->collectFromFilePath($filePath);
 
-        $expectedConstructs = \array_map(static function (ConstructFromSource $constructFromSource) use ($filePath): ConstructFromFilePath {
-            return ConstructFromFilePath::create(
+        $expectedConstructs = \array_map(static function (Classy\ConstructFromSource $constructFromSource) use ($filePath): Classy\ConstructFromFilePath {
+            return Classy\ConstructFromFilePath::create(
                 $filePath,
                 $constructFromSource->name(),
                 $constructFromSource->type(),
@@ -191,9 +186,9 @@ final class DefaultConstructFromFilePathCollectorTest extends Framework\TestCase
         self::assertEquals($expectedConstructs, $constructs);
     }
 
-    private static function filePathWithSource(string $source): FilePath
+    private static function filePathWithSource(string $source): Classy\FilePath
     {
-        $filePath = FilePath::fromString(\sprintf(
+        $filePath = Classy\FilePath::fromString(\sprintf(
             '%s/source.php',
             self::temporaryDirectory(),
         ));

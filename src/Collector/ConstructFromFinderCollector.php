@@ -13,8 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\Classy\Collector;
 
-use Ergebnis\Classy\ConstructFromSplFileInfo;
-use Ergebnis\Classy\Exception;
+use Ergebnis\Classy;
 
 interface ConstructFromFinderCollector
 {
@@ -23,9 +22,9 @@ interface ConstructFromFinderCollector
      *
      * @param iterable<\SplFileInfo> $finder
      *
-     * @throws Exception\FileCouldNotBeParsed
+     * @throws Classy\Exception\FileCouldNotBeParsed
      *
-     * @return list<ConstructFromSplFileInfo>
+     * @return list<Classy\ConstructFromSplFileInfo>
      */
     public function collectFromFinder(iterable $finder): array;
 }

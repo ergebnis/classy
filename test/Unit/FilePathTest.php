@@ -11,9 +11,7 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/classy
  */
 
-use Ergebnis\Classy\Exception;
-use Ergebnis\Classy\FilePath;
-use Ergebnis\Classy\Test;
+use Ergebnis\Classy;
 use PHPUnit\Framework;
 
 /**
@@ -23,7 +21,7 @@ use PHPUnit\Framework;
  */
 final class FilePathTest extends Framework\TestCase
 {
-    use Test\Util\Helper;
+    use Classy\Test\Util\Helper;
 
     /**
      * @dataProvider \Ergebnis\DataProvider\StringProvider::blank
@@ -31,16 +29,16 @@ final class FilePathTest extends Framework\TestCase
      */
     public function testFromStringRejectsInvalidValue(string $value): void
     {
-        $this->expectException(Exception\InvalidFilePath::class);
+        $this->expectException(Classy\Exception\InvalidFilePath::class);
 
-        FilePath::fromString($value);
+        Classy\FilePath::fromString($value);
     }
 
     public function testFromStringReturnsFilePath(): void
     {
         $value = self::faker()->word();
 
-        $filePath = FilePath::fromString($value);
+        $filePath = Classy\FilePath::fromString($value);
 
         self::assertSame($value, $filePath->toString());
     }
