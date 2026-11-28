@@ -58,7 +58,7 @@ final class TokenGetAllConstructFromSourceCollector implements ConstructFromSour
     }
 
     /**
-     * @return Classy\ConstructFromSource[]
+     * @return list<Classy\ConstructFromSource>
      */
     public function collectFromSource(Classy\Source $source): array
     {

@@ -62,7 +62,7 @@ final class PhpTokenTokenizeConstructFromSourceCollector implements ConstructFro
     }
 
     /**
-     * @return Classy\ConstructFromSource[]
+     * @return list<Classy\ConstructFromSource>
      */
     public function collectFromSource(Classy\Source $source): array
     {
